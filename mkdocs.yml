@@ -55,6 +55,7 @@ nav:
     - Flox manual:
       - reference/command-reference/flox.md
       - ... | flat | reference/command-reference/*
+    - Telemetry Information: reference//telemetry.md
 
 strict: true
 validation:
