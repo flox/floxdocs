@@ -1,0 +1,187 @@
+This document describes a practical method for installing Flox from its repositories. Depending on your requirements, this approach may make it easier to create and manage scripts to install Flox on local systems or build it into containers. In addition, systems configured using this method will receive Flox updates as they are released.
+
+When you [download and install a Flox `.deb` or `.rpm` package](https://flox.dev/docs/install-flox/), the installer performs these steps for you. But you can easily script the steps below to automate this process.
+
+These instructions cover the process of installing from Flox’s repository on modern Debian- and Red Hat-based Linux distributions, such as Ubuntu and Linux Mint (Debian), or Fedora, RHEL, and Rocky Linux (Red Hat). They also include an alternate method for installing Flox on Linux systems, such as older versions of CentOS, where `yum` is the default package manager.
+
+
+## 1. Installation overview
+
+Adding Flox's repository to a Debian- or Red Hat-based Linux system’s sources involves the following steps:
+
+-  Importing Flox’s GPG keys to verify authenticity;
+-  Configuring the system’s package manager to recognize Flox’s repository; and
+-  Installing Flox.
+
+
+### Debian-based distros
+
+To perform these steps on a Debian-based distribution using `apt`, do the following.
+
+First, download and import Flox’s GPG keyring.
+
+```
+wget -qO - https://downloads.flox.dev/by-env/stable/deb/flox-archive-keyring.gpg | sudo tee /etc/apt/trusted.gpg.d/flox.gpg >/dev/null
+```
+
+Next, add the Flox repository to ‘/etc/apt/sources.list.d/flox.list’.
+
+```
+sudo add-apt-repository -S "deb https://downloads.flox.dev/by-env/stable/deb/ stable/"
+```
+
+Finally, update[1] and install Flox.
+
+```
+sudo apt update && sudo apt install flox -y
+```
+
+
+### Red Hat-based distros
+
+To perform these steps on modern Red Hat-based distributions that use `dnf`, do the following:
+
+First, download Flox’s GPG keyring.
+
+```
+sudo rpm --import https://downloads.flox.dev/by-env/stable/rpm/flox-archive-keyring.asc
+```
+
+Next, add Flox’s repository to ‘/etc/yum.repos.d/flox.repo’.
+
+```
+sudo dnf config-manager --add-repo https://downloads.flox.dev/by-env/stable/rpm
+```
+
+Finally, install Flox.
+
+``` 
+sudo dnf install flox
+```
+
+
+## 2. Installing from Flox's repository  using “yum”
+
+In CentOS 8 and later, as with Fedora, RHEL, Rocky Linux, and other modern Red Hat-based systems, `dnf` is the default package manager. However, CentOS 7 and earlier ship with `yum` as the default, and `dnf` is not available. For obvious reasons, the method described above won’t work.
+
+This section describes an alternative method for installing from Flox’s repository using `rpm` and `yum`. 
+
+Note: even though the method outlined here deals specifically with older versions of CentOS, it _should_ also work on any Red Hat-based distribution for which `yum` is the default.
+
+To install Flox from its repository using `yum`, do the following:
+
+First, download and import Flox’s GPG key.
+
+``` 
+sudo rpm --import https://downloads.flox.dev/by-env/stable/rpm/flox-archive-keyring.asc
+```
+
+Next, configure the Flox repository and install Flox with yum.
+
+```
+sudo yum --repofrompath=flox,https://downloads.flox.dev/by-env/stable/rpm install flox
+```
+
+
+## 3. Removing the Flox repository
+
+To remove Flox’s repository from a Linux system’s sources, do the following.
+
+
+### Debian-based systems
+
+By default, the Flox repository’s source list is in `/etc/apt/sources.list.d/flox.list`. However, you can double-check this by running the following command:
+
+```
+grep -r 'flox' /etc/apt/sources.list /etc/apt/sources.list.d/
+```
+
+Once you’ve confirmed the existence and location of this file, delete it.
+
+```
+sudo rm /etc/apt/sources.list.d/flox.list
+```
+
+Finally, update your package list.
+
+```
+sudo apt update
+```
+
+
+### Red Hat-based systems
+
+By default, the Flox repository’s source list is in `/etc/yum/repos.d/flox.repo`. However, you can double-check this by running the following command:
+
+```
+sudo dnf repolist | grep flox
+```
+
+Delete the `flox.repo` file from `/etc/yum/repos.d/`.
+
+```
+sudo rm /etc/yum/repos.d/flox.repo
+```
+
+Finally, clean the `dnf` cache
+
+```
+sudo dnf clean all
+```
+
+
+[1] On more recent versions of Debian and Ubuntu (since at least Debian Buster and Ubuntu 20.04), it is no longer necessary to run `sudo apt update` after adding a repository via `sudo add-apt-repository`.
+
+
+## 4. Installing from Flox's repository on SUSE/OpenSUSE
+
+This should work, because OpenSUSE/SUSE use yum, but doesn't. The long story is that you can use `rpm` to install the GPG key and then use `yum` to add the repo.
+
+```
+sudo rpm --import https://downloads.flox.dev/by-env/stable/rpm/flox-archive-keyring.asc
+sudo zypper addrepo https://downloads.flox.dev/by-env/stable/rpm flox
+```
+
+If you then `zypper refresh`, `zypper` successfully queries the Flox repo. But when you `zypper install flox`, this happens:
+
+```
+daedalus@localhost:~$ sudo zypper refresh
+Repository 'flox' is up to date.                                                                                                                                                              
+Repository 'Update repository of openSUSE Backports' is up to date.                                                                                                                           
+Repository 'Non-OSS Repository' is up to date.                                                                                                                                                
+Repository 'Open H.264 Codec (openSUSE Leap)' is up to date.                                                                                                                                  
+Repository 'Main Repository' is up to date.                                                                                                                                                   
+Repository 'Update repository with updates from SUSE Linux Enterprise 15' is up to date.                                                                                                      
+Repository 'Main Update Repository' is up to date.                                                                                                                                            
+Repository 'Update Repository (Non-Oss)' is up to date.                                                                                                                                       
+All repositories have been refreshed.
+daedalus@localhost:~$ sudo zypper install flox
+Loading repository data...
+Reading installed packages...
+Resolving package dependencies...
+The following NEW package is going to be installed:
+  flox
+1 new package to install.
+Overall download size: 103.1 MiB. Already cached: 0 B. After the operation, additional 103.1 MiB will be used.
+Continue? [y/n/v/...? shows all options] (y): y
+Retrieving: flox-1.2.3-1.x86_64 (flox)                                                                                                                                    (1/1), 103.1 MiB    
+Retrieving: flox-1.2.3+1722959675.x86_64-linux.rpm ................................................................................................................................[not found]
+File './flox-1.2.3+1722959675.x86_64-linux.rpm' not found on medium 'https://downloads.flox.dev/by-env/stable/rpm'
+Abort, retry, ignore? [a/r/i/...? shows all options] (a): a
+Problem occurred during or after installation or removal of packages:
+Installation has been aborted as directed.
+Please see the above error message for a hint.
+```
+
+I've tried manually creating an entry for the Flox repo in `/etc/zypp/repos.d/flox.repo`:
+
+```
+[flox]
+name=Flox Repository
+baseurl=https://downloads.flox.dev/by-env/stable/rpm
+enabled=1
+gpgcheck=1
+gpgkey=https://downloads.flox.dev/by-env/stable/rpm/flox-archive-keyring.asc
+```
+
+That doesn't work either.
