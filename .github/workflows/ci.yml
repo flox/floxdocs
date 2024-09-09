@@ -1,0 +1,90 @@
+name: "CI"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "main"
+      - "preview"
+  pull_request:
+
+permissions:
+  contents: "write"
+  pull-requests: "write"
+  statuses: "write"
+  deployments: "write"
+
+concurrency:
+  group: "ci-${{ github.event_name }}-${{ github.ref_name }}-${{ github.event.pull_request.event.number || github.sha }}"
+  cancel-in-progress: true
+
+jobs:
+
+  build-docs:
+    name: "Build docs"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v4"
+        with:
+          fetch-depth: 0
+
+      - name: "Install newer Nix"
+        uses: "cachix/install-nix-action@V27"
+
+      - name: "Setup"
+        uses: "./.github/actions/common-setup"
+        with:
+          GITHUB_ACCESS_TOKEN:    "${{ secrets.MANAGED_GITHUB_ACCESS_TOKEN }}"
+          SUBSTITUTER:            "${{    vars.MANAGED_CACHE_PRIVATE_S3_BUCKET }}"
+          SUBSTITUTER_KEY:        "${{ secrets.MANAGED_CACHE_PRIVATE_SECRET_KEY }}"
+          AWS_ACCESS_KEY_ID:      "${{ secrets.MANAGED_CACHE_PRIVATE_AWS_ACCESS_KEY_ID }}"
+          AWS_SECRET_ACCESS_KEY:  "${{ secrets.MANAGED_CACHE_PRIVATE_AWS_SECRET_ACCESS_KEY }}"
+          SSH_KEY:                "${{ secrets.MANAGED_FLOXBOT_SSH_KEY }}"
+
+      - name: "Build"
+        run: |
+          nix build -L \
+            --extra-experimental-features "nix-command flakes" \
+            '.#default'
+          mkdir -p ./public/docs
+          cp -R ./result/* ./public/docs/
+          chmod -R +w ./public/docs
+          cp netlify.toml ./public/netlify.toml
+
+      - name: "Check external links"
+        run: |
+          nix run \
+            --extra-experimental-features "nix-command flakes" \
+            'nixpkgs#lychee' -- docs -nv --exclude file:// --exclude-mail --exclude s3:// --exclude https://alpha.floxsdlc.com
+
+      - name: "Check code examples"
+        run: |
+          nix build -L \
+            --extra-experimental-features "nix-command flakes" \
+            '.#check-code-examples'
+
+      - name: "Publish to Netlify"
+        if: ${{ github.repository_owner == 'flox' }}
+        uses: "nwtgck/actions-netlify@v3.0"
+        env:
+          NETLIFY_AUTH_TOKEN: "${{ secrets.NETLIFY_AUTH_TOKEN }}"
+          NETLIFY_SITE_ID:    "${{ secrets.NETLIFY_SITE_ID }}"
+        with:
+          github-token:       "${{ secrets.GITHUB_TOKEN }}"
+          deploy-message:     "Published from GitHub Actions"
+          publish-dir:        "public"
+
+          enable-pull-request-comment:      true
+          overwrites-pull-request-comment:  false
+          enable-commit-comment:            false
+          enable-commit-status:             true
+
+          production-branch:  "main"
+          production-deploy:  ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+
+          alias: "${{ github.event_name == 'push' && github.ref_name || '' }}"
+
+          enable-github-deployment: "${{ github.event_name == 'push' && 'true' || 'false' }}"
+          github-deployment-environment: "${{ github.event_name == 'push' && github.ref_name || format('pull-request-{0}', github.event.number) }}"

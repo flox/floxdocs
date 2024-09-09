@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "floxdocs"
+version = "0.1.0"
+description = "Documentation for flox"
+authors = ["Rok Garbas <rok@floxdev.com>"]
+license = "TODO"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "3.11.*"
+cairosvg = "*"
+mkdocs = "*"
+mkdocs-awesome-pages-plugin = "*"
+mkdocs-glightbox = "*"
+mkdocs-include-dir-to-nav = "*"
+mkdocs-include-markdown-plugin = "*"
+mkdocs-macros-plugin = "*"
+mkdocs-material = { path = "./mkdocs_material-9.5.10+insiders.4.52.2.tar.gz", extras = [ "images" ] }
+mkdocs-material-extensions = "*"
+pillow = "9.4.0"  # 9.5.0 is not building with Nix
+pymdown-extensions = "*"
+# PR waiting in upstream: https://github.com/OceanSprint/tesh/pull/45
+tesh = { git = "https://github.com/garbas/tesh", branch = "remove-mkdocs-code-annotations" }
+
+[tool.poetry.dev-dependencies]
+trove-classifiers = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

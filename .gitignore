@@ -1,0 +1,12 @@
+.cache/
+.direnv/
+site/
+include/
+docs/reference/command-reference
+result
+result-*
+bin/
+lib/
+pyvenv.cfg
+.ssh-agent-out
+.vscode/

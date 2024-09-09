@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block libs %}
+<script
+  src="https://js.sentry-cdn.com/c5519697f630abdb1c39eec4360f99e6.min.js"
+></script>
+  {% for script in config.extra.polyfills %}
+    {{ script | script_tag }}
+  {% endfor %}
+{% endblock %}
+
+{% block extrahead %}
+<script>
+(function() {
+let url = new URL(window.location.href);
+if (url.pathname.slice(-5) !== ".html" && url.pathname.slice(-1) !== "/") {  
+  window.location.replace(window.location.href + "/");
+}
+}())
+</script>
+{% endblock %}

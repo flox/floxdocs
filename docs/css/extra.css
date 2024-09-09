@@ -1,0 +1,92 @@
+
+@font-face {
+  font-family: "Geist";
+  src: url("fonts/Geist/Geist-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("fonts/Geist/GeistMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --md-text-font: "Geist";
+  --md-code-font: "GeistMono";
+}
+
+/* Light mode */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #1B1B1B;
+  --md-accent-fg-color: #FF4FAE;
+
+  --md-default-fg-color--light: #666666;
+
+  --md-typeset-color: #666666;
+  --md-typeset-a-color: #FF4FAE;
+  --md-code-hl-keyword-color: #FF4FAE;
+}
+
+/* Dark mode */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #1B1B1B;
+  --md-accent-fg-color: #FF4FAE;
+
+  --md-default-fg-color--light: #EEEEEE;
+
+  --md-typeset-color: #EEEEEE;
+  --md-typeset-a-color: #FF4FAE;
+  --md-code-hl-keyword-color: #FF4FAE;
+}
+
+
+.md-typeset .md-button {
+  border-color:var(--md-accent-fg-color);
+  color: var(--md-accent-fg-color);
+}
+.md-typeset .md-button--primary {
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+}
+
+/* `flox-purple` icon/emoji color */
+.flox-purple {
+  color: #FF4FAE;
+}
+/* `flox-heart` icon/emoji animation */
+@keyframes flox-heart {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+.flox-heart {
+  animation: flox-heart 1000ms infinite;
+}
+
+
+
+/* Back to website above navigation */
+.flox-website-link {
+  display: inline-block;
+  padding: 1em;
+  margin-bottom: 1em;
+  color: var(--md-default-fg-color--light);
+  font-weight: 600;
+}
+
+.flox-website-link::first-letter {
+  font-size: 2em;
+  margin-right: 0.2em;
+  display: inline;
+  vertical-align: middle;
+}
