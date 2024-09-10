@@ -18,6 +18,10 @@ concurrency:
   group: "ci-${{ github.event_name }}-${{ github.ref_name }}-${{ github.event.pull_request.event.number || github.sha }}"
   cancel-in-progress: true
 
+env:
+  NETLIFY_SITE_ID:    "${{ secrets.MANAGED_NETLIFY_FLOXDOCS_ID }}"
+  NETLIFY_AUTH_TOKEN: "${{ secrets.MANAGED_NETLIFY_TOKEN }}"
+
 jobs:
 
   build-docs:
