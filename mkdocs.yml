@@ -56,6 +56,11 @@ nav:
       - reference/command-reference/flox.md
       - ... | flat | reference/command-reference/*
 
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
 extra_css:
   - css/extra.css
 
