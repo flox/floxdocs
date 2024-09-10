@@ -47,6 +47,9 @@ nav:
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
+  - Cookbook:
+    - Languages:
+      - ... | flat | cookbook/languages/*
   - Reference:
     - Flox manual:
       - reference/command-reference/flox.md
@@ -114,7 +117,7 @@ theme:
         # - navigation.indexes            # Section index pages
         - navigation.top                # Back-to-top button
         - toc.follow                    # Anchor following
-        - toc.integrate                 # Navigation integration
+        # - toc.integrate                 # Navigation integration
         - navigation.footer
 
         # The search will display the likeliest completion for the last word
