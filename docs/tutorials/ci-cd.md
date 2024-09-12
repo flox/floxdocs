@@ -67,11 +67,12 @@ version: 2.1
 orbs:
   flox: flox/orb@1.0.0
 
-workflows:
-  build-website:
+jobs:
+  build:
     machine:
       image: ubuntu-2204:current
-    jobs:
+    steps:
+      - checkout
       - flox/install # (1)!
       - flox/activate: # (2)!
           command: "npm run build"
