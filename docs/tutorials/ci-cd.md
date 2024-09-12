@@ -81,5 +81,4 @@ workflows:
 2. The `activate` command runs a command in the context of a Flox environment.
 
 
-## GitLab CI/CD
 
