@@ -82,10 +82,3 @@ jobs:
    the `channel` and `version` option which allows you to select excatly which
    version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
-
-
-## GitLab CI/CD
-
-.. !!! TODO
-
-   Comming soon!
