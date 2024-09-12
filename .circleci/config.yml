@@ -10,5 +10,5 @@ workflows:
     jobs:
       - checkout
       - flox/install
-      - flox/activate
+      - flox/activate:
           command: mkdocs build
