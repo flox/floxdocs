@@ -13,7 +13,11 @@ use Flox with some of the CI/CD platforms.
 
 ## Github Actions
 
-An example GitHub workflow.
+There are two actions that you can use in a Github workflow:
+- `flox/install-flox-action` (r
+- `flox/activate-action` (runs command in the context of Flox environment)
+
+An example GitHub workflow:
 
 ```yaml title=".github/workflows/ci.yml"
 name: "CI"
@@ -30,10 +34,10 @@ jobs:
         uses: "actions/checkout@v4"
 
       - name: "Install Flox" # (2)!
-        uses: "flox/install-flox-action@main"
+        uses: "flox/install-flox-action@2"
 
       - name: "Build" # (3)!
-        uses: "flox/activate-action@main"
+        uses: "flox/activate-action@1"
         with:
           command: npm run build
 
@@ -49,13 +53,33 @@ jobs:
    environment.
 
 
-
-## GitLab CI/CD
-
-TODO
-
 ## CircleCI
 
-TODO
+There is a [Flox Orb](https://github.com/flox/flox-orb) that can help you use
+Flox inside CircleCI.
 
+An example GithHub workflox:
+
+
+```yaml title=".circleci/config.yml"
+version: 2.1
+
+orbs:
+  flox: flox/orb@1.0.0
+
+workflows:
+  build-website:
+    jobs:
+      - flox/install # (1)!
+      - flox/activate: # (2)!
+          command: "npm run build"
+```
+
+1. The `install` command will install the latest Flox version. You can change
+   the `channel` and `version` option which allows you to select excatly which
+   version of Flox to install.
+2. The `activate` command runs a command in the context of a Flox environment.
+
+
+## GitLab CI/CD
 
