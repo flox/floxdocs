@@ -3,17 +3,12 @@ version: 2.1
 orbs:
   flox: flox/orb@1.0.0
 
-jobs:
-  build:
+workflows:
+  build-docs:
     machine:
       image: ubuntu-2204:current
-    steps:
+    jobs:
       - checkout
       - flox/install
       - flox/activate
           command: mkdocs build
-
-workflows:
-  build-and-test:
-    jobs:
-      - build

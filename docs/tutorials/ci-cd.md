@@ -69,6 +69,8 @@ orbs:
 
 workflows:
   build-website:
+    machine:
+      image: ubuntu-2204:current
     jobs:
       - flox/install # (1)!
       - flox/activate: # (2)!
@@ -83,3 +85,6 @@ workflows:
 
 ## GitLab CI/CD
 
+.. !!! TODO
+
+   Comming soon!
