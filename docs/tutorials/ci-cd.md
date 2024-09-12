@@ -58,7 +58,7 @@ jobs:
 There is a [Flox Orb](https://github.com/flox/flox-orb) that can help you use
 Flox inside CircleCI.
 
-An example GithHub workflox:
+An example CircleCI workflox:
 
 
 ```yaml title=".circleci/config.yml"
