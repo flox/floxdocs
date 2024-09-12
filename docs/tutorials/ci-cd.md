@@ -67,9 +67,12 @@ version: 2.1
 orbs:
   flox: flox/orb@1.0.0
 
-workflows:
-  build-website:
-    jobs:
+jobs:
+  build:
+    machine:
+      image: ubuntu-2204:current
+    steps:
+      - checkout
       - flox/install # (1)!
       - flox/activate: # (2)!
           command: "npm run build"
@@ -79,6 +82,3 @@ workflows:
    the `channel` and `version` option which allows you to select excatly which
    version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
-
-
-
