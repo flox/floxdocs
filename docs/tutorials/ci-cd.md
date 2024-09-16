@@ -82,3 +82,18 @@ jobs:
    the `channel` and `version` option which allows you to select excatly which
    version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
+
+
+## GitLab
+
+
+```yaml title=".gitlab-ci.yml"
+build:
+  stage: build
+  image: ghcr.io/flox/flox:latest # (1)!
+  script:
+    - flox activate -- npm run build # (2)!
+```
+
+1. Use `ghcr.io/flox/flox` that already comes with Flox.
+2. Run command in a Flox environment.
