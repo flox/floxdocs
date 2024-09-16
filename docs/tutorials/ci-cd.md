@@ -14,7 +14,7 @@ use Flox with some of the CI/CD platforms.
 ## Github Actions
 
 There are two actions that you can use in a Github workflow:
-- `flox/install-flox-action` (r
+- `flox/install-flox-action` (installs Flox CLI)
 - `flox/activate-action` (runs command in the context of Flox environment)
 
 An example GitHub workflow:
@@ -58,7 +58,7 @@ jobs:
 There is a [Flox Orb](https://github.com/flox/flox-orb) that can help you use
 Flox inside CircleCI.
 
-An example CircleCI workflox:
+An example CircleCI workflow:
 
 
 ```yaml title=".circleci/config.yml"
@@ -82,3 +82,33 @@ jobs:
    the `channel` and `version` option which allows you to select excatly which
    version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
+
+
+## GitLab
+
+An example GitLab pipeline:
+
+```yaml title=".gitlab-ci.yml"
+build:
+  stage: build
+  image: ghcr.io/flox/flox:latest # (1)!
+  script:
+    - flox activate -- npm run build # (2)!
+```
+
+1. Use `ghcr.io/flox/flox` that already comes with Flox.
+2. Run command in a Flox environment.
+
+
+## Where to next?
+
+- :simple-readme:{ .flox-purple .flox-heart } [Sharing environments][sharing_guide]
+
+- :simple-readme:{ .flox-purple .flox-heart } [Layering multiple environments][layering_guide]
+
+- :simple-readme:{ .flox-purple .flox-heart } [Customizing the shell hook][customizing_guide]
+
+
+[sharing_guide]: ./sharing-environments.md
+[layering_guide]: ./layering-multiple-environments.md
+[customizing_guide]: ./customizing-environments.md

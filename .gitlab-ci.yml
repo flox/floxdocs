@@ -1,0 +1,10 @@
+
+build:
+  stage: build
+  image: ghcr.io/flox/flox:latest
+  script:
+    - flox activate -- mkdocs build
+  artifacts:
+    name: floxdocs
+    paths:
+      - site/
