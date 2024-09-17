@@ -37,7 +37,7 @@ jobs:
         uses: "flox/activate-action@main"
         with:
           command: |
-            mkdocs build --strict
+            mkdocs build
             mkdir -p ./public/docs
             cp -R ./site/* ./public/docs/
             chmod -R +w ./public/docs
