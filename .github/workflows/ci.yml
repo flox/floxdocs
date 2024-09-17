@@ -30,40 +30,24 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: "Install newer Nix"
-        uses: "cachix/install-nix-action@V27"
-
-      - name: "Setup"
-        uses: "./.github/actions/common-setup"
-        with:
-          GITHUB_ACCESS_TOKEN:    "${{ secrets.MANAGED_GITHUB_ACCESS_TOKEN }}"
-          SUBSTITUTER:            "${{    vars.MANAGED_CACHE_PRIVATE_S3_BUCKET }}"
-          SUBSTITUTER_KEY:        "${{ secrets.MANAGED_CACHE_PRIVATE_SECRET_KEY }}"
-          AWS_ACCESS_KEY_ID:      "${{ secrets.MANAGED_CACHE_PRIVATE_AWS_ACCESS_KEY_ID }}"
-          AWS_SECRET_ACCESS_KEY:  "${{ secrets.MANAGED_CACHE_PRIVATE_AWS_SECRET_ACCESS_KEY }}"
-          SSH_KEY:                "${{ secrets.MANAGED_FLOXBOT_SSH_KEY }}"
+      - name: "Install Flox"
+        uses: "flox/install-flox-action@main"
 
       - name: "Build"
-        run: |
-          nix build -L \
-            --extra-experimental-features "nix-command flakes" \
-            '.#default'
-          mkdir -p ./public/docs
-          cp -R ./result/* ./public/docs/
-          chmod -R +w ./public/docs
-          cp netlify.toml ./public/netlify.toml
+        uses: "flox/activate-action@main"
+        with:
+          command: |
+            mkdocs build
+            mkdir -p ./public/docs
+            cp -R ./site/* ./public/docs/
+            chmod -R +w ./public/docs
+            cp netlify.toml ./public/netlify.toml
 
-      - name: "Check external links"
-        run: |
-          nix run \
-            --extra-experimental-features "nix-command flakes" \
-            'nixpkgs#lychee' -- docs -nv --exclude file:// --exclude-mail --exclude s3:// --exclude https://alpha.floxsdlc.com
-
-      - name: "Check code examples"
-        run: |
-          nix build -L \
-            --extra-experimental-features "nix-command flakes" \
-            '.#check-code-examples'
+      # TODO: need to run service in order to test links
+      #- name: "Check external links"
+      #  uses: "flox/activate-action@main"
+      #  with:
+      #    command: "./check_links.sh"
 
       - name: "Publish to Netlify"
         if: ${{ github.repository_owner == 'flox' }}

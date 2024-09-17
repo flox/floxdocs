@@ -1,23 +1,20 @@
-# flox Documentation
+# flox documentation
 
 Live at: [flox.dev/docs](https://flox.dev/docs).
 
 ## Usage
 
 ```
-$ nix develop
-Welcome to floxDocs
+$ flox activate
+✅ You are now using the environment 'floxdocs'.
 
-For local preview run:
-  mkdocs serve
+λ (floxdocs) $ flox services start mkdocs
+✅ Service 'mkdocs' started.
 
-For production build run:
-  mkdocs build
-
-Happy documenting!
-
-flox $ mkdocs serve
 ```
+Once mkdocs service started you can preview the documentation at
+`https://127.0.0.1:8000`.
+
 
 ## Guidelines
 
@@ -75,18 +72,13 @@ summary:
   "#") so that the title can be governed by the master index in mkdocs.yml.
   The document will inherit the title from the index.
 
-## Hydra Server
-Automated building and publishing is controlled by a
-[hydra server](https://hydra.floxsdlc.com) and a
-[GitHub Action](https://github.com/flox/floxdocs/blob/main/.github/workflows/ci.yml).
-
 
 ## External link checking
 
 You can run a check for external link breakage with this command
 
 ```
-lychee docs -nv --exclude file:// --exclude-mail
+$ flox activate -- ./check_links.sh
 ```
 
 ## Update mkdocs-material-insiders archive
@@ -98,3 +90,4 @@ $ ./env/bin/pip install --upgrade build twine
 $ ./env/bin/python -m build
 $ cp dist/mkdocs_material-*.tar.gz path/to/floxdocs
 ```
+

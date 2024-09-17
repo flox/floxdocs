@@ -40,6 +40,7 @@ nav:
     - Layering multiple environments: tutorials/layering-multiple-environments.md
     - Customizing the environment shell hook: tutorials/customizing-environments.md
     - Designing multi-arch environments: tutorials/multi-arch-environments.md
+    - Continuous integration/delivery (CI/CD): tutorials/ci-cd.md
   - Concepts:
     - Environments: concepts/environments.md
     - Environment manifest: concepts/manifest.md

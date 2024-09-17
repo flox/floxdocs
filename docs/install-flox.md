@@ -831,11 +831,11 @@ Here's how to **completely remove `flox` from your system**.
     Or, if you've declared Flox using a flake, remove the Flake
 
 [flox]: https://flox.dev
-[flox_x86_64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-1.3.1.x86_64-linux.deb
-[flox_aarch64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-1.3.1.aarch64-linux.deb
-[flox_x86_64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-1.3.1.x86_64-linux.rpm
-[flox_aarch64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-1.3.1.aarch64-linux.rpm
-[flox_mac_m1_install]: https://downloads.flox.dev/by-env/stable/osx/flox-1.3.1.aarch64-darwin.pkg
-[flox_mac_intel_install]: https://downloads.flox.dev/by-env/stable/osx/flox-1.3.1.x86_64-darwin.pkg
+[flox_x86_64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-{{ FLOX_VERSION }}.x86_64-linux.deb
+[flox_aarch64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-{{ FLOX_VERSION }}.aarch64-linux.deb
+[flox_x86_64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-{{ FLOX_VERSION }}.x86_64-linux.rpm
+[flox_aarch64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-{{ FLOX_VERSION }}.aarch64-linux.rpm
+[flox_mac_m1_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.aarch64-darwin.pkg
+[flox_mac_intel_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.x86_64-darwin.pkg
 [flox_discourse]: https://discourse.flox.dev
 [release_notes]: https://github.com/flox/flox/releases

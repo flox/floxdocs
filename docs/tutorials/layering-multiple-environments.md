@@ -80,8 +80,12 @@ flox [default] $ vim ~/.zshrc
 
 Add the following line to the bottom of the file:
 
-``` bash
+``` bash title="For bash .bashrc or zsh .zshrc"
 eval "$(flox activate --dir ~)"
+```
+
+``` fish title="For fish config.fish"
+eval (flox activate --dir=$HOME) | source
 ```
 
 Save and exit the file.

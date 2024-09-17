@@ -142,10 +142,14 @@ Edit your rc file using an editor of choice.
 $ vim ~/.zshrc
 ```
 
-Append this line to your rc file at the bottom.
+Append this line to your shell's rc file or `fish.config` at the bottom.
 
-``` console
+``` bash title="For bash .bashrc or zsh .zshrc"
 eval "$(flox activate -r youruser/example-project)"
+```
+
+``` fish title="For fish config.fish"
+eval (flox activate -r youruser/example-project) | source
 ```
 
 Don't forget to open a new terminal window or, for zsh, reload your RC file.
