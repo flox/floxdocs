@@ -49,7 +49,7 @@ echo "1. 👉 Python environment activated"
 # 
 # Set the version of Flox to the latest stable version
 #
-export FLOX_VERSION=$(curl -s https://downloads.flox.dev/by-env/stable/LATEST_VERSION | xargs)
+export FLOX_VERSION=$(cat FLOX_VERSION | xargs)
 echo "2. 👉 FLOX_VERSION set to $FLOX_VERSION"
 
 
