@@ -13,7 +13,7 @@ cairosvg = "*"
 mkdocs = "*"
 mkdocs-awesome-pages-plugin = "*"
 mkdocs-glightbox = "*"
-mkdocs-include-dir-to-nav = "*"
+#mkdocs-include-dir-to-nav = "*"
 mkdocs-include-markdown-plugin = "*"
 mkdocs-macros-plugin = "*"
 mkdocs-material = { path = "./mkdocs_material-9.5.10+insiders.4.52.2.tar.gz", extras = [ "images" ] }
