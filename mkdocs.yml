@@ -50,11 +50,11 @@ nav:
     - Services: concepts/services.md
   - Cookbook:
     - Languages:
-      - ...
+      - ... | flat | cookbook/languages/*
   - Reference:
     - Flox manual:
       - reference/command-reference/flox.md
-      #- ... | flat | reference/command-reference/*
+      - ... | flat | reference/command-reference/*
 
 strict: true
 validation:
