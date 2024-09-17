@@ -56,6 +56,17 @@ nav:
       - reference/command-reference/flox.md
       - ... | flat | reference/command-reference/*
 
+strict: true
+validation:
+  nav:
+    omitted_files: info
+    not_found: warn
+    absolute_links: info
+  links:
+    not_found: warn
+    absolute_links: warn
+    unrecognized_links: warn
+
 extra_css:
   - css/extra.css
 
@@ -261,10 +272,6 @@ plugins:
     # Simplifies configuring page titles and their order
     # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
     - awesome-pages
-
-    # Include directory to navigation
-    # https://github.com/mysiki/mkdocs_include_dir_to_nav
-    - include_dir_to_nav
 
     # Enables markdown files to be included in other markdown files
     # https://github.com/mondeja/mkdocs-include-markdown-plugin
