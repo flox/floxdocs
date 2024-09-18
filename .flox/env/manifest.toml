@@ -110,7 +110,15 @@ pushd $FLOX_MAN_PAGES_DIR > /dev/null
   echo -e "---\n$(cat $manifestPage)" > $manifestPage
 popd > /dev/null
 echo "5. 👉 Copy man pages from Flox source archive"
+'''
 
+# Scripts defined in the `[profile]` section are *sourced* by *your shell* and
+# inherit environment variables set in the `[vars]` section and by `[hook]` scripts.
+# The `profile.common` script is sourced by all shells and special care should be
+# taken to ensure compatibility with all shells, after which exactly one of
+# `profile.{bash,fish,tcsh,zsh}` is sourced by the corresponding shell.
+[profile]
+common = '''
 echo ""
 echo "     ╔═══════════════════════════════════╗"
 echo "     ║                                   ║"
@@ -122,15 +130,7 @@ echo "     ║  > mkdocs serve                   ║"
 echo "     ║                                   ║"
 echo "     ╚═══════════════════════════════════╝"
 echo ""
-
 '''
-
-# Scripts defined in the `[profile]` section are *sourced* by *your shell* and
-# inherit environment variables set in the `[vars]` section and by `[hook]` scripts.
-# The `profile.common` script is sourced by all shells and special care should be
-# taken to ensure compatibility with all shells, after which exactly one of
-# `profile.{bash,fish,tcsh,zsh}` is sourced by the corresponding shell.
-[profile]
 bash = '''
   source "$(poetry env info --path)/bin/activate"
 '''

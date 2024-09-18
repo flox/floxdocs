@@ -41,13 +41,11 @@ jobs:
             mkdir -p ./public/docs
             cp -R ./site/* ./public/docs/
             chmod -R +w ./public/docs
-            cp netlify.toml ./public/netlify.toml
 
-      # TODO: need to run service in order to test links
-      #- name: "Check external links"
-      #  uses: "flox/activate-action@main"
-      #  with:
-      #    command: "./check_links.sh"
+      - name: "Check external links"
+        uses: "flox/activate-action@main"
+        with:
+          command: "./check_links.sh"
 
       - name: "Publish to Netlify"
         if: ${{ github.repository_owner == 'flox' }}
