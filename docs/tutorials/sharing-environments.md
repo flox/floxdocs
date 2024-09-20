@@ -154,7 +154,7 @@ You can activate this environment with 'flox activate'
 This new project will not exist on FloxHub until it's pushed with [`flox push`][flox_push]. 
 
 !!! note "Note"
-    It's easy to rename environments create with `flox pull --copy` with `flox edit -n projectname`.
+    It's easy to rename environments created with `flox pull --copy` with `flox edit -n projectname`.
 
 ### Always using the same environment across multiple devices
 
