@@ -30,16 +30,17 @@ and are commonly used for self-contained projects or different subprojects
 within a monorepo.
 1. **Centrally managed environment**: An environment stored remotely on
 [FloxHub][floxhub_concept].
-You can connect this to a project directory with [`flox pull ...`][flox_pull] or
-activate it directly with [`flox activate --remote ...`][flox_activate] for
+Centrally managed environments are created by running [`flox push`][flox_push]
+on a path environment.
+You can connect a new project directory with an existing centrally managed environment with [`flox pull ...`][flox_pull] or
+you can activate the environment directly with [`flox activate --remote ...`][flox_activate] for
 instant use.
 Centrally managed environments enable multiple projects or systems to consume a
 shared environment that is versioned with [generations][generation_concept].
-Centrally managed environments are created by running [`flox push`][flox_push]
-on a path environment and are referred to with the `--remote/-r` option on most
-commands.
 They are commonly used as base environments for projects of similar tech stacks,
 for reproducing issues on specific systems, or to quickly share tools.
+To disconnect a centrally managed environment from FloxHub, run [`flox pull --copy`][flox_pull] instead of `flox pull`.
+This will turn the environment back into a path environment.
 
 See the [sharing guide][sharing_guide] for a more thorough walk through about
 sharing and working with different types of environments.
