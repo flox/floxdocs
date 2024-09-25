@@ -98,7 +98,7 @@ flox [youruser/example-project] $ telnet --version
 telnet (GNU inetutils) 2.5
 ...
 ```
-### Pulling a remote environment and pushing updates
+### Pulling a remote environment connected to FloxHub (and pushing updates)
 
 If you intend to use the same environments across multiple projects or you want to stage a change to the remote environment, you may want to [`flox pull`][flox_pull] it instead. 
 
@@ -124,13 +124,37 @@ $ flox push
 ```
 
 !!! note "Note"
-      Right now, only environment owners can push edits to their environments.
+    Right now, only environment owners can push edits to their environments.
 
 
 [flox_push]: ../reference/command-reference/flox-push.md
 [flox_pull]: ../reference/command-reference/flox-pull.md
 [flox_activate]: ../reference/command-reference/flox-activate.md
 [floxhub_concept]: ../concepts/floxhub.md
+
+
+### Pulling a remote environment without connecting to FloxHub
+
+Sometimes you may want to create a FloxHub remote environment that serves as a template starting point for your project but will grow to have different environment definitions across multiple projects. 
+In this cases, you may want to [`flox pull --copy`][flox_pull] instead of [`flox pull`][flox_pull]. 
+
+[`flox pull --copy`][flox_pull], like [`flox pull`][flox_pull], will create a `.flox` folder to the directory you are in. However, this environment will **not be linked to FloxHub**.
+This can make it easy to start multiple projects with the same starting point like, for example, a PostgreSQL template:
+
+``` console
+$ cd new-postgres-project
+$ flox pull --copy flox/postgres # (1)!
+✨ Created path environment from flox/postgres.
+
+You can activate this environment with 'flox activate'
+```
+
+1. An example pulling a PostgreSQL template that Flox maintains.
+
+This new project will not exist on FloxHub until it's pushed with [`flox push`][flox_push]. 
+
+!!! note "Note"
+    It's easy to rename environments created with `flox pull --copy` with `flox edit -n projectname`.
 
 ### Always using the same environment across multiple devices
 
