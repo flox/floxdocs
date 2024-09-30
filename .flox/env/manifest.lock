@@ -59,8 +59,9 @@
       "mkdocs": {
         "command": "mkdocs serve",
         "vars": null,
-        "is-daemon": false,
-        "shutdown": null
+        "is-daemon": null,
+        "shutdown": null,
+        "systems": null
       }
     },
     "build": {}
