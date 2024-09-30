@@ -439,10 +439,14 @@ go version go1.22.6 darwin/arm64
 When you activate the environment you can see that `flox [my_project]` is
 prepended to your prompt so that you can see that you're inside the
 environment.
-If you have more than one environment activate (you can stack them!) this prompt
-will show a list of the active environments.
+If you have more than one environment activated (you can stack them!) this
+prompt will show a list of the active environments.
 Whether to show this prompt is configurable, see [`flox config`][config]
 for details.
+Note that in some cases the prompt modification may get overwritten by
+customizations made to your shell prompt,
+but in general a custom shell prompt will still show the Flox portion of the
+prompt.
 
 At this point your environment is ready to use,
 but there's more to Flox environments than just installing packages.
