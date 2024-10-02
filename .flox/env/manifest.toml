@@ -149,6 +149,7 @@ zsh = '''
 # and any variables you've defined in the `[vars]` section or `hook.on-activate` script.
 [services]
 mkdocs.command = "mkdocs serve"
+mkdocs.is-daemon = false
 
 # Additional options can be set in the `[options]` section. Refer to
 # manifest.toml(5) for a list of available options.
