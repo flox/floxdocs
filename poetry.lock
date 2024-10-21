@@ -328,6 +328,17 @@ python-dateutil = ">=2.8.1"
 dev = ["flake8", "markdown", "twine", "wheel"]
 
 [[package]]
+name = "hjson"
+version = "3.1.0"
+description = "Hjson, a user interface for JSON."
+optional = false
+python-versions = "*"
+files = [
+    {file = "hjson-3.1.0-py3-none-any.whl", hash = "sha256:65713cdcf13214fb554eb8b4ef803419733f4f5e551047c9b711098ab7186b89"},
+    {file = "hjson-3.1.0.tar.gz", hash = "sha256:55af475a27cf83a7969c808399d7bccdec8fb836a07ddbd574587593b9cdcf75"},
+]
+
+[[package]]
 name = "idna"
 version = "3.10"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -530,25 +541,28 @@ cache = ["platformdirs"]
 
 [[package]]
 name = "mkdocs-macros-plugin"
-version = "1.2.0"
+version = "1.3.6"
 description = "Unleash the power of MkDocs with macros and variables"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs-macros-plugin-1.2.0.tar.gz", hash = "sha256:7603b85cb336d669e29a8a9cc3af8b90767ffdf6021b3e023d5ec2e0a1f927a7"},
-    {file = "mkdocs_macros_plugin-1.2.0-py3-none-any.whl", hash = "sha256:3e442f8f37aa69710a69b5389e6b6cd0f54f4fcaee354aa57a61735ba8f97d27"},
+    {file = "mkdocs_macros_plugin-1.3.6-py3-none-any.whl", hash = "sha256:74fd418c8e1f9f021b7a45bb1c7d7461d8ae09ccec241787f3971e733374da8c"},
+    {file = "mkdocs_macros_plugin-1.3.6.tar.gz", hash = "sha256:074bc072cac14c28724037b6988743cd9425752bdd35ae05fbf96b1b2457f3b7"},
 ]
 
 [package.dependencies]
+hjson = "*"
 jinja2 = "*"
 mkdocs = ">=0.17"
 packaging = "*"
+pathspec = "*"
 python-dateutil = "*"
 pyyaml = "*"
+super-collections = "*"
 termcolor = "*"
 
 [package.extras]
-test = ["mkdocs-include-markdown-plugin", "mkdocs-macros-test", "mkdocs-material (>=6.2)"]
+test = ["mkdocs-include-markdown-plugin", "mkdocs-macros-test", "mkdocs-material (>=6.2)", "mkdocs-test"]
 
 [[package]]
 name = "mkdocs-material"
@@ -1046,6 +1060,23 @@ files = [
 ]
 
 [[package]]
+name = "super-collections"
+version = "0.5.3"
+description = "file: README.md"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "super_collections-0.5.3-py3-none-any.whl", hash = "sha256:907d35b25dc4070910e8254bf2f5c928348af1cf8a1f1e8259e06c666e902cff"},
+    {file = "super_collections-0.5.3.tar.gz", hash = "sha256:94c1ec96c0a0d5e8e7d389ed8cde6882ac246940507c5e6b86e91945c2968d46"},
+]
+
+[package.dependencies]
+hjson = "*"
+
+[package.extras]
+test = ["pytest (>=7.0)"]
+
+[[package]]
 name = "termcolor"
 version = "2.4.0"
 description = "ANSI color formatting for output in terminal"
@@ -1098,13 +1129,13 @@ test = ["pytest", "ruff"]
 
 [[package]]
 name = "trove-classifiers"
-version = "2024.9.12"
+version = "2024.10.16"
 description = "Canonical source for classifiers on PyPI (pypi.org)."
 optional = false
 python-versions = "*"
 files = [
-    {file = "trove_classifiers-2024.9.12-py3-none-any.whl", hash = "sha256:f88a27a892891c87c5f8bbdf110710ae9e0a4725ea8e0fb45f1bcadf088a491f"},
-    {file = "trove_classifiers-2024.9.12.tar.gz", hash = "sha256:4b46b3e134a4d01999ac5bc6e528afcc10cc48f0f724f185f267e276005768f4"},
+    {file = "trove_classifiers-2024.10.16-py3-none-any.whl", hash = "sha256:9b02a4cb49bd2e85c13e728ee461f4f332d6334736b18d61254c964643687144"},
+    {file = "trove_classifiers-2024.10.16.tar.gz", hash = "sha256:8a3570c880f7ca2ffebbc91806aee3e8f5cd221422dfc8cd2cad4b48789ac69b"},
 ]
 
 [[package]]
