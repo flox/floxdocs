@@ -44,6 +44,7 @@ nav:
   - Concepts:
     - Environments: concepts/environments.md
     - Environment manifest: concepts/manifest.md
+    - Activating environments: concepts/activation.md
     - FloxHub: concepts/floxhub.md
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
@@ -280,3 +281,6 @@ plugins:
     # Unleash the power of MkDocs with variables and macros
     # https://github.com/fralau/mkdocs-macros-plugin
     - macros
+
+    # Support for D2 diagrams
+    - d2
