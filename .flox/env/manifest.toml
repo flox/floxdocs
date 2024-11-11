@@ -18,6 +18,7 @@ python.pkg-path = "python3"
 python.version = "3.11.*"
 pngquant.pkg-path = "pngquant"
 gnused.pkg-path = "gnused"
+d2.pkg-path = "d2"
 
 # Set environment variables in the `[vars]` section. These variables may not
 # reference one another, and are added to the environment without first
