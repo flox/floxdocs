@@ -41,6 +41,7 @@ jobs:
             mkdir -p ./public/docs
             cp -R ./site/* ./public/docs/
             chmod -R +w ./public/docs
+            cp netlify.toml ./public/
 
       - name: "Check external links"
         uses: "flox/activate-action@main"
