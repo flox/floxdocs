@@ -36,7 +36,7 @@ which puts you into a subshell with everything configured:
 
 ```bash
 $ flox activate
-flox [myenv] $ # Now I can use my packages
+flox [myenv] $ # Now you can use your packages
 ```
 
 One of the core features that makes Flox so attractive for development is that
@@ -53,10 +53,10 @@ environment rather than from elsewhere on your system.
 
 ## Three different ways to activate
 
-I mentioned above that there are three different ways to use an environment.
+We mentioned above that there are three different ways to use an environment.
 
 ### Subshell
-I've already mentioned the first method,
+We've already mentioned the first method,
 which is to put you into a subshell.
 When you activate this way your existing shell is paused and you're put into a
 new one configured by Flox.
