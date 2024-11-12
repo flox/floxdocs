@@ -5,10 +5,6 @@ description: Using Flox as your system package manager
 
 # The default environment
 
-Flox installs packages into environments,
-and every environment is attached to a specific directory.
-However, one directory, your home directory, is special.
-
 In the typical development case you would create a directory for your project,
 `flox init` to create an environment for it,
 then `flox activate` in that directory when you want to work on that project.
@@ -26,17 +22,8 @@ This has a number of drawbacks:
 - You can't ensure that multiple machines get the exact same version.
 - You may not be able to back up the list of installed packages.
 
-This is where Flox and its `default` environment come in.
-Since this is a Flox environment
-you get all of the benefits that come along with it:
-
-- Cross-platform by default
-- 3+ years of package versions
-- Reproducible
-- The ability to push an environment to FloxHub to ensure that a record of your
-  environment exists external to your machine (or simply to share with others).
-
-Let's take a look at how to set up your `default` environment.
+The Flox `default` environment doesn't have these problems,
+so let's take a look at how to set it up.
 
 ## Initial setup
 
@@ -45,32 +32,18 @@ the `default` enviroment is simply an environment in your home directory.
 Since you're unlikely to do development in your home directory we treat this
 environment specially.
 
+In some cases Flox will prompt to set up your `default` environment for you.
 To create the `default` environment yourself,
 simply navigate to your home directory and run [`flox init`][init].
 
-In some cases Flox can set up your `default` environment for you.
-If you attempt to install a package and there are no other environments
-available to install to,
-Flox will prompt to create a `default` environment for you.
-
-```d2 scale="1.0"
-install: flox install
-q1: Any active environments?
-manual: Create one manually
-q2: Environment in current directory?
-automatic: Create one automatically
-
-install -> q1
-q1 -> manual: Yes
-q1 -> q2: No
-q2 -> manual: Yes
-q2 -> automatic: No
+```bash
+$ cd ~
+$ flox init
 ```
 
-Your choice will be recorded so that we don't pester you in the future.
-
 Once the environment has been created,
-you'll want to activate the environment with every new shell.
+you'll want to configure your shell to activate the environment with every new
+shell.
 This can be done as part of the automatic setup,
 or you can add a single line to your shell's RC file:
 
