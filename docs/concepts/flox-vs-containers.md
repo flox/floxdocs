@@ -71,7 +71,7 @@ We'll pick a single package from each category:
 
 - Latest is fine: `curl`
 - Specific version: `yarn 1.22`
-- Behind: Python 3.10
+- Behind: `python3.10`
 
 === "Flox"
 
@@ -81,7 +81,7 @@ We'll pick a single package from each category:
     $ flox install curl yarn@1.22 python3@3.10
     ```
 
-    Adding another package at a later date is as simply as running
+    Adding another package at a later date is as simple as running
     `flox install <package>` again.
 
 === "Containers"
@@ -109,7 +109,7 @@ We'll pick a single package from each category:
     Adding another package at a later date requires editing the first `RUN`
     command.
     This requires rebuilding later layers,
-    such as the one that installs Python 3.10.
+    such as the one that installs `python3.10`.
 
 ---
 
@@ -194,6 +194,10 @@ However, with containers you also need to mount in your source code, etc.
     $ # now you're inside the container
     ```
 
+    Once you're inside the containers,
+    you don't have any of your local tools, your shell's aliases,
+    access to your dotfiles, or configurations for your local tools.
+
 ---
 
 ## Tear down the development environment
@@ -230,8 +234,8 @@ We'll do a pretend version of this by simply creating a directory `foo`.
 
     This would be performed in the `hook.on-activate` script that's run when
     activating your environment.
-    You'll add this by first running `flox edit`,
-    the modifying the `hook` section of your manifest to look like this:
+    You'll add this by first running `flox edit` and
+    then modifying the `hook` section of your manifest to look like this:
 
     ```toml
     [hook]
@@ -261,6 +265,13 @@ same environment.
 
     Since [`flox init`][init] creates a `.flox` directory inside your project,
     you can simply check this directory into source control.
+
+    ```bash
+    $ git add ./flox
+    $ git commit -m "Add Flox environment"
+    $ git push
+    ```
+    
     Anyone with Flox installed can now work on this project with two commands:
 
     ```bash
@@ -269,7 +280,7 @@ same environment.
     ```
 
     Any packages not locally cached would be downloaded.
-    Since the environment produces a lockfile each time it is built,
+    Since the Flox environment produces a lockfile each time it is built,
     every developer that does a [`flox activate`][activate] with the same
     lockfile will get the same exact software down to the `git` revisions of the
     upstream source repositories.
@@ -333,7 +344,7 @@ environment variables set.
     ```
 
     Since Flox environments aren't isolated from the host machine's network
-    you don't need to forward any ports.
+    you don't need to map any ports.
 
     You can start this service from inside the environment with
     [`flox services start`][services-start],
@@ -402,11 +413,16 @@ you need to build a container so that it can be deployed.
 
 === "Flox"
 
-    This feature is still a work in progress in Flox.
     You can create a container from an environment via the
     [`flox containerize`][containerize] command,
-    but it doesn't perform a build of an artifact to _run_ in that container.
-
+    and this image will contain the same exact software
+    (again, down to the `git` revisions of the upstream source repositories)
+    that you used for both local development and CI.
+    If your environment already contains the programs you want to run in
+    production, you're in good shape.
+    
+    There is a work in progress feature for producing build artifacts from
+    a Flox environment.
     We have some exciting things happening in this space!
     If you're interested in early access for this feature,
     see our [early access page][early].
