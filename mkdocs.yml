@@ -36,6 +36,7 @@ nav:
   - Flox in 5 minutes: index.md
   - Tutorials:
     - Creating environments: tutorials/creating-environments.md
+    - The default environment: tutorials/default-environment.md
     - Sharing environments: tutorials/sharing-environments.md
     - Layering multiple environments: tutorials/layering-multiple-environments.md
     - Customizing the environment shell hook: tutorials/customizing-environments.md
