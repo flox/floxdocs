@@ -36,7 +36,7 @@ which puts you into a subshell with everything configured:
 
 ```bash
 $ flox activate
-flox [myenv] $ # Now I can use my packages
+flox [myenv] $ # Now you can use your packages
 ```
 
 One of the core features that makes Flox so attractive for development is that
@@ -53,10 +53,10 @@ environment rather than from elsewhere on your system.
 
 ## Three different ways to activate
 
-I mentioned above that there are three different ways to use an environment.
+We mentioned above that there are three different ways to use an environment.
 
 ### Subshell
-I've already mentioned the first method,
+We've already mentioned the first method,
 which is to put you into a subshell.
 When you activate this way your existing shell is paused and you're put into a
 new one configured by Flox.
@@ -298,6 +298,25 @@ shell2."Activated"
 If you edit your manifest and activate in a new shell,
 the whole activation process is run again and subsequent activations will
 attach to this new version of the environment.
+
+## Development vs. runtime mode
+
+In addition to the different ways to use an activation,
+there are two different "modes" to activate in:
+development mode and runtime mode.
+
+The default mode at the moment is development mode.
+In development mode a package and all of its development dependencies are made
+available.
+As the name implies, this is useful at development time.
+However, this may causes unexpected failures when layering environments or
+when activating an environment system-wide.
+
+For these reasons we also provide "runtime" mode,
+which simply puts the requested packages in `PATH`
+(and makes their `man` pages available).
+This behavior is more in line with what you would expect from a system-wide
+package manager like `apt`, `yum`, or `brew`.
 
 ## Conclusion
 
