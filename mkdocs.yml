@@ -50,6 +50,7 @@ nav:
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
+    - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:
       - ... | flat | cookbook/languages/*
