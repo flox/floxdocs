@@ -7,7 +7,7 @@ Description: How does a Flox workflow differ from a container workflow?
 
 Containers are everywhere these days.
 They're the de-facto deployment method in the industry,
-and they're often used for local development as well to ensure that every
+and they're often used for local development as well as to ensure that every
 developer gets the same environment.
 
 Flox gives you these same benefits without many of the papercuts,
@@ -60,7 +60,7 @@ $ cd myproject
 ## Add packages
 
 Now let's install some packages.
-In a typical project there's usually different subsets of packages:
+In a typical project there're usually different subsets of packages:
 
 - Packages you don't care about too much, so the latest version will suffice.
 - Packages whose versions you want pinned to a recent version.
@@ -71,7 +71,7 @@ We'll pick a single package from each category:
 
 - Latest is fine: `curl`
 - Specific version: `yarn 1.22`
-- Behind: Python 3.10
+- Behind: `Python 3.10`
 
 === "Flox"
 
@@ -81,7 +81,7 @@ We'll pick a single package from each category:
     $ flox install curl yarn@1.22 python3@3.10
     ```
 
-    Adding another package at a later date is as simply as running
+    Adding another package at a later date is as simple as running
     `flox install <package>` again.
 
 === "Containers"
@@ -92,7 +92,7 @@ We'll pick a single package from each category:
     RUN apt update && apt install curl npm
     ```
 
-    `yarn` will be installed via `npm`, so we include that in the `RUN` command.
+    `yarn 1.22` will be installed via `npm`, so we include that in the `RUN` command.
     This version of Python isn't included in the Ubuntu 24.04 repositories,
     so you must install it from a Personal Package Archive (PPA).
     Do that with another `RUN` command:
@@ -109,7 +109,7 @@ We'll pick a single package from each category:
     Adding another package at a later date requires editing the first `RUN`
     command.
     This requires rebuilding later layers,
-    such as the one that installs Python 3.10.
+    such as the one that installs `Python 3.10`.
 
 ---
 
@@ -231,7 +231,7 @@ We'll do a pretend version of this by simply creating a directory `foo`.
     This would be performed in the `hook.on-activate` script that's run when
     activating your environment.
     You'll add this by first running `flox edit`,
-    the modifying the `hook` section of your manifest to look like this:
+    and the modifying the `hook` section of your manifest to look like this:
 
     ```toml
     [hook]
@@ -243,7 +243,7 @@ We'll do a pretend version of this by simply creating a directory `foo`.
 === "Containers"
 
     This would be performed with another `RUN` command,
-    though it creates another layer in the image:
+    creating another layer in the image:
 
     ```dockerfile
     RUN mkdir foo
@@ -260,21 +260,21 @@ same environment.
 === "Flox"
 
     Since [`flox init`][init] creates a `.flox` directory inside your project,
-    you can simply check this directory into source control.
+    you can simply check your project directory into source control.
     Anyone with Flox installed can now work on this project with two commands:
 
     ```bash
-    $ git clone <your repo>
+    $ git clone <your project repo>
     $ flox activate
     ```
 
-    Any packages not locally cached would be downloaded.
-    Since the environment produces a lockfile each time it is built,
+    Any packages not locally cached would be automatically downloaded.
+    Since the Flox environment produces a lockfile each time it is built,
     every developer that does a [`flox activate`][activate] with the same
     lockfile will get the same exact software down to the `git` revisions of the
     upstream source repositories.
 
-    If your environment doesn't need to be tied to this specific project you
+    If your Flox environment doesn't need to be tied to this specific project you
     could also push the environment to FloxHub with [`flox push`][push].
     Then your team would activate the environment as a "remote" environment:
 
@@ -333,11 +333,11 @@ environment variables set.
     ```
 
     Since Flox environments aren't isolated from the host machine's network
-    you don't need to forward any ports.
+    you don't need to map any ports.
 
-    You can start this service from inside the environment with
+    You can start this service from inside the Flox environment with
     [`flox services start`][services-start],
-    or you can have it start automatically when entering the environment via
+    or you can have it start automatically when entering the Flox environment via
     `flox activate --start-services`.
 
 === "Containers"
