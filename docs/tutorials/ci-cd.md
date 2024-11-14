@@ -14,6 +14,7 @@ use Flox with some of the CI/CD platforms.
 ## Github Actions
 
 There are two actions that you can use in a Github workflow:
+
 - `flox/install-flox-action` (installs Flox CLI)
 - `flox/activate-action` (runs command in the context of Flox environment)
 

@@ -113,11 +113,13 @@ maybe because you have some tools available in your environment that aren't
 available outside the environment.
 
 You could do this in a subshell:
+
 - Enter the subshell via `flox activate`
 - Run the command
 - Exit the subshell via `exit`
 
 You could do a similar thing with an in-place activation:
+
 - Configure your existing shell with `source <(flox activate)`.
 - Run the command
 - Your shell is still configured by Flox when you're done
