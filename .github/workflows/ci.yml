@@ -43,6 +43,11 @@ jobs:
             chmod -R +w ./public/docs
             cp netlify.toml ./public/
 
+      - name: "Check markdown lint"
+        uses: "flox/activate-action@main"
+        with:
+          command: "markdownlint-cli2 docs/**/*.md"
+
       - name: "Check external links"
         uses: "flox/activate-action@main"
         with:

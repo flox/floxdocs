@@ -21,6 +21,9 @@
       "lychee": {
         "pkg-path": "lychee"
       },
+      "markdownlint-cli2": {
+        "pkg-path": "markdownlint-cli2"
+      },
       "pandoc": {
         "pkg-path": "pandoc"
       },
@@ -806,6 +809,126 @@
       ],
       "outputs": {
         "out": "/nix/store/rvrz40d17n04dxapsrhrpwis3bbfs1nx-lychee-0.15.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/ly73723him9mxrq1c51ac69x3bapj3a6-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/gq9z5kgjvy0fkb6z34798ixzmr95vzg4-markdownlint-cli2-0.9.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/s0py830wfl7h1h0fl6d4gjcycdgfyf88-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3vjb5jnyn7jpcfvmkv2cv4w2api4wn20-markdownlint-cli2-0.9.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/siqhdbkdlj22zv4bsb78cnzmvch1m4lb-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/6aiky5csv516s8iga664kpaa7q7wh6p9-markdownlint-cli2-0.9.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/lid3nxlgcxf7rh63i44pj4avh4ffnabj-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/12q9lc86ac5i78crmxa0kzq3xc6wsg8k-markdownlint-cli2-0.9.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
