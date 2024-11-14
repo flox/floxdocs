@@ -20,7 +20,7 @@ environment.
 
 ## Environment uses
 
-1. **Path environment**: An environment stored in a local directory. 
+1. **Path environment**: An environment stored in a local directory.
     - This environment is self contained in the `.flox` directory and can be
 reproduced by sharing the directory in version control or some other file
 sharing mechanism.
@@ -33,10 +33,10 @@ within a monorepo.
 [FloxHub][floxhub_concept].
 
     - Centrally managed environments are created by running [`flox push`][flox_push]
-on a path environment. 
+on a path environment.
      You can connect a new project directory with an existing centrally managed environment with [`flox pull ...`][flox_pull] or you can activate the environment directly with [`flox activate --remote ...`][flox_activate] for instant use.
     - Centrally managed environments enable multiple projects or systems to consume a
-shared environment that is versioned with [generations][generation_concept].     
+shared environment that is versioned with [generations][generation_concept].
 They are commonly used as base environments for projects of similar tech stacks,
 for reproducing issues on specific systems, or to quickly share tools.
     - To disconnect a centrally managed environment from FloxHub, run [`flox pull --copy`][flox_pull] instead of `flox pull`.
@@ -55,9 +55,9 @@ Let's look closer at the files that were generated.
 ### Environment manifest: `.flox/env/manifest.toml`
 
 The manifest is a declarative specification for the environment and contains 5
-parts: 
+parts:
 
-  - **Install:** the packages installed to the environment. 
+  - **Install:** the packages installed to the environment.
   - **Vars:** environment variables for use in the activated environment.
   - **Hook:** Bash script executed before passing control to the user's shell.
   - **Profile:** Shell-specific scripts sourced by the user's shell.

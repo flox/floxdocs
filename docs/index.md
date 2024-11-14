@@ -29,7 +29,7 @@ Let's see what it looks like to bring Flox to one of your existing projects.
 
 Let's walk through those steps and explain in more detail.
 
-## Install Flox 
+## Install Flox
 
 Start by [installing `flox`][install_flox].
 

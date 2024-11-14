@@ -10,9 +10,9 @@ Combined with its lockfile, the manifest can reproduce the environment on anothe
 
 ## Editing your environment's manifest
 
-The manifest contains the following sections represented as [TOML][toml_spec] tables: 
+The manifest contains the following sections represented as [TOML][toml_spec] tables:
 
-  - **[install]:** The packages installed to the environment. 
+  - **[install]:** The packages installed to the environment.
   - **[vars]:** Environment variables for use in the activated environment.
   - **[hook]:** Bash script executed before passing control to the user's shell.
   - **[profile]:** Shell-specific scripts sourced by the user's shell.
@@ -38,7 +38,7 @@ results in the following manifest (view the manifest with
 ``` toml
 [install]
 curl.pkg-path = "curl"
-``` 
+```
 
 The line that's added to the manifest has the form
 `<id>.pkg-path = "<pkg-path>"`.
@@ -100,8 +100,8 @@ curl.version = "=8.1.1"
 
 #### Installing packages to package groups
 
-Flox will try to install packages that have been known to work together by default. 
-This allows Flox to ensure maximum compatibility and has the benefit of keeping the environment as small as possible. 
+Flox will try to install packages that have been known to work together by default.
+This allows Flox to ensure maximum compatibility and has the benefit of keeping the environment as small as possible.
 However, sometimes you may need software that varies in age: For example, `packageA` you want to be from last week while `packageB` you need to be a specific older version. In these cases, you may see Flox error saying the constraints are too tight. To resolve this, you can specify a separate collection of packages using their `pkg-group` attribute.
 
 ```toml

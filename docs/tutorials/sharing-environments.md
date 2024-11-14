@@ -5,13 +5,13 @@ description: Multiple ways to share your environment with others.
 
 # Sharing your environments
 
-Flox provides **three main ways of sharing environments** with others: 
+Flox provides **three main ways of sharing environments** with others:
 
  - **Sharing environments with files:**: Flox environments are shared via the `.flox` folder and often checked into version control.
- - **Sharing environments on FloxHub**: Flox environments are shared via the FloxHub and available to all command line commands (including RC files) with `--remote username/environment`. 
+ - **Sharing environments on FloxHub**: Flox environments are shared via the FloxHub and available to all command line commands (including RC files) with `--remote username/environment`.
  - **Containers**: Flox environments are containerized or used to create container images.
 
-## Sharing environments with files 
+## Sharing environments with files
 
 New [environments][environment_concept] created with [`flox init`][flox_init] will create a `.flox` folder in the directory where [`flox init`][flox_init] was run. This folder contains everything required to run this environment on their system and can be sent to another user any way files are shared. It is most common to commit the `.flox` to a version controlled code repository such as git. If shared this way, the user needs only `git clone` the project and `flox activate` in the directory containing the `.flox`.  
 
@@ -29,7 +29,7 @@ $ flox init
 ...
 ```
 
-1.  `example-project` is a stand-in for a git source code managed project. 
+1.  `example-project` is a stand-in for a git source code managed project.
 
 Install packages:
 
@@ -62,7 +62,7 @@ $ flox activate
 
 ### [`flox push`][flox_push] for the first time
 
-The [`flox push`][flox_push] command makes it easy to share your environment using [FloxHub][floxhub_concept]. When you [`flox push`][flox_push] for the first time, you can create an account on FloxHub for free and send your environment's manifest and metadata for easy sharing. 
+The [`flox push`][flox_push] command makes it easy to share your environment using [FloxHub][floxhub_concept]. When you [`flox push`][flox_push] for the first time, you can create an account on FloxHub for free and send your environment's manifest and metadata for easy sharing.
 
 ``` console
 $ flox push
@@ -70,7 +70,7 @@ $ flox push
 
     Use 'flox pull youruser/example-project' to get this environment in any other location.
 ```
-You can also view your new environment in FloxHub's web application. 
+You can also view your new environment in FloxHub's web application.
 
 ### Directly activating a remote environment
 
@@ -100,7 +100,7 @@ telnet (GNU inetutils) 2.5
 ```
 ### Pulling a remote environment connected to FloxHub (and pushing updates)
 
-If you intend to use the same environments across multiple projects or you want to stage a change to the remote environment, you may want to [`flox pull`][flox_pull] it instead. 
+If you intend to use the same environments across multiple projects or you want to stage a change to the remote environment, you may want to [`flox pull`][flox_pull] it instead.
 
 [`flox pull`][flox_pull] adds a `.flox` folder to the directory you are in that is linked to the remote environment. When using a [FloxHub][floxhub_concept] environment in multiple projects it allows centralized management of the dependencies used across these projects--future updates to the environment will get automatically picked up by projects using the environment:
 
@@ -135,8 +135,8 @@ $ flox push
 
 ### Pulling a remote environment without connecting to FloxHub
 
-Sometimes you may want to create a FloxHub remote environment that serves as a template starting point for your project but will grow to have different environment definitions across multiple projects. 
-In this cases, you may want to [`flox pull --copy`][flox_pull] instead of [`flox pull`][flox_pull]. 
+Sometimes you may want to create a FloxHub remote environment that serves as a template starting point for your project but will grow to have different environment definitions across multiple projects.
+In this cases, you may want to [`flox pull --copy`][flox_pull] instead of [`flox pull`][flox_pull].
 
 [`flox pull --copy`][flox_pull], like [`flox pull`][flox_pull], will create a `.flox` folder to the directory you are in. However, this environment will **not be linked to FloxHub**.
 This can make it easy to start multiple projects with the same starting point like, for example, a PostgreSQL template:
@@ -151,7 +151,7 @@ You can activate this environment with 'flox activate'
 
 1. An example pulling a PostgreSQL template that Flox maintains.
 
-This new project will not exist on FloxHub until it's pushed with [`flox push`][flox_push]. 
+This new project will not exist on FloxHub until it's pushed with [`flox push`][flox_push].
 
 !!! note "Note"
     It's easy to rename environments created with `flox pull --copy` with `flox edit -n projectname`.
@@ -212,7 +212,7 @@ Done.
 
 !!! note "Why so many layers?"
     By default flox splits every dependency into a different layers, which allows
-    better dependency sharing and faster iteration. 
+    better dependency sharing and faster iteration.
 
 Now let's run a command from our image:
 

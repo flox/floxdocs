@@ -9,7 +9,7 @@ Flox makes it simple to have the **same [environment][environment_concept] on
 multiple systems and CPU architectures**.
 This guide walks through an example between two coworkers who have different
 system types,
-and shows how to customize your environment with system-specific dependencies. 
+and shows how to customize your environment with system-specific dependencies.
 
 ## Creating an environment
 
@@ -18,10 +18,10 @@ let's create an [environment][environment_concept] from a Linux laptop.
 This laptop is using an ARM CPU (aarch64) which makes its full system
 type `aarch64-linux`.
 
-When using [`flox search`][flox_search] you may see packages that won't immediately work with your manifest, but finding and allowing system specific packages is very easy. 
-Flox shows software from the following systems: `aarch64-darwin`, `x86_64-darwin`, `aarch64-linux`, and `x86_64-linux`. 
+When using [`flox search`][flox_search] you may see packages that won't immediately work with your manifest, but finding and allowing system specific packages is very easy.
+Flox shows software from the following systems: `aarch64-darwin`, `x86_64-darwin`, `aarch64-linux`, and `x86_64-linux`.
 
-Some packages may support only a subset of system types. You can inspect a 
+Some packages may support only a subset of system types. You can inspect a
 package with [`flox show`][flox_show] to see what system types are supported:
 
 ```console
@@ -46,7 +46,7 @@ $ flox install gnupg vim
 ```
 
 To make it easy to share this system across platforms we are going to share it
-on FloxHub with [`flox push`][flox_push]. 
+on FloxHub with [`flox push`][flox_push].
 
 ``` console
 $ flox push
@@ -56,16 +56,16 @@ $ flox push
 ```
 
 Learn more about this and other sharing options in the
-[sharing environments guide][sharing_guide]. 
+[sharing environments guide][sharing_guide].
 
 ## Using the environment from a different system type
 
-Many packages in Flox will work without any issue across system types. 
+Many packages in Flox will work without any issue across system types.
 
-To test this out, run [`flox pull`][flox_pull] from another system such as an 
-Apple machine with an M-series processor. 
-This system type is `aarch64-darwin`. 
-Then lets run the a simple `gpg --version` command to test everything is working. 
+To test this out, run [`flox pull`][flox_pull] from another system such as an
+Apple machine with an M-series processor.
+This system type is `aarch64-darwin`.
+Then lets run the a simple `gpg --version` command to test everything is working.
 
 ``` console
 $ flox pull youruser/eng-team-tools
@@ -83,7 +83,7 @@ Looks like the environment works cross-platform, nice!
 
 ## Handling unsupported packages
 
-However, some packages only work with a subset of systems. 
+However, some packages only work with a subset of systems.
 To demonstrate this let's install a package that **isn't compatible with an Apple machine** and set a system-specific option for these packages.
 
 From the Linux machine...
@@ -106,7 +106,7 @@ To install `systemd` for compatible systems, [`flox edit`][flox_edit] the [manif
 $ flox edit
 ```
 
-We will **add systemd** and include its `systems` attribute to filter only for 
+We will **add systemd** and include its `systems` attribute to filter only for
 the supported systems.
 
 ``` toml title="manifest.toml"
@@ -123,7 +123,7 @@ systemd.systems = ["aarch64-linux", "x86_64-linux"] # (3)!
 2. Here we are declaring a new installation, `systemd`.
 3. To allow non-Linux users to use this environment, the system attribute filters for just Linux systems.
 
-With the edits complete, save and quit your editor. 
+With the edits complete, save and quit your editor.
 The environment should update successfully!
 
 ``` console
@@ -131,7 +131,7 @@ $ flox edit
 ✅ Environment successfully updated.
 ```
 
-Finally, we can push this update so we can list packages from the Apple machine 
+Finally, we can push this update so we can list packages from the Apple machine
 to verify everything works.
 
 ``` console
@@ -161,7 +161,7 @@ systemd.systems = ["aarch64-linux"]
 ...
 ```
 
-The Apple machine does not have `systemd` despite it appearing in the manifest. 
+The Apple machine does not have `systemd` despite it appearing in the manifest.
 This environment will activate on both machines and the Apple machine won't
 get the `systemd` package.
 

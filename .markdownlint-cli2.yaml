@@ -20,6 +20,5 @@ config:
   blanks-around-lists: false
   list-marker-space: false
   no-multiple-blanks: false
-  no-trailing-spaces: false
   single-trailing-newline: false
   ul-indent: false
