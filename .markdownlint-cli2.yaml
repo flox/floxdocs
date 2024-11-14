@@ -18,7 +18,6 @@ config:
   blanks-around-fences: false
   blanks-around-headings: false
   blanks-around-lists: false
-  list-indent: false
   list-marker-space: false
   no-multiple-blanks: false
   no-trailing-spaces: false

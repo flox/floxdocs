@@ -32,10 +32,10 @@ within a monorepo.
 2. **Centrally managed environment**: An environment stored remotely on
 [FloxHub][floxhub_concept].
 
-     - Centrally managed environments are created by running [`flox push`][flox_push]
+    - Centrally managed environments are created by running [`flox push`][flox_push]
 on a path environment. 
      You can connect a new project directory with an existing centrally managed environment with [`flox pull ...`][flox_pull] or you can activate the environment directly with [`flox activate --remote ...`][flox_activate] for instant use.
-     - Centrally managed environments enable multiple projects or systems to consume a
+    - Centrally managed environments enable multiple projects or systems to consume a
 shared environment that is versioned with [generations][generation_concept].     
 They are commonly used as base environments for projects of similar tech stacks,
 for reproducing issues on specific systems, or to quickly share tools.
