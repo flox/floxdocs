@@ -675,8 +675,6 @@ description: Install or upgrade Flox
     ...
     ```
 
-
-
 ## Uninstall Flox
 
 While we are sad we see you uninstalling `flox` we would like **thank you**

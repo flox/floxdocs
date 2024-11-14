@@ -12,12 +12,12 @@ Combined with its lockfile, the manifest can reproduce the environment on anothe
 
 The manifest contains the following sections represented as [TOML][toml_spec] tables:
 
-  - **[install]:** The packages installed to the environment.
-  - **[vars]:** Environment variables for use in the activated environment.
-  - **[hook]:** Bash script executed before passing control to the user's shell.
-  - **[profile]:** Shell-specific scripts sourced by the user's shell.
-  - **[services]:** Long-running programs you can start when you activate
-  - **[options]:** Environment settings.
+- **[install]:** The packages installed to the environment.
+- **[vars]:** Environment variables for use in the activated environment.
+- **[hook]:** Bash script executed before passing control to the user's shell.
+- **[profile]:** Shell-specific scripts sourced by the user's shell.
+- **[services]:** Long-running programs you can start when you activate
+- **[options]:** Environment settings.
 
 The manifest can be edited with [`flox edit`][flox_edit] which allows validation to run when saving changes. This interactive editing option is useful for quick edits or to troubleshoot issues.
 
@@ -44,6 +44,7 @@ The line that's added to the manifest has the form
 `<id>.pkg-path = "<pkg-path>"`.
 
 #### Identifying packages by `pkg-path`
+
 The Flox catalog contains a hierarchy of packages where some are at the top
 level,
 and others are contained under package sets.
@@ -144,13 +145,13 @@ gcc.systems = ["x86_64-linux", "aarch64-linux"]
 ```
 
 #### Giving packages convenient names with `id`s
+
 The `<id>` in `<id>.pkg-path = "<pkg-path>"` is the name by which we refer to a
 package,
 which may be distinct from the `pkg-path` of the package.
 By default the `id` is inferred from the `pkg-path`,
 but you may explicitly set the `id` during installation with the `--id` flag.
 This allows you to provide more convenient names for package in your manifest.
-
 
 ### [vars] section
 
@@ -296,6 +297,7 @@ to pick up the edits,
 you can run the `flox services restart` command.
 
 To define a service you add a new entry to the `services` table in the manifest:
+
 ```toml
 [services.database]
 command = "postgres start"

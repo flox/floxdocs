@@ -48,7 +48,6 @@ All hook scripts inherit variables defined in the `[vars]` section of the manife
 and environment variables set in the `hook.on-activate` script
 are in turn inherited by the `[profile]` scripts that follow.
 
-
 ``` toml title="manifest.toml"
 
 [install]
@@ -138,7 +137,6 @@ Success. You can now start the database server using:
 
     pg_ctl -D /Users/youruser/postgres_data -l logfile start
 ```
-
 
 ## Where to next?
 

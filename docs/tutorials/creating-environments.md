@@ -71,6 +71,7 @@ nodejs_14           Event-driven I/O framework for the V8 JavaScript engine
 Showing 10 of 30 results. Use 'flox search nodejs --all' to see the full list.
 Use 'flox show <package>' to see available versions
 ```
+
 !!! note "Note"
     Don't see what you're looking for? Try `flox search <search-term> --all`.
     Still missing? Reach out to us on our [forum][discourse] for assistance.
@@ -143,6 +144,7 @@ flox [example-project] $ which node
 flox [example-project] $ which mkcert
 /Users/myuser/example-project/.flox/run/aarch64-darwin.flox/bin/mkcert
 ```
+
 !!! note "Note"
     Some terminal themes may override Flox's terminal prompt changes.
     You will still be able to activate and use the environment.

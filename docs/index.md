@@ -346,9 +346,11 @@ so the next thing we'll do is find the packages we need with
 ---
 
 You'll notice that each search output contains a line like
+
 ```
 Showing 10 of 4772 results. Use `flox search go --all` to see the full list.
 ```
+
 You can use the `--all` flag to see the full list of results.
 
 Another thing you'll notice is that these listings don't contain any version
@@ -470,6 +472,7 @@ the configuration for your environment can be tracked in source control just
 like your source code.
 
 A manifest for an empty environment looks like this:
+
 ```toml
 version = 1
 
@@ -496,6 +499,7 @@ This opens the `manifest.toml` file in an editor so that you can manually
 edit your environment configuration.
 In order to set a variable `VAR` to the value `VALUE`,
 you would edit the `[vars]` section to look like this:
+
 ```toml
 [vars]
 VAR = "VALUE"
@@ -533,6 +537,7 @@ for example).
 For more in-depth information on how the `[hook]` and `[profile]` sections work
 see the [manifest reference page][manifest].
 For now, this is how you would add a couple of shell hook scripts:
+
 ```toml
 [hook]
 on-activate = '''
@@ -554,14 +559,18 @@ bash = '''
 ```
 
 A user activating this environment in a Bash shell would see this printed:
+
 ```
 Hello from all shells
 Hello from Bash
 ```
+
 whereas a user activating from any other supported shell would see this:
+
 ```
 Hello from all shells
 ```
+
 The currently supported shells are `bash`, `zsh`, `fish`, and `tcsh`.
 
 ## Add services
@@ -575,6 +584,7 @@ section of the manifest.
 Say you're working on a documentation site built using the `mkdocs` framework
 and want to see a live preview of the documentation you're writing.
 Adding a service for this is very easy:
+
 ```toml
 [services.docs]
 command = "mkdocs serve"

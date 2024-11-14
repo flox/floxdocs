@@ -57,11 +57,11 @@ Let's look closer at the files that were generated.
 The manifest is a declarative specification for the environment and contains 5
 parts:
 
-  - **Install:** the packages installed to the environment.
-  - **Vars:** environment variables for use in the activated environment.
-  - **Hook:** Bash script executed before passing control to the user's shell.
-  - **Profile:** Shell-specific scripts sourced by the user's shell.
-  - **Options:** Environment-scoped options such as supported systems.
+- **Install:** the packages installed to the environment.
+- **Vars:** environment variables for use in the activated environment.
+- **Hook:** Bash script executed before passing control to the user's shell.
+- **Profile:** Shell-specific scripts sourced by the user's shell.
+- **Options:** Environment-scoped options such as supported systems.
 
 **[Read more about the manifest][manifest_concept]** and consult the
 [customizing environments guide][customizing_environments_guide] to walk through

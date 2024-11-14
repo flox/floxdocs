@@ -7,9 +7,9 @@ description: Multiple ways to share your environment with others.
 
 Flox provides **three main ways of sharing environments** with others:
 
- - **Sharing environments with files:**: Flox environments are shared via the `.flox` folder and often checked into version control.
- - **Sharing environments on FloxHub**: Flox environments are shared via the FloxHub and available to all command line commands (including RC files) with `--remote username/environment`.
- - **Containers**: Flox environments are containerized or used to create container images.
+- **Sharing environments with files:**: Flox environments are shared via the `.flox` folder and often checked into version control.
+- **Sharing environments on FloxHub**: Flox environments are shared via the FloxHub and available to all command line commands (including RC files) with `--remote username/environment`.
+- **Containers**: Flox environments are containerized or used to create container images.
 
 ## Sharing environments with files
 
@@ -29,7 +29,7 @@ $ flox init
 ...
 ```
 
-1.  `example-project` is a stand-in for a git source code managed project.
+1. `example-project` is a stand-in for a git source code managed project.
 
 Install packages:
 
@@ -70,6 +70,7 @@ $ flox push
 
     Use 'flox pull youruser/example-project' to get this environment in any other location.
 ```
+
 You can also view your new environment in FloxHub's web application.
 
 ### Directly activating a remote environment
@@ -98,6 +99,7 @@ flox [youruser/example-project] $ telnet --version
 telnet (GNU inetutils) 2.5
 ...
 ```
+
 ### Pulling a remote environment connected to FloxHub (and pushing updates)
 
 If you intend to use the same environments across multiple projects or you want to stage a change to the remote environment, you may want to [`flox pull`][flox_pull] it instead.
@@ -126,12 +128,10 @@ $ flox push
 !!! note "Note"
     Right now, only environment owners can push edits to their environments.
 
-
 [flox_push]: ../reference/command-reference/flox-push.md
 [flox_pull]: ../reference/command-reference/flox-pull.md
 [flox_activate]: ../reference/command-reference/flox-activate.md
 [floxhub_concept]: ../concepts/floxhub.md
-
 
 ### Pulling a remote environment without connecting to FloxHub
 
@@ -177,6 +177,7 @@ eval (flox activate -r youruser/example-project) | source
 ```
 
 Don't forget to open a new terminal window or, for zsh, reload your RC file.
+
 ``` console
 $ source ~/.zshrc
 ```
@@ -207,7 +208,7 @@ Done.
 ✨  Container written to '/home/youruser/default-container.tar.gz'
 ```
 
-1.  `flox containerize` will stream generated docker image to `docker load`
+1. `flox containerize` will stream generated docker image to `docker load`
     command.
 
 !!! note "Why so many layers?"
@@ -221,7 +222,6 @@ $  docker run --rm -it flox-env-container -- telnet --version
 telnet (GNU inetutils) 2.5
 ...
 ```
-
 
 ## Where to next?
 

@@ -13,11 +13,3 @@ config:
   fenced-code-language: false
   no-trailing-punctuation: false
   single-title: false
-
-  # Care about soon.
-  blanks-around-fences: false
-  blanks-around-headings: false
-  list-marker-space: false
-  no-multiple-blanks: false
-  single-trailing-newline: false
-  ul-indent: false
