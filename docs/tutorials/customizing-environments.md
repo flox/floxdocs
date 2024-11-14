@@ -12,7 +12,7 @@ This guide uses the [environment's][environment_concept]
 
 Say your project has a variable it expects to be set and you need to generate
 the value for development.
-This is a great use for the environment's **[shell hooks][hook_concept]**. 
+This is a great use for the environment's **[shell hooks][hook_concept]**.
 
 Let's set up a Flox [environment][environment_concept] using the `postgresql_15`
 package in your environment:
@@ -47,7 +47,6 @@ and create a **script**.
 All hook scripts inherit variables defined in the `[vars]` section of the manifest,
 and environment variables set in the `hook.on-activate` script
 are in turn inherited by the `[profile]` scripts that follow.
-
 
 ``` toml title="manifest.toml"
 
@@ -97,7 +96,7 @@ on-activate = """
     The `hook.on-activate` script is always run in a `bash` shell.
 
 **Save and exit your editor**, you should see a confirmation after Flox
-validates the environment. 
+validates the environment.
 
 ```
 ✅ Environment successfully updated.
@@ -108,7 +107,7 @@ validates the environment.
 You can now [`flox activate`][flox_activate] the environment to see the result
 of your hard work!
 
-``` 
+```
 $ flox activate
 ✅ You are now using the environment postgres-example at /Users/youruser.
 To stop using this environment, type 'exit'
@@ -138,7 +137,6 @@ Success. You can now start the database server using:
 
     pg_ctl -D /Users/youruser/postgres_data -l logfile start
 ```
-
 
 ## Where to next?
 

@@ -16,7 +16,7 @@ When you leave the Flox environment everything will return to its original
 state.
 
 This guide uses an `example-project` but you can follow along in your own
-projects as well. 
+projects as well.
 
 ## Initialize a project
 
@@ -51,7 +51,7 @@ but it's empty.
 Flox has over 80,000 open source and licensable packages to install in your
 environment.
 Search for and install packages using [`flox search`][flox_search],
-[`flox show`][flox_show], and [`flox install`][flox_install]. 
+[`flox show`][flox_show], and [`flox install`][flox_install].
 
 Let's assume `example-project` is a nodejs/npm project.
 Begin by searching for `nodejs` with [`flox search`][flox_search] in Flox:
@@ -71,9 +71,10 @@ nodejs_14           Event-driven I/O framework for the V8 JavaScript engine
 Showing 10 of 30 results. Use 'flox search nodejs --all' to see the full list.
 Use 'flox show <package>' to see available versions
 ```
-!!! note "Note" 
-    Don't see what you're looking for? Try `flox search <search-term> --all`. 
-    Still missing? Reach out to us on our [forum][discourse] for assistance. 
+
+!!! note "Note"
+    Don't see what you're looking for? Try `flox search <search-term> --all`.
+    Still missing? Reach out to us on our [forum][discourse] for assistance.
 
 For more detail about a specific package, such as the available versions,
 use [`flox show`][flox_show].
@@ -130,7 +131,7 @@ you will see your terminal's prompt change.
 This example demonstrates that the packages are now available by running
 `which node` and `which mkcert`.
 
-``` 
+```
 $ flox activate
 ```
 
@@ -143,6 +144,7 @@ flox [example-project] $ which node
 flox [example-project] $ which mkcert
 /Users/myuser/example-project/.flox/run/aarch64-darwin.flox/bin/mkcert
 ```
+
 !!! note "Note"
     Some terminal themes may override Flox's terminal prompt changes.
     You will still be able to activate and use the environment.
@@ -192,7 +194,7 @@ on-activate = """
 """
 ```
 
-Save changes to the file. 
+Save changes to the file.
 
 !!! note "Note"
     Edits made with [`flox edit`][flox_edit] will be validated and built

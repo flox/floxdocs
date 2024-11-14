@@ -8,7 +8,7 @@ description: Everything you need to know about generations.
 Generations refer to a **version number of an environment** on
 [FloxHub][floxhub_concept].
 Both imperative and declarative commands that modify an environment on
-[FloxHub][floxhub_concept] increment the generation number for the environment. 
+[FloxHub][floxhub_concept] increment the generation number for the environment.
 
 Read more about creating your first generation in the
 [sharing guide][sharing_guide].
@@ -17,7 +17,7 @@ Read more about creating your first generation in the
 
 The first environment generation (1) is created when you use
 **[`flox push`][flox_push]** to send an environment to
-[FloxHub][floxhub_concept]. 
+[FloxHub][floxhub_concept].
 
 ## New generations
 

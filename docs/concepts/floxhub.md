@@ -11,7 +11,7 @@ FloxHub is a cloud service that enables you to share your Flox
 ## Account creation in FloxHub
 
 When signing up for a FloxHub account,
-we will **automatically use your GitHub username as the FloxHub account name**. 
+we will **automatically use your GitHub username as the FloxHub account name**.
 
 When you [`flox push`][flox_push] an environment to FloxHub,
 you will be prompted to create an account.
@@ -40,9 +40,9 @@ Once you have found an environment that interests you,
 you can:
 
 * Open the **Environment Details** page for the selected environment by
-**clicking on the environment name**. 
+**clicking on the environment name**.
 * Use the **Share button** to copy CLI sharing commands pre-populated with the
-environment name. 
+environment name.
 * Use the **Delete button** to delete the environment from FloxHub.
 * Use the **Generations shortcut button** to jump into the generations tab of
 the Environment Detail page.
@@ -59,10 +59,10 @@ Below the key facts is a shortcut to the CLI sharing commands.
 * **Current generation tab**: shows you packages that are in your
 [environment's manifest][manifest_concept].
 If your package was installed with a semantic version requirement,
-that information will show on the right side. 
+that information will show on the right side.
 * **Generation tab**: shows you the history of your environment through each
 [generation][generation_concept].
-Each new [`flox push`][flox_push] creates a new generation. 
+Each new [`flox push`][flox_push] creates a new generation.
 * **Change log tab**: describes the updates between each generation.
 Packages that were installed with [`flox install`][flox_install] and uninstalled
 with [`flox uninstall`][flox_uninstall] will be explicitly marked.
@@ -81,7 +81,7 @@ such as those that accept a `--remote` option,
 and some commands such as [`flox pull`][flox_pull] that implicitly refer to
 an environment on FloxHub.
 
-``` console 
+``` console
 $ flox pull example-owner/example-env
 ```
 
@@ -94,7 +94,7 @@ $ flox pull example-owner/example-env
 
 ### Logging out in the CLI
 
-Run the [`flox auth logout`][flox_auth] command. 
+Run the [`flox auth logout`][flox_auth] command.
 
 [flox_website]: https://flox.dev
 [flox_push]: ../reference/command-reference/flox-push.md

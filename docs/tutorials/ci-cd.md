@@ -10,10 +10,10 @@ software development cycle. Flox environments can take you CI/CD pipelines to
 the next level, making them robust and reproducible. Let us look how can you
 use Flox with some of the CI/CD platforms.
 
-
 ## Github Actions
 
 There are two actions that you can use in a Github workflow:
+
 - `flox/install-flox-action` (installs Flox CLI)
 - `flox/activate-action` (runs command in the context of Flox environment)
 
@@ -52,14 +52,12 @@ jobs:
 3. `flox/activate-action` allows you to run a command inside the Flox
    environment.
 
-
 ## CircleCI
 
 There is a [Flox Orb](https://github.com/flox/flox-orb) that can help you use
 Flox inside CircleCI.
 
 An example CircleCI workflow:
-
 
 ```yaml title=".circleci/config.yml"
 version: 2.1
@@ -83,7 +81,6 @@ jobs:
    version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
 
-
 ## GitLab
 
 An example GitLab pipeline:
@@ -99,7 +96,6 @@ build:
 1. Use `ghcr.io/flox/flox` that already comes with Flox.
 2. Run command in a Flox environment.
 
-
 ## Where to next?
 
 - :simple-readme:{ .flox-purple .flox-heart } [Sharing environments][sharing_guide]
@@ -107,7 +103,6 @@ build:
 - :simple-readme:{ .flox-purple .flox-heart } [Layering multiple environments][layering_guide]
 
 - :simple-readme:{ .flox-purple .flox-heart } [Customizing the shell hook][customizing_guide]
-
 
 [sharing_guide]: ./sharing-environments.md
 [layering_guide]: ./layering-multiple-environments.md

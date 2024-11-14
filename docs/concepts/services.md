@@ -32,6 +32,7 @@ See [`manifest-toml(1)`](../reference/command-reference/manifest.toml.md) for
 more details on the exact format of the `[services]` section of the manfiest.
 
 An example service definition is shown below:
+
 ```toml
 [services.database]
 command = "postgres start"
