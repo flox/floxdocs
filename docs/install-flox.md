@@ -633,7 +633,7 @@ description: Install or upgrade Flox
     (whichever matches the existing Linux Distribution installed with your
     WSL) to update to latest version of Flox.
 
-=== "MacOS - Pkg" 
+=== "MacOS - Pkg"
 
     Download and install the latest image as described in the MacOS column
     of [the install section](#install-flox).
@@ -674,8 +674,6 @@ description: Install or upgrade Flox
         };
     ...
     ```
-
-
 
 ## Uninstall Flox
 

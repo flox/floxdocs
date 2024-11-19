@@ -10,14 +10,14 @@ Combined with its lockfile, the manifest can reproduce the environment on anothe
 
 ## Editing your environment's manifest
 
-The manifest contains the following sections represented as [TOML][toml_spec] tables: 
+The manifest contains the following sections represented as [TOML][toml_spec] tables:
 
-  - **[install]:** The packages installed to the environment. 
-  - **[vars]:** Environment variables for use in the activated environment.
-  - **[hook]:** Bash script executed before passing control to the user's shell.
-  - **[profile]:** Shell-specific scripts sourced by the user's shell.
-  - **[services]:** Long-running programs you can start when you activate
-  - **[options]:** Environment settings.
+- **[install]:** The packages installed to the environment.
+- **[vars]:** Environment variables for use in the activated environment.
+- **[hook]:** Bash script executed before passing control to the user's shell.
+- **[profile]:** Shell-specific scripts sourced by the user's shell.
+- **[services]:** Long-running programs you can start when you activate
+- **[options]:** Environment settings.
 
 The manifest can be edited with [`flox edit`][flox_edit] which allows validation to run when saving changes. This interactive editing option is useful for quick edits or to troubleshoot issues.
 
@@ -38,12 +38,13 @@ results in the following manifest (view the manifest with
 ``` toml
 [install]
 curl.pkg-path = "curl"
-``` 
+```
 
 The line that's added to the manifest has the form
 `<id>.pkg-path = "<pkg-path>"`.
 
 #### Identifying packages by `pkg-path`
+
 The Flox catalog contains a hierarchy of packages where some are at the top
 level,
 and others are contained under package sets.
@@ -100,8 +101,8 @@ curl.version = "=8.1.1"
 
 #### Installing packages to package groups
 
-Flox will try to install packages that have been known to work together by default. 
-This allows Flox to ensure maximum compatibility and has the benefit of keeping the environment as small as possible. 
+Flox will try to install packages that have been known to work together by default.
+This allows Flox to ensure maximum compatibility and has the benefit of keeping the environment as small as possible.
 However, sometimes you may need software that varies in age: For example, `packageA` you want to be from last week while `packageB` you need to be a specific older version. In these cases, you may see Flox error saying the constraints are too tight. To resolve this, you can specify a separate collection of packages using their `pkg-group` attribute.
 
 ```toml
@@ -144,13 +145,13 @@ gcc.systems = ["x86_64-linux", "aarch64-linux"]
 ```
 
 #### Giving packages convenient names with `id`s
+
 The `<id>` in `<id>.pkg-path = "<pkg-path>"` is the name by which we refer to a
 package,
 which may be distinct from the `pkg-path` of the package.
 By default the `id` is inferred from the `pkg-path`,
 but you may explicitly set the `id` during installation with the `--id` flag.
 This allows you to provide more convenient names for package in your manifest.
-
 
 ### [vars] section
 
@@ -296,6 +297,7 @@ to pick up the edits,
 you can run the `flox services restart` command.
 
 To define a service you add a new entry to the `services` table in the manifest:
+
 ```toml
 [services.database]
 command = "postgres start"

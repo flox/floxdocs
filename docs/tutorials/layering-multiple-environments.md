@@ -45,7 +45,7 @@ vim: vim (9.0.2116)
 We can test the environment is working properly with
 [`flox activate`][flox_activate].
 
-``` 
+```
 $ flox activate
 flox [default] $ which git
 /Users/youruser/.flox/run/aarch64-darwin.default/bin/git
@@ -53,14 +53,14 @@ flox [default] $ git --version
 git version 2.42.0
 ```
 
-Everything is working! 
+Everything is working!
 
 ## Layering a project environment
 
 Now that we have our tools in the `default` environment we can layer on a new
 environment that brings in project-specific dependencies.
 For this example we will use a publicly accessible Node project called
-`material-ui`. 
+`material-ui`.
 
 Let's clone the example project to our home directory and enter the project's
 directory:
