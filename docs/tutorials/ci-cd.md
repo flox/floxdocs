@@ -34,10 +34,10 @@ jobs:
         uses: "actions/checkout@v4"
 
       - name: "Install Flox" # (2)!
-        uses: "flox/install-flox-action@2"
+        uses: "flox/install-flox-action@v2"
 
       - name: "Build" # (3)!
-        uses: "flox/activate-action@1"
+        uses: "flox/activate-action@v1"
         with:
           command: npm run build
 
