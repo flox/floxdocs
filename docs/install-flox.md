@@ -785,6 +785,11 @@ Here's how to **completely remove `flox` from your system**.
         sudo /usr/local/share/flox/scripts/uninstall
         ```
 
+    Regardless of the current state, brew can be used to perform a full clean up:
+    ``` { .text .code-command .copy }
+    brew uninstall --force --zap flox
+    ```
+
     We recommend rebooting your system after uninstalling Flox.
 === "MacOS - Homebrew"
 
@@ -805,6 +810,11 @@ Here's how to **completely remove `flox` from your system**.
 
     ``` { .text .code-command .copy }
     brew uninstall --zap flox
+    ```
+
+    In the case of recovering a partial install, a force and zap can help:
+    ``` { .text .code-command .copy }
+    brew uninstall --force --zap flox
     ```
 
     We recommend rebooting your system after uninstalling Flox.
