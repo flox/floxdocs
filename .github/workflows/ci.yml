@@ -18,11 +18,15 @@ concurrency:
   group: "ci-${{ github.event_name }}-${{ github.ref_name }}-${{ github.event.pull_request.event.number || github.sha }}"
   cancel-in-progress: true
 
+env:
+  FLOX_DISABLE_METRICS: "true"
+
 jobs:
 
   build-docs:
     name: "Build docs"
     runs-on: "ubuntu-latest"
+    timeout-minutes: 30
 
     steps:
       - name: "Checkout"
@@ -41,6 +45,12 @@ jobs:
             mkdir -p ./public/docs
             cp -R ./site/* ./public/docs/
             chmod -R +w ./public/docs
+            cp netlify.toml ./public/
+
+      - name: "Check markdown lint"
+        uses: "flox/activate-action@main"
+        with:
+          command: "markdownlint-cli2 docs/**/*.md"
 
       - name: "Check external links"
         uses: "flox/activate-action@main"
@@ -58,15 +68,15 @@ jobs:
           deploy-message:     "Published from GitHub Actions"
           publish-dir:        "public"
 
-          enable-pull-request-comment:      true
-          overwrites-pull-request-comment:  false
-          enable-commit-comment:            false
-          enable-commit-status:             true
+          enable-pull-request-comment: true
+          overwrites-pull-request-comment: false
+          enable-commit-comment: false
+          enable-commit-status: true
 
-          production-branch:  "main"
-          production-deploy:  ${{ github.event_name == 'push' && github.ref_name == 'main' }}
+          production-branch: "main"
+          production-deploy: ${{ github.event_name == 'push' && github.ref_name == 'main' }}
 
-          alias: "${{ github.event_name == 'push' && github.ref_name || '' }}"
+          alias: ${{ github.event_name == 'push' && github.ref_name || (github.event.pull_request.head.sha || github.sha) }}
 
-          enable-github-deployment: "${{ github.event_name == 'push' && 'true' || 'false' }}"
-          github-deployment-environment: "${{ github.event_name == 'push' && github.ref_name || format('pull-request-{0}', github.event.number) }}"
+          enable-github-deployment: ${{ github.event_name == 'push' && 'true' || 'false' }}
+          github-deployment-environment: ${{ github.event_name == 'push' && github.ref_name || format('pull-request-{0}', github.event.number) }}

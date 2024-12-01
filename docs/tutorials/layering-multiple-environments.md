@@ -5,24 +5,15 @@ description: Using more than one environment at a time
 
 # Layering multiple environments
 
-This guide walks you through creating a default `$HOME` environment and layering
-it with a project's path environment.
+This guide walks you through layering a [`default`][default-env] environment
+with a project's environment.
 
 ## Create your default `$HOME` environment
 
-First, let's set up your default environment.
-Use [`flox init`][flox_init] in `$HOME` (or `~`).
+First, create your `default` environment by following
+[`default` environment tutorial][default-env].
 
-``` console
-$ cd ~
-$ flox init
-✨ Created environment default (aarch64-darwin)
-
-Next:
-  $ flox search <package>    <- Search for a package
-  $ flox install <package>   <- Install a package into an environment
-  $ flox activate            <- Enter the environment
-```
+## Install packages
 
 Now lets [`flox install`][flox_install] **tools that will be useful on any
 system** regardless of the project.
@@ -54,7 +45,7 @@ vim: vim (9.0.2116)
 We can test the environment is working properly with
 [`flox activate`][flox_activate].
 
-``` 
+```
 $ flox activate
 flox [default] $ which git
 /Users/youruser/.flox/run/aarch64-darwin.default/bin/git
@@ -62,47 +53,14 @@ flox [default] $ git --version
 git version 2.42.0
 ```
 
-Everything is working! 
-
-## Make your terminal always use the default `$HOME` environment
-
-Now let's customize a zsh profile so the `default` environment is activated for
-every new shell.
-
-!!! note "Note"
-    These steps will vary if you are using a different shell such as `bash`.
-
-Edit your `~/.zshrc` file using `vim` from the `default` environment.
-
-``` 
-flox [default] $ vim ~/.zshrc
-```
-
-Add the following line to the bottom of the file:
-
-``` bash title="For bash .bashrc or zsh .zshrc"
-eval "$(flox activate --dir ~)"
-```
-
-``` fish title="For fish config.fish"
-eval (flox activate --dir=$HOME) | source
-```
-
-Save and exit the file.
-Open a new terminal window and you should see the `default` environment is now
-active!
-
-```
-Last login: Tue Feb 13 10:13:12 on ttys013
-flox [default] $ 
-```
+Everything is working!
 
 ## Layering a project environment
 
 Now that we have our tools in the `default` environment we can layer on a new
 environment that brings in project-specific dependencies.
 For this example we will use a publicly accessible Node project called
-`material-ui`. 
+`material-ui`.
 
 Let's clone the example project to our home directory and enter the project's
 directory:
@@ -157,6 +115,7 @@ Flox will use the package from the last environment activated.
 
 - :simple-readme:{ .flox-purple .flox-heart } [Designing multiple architecture environments][multi_arch_guide]
 
+[default-env]: ./default-environment.md
 [flox_init]: ../reference/command-reference/flox-init.md
 [flox_install]: ../reference/command-reference/flox-install.md
 [flox_activate]: ../reference/command-reference/flox-activate.md

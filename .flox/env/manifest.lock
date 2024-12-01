@@ -6,6 +6,9 @@
       "coreutils": {
         "pkg-path": "coreutils"
       },
+      "d2": {
+        "pkg-path": "d2"
+      },
       "findutils": {
         "pkg-path": "findutils"
       },
@@ -17,6 +20,9 @@
       },
       "lychee": {
         "pkg-path": "lychee"
+      },
+      "markdownlint-cli2": {
+        "pkg-path": "markdownlint-cli2"
       },
       "pandoc": {
         "pkg-path": "pandoc"
@@ -32,7 +38,6 @@
         "version": "3.11.*"
       }
     },
-    "vars": {},
     "hook": {
       "on-activate": "\n#\n# Python environment activation and installation\n#\nexport POETRY_VIRTUALENVS_PATH=\"$FLOX_ENV_CACHE/poetry/virtualenvs\"\nif [ -z \"$(poetry env info --path)\" ]; then\n  poetry env use python &> /dev/null\nfi\nsource \"$(poetry env info --path)/bin/activate\" &> /dev/null\npoetry install --quiet &> /dev/null\necho \"1. 👉 Python environment activated\"\n\n\n# \n# Set the version of Flox to the latest stable version\n#\nexport FLOX_VERSION=$(cat FLOX_VERSION | xargs)\necho \"2. 👉 FLOX_VERSION set to $FLOX_VERSION\"\n\n\n# \n# Copy and process Flox man pages\n# \nexport FLOX_SRC_ARCHIVE=\"$FLOX_ENV_CACHE/flox-v$FLOX_VERSION.tar.gz\"\nif [ ! -e \"$FLOX_SRC_ARCHIVE\" ]; then\n  curl -sL \"https://github.com/flox/flox/archive/refs/tags/v$FLOX_VERSION.tar.gz\" -o $FLOX_SRC_ARCHIVE\nfi\necho \"3. 👉 Downloaded Flox source archive\"\n\nexport FLOX_SRC_DIR=\"$FLOX_ENV_CACHE/flox-src-$FLOX_VERSION\"\nif [ ! -d \"$FLOX_SRC_DIR\" ]; then\n  mkdir -p $FLOX_SRC_DIR\n  tar -zx --strip-components=1 --file=$FLOX_SRC_ARCHIVE --directory=$FLOX_SRC_DIR;\nfi\necho \"4. 👉 Extracted Flox source archive\"\n\nexport FLOX_MAN_PAGES_DIR=\"$PWD/docs/reference/command-reference\"\nif [ -d \"$FLOX_MAN_PAGES_DIR\" ]; then\n  rm -rf \"$FLOX_MAN_PAGES_DIR/*\"\nfi\nmkdir -p $FLOX_MAN_PAGES_DIR\npushd \"$FLOX_SRC_DIR/cli/flox/doc\" > /dev/null\n  find . -maxdepth 1 -iname \"*.md\" -exec \\\n    sh -c \"\n      pandoc -t gfm \\\n        -L $FLOX_SRC_DIR/pkgs/flox-manpages/pandoc-filters/include-files.lua \\\n        --standalone \\\n        {} |\n        # remove current title\n        tail -n +6 |\n        # indent all markdown levels by one, e.g. \"#\" -> \"##\"\n        sed -e 's/^#/##/' > \\\"$FLOX_MAN_PAGES_DIR/{}\\\"\n    \" \\;\npopd > /dev/null\npushd $FLOX_MAN_PAGES_DIR > /dev/null\n  for commandPage in ./*.md; do\n    # All other man page files have names of the form\n    # 'flox*.md'\n    if [ \"$commandPage\" = \"./manifest.toml.md\" ]; then\n      continue\n    fi\n    command=$(basename $commandPage .md | sed -e \"s|-| |g\")\n    echo -e \"\\n# \\`$command\\` command\\n$(cat $commandPage)\" > $commandPage\n    echo -e \"---\\n$(cat $commandPage)\" > $commandPage\n    echo -e \"description: Command reference for the \\`$command\\` command.\\n$(cat $commandPage)\" > $commandPage\n    echo -e \"title: $command\\n$(cat $commandPage)\" > $commandPage\n    echo -e \"---\\n$(cat $commandPage)\" > $commandPage\n  done\n\n  manifestPage=\"manifest.toml.md\"\n  echo -e \"\\n# \\`manifest.toml\\`\\n$(cat $manifestPage)\" > $manifestPage\n  echo -e \"---\\n$(cat $manifestPage)\" > $manifestPage\n  echo -e \"description: Reference for the manifest.toml format.\\n$(cat $manifestPage)\" > $manifestPage\n  echo -e \"title: manifest.toml\\n$(cat $manifestPage)\" > $manifestPage\n  echo -e \"---\\n$(cat $manifestPage)\" > $manifestPage\npopd > /dev/null\necho \"5. 👉 Copy man pages from Flox source archive\"\n"
     },
@@ -61,10 +66,10 @@
         "command": "mkdocs serve",
         "vars": null,
         "is-daemon": false,
-        "shutdown": null
+        "shutdown": null,
+        "systems": null
       }
-    },
-    "build": {}
+    }
   },
   "packages": [
     {
@@ -188,6 +193,126 @@
         "debug": "/nix/store/8467bx2i423s8d2dnl0529q9q8mpr9h2-coreutils-9.5-debug",
         "info": "/nix/store/d33w475g5g30crnr2in1w3b9ifpm46h5-coreutils-9.5-info",
         "out": "/nix/store/i7qhgc0bs725qw3wdanznfkdna4z2ns2-coreutils-9.5"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "d2",
+      "broken": false,
+      "derivation": "/nix/store/7czicn21bisdncjjcvq21mh0adca7w0a-d2-0.6.5.drv",
+      "description": "Modern diagram scripting language that turns text to diagrams",
+      "install_id": "d2",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "d2-0.6.5",
+      "pname": "d2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.6.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/mjyr6pjic8q80qhl94lbsj1qhqhxwkc1-d2-0.6.5"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "d2",
+      "broken": false,
+      "derivation": "/nix/store/r00ds96gr94f00qv5pjwkwrni7yhg54g-d2-0.6.5.drv",
+      "description": "Modern diagram scripting language that turns text to diagrams",
+      "install_id": "d2",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "d2-0.6.5",
+      "pname": "d2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.6.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/ci7074szn7fgf7dxs7n077mm1wwrnz1d-d2-0.6.5"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "d2",
+      "broken": false,
+      "derivation": "/nix/store/566f8m51sj9dd4bxv0h0n8gs2bv3nkf5-d2-0.6.5.drv",
+      "description": "Modern diagram scripting language that turns text to diagrams",
+      "install_id": "d2",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "d2-0.6.5",
+      "pname": "d2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.6.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/0phldlbfyz96rgdf9ngjz2j3zlzd2n6p-d2-0.6.5"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "d2",
+      "broken": false,
+      "derivation": "/nix/store/22z222k6ihi7n11vax8i4lgc2r6dqlxl-d2-0.6.5.drv",
+      "description": "Modern diagram scripting language that turns text to diagrams",
+      "install_id": "d2",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "d2-0.6.5",
+      "pname": "d2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.6.5",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/wg8c8sf5r0nhpvp0wiqjns6ynizhb1a2-d2-0.6.5"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -684,6 +809,126 @@
       ],
       "outputs": {
         "out": "/nix/store/rvrz40d17n04dxapsrhrpwis3bbfs1nx-lychee-0.15.1"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/ly73723him9mxrq1c51ac69x3bapj3a6-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/gq9z5kgjvy0fkb6z34798ixzmr95vzg4-markdownlint-cli2-0.9.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/s0py830wfl7h1h0fl6d4gjcycdgfyf88-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3vjb5jnyn7jpcfvmkv2cv4w2api4wn20-markdownlint-cli2-0.9.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/siqhdbkdlj22zv4bsb78cnzmvch1m4lb-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/6aiky5csv516s8iga664kpaa7q7wh6p9-markdownlint-cli2-0.9.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "markdownlint-cli2",
+      "broken": false,
+      "derivation": "/nix/store/lid3nxlgcxf7rh63i44pj4avh4ffnabj-markdownlint-cli2-0.9.0.drv",
+      "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
+      "install_id": "markdownlint-cli2",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "name": "markdownlint-cli2-0.9.0",
+      "pname": "markdownlint-cli2",
+      "rev": "9f4128e00b0ae8ec65918efeba59db998750ead6",
+      "rev_count": 647193,
+      "rev_date": "2024-07-03T18:27:49Z",
+      "scrape_date": "2024-07-05T00:14:29Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.9.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/12q9lc86ac5i78crmxa0kzq3xc6wsg8k-markdownlint-cli2-0.9.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",

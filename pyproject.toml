@@ -17,6 +17,7 @@ mkdocs-include-markdown-plugin = "*"
 mkdocs-macros-plugin = "*"
 mkdocs-material = { path = "./mkdocs_material-9.5.10+insiders.4.52.2.tar.gz", extras = [ "images" ] }
 mkdocs-material-extensions = "*"
+mkdocs-d2-plugin = "*"
 pillow = "9.4.0"  # 9.5.0 is not building with Nix
 pymdown-extensions = "*"
 # PR waiting in upstream: https://github.com/OceanSprint/tesh/pull/45

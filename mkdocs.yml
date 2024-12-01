@@ -36,6 +36,7 @@ nav:
   - Flox in 5 minutes: index.md
   - Tutorials:
     - Creating environments: tutorials/creating-environments.md
+    - The default environment: tutorials/default-environment.md
     - Sharing environments: tutorials/sharing-environments.md
     - Layering multiple environments: tutorials/layering-multiple-environments.md
     - Customizing the environment shell hook: tutorials/customizing-environments.md
@@ -44,10 +45,12 @@ nav:
   - Concepts:
     - Environments: concepts/environments.md
     - Environment manifest: concepts/manifest.md
+    - Activating environments: concepts/activation.md
     - FloxHub: concepts/floxhub.md
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
+    - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:
       - ... | flat | cookbook/languages/*
@@ -280,3 +283,6 @@ plugins:
     # Unleash the power of MkDocs with variables and macros
     # https://github.com/fralau/mkdocs-macros-plugin
     - macros
+
+    # Support for D2 diagrams
+    - d2
