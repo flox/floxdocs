@@ -61,6 +61,51 @@ command = '''
 
 As you can see, it's very simple.
 
+### Limiting the package size
+
+Your artifact likely has dependencies,
+and those dependencies have their own dependencies,
+all the way down to `libc`.
+We call this complete set of dependencies the "transitive closure",
+or simply "the closure", of your artifact.
+A large closure for your artifact has no direct impact on runtime performance,
+but it means that your artifact requires more disk space to install and requires
+more bandwidth to copy from one place to another.
+
+By default all of the packages in the default [package group][pkg-groups] are
+included as dependencies of your artifacts,
+but these packages may only be needed by your artifact at _build_ time,
+not _run_ time.
+As a reminder, the default package group is called `toplevel`,
+and all packages installed to an environment without an explicit `pkg-group`
+as placed into this package group.
+
+You can restrict the dependencies needed at runtime via the `runtime-packages`
+option:
+
+```toml
+version = 1
+
+[install]
+hello.pkg-path = "hello"
+ripgrep.pkg-path = "ripgrep"
+
+[build.hello-pkg]
+command = '''
+  echo "hello" > $out/bin/hello-pkg
+  chmod +x $out/bin/hello-pkg
+'''
+runtime-packages = [ "hello" ]
+
+[options]
+systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]
+```
+
+In the example manifest above we install two packages, `hello` and `ripgrep`,
+the build an artifact that runs the `hello` package.
+By setting `runtime-packages = [ "hello" ]` we exclude `ripgrep` from the
+closure of the `hello-pkg` artifact.
+
 ## Where to put artifacts
 
 To keep the output of a build separate from the source files,
@@ -120,3 +165,4 @@ You can see that page here: XXXXXXXXX
 
 [services-concept]: ./services.md
 [fhs-docs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+[pkg-groups]: http://localhost:8000/docs/concepts/manifest/?h=package+group#installing-packages-to-package-groups
