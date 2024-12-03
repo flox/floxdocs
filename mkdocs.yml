@@ -55,6 +55,8 @@ nav:
   - Cookbook:
     - Languages:
       - ... | flat | cookbook/languages/*
+    - Builds:
+      - ... | flat | cookbook/builds/*
   - Reference:
     - Flox manual:
       - reference/command-reference/flox.md

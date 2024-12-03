@@ -161,8 +161,9 @@ $ ./result-myproject/bin/myproject
 
 We've compiled a list of example commands to demonstrate how to use Flox to
 build artifacts in various ecosystems.
-You can see that page here: XXXXXXXXX
+You can see that page here: [Builds examples][build-examples].
 
 [services-concept]: ./services.md
 [fhs-docs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 [pkg-groups]: http://localhost:8000/docs/concepts/manifest/?h=package+group#installing-packages-to-package-groups
+[build-examples]: ../cookbook/builds/examples.md
