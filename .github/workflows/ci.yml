@@ -6,6 +6,7 @@ on:
     branches:
       - "main"
       - "preview"
+      - "build-preview"
   pull_request:
 
 permissions:
