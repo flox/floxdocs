@@ -52,10 +52,13 @@ nav:
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
+    - "Preview: Builds": concepts/manifest-builds.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:
       - ... | flat | cookbook/languages/*
+    - Builds:
+      - ... | flat | cookbook/builds/*
   - Reference:
     - Flox manual:
       - reference/command-reference/flox.md
