@@ -165,5 +165,5 @@ You can see that page here: [Builds examples][build-examples].
 
 [services-concept]: ./services.md
 [fhs-docs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
-[pkg-groups]: http://localhost:8000/docs/concepts/manifest/?h=package+group#installing-packages-to-package-groups
+[pkg-groups]: ./manifest.md#installing-packages-to-package-groups
 [build-examples]: ../cookbook/builds/examples.md
