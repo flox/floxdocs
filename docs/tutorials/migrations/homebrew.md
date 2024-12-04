@@ -92,7 +92,7 @@ To install your first package, use `flox install`:
 % flox install jq
 ```
 
-The first time you install a package, Flox will ask you whether you want to create a [default environment][default-tutorial]. If you choose to do so, Flox will then ask you whether you want to configure your shell to automatically activate the new default environment.
+The first time you install a package, Flox will ask you whether you want to create a [default environment][default_tutorial]. If you choose to do so, Flox will then ask you whether you want to configure your shell to automatically activate the new default environment.
 
 ```
 [show the flow]
@@ -102,7 +102,7 @@ When Flox is configured with a default environment, it behaves very similarly to
 
 Creating a Flox default environment is optional.
 
-If you do not choose for this to be automated at the time of your first package installation, you can [follow these instructions][default-tutorial#setup] to add Flox to your dotfiles manually.
+If you do not choose for this to be automated at the time of your first package installation, you can [follow these instructions][default_tutorial_setup] to add Flox to your dotfiles manually.
 
 ### Verify configuration
 Exit your active shell and create a new one, causing the dotfile changes to take effect. The first time this happens, you may experience a delay while your default environment is materialized. The next time you open a shell it should be quick because the environment has been cached.
@@ -161,9 +161,12 @@ We recommend that the Flox default environment activation lines appear lowest in
 
 [manifest_concept]: ../../concepts/manifest.md
 [default_tutorial]: ../default-environment.md
+[default_tutorial_setup]: ../default-environment.md#initial-setup
 [creating_tutorial]: ../creating-environments.md
 [install_flox]: ../../install-flox.md
 [search]: ../../reference/command-reference/flox-search.md
+[envs]: ../../reference/command-reference/flox-envs.md
+[list]: ../../reference/command-reference/flox-list.md
 [catalog]: ../../concepts/packages-and-catalog.md
 [install]: ../../reference/command-reference/flox-install.md
 [uninstall]: ../../reference/command-reference/flox-uninstall.md
