@@ -92,10 +92,38 @@ To install your first package, use `flox install`:
 % flox install jq
 ```
 
-The first time you install a package, Flox will ask you whether you want to create a [default environment][default_tutorial]. If you choose to do so, Flox will then ask you whether you want to configure your shell to automatically activate the new default environment.
+The first time you install a package, Flox will ask you whether you want to create a [default environment][default_tutorial]. 
 
 ```
-[show the flow]
+% flox install jq
+Packages must be installed into a Flox environment, which can be
+a user 'default' environment or attached to a directory.
+
+! Would you like to install 'jq' to the 'default' environment?
+> Yes
+  No
+[↑↓ to move, enter to select, type to filter]
+```
+
+If you choose to do so, Flox will then ask you whether you want to configure your shell to automatically activate the new default environment.
+
+```
+The 'default' environment can be activated automatically for every new shell
+by adding one line to your .bashrc file:
+eval "$(flox activate -d ~ -m run)"
+
+! Would you like Flox to add this configuration to your .bashrc now?
+> Yes
+  No
+[↑↓ to move, enter to select, type to filter]
+
+✅ Configuration added to your .bashrc file.
+The 'default' environment will be activated for every new shell.
+-> Restart your shell to continue using the default environment.
+-> Read more about the 'default' environment at:
+   https://flox.dev/docs/tutorials/layering-multiple-environments/#create-your-default-home-environment
+
+✅ 'jq' installed to environment 'default'
 ```
 
 When Flox is configured with a default environment, it behaves very similarly to Homebrew. The Flox CLI will assume the default environment when you run `flox install` in a directory that doesn't contain an environment of its own.
