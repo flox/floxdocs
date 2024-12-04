@@ -5,7 +5,7 @@ description: Using Flox to replace or augment Homebrew
 
 # Homebrew migration guide
 
-Flox is an environment manager and package manager all in one. Using Flox, you can create discrete environments containing packages from the Flox Catalog.
+Flox is an environment and package manager all in one. Using Flox, you can create discrete environments containing packages from the Flox Catalog.
 
 Flox can replace [Homebrew](https://brew.sh) entirely, or they can be used together.
 
