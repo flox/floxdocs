@@ -66,7 +66,7 @@ wget
 Then, search Flox for one of the formulae you have installed with Homebrew. In this case, for example, you could choose `jq`:
 
 ```
-% fflox search jq
+% flox search jq
 jq                   Lightweight and flexible command-line JSON processor
 ijq                  Interactive wrapper for jq
 jql                  JSON Query Language CLI tool built with Rust
