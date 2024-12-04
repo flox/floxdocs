@@ -106,7 +106,7 @@ the build an artifact that runs the `hello` package.
 By setting `runtime-packages = [ "hello" ]` we exclude `ripgrep` from the
 closure of the `hello-pkg` artifact.
 
-## Where to put artifacts
+### Where to put artifacts
 
 To keep the output of a build separate from the source files,
 every build is supplied with a directory whose path is stored in a variable
