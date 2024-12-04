@@ -78,7 +78,7 @@ but these packages may only be needed by your artifact at _build_ time,
 not _run_ time.
 As a reminder, the default package group is called `toplevel`,
 and all packages installed to an environment without an explicit `pkg-group`
-as placed into this package group.
+are placed into this package group.
 
 You can restrict the dependencies needed at runtime via the `runtime-packages`
 option:
