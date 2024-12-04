@@ -137,6 +137,32 @@ What this means in practice is:
 - Man pages should be placed in `$out/share/man`.
 - Libraries should be placed in `$out/lib`
 
+### Sandboxed builds
+
+The script that you specify in `command` is run on your host machine by default.
+This means that it may build against dependencies that are outside of your
+environment and the artifact may not function correctly when executed or rebuilt
+from another machine.
+
+In order to improve the reproducibility of your build you can specify that it is
+run within a sandbox that doesn't have access to the host machine:
+
+```toml
+[build.myproject]
+sandbox = "pure"
+command = '''
+  cargo build --release
+  mkdir -p $out/bin
+  cp target/release/myproject $out/bin/myproject
+'''
+```
+
+The project has to be within a Git repository and only committed files are
+available within the sandbox.
+
+On Linux machines the sandbox also prevents the build from accessing the
+network.
+
 ## Performing builds
 
 Builds are performed with the `flox build` command.
