@@ -55,6 +55,7 @@ this:
 [build.myproject]
 command = '''
   cargo build --release
+  mkdir -p $out/bin
   cp target/release/myproject $out/bin/myproject
 '''
 ```
@@ -92,6 +93,7 @@ ripgrep.pkg-path = "ripgrep"
 
 [build.hello-pkg]
 command = '''
+  mkdir -p $out/bin
   echo "hello" > $out/bin/hello-pkg
   chmod +x $out/bin/hello-pkg
 '''
@@ -112,11 +114,12 @@ To keep the output of a build separate from the source files,
 every build is supplied with a directory whose path is stored in a variable
 named `out`.
 Only the files stored in this directory are considered part of the output of
-a build.
+a build and it is empty by default.
 This is why you see the following line in the build command for the `myproject`
 example above
 
-```
+```sh
+mkdir -p $out/bin
 cp target/release/myproject $out/bin/myproject
 ```
 
