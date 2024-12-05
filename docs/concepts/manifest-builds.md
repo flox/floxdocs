@@ -55,6 +55,7 @@ this:
 [build.myproject]
 command = '''
   cargo build --release
+  mkdir -p $out/bin
   cp target/release/myproject $out/bin/myproject
 '''
 ```
@@ -78,7 +79,7 @@ but these packages may only be needed by your artifact at _build_ time,
 not _run_ time.
 As a reminder, the default package group is called `toplevel`,
 and all packages installed to an environment without an explicit `pkg-group`
-as placed into this package group.
+are placed into this package group.
 
 You can restrict the dependencies needed at runtime via the `runtime-packages`
 option:
@@ -92,6 +93,7 @@ ripgrep.pkg-path = "ripgrep"
 
 [build.hello-pkg]
 command = '''
+  mkdir -p $out/bin
   echo "hello" > $out/bin/hello-pkg
   chmod +x $out/bin/hello-pkg
 '''
@@ -106,17 +108,18 @@ the build an artifact that runs the `hello` package.
 By setting `runtime-packages = [ "hello" ]` we exclude `ripgrep` from the
 closure of the `hello-pkg` artifact.
 
-## Where to put artifacts
+### Where to put artifacts
 
 To keep the output of a build separate from the source files,
 every build is supplied with a directory whose path is stored in a variable
 named `out`.
 Only the files stored in this directory are considered part of the output of
-a build.
+a build and it is empty by default.
 This is why you see the following line in the build command for the `myproject`
 example above
 
-```
+```sh
+mkdir -p $out/bin
 cp target/release/myproject $out/bin/myproject
 ```
 
@@ -133,6 +136,32 @@ What this means in practice is:
   marked as executable via `chmod +x`.
 - Man pages should be placed in `$out/share/man`.
 - Libraries should be placed in `$out/lib`
+
+### Sandboxed builds
+
+The script that you specify in `command` is run on your host machine by default.
+This means that it may build against dependencies that are outside of your
+environment and the artifact may not function correctly when executed or rebuilt
+from another machine.
+
+In order to improve the reproducibility of your build you can specify that it is
+run within a sandbox that doesn't have access to the host machine:
+
+```toml
+[build.myproject]
+sandbox = "pure"
+command = '''
+  cargo build --release
+  mkdir -p $out/bin
+  cp target/release/myproject $out/bin/myproject
+'''
+```
+
+The project has to be within a Git repository and only committed files are
+available within the sandbox.
+
+On Linux machines the sandbox also prevents the build from accessing the
+network.
 
 ## Performing builds
 
