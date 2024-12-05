@@ -18,7 +18,7 @@ Homebrew does a great job, and has been loved as the â€œmissing package managerâ
 * **You need a virtual package manager** Flox allows you to create as many environments as you need, each with a different set of packages.
 * **You need reproducible environments.** Flox environments are defined in a TOML [manifest][manifest_concept] that can be easily shared, or managed alongside code.
 * **You need a broader set of software.** Homebrew has a sizeable collection of packages, but the Flox Catalog is based on Nixpkgs, the largest collection of packages in the world.
-* **You need older versions of software.** The Flox Catalog contains historical versions of each of its packages - in many cases, going back decades.
+* **You need older versions of software.** The Flox Catalog contains historical versions of each of its packages, and makes it easy to install them.
 
 ## Install Flox
 Download and install Flox following the [installation instructions][install_flox].
