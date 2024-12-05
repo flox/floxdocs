@@ -33,6 +33,7 @@ command = '''
 [build.myproject]
 command = '''
   cargo build --release
+  mkdir -p $out/bin
   cp target/release/myproject $out/bin/myproject
 '''
 ```
