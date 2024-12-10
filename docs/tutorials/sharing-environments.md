@@ -216,7 +216,7 @@ Done.
 Now let's run a command from our image:
 
 ``` console
-$  docker run --rm -it flox-env-container -- telnet --version
+$  docker run --rm -it example-project -- telnet --version
 telnet (GNU inetutils) 2.5
 ...
 ```
