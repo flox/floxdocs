@@ -56,6 +56,7 @@ environment rather than from elsewhere on your system.
 We mentioned above that there are three different ways to use an environment.
 
 ### Subshell
+
 We've already mentioned the first method,
 which is to put you into a subshell.
 When you activate this way your existing shell is paused and you're put into a
@@ -80,6 +81,7 @@ shell,
 but in this case it's the original shell.
 
 To make this happen you could do one of these options in Bash:
+
 ```bash
 # Option 1
 source <(flox activate)
@@ -113,11 +115,13 @@ maybe because you have some tools available in your environment that aren't
 available outside the environment.
 
 You could do this in a subshell:
+
 - Enter the subshell via `flox activate`
 - Run the command
 - Exit the subshell via `exit`
 
 You could do a similar thing with an in-place activation:
+
 - Configure your existing shell with `source <(flox activate)`.
 - Run the command
 - Your shell is still configured by Flox when you're done
@@ -128,6 +132,7 @@ shell,
 which you may not want.
 
 The easy way to do this is:
+
 ```bash
 $ flox activate -- <your command>
 ```

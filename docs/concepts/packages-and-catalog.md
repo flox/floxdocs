@@ -9,7 +9,7 @@ The **Flox Catalog** is a searchable index of **packages** that you can explore 
 [flox search][flox_search], [flox show][flox_show], and then [flox install][flox_install] to your
 environments.
 The built-in catalog contains a wide variety of open source packages you can use
-in your environments. 
+in your environments.
 
 A **package** is a collection of computer programs and related data that are
 bundled for distribution together on a UNIX-based computer system.
@@ -26,7 +26,7 @@ Upstream changes in [nixpkgs][nixpkgs] are reflected in the Flox Catalog daily f
 * **version**: semantic version of the package.
 * **license**: license metadata.
 * **unfree**: indicates if the software uses a license not defined as Open
-Source by the Open Source Initiative (OSI). 
+Source by the Open Source Initiative (OSI).
 * **broken**: indicates if the package is marked as broken in
 [nixpkgs][nixpkgs].
 
