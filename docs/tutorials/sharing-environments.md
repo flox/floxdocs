@@ -188,8 +188,6 @@ Now all new windows will open into your [FloxHub][floxhub_concept] environment. 
 
 Flox can render that environment as an OCI container runtime suitable for use with containerd, docker, kubernetes, nomad, and more.
 
-!!! warning "`flox containerize` is currently experimental and only supported on Linux"
-
 Let's create a container image from the `example-environment` we have been working with.
 
 To render your environment to a container, run `flox containerize`. This command
