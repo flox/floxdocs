@@ -186,12 +186,12 @@ Now all new windows will open into your [FloxHub][floxhub_concept] environment. 
 
 ## Sharing with containers
 
-Flox can render that environment as an OCI container runtime suitable for use with containerd, docker, kubernetes, nomad, and more.
+Flox can render that environment as an OCI container runtime suitable for use with containerd, Docker, Kubernetes, Nomad, and more.
 
 Let's create a container image from the `example-environment` we have been working with.
 
 To render your environment to a container, run `flox containerize`. This command
-will pipe the container image to stdout for usage with `docker load`:
+will pipe the container image to STDOUT for usage with `docker load`:
 
 ``` { .console }
 $ flox containerize | docker load # (1)!
@@ -210,7 +210,7 @@ Done.
     command.
 
 !!! note "Why so many layers?"
-    By default flox splits every dependency into a different layers, which allows
+    By default Flox splits every dependency into a different layers, which allows
     better dependency sharing and faster iteration.
 
 Now let's run a command from our image:
