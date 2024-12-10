@@ -194,20 +194,15 @@ To render your environment to a container, run `flox containerize`. This command
 will pipe the container image to STDOUT for usage with `docker load`:
 
 ``` { .console }
-$ flox containerize | docker load # (1)!
+$ flox containerize --runtime docker # (1)!
 ...
-Building container...
-Done.
-No 'fromImage' provided
 Creating layer 1 from paths: [...]
 ...
-Adding manifests...
-Done.
-✨  Container written to '/home/youruser/default-container.tar.gz'
+Loaded image: example-project:latest
+✨ Container written to Docker runtime
 ```
 
-1. `flox containerize` will stream generated docker image to `docker load`
-    command.
+1. See [`flox containerize`][flox_containerize] for more output options.
 
 !!! note "Why so many layers?"
     By default Flox splits every dependency into a different layers, which allows
@@ -233,3 +228,4 @@ telnet (GNU inetutils) 2.5
 [environment_concept]: ../concepts/environments.md
 [layering_guide]: ./layering-multiple-environments.md
 [customizing_guide]: ./customizing-environments.md
+[flox_containerize]: ../reference/command-reference/flox-containerize.md
