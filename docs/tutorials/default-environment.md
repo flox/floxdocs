@@ -49,7 +49,10 @@ or you can add a single line to your shell's RC file:
 
 === "Bash"
 
-    Add the following line to the very end of your `.bashrc` file:
+    Depending on the context, Bash will load different startup files.
+    For that reason, we need to add a line to two different files:
+    `.bashrc` and `.profile`.
+    Add the following line to the very end of each of those files:
 
     ```bash
     eval "$(flox activate -m run)"
@@ -57,7 +60,7 @@ or you can add a single line to your shell's RC file:
 
 === "Zsh"
 
-    Add the following line to the very end of your `.zshrc` file:
+    Add the following line to the very end of your `.zshenv` file:
 
     ```bash
     eval "$(flox activate -m run)"
