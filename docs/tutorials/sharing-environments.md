@@ -186,39 +186,32 @@ Now all new windows will open into your [FloxHub][floxhub_concept] environment. 
 
 ## Sharing with containers
 
-Flox can render that environment as an OCI container runtime suitable for use with containerd, docker, kubernetes, nomad, and more.
-
-!!! warning "`flox containerize` is currently experimental and only supported on Linux"
+Flox can render that environment as an OCI container runtime suitable for use with containerd, Docker, Kubernetes, Nomad, and more.
 
 Let's create a container image from the `example-environment` we have been working with.
 
 To render your environment to a container, run `flox containerize`. This command
-will pipe the container image to stdout for usage with `docker load`:
+will automatically load the image into Docker:
 
 ``` { .console }
-$ flox containerize | docker load # (1)!
+$ flox containerize --runtime docker # (1)!
 ...
-Building container...
-Done.
-No 'fromImage' provided
 Creating layer 1 from paths: [...]
 ...
-Adding manifests...
-Done.
-✨  Container written to '/home/youruser/default-container.tar.gz'
+Loaded image: example-project:latest
+✨ Container written to Docker runtime
 ```
 
-1. `flox containerize` will stream generated docker image to `docker load`
-    command.
+1. See [`flox containerize`][flox_containerize] for more output options.
 
 !!! note "Why so many layers?"
-    By default flox splits every dependency into a different layers, which allows
+    By default Flox splits every dependency into a different layers, which allows
     better dependency sharing and faster iteration.
 
 Now let's run a command from our image:
 
 ``` console
-$  docker run --rm -it flox-env-container -- telnet --version
+$  docker run --rm -it example-project -- telnet --version
 telnet (GNU inetutils) 2.5
 ...
 ```
@@ -235,3 +228,4 @@ telnet (GNU inetutils) 2.5
 [environment_concept]: ../concepts/environments.md
 [layering_guide]: ./layering-multiple-environments.md
 [customizing_guide]: ./customizing-environments.md
+[flox_containerize]: ../reference/command-reference/flox-containerize.md
