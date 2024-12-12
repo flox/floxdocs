@@ -60,7 +60,8 @@ or you can add a single line to your shell's RC file:
 
 === "Zsh"
 
-    Add the following line to the very end of your `.zshenv` file:
+    Add the following line to the very end of your `.zprofile` and `.zshrc`
+    files:
 
     ```bash
     eval "$(flox activate -m run)"
