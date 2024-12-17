@@ -63,6 +63,18 @@ flox [node-project] ➜  node-project git:(main) ✗ node -v
 v20.18.1
 ```
 
+## Add Node.js and associated dependencies to a package group (optional)
+If you need an older version of node in your environment, we recommend that you specify a package group in your manifest to ensure that you can still install the latest versions of other software in your environment. (For more on the manifest and on package groups, read [our reference guide][manifest]{:target="\_blank"}.)
+
+You can run `flox edit` to open up the manifest for the environment.
+
+```toml
+...
+[install]
+nodejs_20 = { pkg-path = "nodejs_20", pkg-group = "node-toolchain" }
+...
+```
+
 ## Install other dependencies using Flox (optional)
 Assuming your project is like most Node.js applications, you probably have dependencies other than node to install. In this case, maybe you need PostgreSQL and nginx. Fortunately, you can install both using Flox, in the same way in which you installed node.
 
@@ -91,16 +103,14 @@ nodejs_22 - Event-driven I/O framework for the V8 JavaScript engine
 
 ```
 
-Once you know what's available, you can run `flox edit` to open up the manifest for the environment, as illustrated below. (For more on the manifest, read [our reference guide][manifest]{:target="\_blank"}.) You can set your desired node version directly in the manifest, and then save your changes.
+Once you know what's available, you can run `flox edit` to open up the manifest for the environment. You can then set your desired node version directly in the manifest, and then save your changes. Note that you'll need to prepend `nodejs-` to whatever Node.js version number you intend to set in the manifest. This is required because of how those versions are stored in the Nix Packages collection.
 
-Note that you'll need to prepend `nodejs-` to whatever Node.js version number you intend set in the manifest. This is required because of how those versions are stored in the Nix Packages collection.
+(If you omit the specific version, you will get the latest version of `nodejs_22` that's compatible with everything in your environment. If you have a `pkg-group` set but no specific `version`, you'll get the latest version that's compatible with the rest of the software in the package group.)
 
 ```toml
 ...
-# List packages you wish to install in your environment inside
-# the `[install]` section.
 [install]
-nodejs_22 = { pkg-path = "nodejs_22", version = "nodejs-22.10.0" }
+nodejs_22 = { pkg-path = "nodejs_22", pkg-group = "node-toolchain", version = "nodejs-22.10.0" }
 ...
 ```
 
