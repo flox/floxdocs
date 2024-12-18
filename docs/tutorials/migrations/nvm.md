@@ -7,7 +7,7 @@ description: Using Flox to replace nvm
 
 Flox is an environment and package manager that allows you to install software from an extensive catalog into individual [environments][environment_concept]{:target="\_blank"}, each of which usually corresponds to a software project. Flox gives you the opportunity to simplify the development workflow used by your team, consolidating various functions into a single command: `flox activate`.
 
-Just like [nvm](https://github.com/nvm-sh/nvm){:target="\_blank"}, Flox allows you to install and activate different versions of Node.js, enabling you to switch versions as project requirements dictate. _Unlike_ nvm, however, Flox also allows you to install software from just about any language ecosystem, including Python, Rust, Go, Java, Ruby, and others.
+Just like [nvm](https://github.com/nvm-sh/nvm){:target="\_blank"}, Flox allows you to install and activate different versions of Node.js, enabling you to switch versions as project requirements dictate. _Unlike_ nvm, however, Flox also allows you to install just about any software you need, including databases and packages from language ecosystems like Python, Rust, Go, Java, Ruby, and others.
 
 ## Why you might want to use Flox instead of nvm
 nvm does exactly what it purports to do: it manages Node.js versions simply and effectively. Point notwithstanding, it's also one more dependency that you don't have to worry about if you're using Flox. Consider whether one of the following cases applies to you, or to your team:
