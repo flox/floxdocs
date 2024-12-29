@@ -110,7 +110,7 @@ Flox will use the package from the last environment activated.
 You can use `flox envs` to see the environments you have activated.
 
 ```bash
- flox envs
+flox envs
 ✨ Active environments:
   material-ui  /home/youruser/material-ui
   default      /home/youruser
