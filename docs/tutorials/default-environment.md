@@ -87,7 +87,13 @@ or you can add a single line to your shell's RC file:
 
 Once you've added that line to your shell,
 you'll need to restart your shell (or open a new one) for the changes to
-take effect.
+take effect. If you don't want to ativate it automatically, the default
+environment can simply be activated using `-d` parameter of the Flox CLI
+like so:
+
+```bash
+flox activate -d "$HOME"
+```
 
 ## Taking it for a spin
 
