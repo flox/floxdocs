@@ -107,7 +107,7 @@ You can layer as many environments as you want.
 If two environments contain the same package,
 Flox will use the package from the last environment activated.
 
-You can use `flex envs` to see the environments you have activated.
+You can use `flox envs` to see the environments you have activated.
 
 ```bash
  flox envs
