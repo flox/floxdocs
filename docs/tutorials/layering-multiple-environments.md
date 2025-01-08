@@ -116,7 +116,9 @@ flox envs
   default      /home/youruser
 
 Inactive environments:
+
 ```
+
 ## Where to next
 
 - :simple-readme:{ .flox-purple .flox-heart } [Sharing environments][sharing_guide]
