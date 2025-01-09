@@ -20,7 +20,7 @@ system** regardless of the project.
 Here we are installing `curl`, `gitFull`, `gnupg`, `inetutils`, `tree`, and
 `vim`.
 
-``` console
+```console
 $ flox install curl gitFull gnupg inetutils tree vim
 ✅ 'curl' installed to environment default at /Users/youruser
 ✅ 'gitFull' installed to environment default at /Users/youruser
@@ -32,7 +32,7 @@ $ flox install curl gitFull gnupg inetutils tree vim
 
 Let's inspect the contents of the environment with [`flox list`][flox_list]:
 
-``` console
+```console
 $ flox list
 curl: curl (8.4.0)
 gitFull: gitFull (2.42.0)
@@ -45,7 +45,7 @@ vim: vim (9.0.2116)
 We can test the environment is working properly with
 [`flox activate`][flox_activate].
 
-```
+```console
 $ flox activate
 flox [default] $ which git
 /Users/youruser/.flox/run/aarch64-darwin.default/bin/git
@@ -65,7 +65,7 @@ For this example we will use a publicly accessible Node project called
 Let's clone the example project to our home directory and enter the project's
 directory:
 
-```
+```console
 flox [default] $ git clone https://github.com/mui/material-ui.git
 Cloning into ...
 flox [default] $ cd material-ui
@@ -73,7 +73,7 @@ flox [default] $ cd material-ui
 
 Use [`flox init`][flox_init] from the `material-ui` directory that we are in.
 
-```
+```console
 flox [default] $ flox init
 ✨ Created environment material-ui (aarch64-darwin)
 
@@ -86,7 +86,7 @@ Next:
 This project only requires `yarn` so let's install it with
 [`flox install`][flox_install].
 
-```
+```console
 flox [default] $ flox install yarn
 ✅ 'yarn' installed to environment material-ui at /Users/youruser/material-ui
 ```
@@ -95,7 +95,7 @@ Now we're ready to do development on this project!
 Let's activate the `material-ui` Flox environment and start `material-ui`'s
 development server.
 
-```
+```console
 flox [default] $ flox activate
 flox [material-ui default] $ yarn start
 ...
@@ -109,8 +109,8 @@ Flox will use the package from the last environment activated.
 
 You can use `flox envs` to see the environments you have activated.
 
-```bash
-flox envs
+```console
+$ flox envs
 ✨ Active environments:
   material-ui  /home/youruser/material-ui
   default      /home/youruser
