@@ -82,31 +82,35 @@ and all packages installed to an environment without an explicit `pkg-group`
 are placed into this package group.
 
 You can restrict the dependencies needed at runtime via the `runtime-packages`
-option:
+option by listing the `install-id`s
+of the dependencies required at runtime:
 
 ```toml
 version = 1
 
 [install]
-hello.pkg-path = "hello"
+hello.pkg-path = "hello-go"
 ripgrep.pkg-path = "ripgrep"
 
 [build.hello-pkg]
 command = '''
   mkdir -p $out/bin
-  echo "hello" > $out/bin/hello-pkg
+  echo "hello-go" > $out/bin/hello-pkg
   chmod +x $out/bin/hello-pkg
 '''
-runtime-packages = [ "hello" ]
+runtime-packages = [ "hello" ] # List of `install-id`s
 
 [options]
 systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]
 ```
 
-In the example manifest above we install two packages, `hello` and `ripgrep`,
-the build an artifact that runs the `hello` package.
-By setting `runtime-packages = [ "hello" ]` we exclude `ripgrep` from the
-closure of the `hello-pkg` artifact.
+In the example manifest above we install two packages, `hello-go` and `ripgrep`,
+and build an artifact that runs the `hello-go` package, called `hello-pkg`.
+By setting `runtime-packages = [ "hello" ]`
+(the `install-id` of the `hello-go` package is `hello`),
+we limit the runtime closure of the `hello-pkg` artifact
+to only the `hello-go` package,
+eliminating `ripgerp`.
 
 ### Where to put artifacts
 
