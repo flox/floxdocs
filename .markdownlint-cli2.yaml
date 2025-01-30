@@ -1,3 +1,6 @@
+globs:
+  - "docs/**/*.md"
+
 config:
   # Not worth worrying about.
   code-block-style: false
