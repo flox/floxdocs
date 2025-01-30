@@ -1,5 +1,6 @@
 globs:
   - "docs/**/*.md"
+gitignore: true
 
 config:
   # Not worth worrying about.
