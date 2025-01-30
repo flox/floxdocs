@@ -1,5 +1,5 @@
 ---
-title: Designing multiple architecture environments
+title: Designing multiple architecture environm
 description: Creating environments that run on different systems.
 ---
 
