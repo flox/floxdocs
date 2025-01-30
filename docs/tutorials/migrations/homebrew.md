@@ -12,6 +12,7 @@ Flox can replace [Homebrew](https://brew.sh) entirely, or they can be used toget
 This guide explains how to introduce Flox into environments where Homebrew is currently being used, either as a replacement or an addition. It introduces new concepts and proposes a basic procedure for mapping packages.
 
 ## Why you might want to migrate
+
 Homebrew does a great job, and has been loved as the “missing package manager” for a generation of macOS users. But there are a few reasons you might consider moving to Flox:
 
 * **You need a cross-platform package manager.** Flox works on both macOS and Linux - x86 and ARM - allowing you to define a set of packages that works the same everywhere.
@@ -21,9 +22,11 @@ Homebrew does a great job, and has been loved as the “missing package manager�
 * **You need older versions of software.** The Flox Catalog contains historical versions of each of its packages, and makes it easy to install them.
 
 ## Install Flox
+
 Download and install Flox following the [installation instructions][install_flox].
 
 ## Migrate your first package
+
 Migrating to Flox is a straightforward process of installing Flox packages for each of your Homebrew formulae. This section walks you through the process for identifying the set of Homebrew formulae you currently have installed, searching for the corresponding packages in the Flox Catalog, and installing them.
 
 As a Homebrew user, you will find several of the Flox subcommands familiar:
@@ -33,6 +36,7 @@ As a Homebrew user, you will find several of the Flox subcommands familiar:
 * [`uninstall`][uninstall] is used to remove packages
 
 ### Show top-level formulae in Homebrew
+
 First, identify the list of Homebrew packages you have installed.
 
 We recommend using `brew leaves` for this, so you can easily differentiate between the formulae you installed explicitly versus those that were installed as dependencies. The `leaves` subcommand will show the formulae that were directly installed.
@@ -63,6 +67,7 @@ wget
 ```
 
 ### Search for a package in Flox
+
 Then, search Flox for one of the formulae you have installed with Homebrew. In this case, for example, you could choose `jq`:
 
 ```
@@ -86,13 +91,14 @@ Use 'flox show <package>' to see available versions
 The first one on the list is the correct Flox package to install, and it has the same name as the Homebrew package. This will often be the case, but not always.
 
 ### Install your first package
+
 To install your first package, use `flox install`:
 
 ```
 % flox install jq
 ```
 
-The first time you install a package, Flox will ask you whether you want to create a [default environment][default_tutorial]. 
+The first time you install a package, Flox will ask you whether you want to create a [default environment][default_tutorial].
 
 ```
 % flox install jq
@@ -133,6 +139,7 @@ Creating a Flox default environment is optional.
 If you do not choose for this to be automated at the time of your first package installation, you can [follow these instructions][default_tutorial_setup] to add Flox to your dotfiles manually.
 
 ### Verify configuration
+
 Exit your active shell and create a new one, causing the dotfile changes to take effect. The first time this happens, you may experience a delay while your default environment is materialized. The next time you open a shell it should be quick because the environment has been cached.
 
 Once the shell is available, you can verify that your default environment is active by running [`flox envs`][envs]:
@@ -153,6 +160,7 @@ jq: jq (1.7.1)
 ```
 
 ## Create environments for projects
+
 As you continue to migrate packages from Homebrew to Flox, you may find that you don’t need them all in your default environment.
 
 The default environment is intended for packages that should be available to the user across all of the contexts where they work. It is commonly used for general utilities like `gh`, `gnused`, and `curl` that apply to many situations.
@@ -172,20 +180,22 @@ When installing packages that you are accustomed to getting from Homebrew, consi
 * install the rest into environments for the projects or contexts where they are required.
 
 ## Complete the migration
+
 Once you have installed all of the Flox packages you need, you have a few options. You can either uninstall Homebrew and use Flox exclusively, or you can use them together.
 
 ### Option 1: Uninstall Homebrew
+
 If Flox has everything you need and is working satisfactorally, you may no longer need Homebrew. In this case, it’s a good idea to uninstall it so it doesn’t affect your system in potentially confusing ways.
 
 To do this, follow [the instructions in the Homebrew FAQ](https://docs.brew.sh/FAQ#how-do-i-uninstall-homebrew).
 
 ### Option 2: Use Flox and Homebrew together
+
 Homebrew and Flox can be used together, and there is no need to uninstall Homebrew in order to use Flox.
 
 However, if you have the Flox default environment enabled, you should be aware of the order of Homebrew and Flox entries in your dotfiles. Both Homebrew and Flox modify your `PATH`, and the one that appears later in your dotfiles will take precedence. If the same package is installed using both Homebrew and Flox, this order will become important.
 
 We recommend that the Flox default environment activation lines appear lowest in your dotfiles, ensuring that packages in the default environment appear in your `PATH` sooner than those from Homebrew.
-
 
 [manifest_concept]: ../../concepts/manifest.md
 [default_tutorial]: ../default-environment.md
