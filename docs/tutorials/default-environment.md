@@ -28,7 +28,7 @@ so let's take a look at how to set it up.
 ## Initial setup
 
 At the most basic level,
-the `default` enviroment is simply an environment in your home directory.
+the `default` environment is simply an environment in your home directory.
 Since you're unlikely to do development in your home directory we treat this
 environment specially.
 
