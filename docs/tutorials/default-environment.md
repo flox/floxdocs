@@ -119,7 +119,27 @@ $ flox install hello
 ✅ 'hello' installed to environment 'default'
 ```
 
-It worked (though you shouldn't be surprised, Flox is awesome)!
+It worked (though you shouldn't be surprised; Flox is awesome)!
+
+## Installing packages to the default environment from another Flox environment
+
+If you're in a project directory with an existing Flox environment,
+unsurprisingly, running `flox install <pkg>` will install the package
+to the environment in that directory, rather than your default environment.
+
+Nevertheless, it's still easy to install whatever you wish to your `default`
+environment.
+All you need to do is pass the `-d` argument to the `install` command, like so:
+
+```bash
+flox install -d ~ hello
+```
+
+When you do this, you should see the following output, indicating success:
+
+```console
+✅ 'hello' installed to environment 'default'
+```
 
 ## Customization
 
