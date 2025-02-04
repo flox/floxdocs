@@ -11,7 +11,6 @@ version = 1
 coreutils.pkg-path = "coreutils"
 findutils.pkg-path = "findutils"
 gnutar.pkg-path = "gnutar"
-lychee.pkg-path = "lychee"
 pandoc.pkg-path = "pandoc"
 poetry.pkg-path = "poetry"
 python.pkg-path = "python3"
@@ -19,7 +18,11 @@ python.version = "3.11.*"
 pngquant.pkg-path = "pngquant"
 gnused.pkg-path = "gnused"
 d2.pkg-path = "d2"
+
+lychee.pkg-path = "lychee"
+lychee.pkg-group = "lint"
 markdownlint-cli2.pkg-path = "markdownlint-cli2"
+markdownlint-cli2.pkg-group = "lint"
 
 # Set environment variables in the `[vars]` section. These variables may not
 # reference one another, and are added to the environment without first

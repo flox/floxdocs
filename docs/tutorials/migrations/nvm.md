@@ -10,6 +10,7 @@ Flox is an environment and package manager that allows you to install software f
 Just like [nvm](https://github.com/nvm-sh/nvm){:target="\_blank"}, Flox allows you to install and activate different versions of Node.js, enabling you to switch versions as project requirements dictate. _Unlike_ nvm, however, Flox also allows you to install just about any software you need, including databases and packages from language ecosystems like Python, Rust, Go, Java, Ruby, and others.
 
 ## Why you might want to use Flox instead of nvm
+
 nvm does exactly what it purports to do: it manages Node.js versions simply and effectively. Point notwithstanding, it's also one more dependency that you don't have to worry about if you're using Flox. Consider whether one of the following cases applies to you, or to your team:
 
 * **You work on a team with members who have diverse skill sets, and you want to have a single entrypoint for development, regardless of language ecosystem.** No matter what languages and technologies your team is comfortable with, they can use the same Flox commands to spin up their local dev environments. For example, instead of asking a Java developer who uses a Linux machine to install nvm in order to get the right node version for your project, you can offer a better solution. That developer can use the same Flox commands they use to activate their own projects to activate the dev environment for your node project, which you develop on your Mac.
@@ -18,9 +19,11 @@ nvm does exactly what it purports to do: it manages Node.js versions simply and 
 * **You need to manage versions of other JavaScript runtimes, like Bun or Deno.** While nvm is, as the name denotes, used for managing Node.js versions, that's all it does. You can use Flox to install node, but you can also use it to install different JavaScript runtimes, including [Bun](https://bun.sh/){:target="\_blank"} and [Deno](https://deno.com/){:target="\_blank"}.
 
 ## Install Flox
+
 Download and install Flox as described in our [installation instructions][install_flox]{:target="\_blank"}.
 
 ## Create a Flox environment in your existing project and install Node.js
+
 Navigate to your project's directory and run this command to initialize a Flox environment:
 
 ```sh
@@ -69,6 +72,7 @@ This should yield the following output:
 ```
 
 ## Verify the Node.js version
+
 Now that you've installed node, you activate the Flox environment to verify that it has the the version you expect.
 
 ```sh
@@ -97,6 +101,7 @@ v20.18.1
 ```
 
 ## Add Node.js and associated dependencies to a package group (optional)
+
 If you need an older version of node in your environment, we recommend that you specify a package group in your manifest to ensure that you can still install the latest versions of other software in your environment. (For more on the manifest and on package groups, read [our reference guide][manifest]{:target="\_blank"}.)
 
 At this point, you should run the following command to edit the Flox environment configuration manually:
@@ -115,6 +120,7 @@ nodejs_20 = { pkg-path = "nodejs_20", pkg-group = "node-toolchain" }
 ```
 
 ## Install other dependencies using Flox (optional)
+
 Assuming your project is like most Node.js applications, you probably have dependencies other than node to install. In this case, maybe you need PostgreSQL and nginx. Fortunately, you can install both using Flox, in the same way in which you installed node.
 
 ```sh
@@ -128,9 +134,11 @@ flox [node-project] ➜  node-project git:(main) ✗ flox install postgresql ngi
 ✅ 'postgresql' installed to environment 'node-project'
 ✅ 'nginx' installed to environment 'node-project'
 ```
+
 Now you have everything you need to develop locally, and you didn't have to figure out how to install [nginx](https://nginx.org/en/docs/install.html){:target="\_blank"} and [PostgreSQL](https://www.postgresql.org/download/){:target="\_blank"} individually.
 
 ## Update the Node.js version
+
 If you want to install a different node version, you can always update your environment to include the version you need. For example, let's say you're upgrading your project to Node.js v22. The best way to get the correct Flox Catalog version name for your desired version is to run `flox show <package>`:
 
 ```sh
@@ -172,11 +180,12 @@ nodejs_22 = { pkg-path = "nodejs_22", pkg-group = "node-toolchain", version = "n
 ```
 
 ## Update the README in your project
+
 At this point, you can replace any nvm-related instructions in your README with corresponding instructions for using Flox. In particular, instead of running `nvm use` to pick up the Node.js version from the `.nvmrc`, you can just run `flox activate`. This will install all the dependencies in your Flox environment, not just node.
 
 ## Remove nvm and related artifacts
-Now that you're managing your project's Node.js version using Flox, you can `git rm .nvmrc` and commit the result. You're free to repeat the process in other project directories before following the [instructions for uninstalling nvm as listed in the nvm README](https://github.com/nvm-sh/nvm?tab=readme-ov-file#uninstalling--removal){:target="\_blank"}.
 
+Now that you're managing your project's Node.js version using Flox, you can `git rm .nvmrc` and commit the result. You're free to repeat the process in other project directories before following the [instructions for uninstalling nvm as listed in the nvm README](https://github.com/nvm-sh/nvm?tab=readme-ov-file#uninstalling--removal){:target="\_blank"}.
 
 [environment_concept]: ../../concepts/environments.md
 [install_flox]: ../../install-flox.md
