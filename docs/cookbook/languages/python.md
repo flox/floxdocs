@@ -97,7 +97,7 @@ When `flox upgrade` is run in this environment, the version of Python will be up
 flox install python311Full@python3-3.11.3
 ```
 
-### Add packages
+### Add Python packages
 
 Python projects often require a collection of packages in addition to an interpreter. Often these are installed using `pip`, but they can also be acquired from the Flox Catalog. This will allow them to be locked in the Flox Manifest alongside the other packages in your environment.
 
@@ -130,7 +130,8 @@ $ flox install python311Packages.numpy python311Packages.pandas
 ✅ 'pandas' installed to environment 'new-python-project'
 ```
 
-### Activate and verify
+### Activate and verify packages
+
 Once the packages have been installed, activate the new environment:
 
 ```
@@ -249,9 +250,9 @@ If you choose “Yes” to accept this configuration, you can edit or customize 
 flox init --auto-setup
 ```
 
-### Add packages
+### Add system packages
 
-The only dependency from `pyproject.toml` that Flox did not install for us is [Graphviz](https://graphviz.org/), an open source tool for creating and visualizing graphs. 
+The only dependency from `pyproject.toml` that Flox did not install for us is [Graphviz](https://graphviz.org/), an open source tool for creating and visualizing graphs.
 
 To do this, we could `flox edit` and add `graphviz` to the `[install]` section of our environment's software manifest, but it's just as easy to install it from the command line. So let’s do that.
 
@@ -261,7 +262,7 @@ flox install graphviz
 
 Now it's time to put this environment through its paces.
 
-### Activate and verify
+### Activate and verify the environment
 
 First let's activate the environment:
 
@@ -288,6 +289,3 @@ At this point, the version of `eralchemy` is available within your environment.
 ```
 
 
-## Next steps
-
-TODO: Write conclusion
