@@ -28,7 +28,7 @@ so let's take a look at how to set it up.
 ## Initial setup
 
 At the most basic level,
-the `default` enviroment is simply an environment in your home directory.
+the `default` environment is simply an environment in your home directory.
 Since you're unlikely to do development in your home directory we treat this
 environment specially.
 
@@ -88,6 +88,13 @@ or you can add a single line to your shell's RC file:
 Once you've added that line to your shell,
 you'll need to restart your shell (or open a new one) for the changes to
 take effect.
+If you don't want to activate it automatically, the default
+environment can simply be activated using `-d` parameter of the Flox CLI
+like so:
+
+```bash
+flox activate -d "$HOME"
+```
 
 ## Taking it for a spin
 
@@ -112,7 +119,27 @@ $ flox install hello
 ✅ 'hello' installed to environment 'default'
 ```
 
-It worked (though you shouldn't be surprised, Flox is awesome)!
+It worked (though you shouldn't be surprised; Flox is awesome)!
+
+## Installing packages to the default environment from another Flox environment
+
+If you're in a project directory with an existing Flox environment,
+unsurprisingly, running `flox install <pkg>` will install the package
+to the environment in that directory, rather than your default environment.
+
+Nevertheless, it's still easy to install whatever you wish to your `default`
+environment.
+All you need to do is pass the `-d` argument to the `install` command, like so:
+
+```bash
+flox install -d ~ hello
+```
+
+When you do this, you should see the following output, indicating success:
+
+```console
+✅ 'hello' installed to environment 'default'
+```
 
 ## Customization
 

@@ -675,6 +675,10 @@ description: Install or upgrade Flox
     ...
     ```
 
+    Nix does not always update transitive dependencies when the version is
+    changed,
+    so to ensure all updates are applied, run `nix flake update`.
+
 ## Uninstall Flox
 
 While we are sad we see you uninstalling `flox` we would like **thank you**

@@ -50,7 +50,7 @@ jobs:
       - name: "Check markdown lint"
         uses: "flox/activate-action@main"
         with:
-          command: "markdownlint-cli2 docs/**/*.md"
+          command: "markdownlint-cli2"
 
       - name: "Check external links"
         uses: "flox/activate-action@main"
