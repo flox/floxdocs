@@ -38,13 +38,13 @@ This Flox environment is now ready to be populated with packages.
 
 ### Select a Python interpreter
 
-To begin, we need a Python interpreter. For this example, we will using Python 3.11. Search for the version of Python your project requires:
+To begin, we need a Python interpreter. For this example, we will be using Python 3.11. Search for the version of Python your project requires, omitting the dot between major and minor numbers:
 
 ```
 flox search python311
 ```
 
-This will show you the list of packages matching the major and minor version of Python you need:
+This will show you the list of packages matching the major and minor version of Python you specified:
 
 ```
 $ flox search python311
@@ -122,7 +122,7 @@ Python packages will have a prefix of `pythonXXXPackages.` in their package name
 flox install python311Packages.numpy python311Packages.pandas
 ```
 
-You will see output indicating that the packages were successfully installed. If installation was not successful, you should see an error message indicating the failure.
+You will see output indicating that the packages were successfully installed. If installation was not successful, you should see an error message indicating the failure:
 
 ```
 $ flox install python311Packages.numpy python311Packages.pandas
@@ -130,7 +130,7 @@ $ flox install python311Packages.numpy python311Packages.pandas
 ✅ 'pandas' installed to environment 'new-python-project'
 ```
 
-### Activate and verify packages
+### Activate the new environment
 
 Once the packages have been installed, activate the new environment:
 
@@ -150,7 +150,7 @@ flox [new-python-project] $
 
 ## Using Flox in an existing project
 
-If you are working with an existing project that is already configured to work with Python - e.g. it has a `requirements.txt` or `pyproject.toml` - Flox provides an automated environment setup flow.
+If you are working with an existing project that is already configured for Python - e.g. it has a `requirements.txt` or `pyproject.toml` - Flox provides an automated environment setup flow.
 
 For this example we will clone the `eralchemy` repo, which already contains Python configuration:
 
@@ -192,9 +192,10 @@ Here's what each option does:
 
 - “Yes” builds the environment using the `pyproject.toml` file;
 - “No” skips automatic setup. You can use `pip` or `poetry` with `pyproject.toml` to build your environment;
-- “Show” previews the configuration you'd get by selecting “Yes,” letting you vet your environment's setup.
+- “Show” previews the configuration you'd get by selecting “Yes,” allowing you to vet your environment's setup.
 
-And here's what happens if you choose the “Show” option:
+
+If you would like to preview the proposed changes, you can choose the "Show" option. It will show you the proposed changes to each section of your environment manifest, e.g.:
 
 ```
 > Show suggested modifications for pyproject
@@ -244,7 +245,7 @@ zsh = '''
 '''
 ```
 
-If you choose “Yes” to accept this configuration, you can edit or customize it once Flox finishes building just by typing `flox edit`. And you can automate the setup process for Python environments just by running:
+If you choose “Yes” to accept this configuration, you can edit or customize it once Flox finishes building just by typing `flox edit`. For future projects, you can automate this setup process for Python environments by running:
 
 ```
 flox init --auto-setup
@@ -254,7 +255,7 @@ flox init --auto-setup
 
 The only dependency from `pyproject.toml` that Flox did not install for us is [Graphviz](https://graphviz.org/), an open source tool for creating and visualizing graphs.
 
-To do this, we could `flox edit` and add `graphviz` to the `[install]` section of our environment's software manifest, but it's just as easy to install it from the command line. So let’s do that.
+To do this, we could run `flox edit` and add `graphviz` to the `[install]` section of our environment's software manifest, but it's just as easy to install it from the command line. So let’s do that instead:
 
 ```
 flox install graphviz
