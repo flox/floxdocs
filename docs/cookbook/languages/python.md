@@ -287,5 +287,3 @@ At this point, the version of `eralchemy` is available within your environment.
 (python) flox [eralchemy] $ which eralchemy
 /home/floxfan/eralchemy/.flox/cache/python/bin/eralchemy
 ```
-
-
