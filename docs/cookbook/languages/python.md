@@ -160,7 +160,7 @@ git clone https://github.com/eralchemy/eralchemy.git && cd eralchemy
 
 ### Auto-initialize the environment
 
-Once inside `eralchemy`s project directory, initialize a new Flox environment:
+Once inside the `eralchemy` project directory, initialize a new Flox environment:
 
 ```
 flox init
