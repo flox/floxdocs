@@ -194,7 +194,6 @@ Here's what each option does:
 - “No” skips automatic setup. You can use `pip` or `poetry` with `pyproject.toml` to build your environment;
 - “Show” previews the configuration you'd get by selecting “Yes,” allowing you to vet your environment's setup.
 
-
 If you would like to preview the proposed changes, you can choose the "Show" option. It will show you the proposed changes to each section of your environment manifest, e.g.:
 
 ```
