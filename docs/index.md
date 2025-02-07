@@ -1,15 +1,32 @@
 ---
 title: Introduction
 description: What is Flox?
+hide:
+  - toc
 ---
 
 # What is Flox?
 
-Description... 
+<div class="grid" markdown>
 
+<p>
+Flox is a next-generation package manager that is language-agnostic and cross-platform by default. 
+<br><br>
+-> Install packages into environments without fear of dependency conflicts. 
+<br>
+-> Activate an environment to get your project running in a new sub-shell. 
+<br><br>
+There are no containers involved, so there's no isolation preventing you from using your favorite tools and dotfiles. Flox uses Nix under the hood to provide rock-solid reproducibility, ....  
+</p>
+
+<iframe width="460" height="260" src="https://www.youtube.com/embed/aidi5svDml8?si=rrgQ6a0oQzdFNgWs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</div>
+
+## Get Started
 <div class="grid cards" markdown>
 
--   :octicons-terminal-24:{ .lg .middle } __Get started__
+-   :octicons-terminal-24:{ .lg .middle } __Quick start with the Flox CLI__
 
     ---
 
@@ -22,7 +39,7 @@ Description...
     
     [:octicons-arrow-right-24: Search packages in FloxHub][floxhub_packages]{:target="_blank"}
 
--   :material-nix:{ .lg .middle } __Flox :octicons-heart-16: Nix__
+-   :material-nix:{ .lg .middle } __Already installed Nix? Start here__
 
     ---
 
@@ -36,28 +53,47 @@ Description...
 
 </div>
 
+### Examples
 
+Use one tool to set up your dev environment, no matter what language you're working with. 
+Combine multiple languages in a single environment or layer environments for more flexibility.
 
+See how to get started with Flox in your language:
 
-## Examples
 <div class="grid cards" markdown>
 
-- :material-nodejs: __Node__ example
-- :fontawesome-brands-golang: __Go__ example
-- :fontawesome-brands-python: __Python__ example
-- :fontawesome-brands-rust: __Rust__ example
-- :material-language-ruby: __Ruby__ example 
-
+- :simple-nodedotjs: __Node__ <br> 
+[Set up a NodeJS environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-nodejs-environments/) <br>
+[Guide for nvm users](./tutorials/migrations/nvm.md)
+- :fontawesome-brands-golang: __Go__ <br>
+[Set up a Go environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-go-environments/)
+- :fontawesome-brands-python: __Python__ <br>
+[Set up a Python environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/)
+- :fontawesome-brands-rust: __Rust__ <br>
+[Set up a Rust environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/) <br>
+- :material-language-ruby: __Ruby__  <br>
+[Set up a Ruby environment](https://flox.dev/blog/making-ruby-projects-easier-to-share/)
 </div>
-
 
 ## Why Flox?
 
-## Use case 1
+...high level overview of use cases, exact titles TBD... 
 
-## Use case 2
+1. Reproducible dev environments
+2. Reproducible package manager for your whole system
+3. Consistent builds from local to CI to production
 
-## Use case 3
+## Reproducible dev environments
+
+...one paragraph description, can include links within to services concepts, sharing, etc...
+
+## Reproducible package manager for your whole system
+
+...one paragraph description, can include links within to default env, homebrew guide, blog, etc...
+
+## Consistent builds from local to CI to production
+
+...one paragraph description, can include links within to CI/CD tutorial, CI blog, containerize reference, etc...
 
 
 
