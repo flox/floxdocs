@@ -91,7 +91,7 @@ $ flox list
 python311Full: python311Full (python3-3.11.9)
 ```
 
-When `flox upgrade` is run in this environment, the version of Python will be upgraded to the latest version available in the catalog. If you wish to pin your Flox environment to a specific version of Python, you can specify it in the `flox install` command:
+When `flox upgrade` is run in this environment, the version of Python will be upgraded to the latest version available in the catalog matching those major and minor numbers. If you wish to pin your Flox environment to a specific release of Python, you can specify it in the `flox install` command:
 
 ```
 flox install python311Full@python3-3.11.3
@@ -116,7 +116,7 @@ python311Packages.numpy    Scientific tools for Python
 [...]
 ```
 
-Python packages will have a prefix of `pythonXXXPackages.` in their package name. To install them, use the entire package name including the prefix:
+Python packages will have a prefix of `pythonXXXPackages.` in their package name, with `XXX` matching the version of Python you have installed into your environment. To install them, use the entire package name including the prefix:
 
 ```
 flox install python311Packages.numpy python311Packages.pandas
