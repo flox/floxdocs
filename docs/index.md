@@ -5,6 +5,8 @@ hide:
   - toc
 ---
 
+<!-- markdownlint-disable-file MD033 -->
+
 # What is Flox?
 
 <div class="grid" markdown>
