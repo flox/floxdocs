@@ -5,7 +5,13 @@ hide:
   - toc
 ---
 
+<!-- shut up linter -->
 <!-- markdownlint-disable-file MD033 -->
+<!-- markdownlint-disable-file MD009 -->
+<!-- markdownlint-disable-file MD022 -->
+<!-- markdownlint-disable-file MD030 -->
+<!-- markdownlint-disable-file MD012 -->
+<!-- markdownlint-disable-file MD032 -->
 
 # What is Flox?
 
