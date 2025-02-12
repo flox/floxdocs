@@ -8,6 +8,7 @@ description: Common questions and solutions for using Rust with Flox
 ## What do I need for a basic environment?
 
 First we'll show you the answer, and then we'll explain.
+The full example environment can be found in the [floxenvs repository][example_env].
 
 A manifest that provides you a Rust development environment would look like
 this:
@@ -166,3 +167,5 @@ fish = '''
   alias build "cargo build"
 '''
 ```
+
+[example_env]: https://github.com/flox/floxenvs/tree/main/rust
