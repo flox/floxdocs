@@ -5,10 +5,8 @@ description: Integrate with yout favorite CI/CD platform.
 
 # Continuous integration/delivery (CI/CD)
 
-Continuous integration (CI) and Continuous delivery (CD) is essetial in todays
-software development cycle. Flox environments can take you CI/CD pipelines to
-the next level, making them robust and reproducible. Let us look how can you
-use Flox with some of the CI/CD platforms.
+Continuous integration (CI) and Continuous delivery (CD) is essetial in todays software development cycle.
+Flox environments can take you CI/CD pipelines to the next level, making them robust and reproducible. Let us look how can you use Flox with some of the CI/CD platforms.
 
 ## Github Actions
 
@@ -45,17 +43,13 @@ jobs:
 
 ```
 
-1. You are looking at an example project, your project will probably look a
-   little different. Important parts of how to integrate Flox with Github
-   Actions are highlighted bellow.
+1. You are looking at an example project, your project will probably look a little different. Important parts of how to integrate Flox with Github Actions are highlighted bellow.
 2. `flox/install-flox-action` will install latest version Flox.
-3. `flox/activate-action` allows you to run a command inside the Flox
-   environment.
+3. `flox/activate-action` allows you to run a command inside the Flox environment.
 
 ## CircleCI
 
-There is a [Flox Orb](https://github.com/flox/flox-orb) that can help you use
-Flox inside CircleCI.
+There is a [Flox Orb](https://github.com/flox/flox-orb) that can help you use Flox inside CircleCI.
 
 An example CircleCI workflow:
 
@@ -76,9 +70,7 @@ jobs:
           command: "npm run build"
 ```
 
-1. The `install` command will install the latest Flox version. You can change
-   the `channel` and `version` option which allows you to select excatly which
-   version of Flox to install.
+1. The `install` command will install the latest Flox version. You can change the `channel` and `version` option which allows you to select excatly which version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
 
 ## GitLab
