@@ -1,12 +1,13 @@
 ---
 title: Continuous integration/delivery (CI/CD)
-description: Integrate with yout favorite CI/CD platform.
+description: Integrate with your favorite CI/CD platform.
 ---
 
 # Continuous integration/delivery (CI/CD)
 
-Continuous integration (CI) and Continuous delivery (CD) is essetial in todays software development cycle.
-Flox environments can take you CI/CD pipelines to the next level, making them robust and reproducible. Let us look how can you use Flox with some of the CI/CD platforms.
+Continuous integration (CI) and Continuous delivery (CD) is essential in today's software development cycle.
+Flox environments can take your CI/CD pipelines to the next level, making them robust and reproducible.
+Let's look at how you can use Flox with some of the CI/CD platforms.
 
 ## Github Actions
 
@@ -43,8 +44,8 @@ jobs:
 
 ```
 
-1. You are looking at an example project, your project will probably look a little different. Important parts of how to integrate Flox with Github Actions are highlighted bellow.
-2. `flox/install-flox-action` will install latest version Flox.
+1. You are looking at an example project, your project will probably look a little different. Important parts of how to integrate Flox with Github Actions are highlighted below.
+2. `flox/install-flox-action` will install latest version of Flox.
 3. `flox/activate-action` allows you to run a command inside the Flox environment.
 
 ## CircleCI
@@ -70,7 +71,7 @@ jobs:
           command: "npm run build"
 ```
 
-1. The `install` command will install the latest Flox version. You can change the `channel` and `version` option which allows you to select excatly which version of Flox to install.
+1. The `install` command will install the latest Flox version. You can change the `channel` and `version` options which allow you to select exactly which version of Flox to install.
 2. The `activate` command runs a command in the context of a Flox environment.
 
 ## GitLab
@@ -86,7 +87,7 @@ build:
 ```
 
 1. Use `ghcr.io/flox/flox` that already comes with Flox.
-2. Run command in a Flox environment.
+2. Run a command in a Flox environment.
 
 ## Where to next?
 
