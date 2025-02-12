@@ -128,6 +128,16 @@ Popular projects used by the Nix community for this purpose are:
 [fenix]: https://github.com/nix-community/fenix
 [rust-overlay]: https://github.com/oxalica/rust-overlay
 
+An example flake is provided at [zmitchell/rust-toolchains][custom-toolchains].
+This flake uses `fenix` to provide three different toolchains:
+
+- `stable`, which tracks the latest stable release of Rust
+- `nightly`, which tracks the latest nightly release of Rust
+- `esp32-riscv-no-std`, which provides a nightly toolchain with support for the [ESP32-C3][esp32], a microprocessor based on the [RISC-V][risc-v] architecture.
+
+You are encouraged to fork that repository and use the examples to provide your own custom Rust toolchains.
+It includes a GitHub Action that runs daily to keep up to date with the latest Rust releases.
+
 ## Add the `target` directory to `PATH`
 
 If you're developing a binary instead of a library,
@@ -169,3 +179,6 @@ fish = '''
 ```
 
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
+[custom-toolchains]: https://github.com/zmitchell/rust-toolchains
+[esp32]: https://www.espressif.com/en/products/socs/esp32
+[risc-v]: https://en.wikipedia.org/wiki/RISC-V
