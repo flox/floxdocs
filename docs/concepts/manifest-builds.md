@@ -110,7 +110,7 @@ By setting `runtime-packages = [ "hello" ]`
 (the `install-id` of the `hello-go` package is `hello`),
 we limit the runtime closure of the `hello-pkg` artifact
 to only the `hello-go` package,
-eliminating `ripgerp`.
+eliminating `ripgrep`.
 
 ### Where to put artifacts
 
