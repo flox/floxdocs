@@ -97,13 +97,11 @@ See how to get started with Flox in your language:
 ## Reproducible package manager for any system
 
 Use Flox to set up your [default $HOME environment](https://flox.dev/docs/tutorials/default-environment/) with a set of 
-packages that you always want available, whether you're on macOS or Linux - x86 or ARM.
+packages that you always want available, whether you're on macOS or Linux -- x86 or ARM.
 
 Then, when you need to [set up a new laptop](https://flox.dev/blog/setting-up-a-new-laptop-made-easy-with-flox/
 ), or [keep multiple machines in sync](https://flox.dev/docs/tutorials/sharing-environments/#always-using-the-same-environment-across-multiple-devices
 ), you can be sure you're using the exact same versions, no matter when or where you need them. 
-
-If someone on your team wants to use your setup as a starting point, they can do that too.
 
 If you're already using Homebrew, you can easily [migrate or use Homebrew and Flox together](https://flox.dev/docs/tutorials/migrations/homebrew/).
 
