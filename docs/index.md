@@ -71,8 +71,7 @@ See how to get started with Flox in your language:
 <div class="grid cards" markdown>
 
 - :simple-nodedotjs: __Node__ <br> 
-[Set up a NodeJS environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-nodejs-environments/) <br>
-[Guide for nvm users](./tutorials/migrations/nvm.md)
+[Set up a NodeJS environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-nodejs-environments/) 
 - :fontawesome-brands-golang: __Go__ <br>
 [Set up a Go environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-go-environments/)
 - :fontawesome-brands-python: __Python__ <br>
