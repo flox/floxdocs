@@ -306,22 +306,8 @@ attach to this new version of the environment.
 
 ## Development vs. runtime mode
 
-In addition to the different ways to use an activation,
-there are two different "modes" to activate in:
-development mode and runtime mode.
-
-The default mode at the moment is development mode.
-In development mode a package and all of its development dependencies are made
-available.
-As the name implies, this is useful at development time.
-However, this may causes unexpected failures when layering environments or
-when activating an environment system-wide.
-
-For these reasons we also provide "runtime" mode,
-which simply puts the requested packages in `PATH`
-(and makes their `man` pages available).
-This behavior is more in line with what you would expect from a system-wide
-package manager like `apt`, `yum`, or `brew`.
+see [`manifest.toml`](../reference/command-reference/manifest.toml.md#options)
+for more information about activation modes and where they can be set.
 
 ## Conclusion
 
