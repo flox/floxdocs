@@ -8,6 +8,9 @@ description: Everything you need to know about the Flox Catalog and Packages.
 The **Flox Catalog** is a searchable index of **packages** that you can explore with
 [flox search][flox_search], [flox show][flox_show], and then [flox install][flox_install] to your
 environments.
+
+It can also be consulted on https://hub.flox.dev/packages.
+
 The built-in catalog contains a wide variety of open source packages you can use
 in your environments.
 
