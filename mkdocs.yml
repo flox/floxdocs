@@ -53,6 +53,7 @@ nav:
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
     - Builds: concepts/manifest-builds.md
+    - Publishing: concepts/publishing.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:
