@@ -96,7 +96,7 @@ See how to get started with Flox in your language:
 
 ## Reproducible package manager for any system
 
-Use Flox to set up your [default $HOME environment](https://flox.dev/docs/tutorials/default-environment/) with a set of 
+Use Flox to set up your [default environment](https://flox.dev/docs/tutorials/default-environment/) with a set of 
 packages that you always want available, whether you're on macOS or Linux -- x86 or ARM.
 
 Then, when you need to [set up a new laptop](https://flox.dev/blog/setting-up-a-new-laptop-made-easy-with-flox/
