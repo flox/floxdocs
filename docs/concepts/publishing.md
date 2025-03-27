@@ -38,6 +38,7 @@ Flox imposes some constraints on the build and publish process.
 - The Flox environment must have at least one package installed to it.
 
 All of this is there to ensure that the build environment isn't dirty and that we can associate the uploaded artifact with a point in time in the Base Catalog.
+As a reminder, the Base Catalog is the built-in [catalog][catalog-concept] provided by Flox.
 
 As part of the `flox publish` command, the CLI will clone the git repository to a temporary directory to ensure that any files referenced in the build are tracked by the repository.
 A clean `flox build` is then run in this directory.
@@ -85,3 +86,4 @@ See the "Flox Store" cookbook page to learn more about how to configure Nix to t
 [builds-concept]: ./manifest-builds.md
 [early]: https://flox.dev/early/
 [catalog-util]: https://github.com/flox/catalog-util
+[catalog-concept]: ./packages-and-catalog.md

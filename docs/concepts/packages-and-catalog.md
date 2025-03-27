@@ -9,19 +9,18 @@ The **Flox Catalog** is a searchable index of **packages** that you can explore 
 [flox search][flox_search], [flox show][flox_show], and then [flox install][flox_install] to your
 environments.
 
-It can also be consulted on https://hub.flox.dev/packages.
-
-The built-in catalog contains a wide variety of open source packages you can use
-in your environments.
+It can also be consulted on [https://hub.flox.dev/packages](https://hub.flox.dev/packages).
 
 A **package** is a collection of computer programs and related data that are
 bundled for distribution together on a UNIX-based computer system.
 Packages are declared in the [environment manifest][manifest_concept].
 
-## Flox Catalog and nixpkgs
+## Base Catalog and nixpkgs
 
-The Flox Catalog uses [nixpkgs][nixpkgs] as an input.
-Upstream changes in [nixpkgs][nixpkgs] are reflected in the Flox Catalog daily from the unstable branch of [nixpkgs][nixpkgs].
+The built-in catalog is called the Base Catalog, and contains a wide variety of open source packages you can use in your environments.
+The Base Catalog uses [nixpkgs][nixpkgs] as an input.
+Nixpkgs is a community maintained project, but the Base Catalog is maintained by Flox.
+Upstream changes in [nixpkgs][nixpkgs] are reflected in the Flox Catalog daily from the `unstable` branch of [nixpkgs][nixpkgs].
 
 ## Supported package metadata
 
