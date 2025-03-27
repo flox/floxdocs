@@ -53,35 +53,36 @@ A published artifact consists of two parts:
 - The artifact itself
 
 The artifact metadata is uploaded to Flox servers so that the Flox CLI can see that it's available via the `flox search`, `flox show`, and `flox install` commands.
-The artifact itself is uploaded to the store.
+The artifact itself is uploaded to a Catalog Store.
 
 Today that store is user-provided, but a hosted offering will be provided in the future.
-However, when the store is user-provided it means that your organization has complete control over your artifacts, and many organizations will still choose this route even when a hosted option is available.
+When the store is user-provided it means that your organization has complete control over your artifacts, and many organizations will still choose this route even when a hosted option is available.
 
 ## Consuming published artifacts
 
 Once you have uploaded an artifact via `flox publish`, the package becomes available in `flox search`, `flox show`, and `flox install`.
-To distinguish these packages from those provided by the Base Catalog, published packages are prefixed with the name of the organization and a slash e.g. `myorg/hello`.
+To distinguish these packages from those provided by the Base Catalog, published packages are prefixed with the name of the organization.
+For example, if your organization is called `myorg` and it publishes an artifact named `hello`, the artifact will appear as `myorg/hello` in the Flox CLI.
 
-When a user runs `flox install myorg/hello`, the artifact is downloaded directly from the store that it was published to.
+When a user runs `flox install myorg/hello`, the artifact is downloaded directly from the Catalog Store that it was published to.
 
 By default, only the owner of the private catalog has access to artifacts published to it.
 Individual users can be added to an allowlist able to access artifacts in the private catalog via the [catalog-util][catalog-util] command line tool.
 
 ## Configuration
 
-### Flox Store
+### Catalog Store
 
-The Flox CLI uses Nix under the hood to perform certain operations, and must be configured to be made aware of the user-provided Flox Store.
-A Flox Store is an S3-compatible service
-See the "Flox Store" cookbook page to learn more about how to provision the service.
+The Flox CLI uses Nix under the hood to perform certain operations, and must be configured to be made aware of the user-provided Catalog Store.
+A Catalog Store is an S3-compatible service.
+See the "Catalog Store" cookbook page to learn more about how to provision the service.
 
 ### Signing key
 
-Artifacts uploaded to a Flox Store must be signed.
-This key must be provided to Flox via the `flox publish --signing-key` argument so that the key can be used to sign artifacts during the publish process.
+Artifacts uploaded to a Catalog Store may be signed.
+This key is provided to Flox via the `flox publish --signing-key` argument so that the key can be used to sign artifacts during the publish process.
 Similarly, in order to install packages signed with this key, Nix must be configured to trust this key.
-See the "Flox Store" cookbook page to learn more about how to configure Nix to trust the signing key.
+See the "Catalog Store" cookbook page to learn more about how to configure Nix to trust the signing key.
 
 [builds-concept]: ./manifest-builds.md
 [early]: https://flox.dev/early/
