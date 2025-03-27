@@ -41,6 +41,7 @@ nav:
     - Layering multiple environments: tutorials/layering-multiple-environments.md
     - Customizing the environment shell hook: tutorials/customizing-environments.md
     - Designing multi-arch environments: tutorials/multi-arch-environments.md
+    - Building and publishing packages: tutorials/build-and-publish.md
     - Running Flox in CI/CD: tutorials/ci-cd.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
