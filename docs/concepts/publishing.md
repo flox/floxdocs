@@ -82,9 +82,10 @@ See the "Catalog Store" cookbook page to learn more about how to provision the s
 Artifacts uploaded to a Catalog Store may be signed.
 This key is provided to Flox via the `flox publish --signing-key` argument so that the key can be used to sign artifacts during the publish process.
 Similarly, in order to install packages signed with this key, Nix must be configured to trust this key.
-See the "Catalog Store" cookbook page to learn more about how to configure Nix to trust the signing key.
+See the ["Catalog Store" cookbook page][catalog-store-cookbook] to learn more about how to configure Nix to trust the signing key.
 
 [builds-concept]: ./manifest-builds.md
 [early]: https://flox.dev/early/
 [catalog-util]: https://github.com/flox/catalog-util
 [catalog-concept]: ./packages-and-catalog.md
+[catalog-store-cookbook]: ../cookbook/infrastructure/flox-store.md
