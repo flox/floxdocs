@@ -120,7 +120,7 @@ description: Install or upgrade Flox
 
     1. Download installer for Macs with
 
-        [Apple M1/M2][flox_mac_m1_install]{:target="_blank" .md-button .md-button--primary}
+        [Apple M1/M2/M3][flox_mac_m1_install]{:target="_blank" .md-button .md-button--primary}
         [Intel processors][flox_mac_intel_install]{:target="_blank" .md-button .md-button--primary}
 
     1. Double-click to install the downloaded file
