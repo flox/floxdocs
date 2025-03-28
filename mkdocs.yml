@@ -41,6 +41,8 @@ nav:
     - Sharing environments: tutorials/sharing-environments.md
     - Layering multiple environments: tutorials/layering-multiple-environments.md
     - Customizing the shell environment: tutorials/customizing-environments.md
+    - Designing multi-arch environments: tutorials/multi-arch-environments.md
+    - Building and publishing packages: tutorials/build-and-publish.md
     - Running Flox in CI/CD: tutorials/ci-cd.md
     - Designing cross-platform environments: tutorials/multi-arch-environments.md
     - Reusing and combining developer environments: tutorials/composition.md
