@@ -1,0 +1,94 @@
+---
+title: Catalog Store
+description: Create a Catalog Store for publishing your own Flox packages
+---
+
+# Setting up a Catalog Store
+
+Publishing your own software to your organization's Flox Catalog requires some
+initial setup, but the process is relatively straightforward. Flox supports
+publishing packages to a Catalog Store, which will exist in an AWS S3 bucket
+that is managed by your organization. In order to use this bucket to store
+binaries built with Flox, you will need to set ingress and egress URIs on the
+catalog using a utility published by Flox. Then, all you need to do to publish
+your software is to call `flox publish`, and Flox will take care of the rest.
+
+## Configure an AWS S3 Bucket
+
+The first step in setting up your Catalog Store is creation and configuration of
+an AWS S3 Bucket. There are numerous ways to accomplish this, including the AWS
+Console, the AWS CLI, and Terraform (or another infrastructure-as-code tool),
+to name a few. These processes are well documented, but to get started,
+it's best to refer directly to AWS documentation.
+
+- [What is Amazon S3?][amazon-s3]{:target="\_blank"}
+- [AWS S3 CLI Reference][aws-cli-reference-s3]{:target="\_blank"}
+- [Amazon Simple Storage Service API Reference][aws-s3-api-reference]{:target="\_blank"}
+
+Once your S3 bucket is set up and configured with the access policies deemed
+necessary by your organization's internal policies, you're ready to proceed to
+the next step. Someone from Flox can help you if you run into trouble during
+the setup process. Simply reach out to your designated point of contact,
+and we'll work with you to get you up and running.
+
+[amazon-s3]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
+[aws-cli-reference-s3]: https://docs.aws.amazon.com/cli/latest/reference/s3/
+[aws-s3-api-reference]: https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
+
+## Ensure the `nix daemon` Has Access to the S3 Bucket
+
+As you probably know by now, the underlying technology powering Flox is Nix.
+Accordingly, we need to take a couple steps to ensure that the `nix daemon`
+has access to the S3 bucket you've just created. To do so,
+you have a couple of options:
+
+1. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and, if applicable, `AWS_SESSION_TOKEN`
+as environment variables
+1. Use the `aws configure` command
+[as described in the CLI reference][aws-cli-configure-command]{:target="\_blank"}
+to set those same values
+
+If you follow the second set of steps, you can confirm that everything is set
+up correctly by inspecting the values stored in `$HOME/.aws/credentials`.
+
+[aws-cli-configure-command]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html#configure
+
+## Set Catalog Store Ingress and Egress URIs
+
+Once you have your S3 bucket configured, the next step is to set an ingress URI
+and egress URI for your Catalog Store. Flox provides a utility for you
+that does exactly what you need, within a Flox environment. To use this,
+you'll need to run the following command:
+
+```sh
+flox activate -r flox/flox-catalog-util
+```
+
+When you run this command, you'll see the following output:
+
+```console
+✅ You are now using the environment 'flox/flox-catalog-util (remote)'.
+To stop using this environment, type 'exit'
+```
+
+Within the active Flox environment, you can simply run the following command:
+
+```sh
+catalog-util store --catalog "<my-catalog-name>" set --store-config '{ "store-type": "nix-copy", "ingress_uri": "s3://<my-bucket>", "egress_uri": "s3://<my-bucket>" }'
+```
+
+You'll note that it's possible to set the ingress and egress URIs to the same
+value, if you wish to do so.
+
+## Set Signing Key When Publishing Your Package
+
+At this point, you should have an appropriately Catalog Store to which you can
+publish your own software via the `flox publish` command. The last thing you
+need to worry about is configuring a signing key for publishing packages:
+
+```sh
+flox config --set publish.signing_key "</path/to/signing-key>"
+```
+
+Now you're ready to use Flox publish your own software to the Catalog Store
+that you just set up.
