@@ -5,9 +5,15 @@ description: Everything you need to know about the Flox Catalog and Packages.
 
 # What is the Flox Catalog?
 
-The **Flox Catalog** is a searchable index of **packages** that you can explore with
-[flox search][flox_search], [flox show][flox_show], and then [flox install][flox_install] to your
-environments.
+A Flox Catalog is a collection of package artifacts and associated metadata that can be consumed via a Flox Environment. The contents of a catalog can be searched, shown, and installed into an environment by way of the[flox search][flox_search], [flox show][flox_show], and then [flox install][flox_install] commands.
+
+There are two types of catalogs:
+
+The Base Catalog is populated by Flox and contains packages over time as maintained by the Nix Community by way of The [Nixpkgs](https://github.com/nixos/nixpkgs) Collection.
+
+Custom Catalogs are maintained by the Users and Organizations that own them by way of the `flox publish` command, as described in the [Build][manifest-builds] and [Publish][publishing] reference.
+
+The visibility of Custom Catalogs can be public or private, and packages from all types of catalog are consumed by way of the same flox (search|show|install) commands.
 
 It can also be consulted on [https://hub.flox.dev/packages](https://hub.flox.dev/packages).
 
