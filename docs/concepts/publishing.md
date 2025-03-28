@@ -88,4 +88,4 @@ See the ["Catalog Store" cookbook page][catalog-store-cookbook] to learn more ab
 [early]: https://flox.dev/early/
 [catalog-util]: https://github.com/flox/catalog-util
 [catalog-concept]: ./packages-and-catalog.md
-[catalog-store-cookbook]: ../cookbook/infrastructure/flox-store.md
+[catalog-store-cookbook]: ../cookbook/publish/flox-store.md

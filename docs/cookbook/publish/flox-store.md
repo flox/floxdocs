@@ -7,11 +7,19 @@ description: Create a Catalog Store for publishing your own Flox packages
 
 Publishing your own software to your organization's Flox Catalog requires some
 initial setup, but the process is relatively straightforward. Flox supports
-publishing packages to a Catalog Store, which will exist in an AWS S3 bucket
-that is managed by your organization. In order to use this bucket to store
-binaries built with Flox, you will need to set ingress and egress URIs on the
-catalog using a utility published by Flox. Then, all you need to do to publish
-your software is to call `flox publish`, and Flox will take care of the rest.
+publishing packages to a Catalog Store, which can exist in an AWS S3 bucket
+or in any S3 compatible service, like [MinIO][minio-s3-compatible]{:target="\_blank"}
+or [Backblaze B2][backblaze-b2-cloud-storage]{:target="\_blank"}. (For the
+sake of simplicity, this guide focuses on S3, but there are other providers
+available if you prefer them to AWS.)
+
+In order to use an S3 bucket to store artifacts built with Flox, you will need
+to set ingress and egress URIs on the catalog using a utility published by Flox.
+Then, all you need to do to publish your software is to call `flox publish`,
+and Flox will take care of the rest.
+
+[minio-s3-compatible]: https://min.io/product/s3-compatibility
+[backblaze-b2-cloud-storage]: https://www.backblaze.com/cloud-storage
 
 ## Configure an AWS S3 Bucket
 
@@ -35,18 +43,20 @@ and we'll work with you to get you up and running.
 [aws-cli-reference-s3]: https://docs.aws.amazon.com/cli/latest/reference/s3/
 [aws-s3-api-reference]: https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
 
-## Ensure the `nix daemon` Has Access to the S3 Bucket
+## Ensure the Nix Daemon Has Access to the S3 Bucket
 
 As you probably know by now, the underlying technology powering Flox is Nix.
-Accordingly, we need to take a couple steps to ensure that the `nix daemon`
+Accordingly, we need to take a couple steps to ensure that the Nix daemon
 has access to the S3 bucket you've just created. To do so,
 you have a couple of options:
 
-1. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and, if applicable, `AWS_SESSION_TOKEN`
-as environment variables
+1. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and, if applicable,
+`AWS_SESSION_TOKEN` as environment variables, both for Flox and for
+the daemon itself
 1. Use the `aws configure` command
 [as described in the CLI reference][aws-cli-configure-command]{:target="\_blank"}
-to set those same values
+to set those same values, and ensure that the AWS profile and region match those
+configured for the S3 bucket
 
 If you follow the second set of steps, you can confirm that everything is set
 up correctly by inspecting the values stored in `$HOME/.aws/credentials`.

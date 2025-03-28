@@ -62,8 +62,8 @@ nav:
       - ... | flat | cookbook/languages/*
     - Builds:
       - ... | flat | cookbook/builds/*
-    - Infrastructure:
-      - ... | flat | cookbook/infrastructure/*
+    - Publish:
+      - ... | flat | cookbook/publish/*
   - Reference:
     - Flox manual:
       - reference/command-reference/flox.md
