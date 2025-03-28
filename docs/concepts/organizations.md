@@ -2,9 +2,9 @@
 
 An **organization** in FloxHub represents a shared workspace for teams. It provides:
 
--  A private catalog;
--  Scoped access control; and
--  A foundation for collaboration among multiple users.
+- A private catalog;
+- Scoped access control; and
+- A foundation for collaboration among multiple users.
 
 This document outlines how organizations work today, and how they can be managed.
 
@@ -14,9 +14,9 @@ At this time, creating an **organization** for FloxHub  is a manual process. To 
 
 When making a request, be prepared to provide:
 
--  The name of your organization;
--  A list of GitHub usernames to be associated with the org;
--  Whether each user should have read or write access to the organization's catalog.
+- The name of your organization;
+- A list of GitHub usernames to be associated with the org;
+- Whether each user should have read or write access to the organization's catalog.
 
 Currently, each organization can support a single private catalog.
 
@@ -30,10 +30,10 @@ The properties of an **organization** (such as membership or access levels) can 
 
 ## Permissions and Access Control
 
--  Each organization has an owner;
--  Each organization is associated with a single private catalog;
--  Access to the catalog is granted based on each user’s GitHub username;
--  Read and write privileges can be assigned on a per-user basis.
+- Each organization has an owner;
+- Each organization is associated with a single private catalog;
+- Access to the catalog is granted based on each user’s GitHub username;
+- Read and write privileges can be assigned on a per-user basis.
 
 ## Machine Access Tokens
 
@@ -59,10 +59,10 @@ Organizations in FloxHub include a view of all environments owned by the organiz
 
 For each environment, users can:
 
--  See the current generation and a history of changes;
--  View a changelog;
--  Configure basic settings, such as owner and name;
--  Delete environments
+- See the current generation and a history of changes;
+- View a changelog;
+- Configure basic settings, such as owner and name;
+- Delete environments
 
 Environments created within an organization are visible to all its members, with access governed by the organization’s catalog permissions.
 
