@@ -90,14 +90,25 @@ catalog-util store --catalog "<my-catalog-name>" set --store-config '{ "store-ty
 You'll note that it's possible to set the ingress and egress URIs to the same
 value, if you wish to do so.
 
-## Set Signing Key When Publishing Your Package
+## Create and Set a Signing Key
 
-At this point, you should have an appropriately Catalog Store to which you can
-publish your own software via the `flox publish` command. The last thing you
-need to worry about is configuring a signing key for publishing packages:
+At this point, you should have an appropriately configured Catalog Store
+to which you can publish your own software via the `flox publish` command.
+The last thing you need to worry about is configuring a signing key
+for publishing packages.
+
+The first step in this process is generating a key. This example illustrates
+how you would do so for a key called "my-key":
+
+sh```
+nix key generate-secret --key-name my-key > my-key.key
+nix key convert-secret-to-public < my-key.key
+```
+Once you've generated the key, you can configure Flox to sign the packages
+you publish with that key:
 
 ```sh
-flox config --set publish.signing_key "</path/to/signing-key>"
+flox config --set publish.signing_key "</path/to/my-key.key"
 ```
 
 Now you're ready to use Flox publish your own software to the Catalog Store
