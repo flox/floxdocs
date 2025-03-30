@@ -21,7 +21,7 @@ and Flox will take care of the rest.
 [minio-s3-compatible]: https://min.io/product/s3-compatibility
 [backblaze-b2-cloud-storage]: https://www.backblaze.com/cloud-storage
 
-## Configure an AWS S3 Bucket
+## Configure an AWS S3 bucket
 
 The first step in setting up your Catalog Store is creation and configuration of
 an AWS S3 Bucket. There are numerous ways to accomplish this, including the AWS
@@ -43,7 +43,7 @@ and we'll work with you to get you up and running.
 [aws-cli-reference-s3]: https://docs.aws.amazon.com/cli/latest/reference/s3/
 [aws-s3-api-reference]: https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
 
-## Ensure the Nix Daemon Has Access to the S3 Bucket
+## Ensure the Nix Daemon has access to the S3 Bucket
 
 As you probably know by now, the underlying technology powering Flox is Nix.
 Accordingly, we need to take a couple steps to ensure that the Nix daemon
@@ -63,7 +63,7 @@ up correctly by inspecting the values stored in `$HOME/.aws/credentials`.
 
 [aws-cli-configure-command]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html#configure
 
-## Set Catalog Store Ingress and Egress URIs
+## Set Catalog Store ingress and egress URIs
 
 Once you have your S3 bucket configured, the next step is to set an ingress URI
 and egress URI for your Catalog Store. Flox provides a utility for you
@@ -71,7 +71,7 @@ that does exactly what you need, within a Flox environment. To use this,
 you'll need to run the following command:
 
 ```sh
-flox activate -r flox/flox-catalog-util
+$ flox activate -r flox/flox-catalog-util
 ```
 
 When you run this command, you'll see the following output:
@@ -84,32 +84,19 @@ To stop using this environment, type 'exit'
 Within the active Flox environment, you can simply run the following command:
 
 ```sh
-catalog-util store --catalog "<my-catalog-name>" set --store-config '{ "store-type": "nix-copy", "ingress_uri": "s3://<my-bucket>", "egress_uri": "s3://<my-bucket>" }'
+$ catalog-util store --catalog "<my-catalog-name>" set --store-config '{ "store-type": "nix-copy", "ingress_uri": "s3://<my-bucket>", "egress_uri": "s3://<my-bucket>" }'
 ```
 
 You'll note that it's possible to set the ingress and egress URIs to the same
 value, if you wish to do so.
 
-## Create and Set a Signing Key
+## Create and set a signing key
 
 At this point, you should have an appropriately configured Catalog Store
 to which you can publish your own software via the `flox publish` command.
-The last thing you need to worry about is configuring a signing key
-for publishing packages.
+In order for users to upload artifacts to the Catalog Store and then install those artifacts, you must configure public and private signing keys.
 
-The first step in this process is generating a key. This example illustrates
-how you would do so for a key called "my-key":
+The private key is used to sign artifacts before uploading them, whereas the public key must be distributed to anyone you wish to be able to install those published artifacts.
+See the [signing keys][signing-keys] Cookbook page for instructions on configuring your signing keys.
 
-sh```
-nix key generate-secret --key-name my-key > my-key.key
-nix key convert-secret-to-public < my-key.key
-```
-Once you've generated the key, you can configure Flox to sign the packages
-you publish with that key:
-
-```sh
-flox config --set publish.signing_key "</path/to/my-key.key"
-```
-
-Now you're ready to use Flox publish your own software to the Catalog Store
-that you just set up.
+[signing-keys]: ./signing-keys.md
