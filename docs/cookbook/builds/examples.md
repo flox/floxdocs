@@ -9,6 +9,8 @@ Below are examples for various ecosystems.
 
 ## Autotools
 
+Since the output of the build must be copied to the `$out` directory, you must set the install prefix to `$out`.
+
 ```toml
 [build.myproject]
 command = '''
@@ -20,6 +22,10 @@ command = '''
 
 ## Go
 
+Since the output of the build must be copied to the `$out` directory, you may either install the output directly to `$out`, or you may copy the executable there manually after running `go build`.
+
+Install directly to `$out`:
+
 ```toml
 [build.myproject]
 command = '''
@@ -27,7 +33,21 @@ command = '''
 '''
 ```
 
+Copy the executable manually:
+
+```toml
+[build.myproject]
+command = '''
+  mkdir -p $out/bin
+  go build
+  cp ./myproject $out/bin/myproject
+'''
+```
+
 ## Rust
+
+Since the output of the build must be copied to the `$out` directory, you'll need to copy the compiled executable out of the `target` directory and into `$out`.
+There is an unstable environment variable in Cargo that will allow you to set the output directory of the build, but we'll stick to stable features here:
 
 ```toml
 [build.myproject]
