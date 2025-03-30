@@ -10,7 +10,7 @@ Flox aims to be the one tool that you need for the entire software development l
 
 ## Prepare a project
 
-Let's start by creating a simle Go project.
+Let's start by creating a simple Go project.
 We'll create a directory called `myproject` and create a Flox environment inside of it so we can install our tools.
 
 ```text
