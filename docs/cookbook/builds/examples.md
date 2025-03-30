@@ -9,6 +9,8 @@ Below are examples for various ecosystems.
 
 ## Autotools
 
+Since the output of the build must be copied to the `$out` directory, you must set the install prefix to `$out`.
+
 ```toml
 [build.myproject]
 command = '''
@@ -20,6 +22,10 @@ command = '''
 
 ## Go
 
+Since the output of the build must be copied to the `$out` directory, you may either install the output directly to `$out`, or you may copy the executable there manually after running `go build`.
+
+Install directly to `$out`:
+
 ```toml
 [build.myproject]
 command = '''
@@ -27,7 +33,21 @@ command = '''
 '''
 ```
 
+Copy the executable manually:
+
+```toml
+[build.myproject]
+command = '''
+  mkdir -p $out/bin
+  go build
+  cp ./myproject $out/bin/myproject
+'''
+```
+
 ## Rust
+
+Since the output of the build must be copied to the `$out` directory, you'll need to copy the compiled executable out of the `target` directory and into `$out`.
+There is an unstable environment variable in Cargo that will allow you to set the output directory of the build, but we'll stick to stable features here:
 
 ```toml
 [build.myproject]
@@ -57,6 +77,36 @@ you would replace `.` with the path to the package sources.
 
 This works for projects using `pyproject.toml` as well (including Poetry) as
 long as the `[build-system]` section of `pyproject.toml` is filled out.
+
+## Ruby
+
+Since Ruby is not a compiled language, to create an executable artifact you must create a shell script that calls `bundle exec`.
+For example, say you have an application whose source is in `app.rb`, and that you created a script called `myproject` at the root of your repository with the following contents:
+
+```bash
+#!/usr/bin/env bash
+
+bundle exec ruby app.rb
+```
+
+The build command for your application would look like this:
+
+```toml
+[build.myproject]
+command = '''
+  # Vendor dependencies
+  bundle
+
+  # Create the output directories
+  mkdir -p $out/{lib,bin}
+
+  # Copy source files to $out/lib
+  cp -pr * $out/lib
+
+  # Move the executable script
+  mv $out/lib/myproject $out/bin/myproject
+'''
+```
 
 ## Node.js
 
