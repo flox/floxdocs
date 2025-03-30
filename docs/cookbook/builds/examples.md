@@ -78,6 +78,36 @@ you would replace `.` with the path to the package sources.
 This works for projects using `pyproject.toml` as well (including Poetry) as
 long as the `[build-system]` section of `pyproject.toml` is filled out.
 
+## Ruby
+
+Since Ruby is not a compiled language, to create an executable artifact you must create a shell script that calls `bundle exec`.
+For example, say you have an application whose source is in `app.rb`, and that you created a script called `myproject` at the root of your repository with the following contents:
+
+```bash
+#!/usr/bin/env bash
+
+bundle exec ruby app.rb
+```
+
+The build command for your application would look like this:
+
+```toml
+[build.myproject]
+command = '''
+  # Vendor dependencies
+  bundle
+
+  # Create the output directories
+  mkdir -p $out/{lib,bin}
+
+  # Copy source files to $out/lib
+  cp -pr * $out/lib
+
+  # Move the executable script
+  mv $out/lib/myproject $out/bin/myproject
+'''
+```
+
 ## Node.js
 
 Node.js applications should have their `node_modules` directory placed under
