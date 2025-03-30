@@ -209,7 +209,7 @@ This command has a few requirements to make sure that the artifact you're publis
 Let's say that we've done all of that so that we can publish our `hello` program:
 
 ```text
-flox [myproject] $ flox publish
+flox [myproject] $ flox publish hello
 ```
 
 The `flox publish` command performs a clean build of the artifact in a temporary directory to ensure that the build doesn't depend on anything outside of the git repository.
