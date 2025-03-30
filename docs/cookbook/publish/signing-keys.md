@@ -26,6 +26,8 @@ $ nix key convert-secret-to-public < signing-key.key > signing-key-pub.key
 Once you've generated the key, you can configure Flox to sign the packages
 you publish with that (private) key:
 
+!!! warning "The path to the private key must configured with an absolute path for security purposes."
+
 ```sh
 flox config --set publish.signing_key "/path/to/signing-key.key"
 ```
