@@ -105,39 +105,6 @@ share the same exact versions of their dependencies,
 so you'll want to add them to a package group
 (`rust-toolchain` in the example above).
 
-## How do I use nightly compilers?
-
-Nightly compilers aren't currently packaged in the Flox Catalog.
-If you need to use nightly compilers,
-you can use our Nix flake support to prepare a flake that provides a nightly
-compiler.
-You would need to prepare that flake, call it `github:rust-dev/my-nightly`,
-and add it to the manifest as a flake package:
-
-```toml
-[install]
-rust-nightly.flake = "github:rust-dev/my-nightly"
-```
-
-Popular projects used by the Nix community for this purpose are:
-
-- [nix-community/fenix][fenix]
-- [oxalica/rust-overlay][rust-overlay]
-
-[rustup]: https://rustup.rs
-[fenix]: https://github.com/nix-community/fenix
-[rust-overlay]: https://github.com/oxalica/rust-overlay
-
-An example flake is provided at [zmitchell/rust-toolchains][custom-toolchains].
-This flake uses `fenix` to provide three different toolchains:
-
-- `stable`, which tracks the latest stable release of Rust
-- `nightly`, which tracks the latest nightly release of Rust
-- `esp32-riscv-no-std`, which provides a nightly toolchain with support for the [ESP32-C3][esp32], a microprocessor based on the [RISC-V][risc-v] architecture.
-
-You are encouraged to fork that repository and use the examples to provide your own custom Rust toolchains.
-It includes a GitHub Action that runs daily to keep up to date with the latest Rust releases.
-
 ## Add the `target` directory to `PATH`
 
 If you're developing a binary instead of a library,
@@ -177,6 +144,39 @@ fish = '''
   alias build "cargo build"
 '''
 ```
+
+## How do I use nightly compilers?
+
+Nightly compilers aren't currently packaged in the Flox Catalog.
+If you need to use nightly compilers,
+you can use our Nix flake support to prepare a flake that provides a nightly
+compiler.
+You would need to prepare that flake, call it `github:rust-dev/my-nightly`,
+and add it to the manifest as a flake package:
+
+```toml
+[install]
+rust-nightly.flake = "github:rust-dev/my-nightly"
+```
+
+Popular projects used by the Nix community for this purpose are:
+
+- [nix-community/fenix][fenix]
+- [oxalica/rust-overlay][rust-overlay]
+
+[rustup]: https://rustup.rs
+[fenix]: https://github.com/nix-community/fenix
+[rust-overlay]: https://github.com/oxalica/rust-overlay
+
+An example flake is provided at [zmitchell/rust-toolchains][custom-toolchains].
+This flake uses `fenix` to provide three different toolchains:
+
+- `stable`, which tracks the latest stable release of Rust
+- `nightly`, which tracks the latest nightly release of Rust
+- `esp32-riscv-no-std`, which provides a nightly toolchain with support for the [ESP32-C3][esp32], a microprocessor based on the [RISC-V][risc-v] architecture.
+
+You are encouraged to fork that repository and use the examples to provide your own custom Rust toolchains.
+It includes a GitHub Action that runs daily to keep up to date with the latest Rust releases.
 
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
 [custom-toolchains]: https://github.com/zmitchell/rust-toolchains
