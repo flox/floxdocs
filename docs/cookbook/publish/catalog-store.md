@@ -84,7 +84,9 @@ To stop using this environment, type 'exit'
 Within the active Flox environment, you can simply run the following command:
 
 ```sh
-$ catalog-util store --catalog "<my-catalog-name>" set --store-config '{ "store-type": "nix-copy", "ingress_uri": "s3://<my-bucket>", "egress_uri": "s3://<my-bucket>" }'
+$ catalog-util store --catalog "<my-catalog-name>" set nixcopy \
+    --ingress-uri "s3://<my-bucket>" \
+    --egress-uri "s3://<my-bucket>"
 ```
 
 You'll note that it's possible to set the ingress and egress URIs to the same
