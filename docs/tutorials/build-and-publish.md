@@ -213,7 +213,9 @@ flox [myproject] $ flox publish hello
 ```
 
 The `flox publish` command performs a clean build of the artifact in a temporary directory to ensure that the build doesn't depend on anything outside of the git repository.
-If you have a signing key that you would like to use to sign the published package, you can pass that via the `flox publish --signing-key` argument.
+
+In order to upload an artifact during the publish process (and not just upload metadata), you must provide a signing key via the `--signing-private-key` option.
+Attempting to upload an artifact without a signing key is an error because other users would not be able to install the artifact.
 
 ## Install the artifact
 
