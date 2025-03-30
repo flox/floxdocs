@@ -107,8 +107,10 @@ obvious.
 At the end of the day, a "build" is just a script that runs in your activated
 environment and places one or more files into a predefined directory.
 Once that build is done, the artifact can be [published][publish-concept] so
-that anyone else in your organization can install it into their environment.
+that your or anyone else in your organization can install it into their environment.
 This can be a very convenient method of distributing files.
+Sharing artifacts with other users is only possible with an organization.
+See the [organizations][organizations-concept] page for more details on organizations.
 
 In short, if you have a file that can be copied into the `$out` directory,
 it can be distributed to others in your organization with Flox.
@@ -238,3 +240,4 @@ You can see that page here: [Builds examples][build-examples].
 [pkg-groups]: ./manifest.md#installing-packages-to-package-groups
 [build-examples]: ../cookbook/builds/examples.md
 [grpc]: https://grpc.io/
+[organizations-concept]: ./organizations.md
