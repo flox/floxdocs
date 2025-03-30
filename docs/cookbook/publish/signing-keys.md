@@ -37,7 +37,9 @@ If you need to use a different signing key (for example, to publish to a differe
 In order to install a published artifact you must configure your system to trust the corresponding public key that the artifact was signed with.
 This amounts to adding the public key to the list of `extra-trusted-public-keys` in your Nix configuration.
 
-### Nix installed via Flox
+### Add a new trusted key
+
+#### Nix installed via Flox
 
 If you installed Nix as part of your Flox installation, you need to create and/or edit your `$XDG_CONFIG_HOME/nix/nix.conf` file.
 On most systems this will be `~/.config/nix/nix.conf`.
@@ -47,11 +49,11 @@ Add the following line, where `<key contents>` is the contents of the signing pu
 extra-trusted-public-keys = <key contents>
 ```
 
-### Existing Nix installation
+#### Existing Nix installation
 
 If you already have Nix installed, your instructions will look largely the same with the exception being that you can put this line in your `/etc/nix/nix.conf` instead if you so choose.
 
-### NixOS, nix-darwin, or home-manager
+#### NixOS, nix-darwin, or home-manager
 
 For systems whose configuration is managed with Nix, you need to add the public key to the list of trusted public keys in your system configuration.
 For NixOS, `nix-darwin`, and `home-manager` the configuration option is the same:
@@ -60,4 +62,20 @@ For NixOS, `nix-darwin`, and `home-manager` the configuration option is the same
 nix.settings.trusted-public-keys = [
   "<key contents>"
 ];
+```
+
+### Restart the Nix daemon
+
+In order for the newly trusted key to take effect, the Nix daemon needs to be restarted.
+On Linux the daemon is managed via `systemd`, so you can restart it with the following command:
+
+```bash
+$ sudo systemctl restart nix-daemon
+```
+
+On macOS the Nix daemon is managed via `launchd`, so you can restart it with the following command (note that you have to run the command twice, this is not a typo):
+
+```bash
+sudo launctl kickstart -k system/org.nixos/nix-daemon
+sudo launctl kickstart -k system/org.nixos/nix-daemon
 ```
