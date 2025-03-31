@@ -80,7 +80,8 @@ long as the `[build-system]` section of `pyproject.toml` is filled out.
 
 ## Ruby
 
-Since Ruby is not a compiled language, to create an executable artifact you must create a shell script that calls `bundle exec`.
+Since Ruby is not a compiled language, to create an executable artifact you must create a shell script that calls `bundle exec`. Configure bundler to use the local directory to store the bundles by setting `$GEM_HOME` to something like `./vendor`. If you're Gemfile compiles native extensions, you may also want to `unset CPATH`. See the [Flox ruby environment](https://hub.flox.dev/flox/ruby) for more information, examples and specific details.
+
 For example, say you have an application whose source is in `app.rb`, and that you created a script called `myproject` at the root of your repository with the following contents:
 
 ```bash
