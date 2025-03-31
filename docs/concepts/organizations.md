@@ -75,3 +75,5 @@ Environments created within an organization are visible to all its members, with
 We’re working to enable each owner to self-manage the organization they create. Unfortunately, in the near term, all changes to a FloxHub organization must be handled manually by the Flox team.
 
 For any questions or requests related to your organization, please reach out to your Flox representative.
+
+[early]: https://flox.dev/early/
