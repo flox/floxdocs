@@ -41,19 +41,30 @@ This amounts to adding the public key to the list of `extra-trusted-public-keys`
 
 ### Add a new trusted key
 
-#### Nix installed via Flox
+#### Nix installed via Flox, or standalone Nix installation
 
-If you installed Nix as part of your Flox installation, you need to create and/or edit your `$XDG_CONFIG_HOME/nix/nix.conf` file.
-On most systems this will be `~/.config/nix/nix.conf`.
-Add the following line, where `<key contents>` is the contents of the signing public key file:
+If you installed Nix as part of your Flox installation, you need to edit your `/etc/nix/nix.conf` to add a new entry to the `extra-trusted-public-keys` option.
+If `/etc/nix/nix.conf` doesn't exist, create it.
+If the `extra-trusted-public-keys` option doesn't exist, create it.
+Add the following line, where `<key contents>` is the contents of the signing public key file and `<existing keys>` is any keys that were already populated for this option (if it existed):
 
 ```text
-extra-trusted-public-keys = <key contents>
+extra-trusted-public-keys = <existing keys> <key contents>
 ```
 
-#### Existing Nix installation
+In order for the newly trusted key to take effect, the Nix daemon needs to be restarted.
+On Linux the daemon is managed via `systemd`, so you can restart it with the following command:
 
-If you already have Nix installed, your instructions will look largely the same with the exception being that you can put this line in your `/etc/nix/nix.conf` instead if you so choose.
+```bash
+$ sudo systemctl restart nix-daemon
+```
+
+On macOS the Nix daemon is managed via `launchd`, so you can restart it with the following command (note that you have to run the command twice, this is not a typo):
+
+```bash
+sudo launchctl kickstart -k system/org.nixos.nix-daemon
+sudo launchctl kickstart -k system/org.nixos.nix-daemon
+```
 
 #### NixOS, nix-darwin, or home-manager
 
@@ -66,18 +77,4 @@ nix.settings.trusted-public-keys = [
 ];
 ```
 
-### Restart the Nix daemon
-
-In order for the newly trusted key to take effect, the Nix daemon needs to be restarted.
-On Linux the daemon is managed via `systemd`, so you can restart it with the following command:
-
-```bash
-$ sudo systemctl restart nix-daemon
-```
-
-On macOS the Nix daemon is managed via `launchd`, so you can restart it with the following command (note that you have to run the command twice, this is not a typo):
-
-```bash
-sudo launctl kickstart -k system/org.nixos/nix-daemon
-sudo launctl kickstart -k system/org.nixos/nix-daemon
-```
+Once this setting has been edited, rebuild and switch into your new configuration.
