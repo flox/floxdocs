@@ -188,6 +188,11 @@ Completed build of hello-opt-unknown in local mode
 
 ## Publish the artifact
 
+!!! tip "This is a Flox for Teams feature"
+
+    This is a paid feature included with Flox for Teams.
+    Sign up for [early access][early] if you are interested in accessing this feature.
+
 Now that the artifact is built, we can send it somewhere.
 Every user has a private catalog that they can publish artifacts to.
 In order to share packages with other people you must create an organization.
@@ -261,3 +266,4 @@ See the [builds][extra-builds] concept page for examples of what else you can bu
 [flox-search]: ../reference/command-reference/flox-search.md
 [extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
 [organizations-concept]: ../concepts/organizations.md
+[early]: https://flox.dev/early/
