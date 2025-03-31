@@ -105,6 +105,7 @@ Run `flox edit` so that you can edit your manifest, and add the following sectio
 
 ```toml
 [build.hello]
+description = "My custom program printing hello world in Go"
 command = '''
   mkdir -p $out/bin
   go build # produces the ./hello executable file
@@ -231,7 +232,7 @@ Let's see that in action with `flox search`:
 
 ```text
 flox [myproject] $ flox search hello
-myorg/hello                 <no description provided>
+myorg/hello                 My custom program printing hello world in Go
 hello                       Program that produces a familiar, friendly greeting
 hello-go                    Simple program printing hello world in Go
 hello-cpp                   Basic sanity check that C++ and cmake infrastructure are working
