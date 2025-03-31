@@ -60,8 +60,6 @@ nav:
   - Cookbook:
     - Languages:
       - ... | flat | cookbook/languages/*
-    - Builds:
-      - ... | flat | cookbook/builds/*
     - Publish:
       - ... | flat | cookbook/publish/*
   - Reference:

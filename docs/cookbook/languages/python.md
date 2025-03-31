@@ -287,3 +287,28 @@ At this point, the version of `eralchemy` is available within your environment.
 (python) flox [eralchemy] $ which eralchemy
 /home/floxfan/eralchemy/.flox/cache/python/bin/eralchemy
 ```
+
+## Build with Flox
+
+Not only can you _develop_ your software with Flox, but you can _build_ it as well.
+See the [builds][build-concept] concept page for more details.
+
+For Python projects a build looks like installing the project to the `$out`
+directory.
+
+```toml
+[build.myproject]
+command = '''
+  pip install --target=$out .
+'''
+```
+
+Note the trailing `.` to indicate that you're installing the package in the
+current directory.
+If you're working in a repository with multiple packages in subdirectories,
+you would replace `.` with the path to the package sources.
+
+This works for projects using `pyproject.toml` as well (including Poetry) as
+long as the `[build-system]` section of `pyproject.toml` is filled out.
+
+[build-concept]: ../../concepts/manifest-builds.md
