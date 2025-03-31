@@ -188,16 +188,12 @@ Completed build of hello-opt-unknown in local mode
 
 ## Publish the artifact
 
-!!! tip "This is a Flox for Teams feature"
-
-    This is a paid feature included with Flox for Teams.
-    Sign up for [early access][early] if you are interested in accessing this feature.
-
 Now that the artifact is built, we can send it somewhere.
-In order to use this feature you need to have an organization configured with a Catalog Store.
-If you already have an organization configured, see the Catalog Store cookbook page to configure your Catalog Store.
+Every user has a private catalog that they can publish artifacts to.
+In order to share packages with other people you must create an organization.
+This is a paid feature, and if you would like access to it you should contact Flox directly.
+See the [organizations][organizations-concept] page for more details.
 
-Let's say you've already done that for your organization called `myorg`.
 Now that you've built the artifact you can [publish][publish-concept] it to your private catalog via the `flox publish` command.
 This command has a few requirements to make sure that the artifact you're publishing can be built by other people reproducibly:
 
@@ -220,19 +216,14 @@ Attempting to upload an artifact without a signing key is an error because other
 
 ## Install the artifact
 
-!!! tip "This is a Flox for Teams feature"
-
-    This is a paid feature included with Flox for Teams.
-    Sign up for [early access][early] if you are interested in accessing this feature.
-
 Now that you've published the artifact, it will show up in [`flox search`][flox-search] and [`flox show`][flox-show], and can be installed via [`flox install`][flox-install].
-The package will appear with the name of your organization prefixed to the package name.
-In our case the organization is `myorg` and the package name is `hello`, so it will appear as `myorg/hello`.
+The package will appear with your username or organization name prefixed to the package name.
+Let's say your username is `myuser` and the package name is `hello`, in which case the published artifact will appear as `myuser/hello` in `flox show`, `flox search`, and `flox install`.
 Let's see that in action with `flox search`:
 
 ```text
 flox [myproject] $ flox search hello
-myorg/hello                 My custom program printing hello world in Go
+myuser/hello                My custom program printing hello world in Go
 hello                       Program that produces a familiar, friendly greeting
 hello-go                    Simple program printing hello world in Go
 hello-cpp                   Basic sanity check that C++ and cmake infrastructure are working
@@ -248,12 +239,12 @@ Showing 10 of 23 results. Use `flox search hello --all` to see the full list.
 Use 'flox show <package>' to see available versions
 ```
 
-You can see that our `myorg/hello` package is the first result.
+You can see that our `myuser/hello` package is the first result.
 Now that we know it's available, let's install it:
 
 ```text
-flox [myproject] $ flox install myorg/hello
-✅ 'myorg/hello' installed to environment 'myproject'
+flox [myproject] $ flox install myuser/hello
+✅ 'myuser/hello' installed to environment 'myproject'
 ```
 
 ## Conclusion
@@ -269,3 +260,4 @@ See the [builds][extra-builds] concept page for examples of what else you can bu
 [flox-show]: ../reference/command-reference/flox-show.md
 [flox-search]: ../reference/command-reference/flox-search.md
 [extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
+[organizations-concept]: ../concepts/organizations.md

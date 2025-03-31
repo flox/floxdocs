@@ -3,13 +3,11 @@ title: "Publishing"
 description: How to use Flox environments to build artifacts 
 ---
 
-!!! tip "This is a Flox for Teams feature"
-
-    This is a paid feature included with Flox for Teams.
-    Sign up for [early access][early] if you are interested in accessing this feature.
-  
 Once you've built an artifact with the [`flox build`][builds-concept] command, you likely want to put it somewhere.
-The `flox publish` command gives you the ability to upload artifacts to your private catalog so that they can be installed by anyone in your organization.
+The `flox publish` command gives you the ability to upload artifacts to your private catalog.
+In order to share packages with other people you must create an organization.
+This is a paid feature, and if you would like access to it you should contact Flox directly.
+See the [organizations][organizations-concept] page for more details.
 
 ## Uploading an artifact
 
@@ -43,7 +41,7 @@ As a reminder, the Base Catalog is the built-in [catalog][catalog-concept] provi
 As part of the `flox publish` command, the CLI will clone the git repository to a temporary directory to ensure that any files referenced in the build are tracked by the repository.
 A clean `flox build` is then run in this directory.
 
-The package closure is then signed with the user-supplied signing key and uploaded to the organization's private catalog.
+The package closure is then signed with the user-supplied signing key and uploaded to your private catalog.
 
 ## The published payload
 
@@ -55,19 +53,21 @@ A published artifact consists of two parts:
 The artifact metadata is uploaded to Flox servers so that the Flox CLI can see that it's available via the `flox search`, `flox show`, and `flox install` commands.
 The artifact itself is uploaded to a Catalog Store.
 
-Today that store is user-provided, but a hosted offering will be provided in the future.
-When the store is user-provided it means that your organization has complete control over your artifacts, and many organizations will still choose this route even when a hosted option is available.
+For individual users we provide your Catalog Store.
+For organizations you provide your own Catalog Store, but a hosted offering will be available in the future.
+When the Catalog Store is user-provided it means that your organization has complete control over your artifacts, and many organizations will still choose this route even when a hosted option is available.
 
 ## Consuming published artifacts
 
 Once you have uploaded an artifact via `flox publish`, the package becomes available in `flox search`, `flox show`, and `flox install`.
-To distinguish these packages from those provided by the Base Catalog, published packages are prefixed with the name of the organization.
-For example, if your organization is called `myorg` and it publishes an artifact named `hello`, the artifact will appear as `myorg/hello` in the Flox CLI.
+To distinguish these packages from those provided by the Base Catalog, published packages are prefixed with the name of the user or organization.
+For example, if your user is called `myuser` and it publishes an artifact named `hello`, the artifact will appear as `myuser/hello` in the Flox CLI.
 
-When a user runs `flox install myorg/hello`, the artifact is downloaded directly from the Catalog Store that it was published to.
+When a user runs `flox install myuser/hello`, the artifact is downloaded directly from the Catalog Store that it was published to.
 
-By default, only the owner of the private catalog has access to artifacts published to it.
-Individual users can be added to an allowlist able to access artifacts in the private catalog via the [catalog-util][catalog-util] command line tool.
+For individual users, only the user can consume artifacts from their catalog.
+Sharing packages with multiple users is only possible with an organization.
+Access control for users in an organization is set via the `catalog-util` package that is provided to you as part of setting up your organization.
 
 ## Configuration
 
