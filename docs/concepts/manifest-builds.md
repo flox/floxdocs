@@ -232,12 +232,13 @@ network.
 
 We've compiled a list of example commands to demonstrate how to use Flox to
 build artifacts in various ecosystems.
-You can see that page here: [Builds examples][build-examples].
+Each language guide in the Languages section of the Cookbook contains an example of building an artifact with Flox.
+For example, [this section][go-example] contains an example build for the Go language.
 
 [services-concept]: ./services.md
 [publish-concept]: ./publishing.md
 [fhs-docs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 [pkg-groups]: ./manifest.md#installing-packages-to-package-groups
-[build-examples]: ../cookbook/builds/examples.md
 [grpc]: https://grpc.io/
 [organizations-concept]: ./organizations.md
+[go-example]: ../cookbook/languages/go.md#build-with-flox
