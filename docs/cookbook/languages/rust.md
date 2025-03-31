@@ -168,4 +168,22 @@ fish = '''
 '''
 ```
 
+## Build with Flox
+
+Not only can you _develop_ your software with Flox, but you can _build_ it as well.
+See the [builds][build-concept] concept page for more details.
+
+Since the output of the build must be copied to the `$out` directory, you'll need to copy the compiled executable out of the `target` directory and into `$out`.
+There is an unstable environment variable in Cargo that will allow you to set the output directory of the build, but we'll stick to stable features here:
+
+```toml
+[build.myproject]
+command = '''
+  cargo build --release
+  mkdir -p $out/bin
+  cp target/release/myproject $out/bin/myproject
+'''
+```
+
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
+[build-concept]: ../../concepts/manifest-builds.md
