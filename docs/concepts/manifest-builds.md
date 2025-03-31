@@ -228,6 +228,12 @@ available within the sandbox.
 On Linux machines the sandbox also prevents the build from accessing the
 network.
 
+## Cross-platform builds
+
+Currently when you build a package, it is only built for the system (`aarch64-darwin`, `x86_64-linux`, etc) that the build is being run on.
+This means that if you want artifacts built for multiple platforms, you need to run the build on multiple platforms.
+One way to accomplish this is to run your builds in CI.
+
 ## Examples
 
 We've compiled a list of example commands to demonstrate how to use Flox to

@@ -5,6 +5,11 @@ description: Create a Catalog Store for publishing your own Flox packages
 
 # Setting up a Catalog Store
 
+!!! tip "This is a Flox for Teams feature"
+
+    A Catalog Store is required for publishing, and publishing is a paid feature included with Flox for Teams.
+    Sign up for [early access][early] if you are interested in accessing this feature.
+
 Publishing your own software to your organization's Flox Catalog requires some
 initial setup, but the process is relatively straightforward. Flox supports
 publishing packages to a Catalog Store, which can exist in an AWS S3 bucket
@@ -68,7 +73,7 @@ As you probably know by now, the underlying technology powering Flox is Nix.
 Accordingly, we need to take a couple steps to ensure that the Nix daemon
 has access to the S3 bucket you've just created.
 To do so, we need to get AWS credentials, specifically `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and, if applicable, `AWS_SESSION_TOKEN`.
-Use the `aws configure` or `aws configure sso` command [as described in the CLI reference][aws-cli-configure-command]{:target="\_blank"} to set those same values, and ensure that the AWS profile and region match those configured for the S3 bucket
+Use the `aws configure` or `aws configure sso` command [as described in the CLI reference][aws-cli-configure-command]{:target="\_blank"} to set those same values, and ensure that the AWS profile and region match those configured for the S3 bucket.
 
 You can confirm that everything is set up correctly by inspecting the values stored in `$HOME/.aws/credentials`.
 
@@ -88,3 +93,4 @@ The private key is used to sign artifacts before uploading them, whereas the pub
 See the [signing keys][signing-keys] Cookbook page for instructions on configuring your signing keys.
 
 [signing-keys]: ./signing-keys.md
+[early]: https://flox.dev/early/
