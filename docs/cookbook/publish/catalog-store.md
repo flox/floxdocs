@@ -66,19 +66,11 @@ By default, S3 buckets are normally confined to be read by the bucket owner or u
 
 As you probably know by now, the underlying technology powering Flox is Nix.
 Accordingly, we need to take a couple steps to ensure that the Nix daemon
-has access to the S3 bucket you've just created. To do so,
-you have a couple of options:
+has access to the S3 bucket you've just created.
+To do so, we need to get AWS credentials, specifically `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and, if applicable, `AWS_SESSION_TOKEN`.
+Use the `aws configure` or `aws configure sso` command [as described in the CLI reference][aws-cli-configure-command]{:target="\_blank"} to set those same values, and ensure that the AWS profile and region match those configured for the S3 bucket
 
-1. Set `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and, if applicable,
-`AWS_SESSION_TOKEN` as environment variables, both for Flox and for
-the daemon itself
-1. Use the `aws configure` command
-[as described in the CLI reference][aws-cli-configure-command]{:target="\_blank"}
-to set those same values, and ensure that the AWS profile and region match those
-configured for the S3 bucket
-
-If you follow the second set of steps, you can confirm that everything is set
-up correctly by inspecting the values stored in `$HOME/.aws/credentials`.
+You can confirm that everything is set up correctly by inspecting the values stored in `$HOME/.aws/credentials`.
 
 [aws-cli-configure-command]: https://awscli.amazonaws.com/v2/documentation/api/latest/reference/configure/index.html#configure
 
