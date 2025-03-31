@@ -43,6 +43,25 @@ and we'll work with you to get you up and running.
 [aws-cli-reference-s3]: https://docs.aws.amazon.com/cli/latest/reference/s3/
 [aws-s3-api-reference]: https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html
 
+### Policy example
+
+By default, S3 buckets are normally confined to be read by the bucket owner or users within the same AWS account. This is likely a decent starting point for the Catalog Store. However, if you'd like to make your published Flox software available to a wider audience, you can use the following policy as a starting point. Note this will make the contents of the bucket public, so be sure to understand the implications of this before applying it.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::$BUCKET_NAME/*"
+    }
+  ]
+}
+```
+
 ## Ensure the Nix Daemon has access to the S3 Bucket
 
 As you probably know by now, the underlying technology powering Flox is Nix.
@@ -65,32 +84,7 @@ up correctly by inspecting the values stored in `$HOME/.aws/credentials`.
 
 ## Set Catalog Store ingress and egress URIs
 
-Once you have your S3 bucket configured, the next step is to set an ingress URI
-and egress URI for your Catalog Store. Flox provides a utility for you
-that does exactly what you need, within a Flox environment. To use this,
-you'll need to run the following command:
-
-```sh
-$ flox activate -r flox/flox-catalog-util
-```
-
-When you run this command, you'll see the following output:
-
-```console
-✅ You are now using the environment 'flox/flox-catalog-util (remote)'.
-To stop using this environment, type 'exit'
-```
-
-Within the active Flox environment, you can simply run the following command:
-
-```sh
-$ catalog-util store --catalog "<my-catalog-name>" set nixcopy \
-    --ingress-uri "s3://<my-bucket>" \
-    --egress-uri "s3://<my-bucket>"
-```
-
-You'll note that it's possible to set the ingress and egress URIs to the same
-value, if you wish to do so.
+This step is accomplished as part of your organizational onboarding to Flox for Teams Early Access. Utilities for proper adminstration and self-service are coming soon.
 
 ## Create and set a signing key
 
