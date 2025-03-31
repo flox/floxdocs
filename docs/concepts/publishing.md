@@ -3,6 +3,11 @@ title: "Publishing"
 description: How to use Flox environments to build artifacts 
 ---
 
+!!! tip "This is a Flox for Teams feature"
+
+    This is a paid feature included with Flox for Teams.
+    Sign up for [early access][early] if you are interested in accessing this feature.
+
 Once you've built an artifact with the [`flox build`][builds-concept] command, you likely want to put it somewhere.
 The `flox publish` command gives you the ability to upload artifacts to your private catalog.
 In order to share packages with other people you must create an organization.
