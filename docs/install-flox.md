@@ -120,7 +120,7 @@ description: Install or upgrade Flox
 
     1. Download installer for Macs with
 
-        [Apple M1/M2][flox_mac_m1_install]{:target="_blank" .md-button .md-button--primary}
+        [Apple Silicon][flox_mac_apple_silicon_install]{:target="_blank" .md-button .md-button--primary}
         [Intel processors][flox_mac_intel_install]{:target="_blank" .md-button .md-button--primary}
 
     1. Double-click to install the downloaded file
@@ -847,7 +847,7 @@ Here's how to **completely remove `flox` from your system**.
 [flox_aarch64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-{{ FLOX_VERSION }}.aarch64-linux.deb
 [flox_x86_64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-{{ FLOX_VERSION }}.x86_64-linux.rpm
 [flox_aarch64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-{{ FLOX_VERSION }}.aarch64-linux.rpm
-[flox_mac_m1_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.aarch64-darwin.pkg
+[flox_mac_apple_silicon_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.aarch64-darwin.pkg
 [flox_mac_intel_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.x86_64-darwin.pkg
 [flox_discourse]: https://discourse.flox.dev
 [release_notes]: https://github.com/flox/flox/releases

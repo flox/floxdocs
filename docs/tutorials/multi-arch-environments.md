@@ -1,9 +1,9 @@
 ---
-title: Designing multiple architecture environments
+title: Designing cross-platform environments
 description: Creating environments that run on different systems.
 ---
 
-# Designing multiple architecture environments
+# Designing cross-platform environments
 
 Flox makes it simple to have the **same [environment][environment_concept] on
 multiple systems and CPU architectures**.
