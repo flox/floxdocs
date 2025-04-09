@@ -52,6 +52,7 @@ nav:
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
+    - Composing environments: concepts/composition.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:
