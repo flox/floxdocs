@@ -10,3 +10,4 @@ lib/
 pyvenv.cfg
 .ssh-agent-out
 .vscode/
+scratch/
