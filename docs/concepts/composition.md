@@ -41,10 +41,14 @@ Each entry in this array is an "include descriptor", which specifies where to fi
 
 ```text
 IncludedEnvironments ::= [IncludeDescriptor]
-IncludeDescriptor    ::= PathEnvDescriptor
-PathEnvDescriptor    ::= {
-  dir  = <PATH>
-, name = null | <STRING>
+IncludeDescriptor ::= LocalIncludeDescriptor | RemoteIncludeDescriptor
+LocalIncludeDescriptor :: = {
+  dir  = STRING
+, name = null | STRING
+}
+RemoteIncludeDescriptor :: = {
+  remote = STRING
+, name   = null | STRING
 }
 ```
 
@@ -57,9 +61,12 @@ An example `include` section is shown below:
 ```toml
 [include]
 environments = [
+  # Include a local environment
   { dir = "../myenv" },
-  # Override the name of this environment
-  { dir = "../other_env", name = "other" }
+  # Override the name of an environment
+  { dir = "../other_env", name = "other" },
+  # Include a remote environment
+  { remote = "myuser/myenv" },
 ]
 ```
 

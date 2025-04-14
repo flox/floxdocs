@@ -110,8 +110,7 @@ We call this feature "composition".
 One environment (we call it the "composing" environment) can "include" another environment (we call this an "included" environment), treating it like a dependency.
 You can install packages to the composing environment just like you would any other environment, which allows you to reuse the template environment, get updates to it, and add project specific dependencies directly to the composing environment.
 
-At the moment you can only include local environments, but that restriction will be lifted in the very near future.
-For now let's see an example of this in action.
+Let's see an example of this in action.
 As a reminder, you currently have this directory structure:
 
 ```
