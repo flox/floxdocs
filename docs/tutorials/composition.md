@@ -257,6 +257,39 @@ python312: python312 (python3-3.12.9)
 Remember, the only package that's installed to `composed_python_project` directly is `pytest`.
 All of the other packages you get for free just by including the `python_env` environment.
 
+### Including remote environments
+
+Environments can also be included directly from FloxHub, such as the `myuser/python_env` environment that we pushed previously.
+This is especially useful if you're including the same environment across multiple projects and repositories because you don't need to ensure that they are checked out and synced locally.
+
+Push the additional package that we installed to `myuser/python_env` earlier:
+
+```
+$ flox push -d python_env
+✅ Updates to python_env successfully pushed to FloxHub
+
+Use 'flox pull myuser/python_env to get this environment in any other location.
+```
+
+Run the [`flox edit`][flox-edit] command and make the `include` section of the manifest look like this:
+
+```toml
+[include]
+environments = [
+  { remote = "myuser/python_env" }
+]
+```
+
+After saving and exiting, the environment will now behave as it did with the local include:
+
+```
+$ flox list -d composed_python_project
+hypothesis: python312Packages.hypothesis (6.127.4)
+poetry: poetry (2.1.1)
+pytest: python312Packages.pytest (8.3.5)
+python312: python312 (python3-3.12.9)
+```
+
 ## Conclusion
 
 The ability to reuse and combine environments means that you can now assemble a developer environment for a project from reusable building blocks.
