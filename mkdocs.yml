@@ -42,6 +42,7 @@ nav:
     - Customizing the environment shell hook: tutorials/customizing-environments.md
     - Running Flox in CI/CD: tutorials/ci-cd.md
     - Designing cross-platform environments: tutorials/multi-arch-environments.md
+    - Reusing and combining developer environments: tutorials/composition.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
   - Concepts:
@@ -52,6 +53,7 @@ nav:
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
+    - Composing environments: concepts/composition.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:

@@ -55,7 +55,7 @@ or you can add a single line to your shell's RC file:
     Add the following line to the very end of each of those files:
 
     ```bash
-    eval "$(flox activate -m run)"
+    eval "$(flox activate -d ~ -m run)"
     ```
 
 === "Zsh"
@@ -64,7 +64,7 @@ or you can add a single line to your shell's RC file:
     files:
 
     ```bash
-    eval "$(flox activate -m run)"
+    eval "$(flox activate -d ~ -m run)"
     ```
 
 === "Fish"
@@ -72,7 +72,7 @@ or you can add a single line to your shell's RC file:
     Add the following line to the very end of your `config.fish` file:
 
     ```fish
-    flox activate -m run | source
+    flox activate -d ~ -m run | source
     ```
 
 === "Tcsh"
@@ -80,7 +80,7 @@ or you can add a single line to your shell's RC file:
     Add the following line to the very end of your `.tcshrc` file:
 
     ```bash
-    eval "`flox activate -m run`"
+    eval "`flox activate -d ~ -m run`"
     ```
 
 ---
@@ -187,7 +187,7 @@ or to use it as a starting point without otherwise linking the two machines.
 === "Keep the machines in sync"
 
     From the new machine:
-    
+
     ```bash
     $ cd ~
     $ flox pull your_user/default
@@ -201,7 +201,7 @@ or to use it as a starting point without otherwise linking the two machines.
 === "Use as a starting point"
 
     From the new machine:
-    
+
     ```bash
     $ cd ~
     $ flox pull --copy your_user/default
