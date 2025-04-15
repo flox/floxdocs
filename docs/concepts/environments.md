@@ -113,7 +113,7 @@ version. Flox manages this file for you.
 [flox_search]: ../reference/command-reference/flox-search.md
 [flox_edit]: ../reference/command-reference/flox-edit.md
 [flox_push]: ../reference/command-reference/flox-push.md
-[flox_pull]: ../reference/command-reference/flox-push.md
+[flox_pull]: ../reference/command-reference/flox-pull.md
 [flox_activate]: ../reference/command-reference/flox-activate.md
 [sharing_guide]: ../tutorials/sharing-environments.md
 [create_guide]: ../tutorials/creating-environments.md
