@@ -92,7 +92,7 @@ See how to get started with Flox in your language:
 
 ## Reproducible dev environments
 
-Flox lets you define what an environment _is_ in a way you can reuse across local dev, CI, and production, giving you reproducible environments that behave the same wherever they run. Leverage [pre-built integrations](https://flox.dev/docs/tutorials/ci-cd/?h=ci) for GitHub Actions, CircleCI, and GitLab to pull and activate the same environments locally, in CI and in prod. Or use Flox [containerize](https://flox.dev/docs/reference/command-reference/flox-containerize/?h=containerize) to package your environments as OCI images—fully pinned and runnable anywhere.
+Flox lets you define what an environment _is_ in a way that can be reused across local dev, CI, and production. Leverage [pre-built integrations](https://flox.dev/docs/tutorials/ci-cd/?h=ci) for GitHub Actions, CircleCI, and GitLab to pull and activate the same environments locally, in CI and in prod. Or use Flox [containerize](https://flox.dev/docs/reference/command-reference/flox-containerize/?h=containerize) to package your environments as OCI images—fully pinned and runnable anywhere.
 
 From bare metal to VMs, from Docker Swarm to Kubernetes to AWS Lambda—the runtime context might change, but Flox environments run and behave the same everywhere.
 
