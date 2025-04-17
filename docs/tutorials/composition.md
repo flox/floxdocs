@@ -110,8 +110,7 @@ We call this feature "composition".
 One environment (we call it the "composing" environment) can "include" another environment (we call this an "included" environment), treating it like a dependency.
 You can install packages to the composing environment just like you would any other environment, which allows you to reuse the template environment, get updates to it, and add project specific dependencies directly to the composing environment.
 
-At the moment you can only include local environments, but that restriction will be lifted in the very near future.
-For now let's see an example of this in action.
+Let's see an example of this in action.
 As a reminder, you currently have this directory structure:
 
 ```
@@ -122,11 +121,11 @@ myproject/
     .flox/
 ```
 
-Let's create a environment in a `composer` directory.
+Let's create a environment in a `composed_python_project` directory.
 
 ```
-$ flox init -d composer
-✨ Created environment 'composer' (aarch64-darwin)
+$ flox init -d composed_python_project
+✨ Created environment 'composed_python_project' (aarch64-darwin)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -143,13 +142,13 @@ myproject/
     .flox/
   new_python_project/
     .flox/
-  composer/
+  composed_python_project/
     .flox/
 ```
 
 Pretend that this is the environment you would use to do your work on your Python project.
 You're going to need a Python toolchain, and you may need some additional dependencies.
-In order to bring in the Python toolchain we'll need to edit the manifest of the `composer` environment and include the `python_env` environment.
+In order to bring in the Python toolchain we'll need to edit the manifest of the `composed_python_project` environment and include the `python_env` environment.
 Run the [`flox edit`][flox-edit] command and make the `include` section of the manifest look like this:
 
 ```toml
@@ -176,10 +175,10 @@ In those cases, the priority order of the environments determines which one wins
 When one manifest overrides another, you are shown a message indicating which fields were overridden so that there are no surprises.
 The message about `options.systems` is simply a result of the fact that the default manifest sets this field explicitly.
 
-If you now run [`flox list`][flox-list], you should see the packages from the `python_env` environment, even though we never ran a `flox install` command on the `composer` environment!
+If you now run [`flox list`][flox-list], you should see the packages from the `python_env` environment, even though we never ran a `flox install` command on the `composed_python_project` environment!
 
 ```
-$ flox list -d composer
+$ flox list -d composed_python_project
 poetry: poetry (2.1.1)
 python312: python312 (python3-3.12.9)
 ```
@@ -189,7 +188,7 @@ When you use this command _without_ a composed environment, it prints the (unmer
 When you use this command _with_ a composed environment, it prints the merged manifest.
 
 ```
-$ flox list -c -d composer
+$ flox list -c -d composed_python_project
 version = 1
 
 [install]
@@ -216,12 +215,12 @@ In short, it does what you would expect.
 Let's add the `pytest` package:
 
 ```
-$ flox install -d composer python312Packages.pytest
-✅ 'pytest' installed to environment 'composer'
+$ flox install -d composed_python_project python312Packages.pytest
+✅ 'pytest' installed to environment 'composed_python_project'
 ```
 
-Note that the message says the package was installed to the `composer` environment.
-If you run `flox edit -d composer` you'll see that the package is contained in the `[install]` section of `composer`'s manifest.
+Note that the message says the package was installed to the `composed_python_project` environment.
+If you run `flox edit -d composed_python_project` you'll see that the package is contained in the `[install]` section of `composed_python_project`'s manifest.
 
 ### Getting the latest versions of included environments
 
@@ -240,23 +239,56 @@ $ flox install -d python_env python312Packages.hypothesis
 Now let's propagate those changes to the composed environment:
 
 ```
-$ flox include upgrade -d composer
-✅ Upgraded 'composer' with latest changes to:
+$ flox include upgrade -d composed_python_project
+✅ Upgraded 'composed_python_project' with latest changes to:
 - 'python_env'
 ```
 
 Now if you run `flox list` you should see that the composed environment now contains the `hypothesis` package:
 
 ```
-$ flox list -d composer
+$ flox list -d composed_python_project
 hypothesis: python312Packages.hypothesis (6.127.4)
 poetry: poetry (2.1.1)
 pytest: python312Packages.pytest (8.3.5)
 python312: python312 (python3-3.12.9)
 ```
 
-Remember, the only package that's installed to `composer` directly is `pytest`.
+Remember, the only package that's installed to `composed_python_project` directly is `pytest`.
 All of the other packages you get for free just by including the `python_env` environment.
+
+### Including remote environments
+
+Environments can also be included directly from FloxHub, such as the `myuser/python_env` environment that we pushed previously.
+This is especially useful if you're including the same environment across multiple projects and repositories because you don't need to ensure that they are checked out and synced locally.
+
+Push the additional package that we installed to `myuser/python_env` earlier:
+
+```
+$ flox push -d python_env
+✅ Updates to python_env successfully pushed to FloxHub
+
+Use 'flox pull myuser/python_env to get this environment in any other location.
+```
+
+Run the [`flox edit`][flox-edit] command and make the `include` section of the manifest look like this:
+
+```toml
+[include]
+environments = [
+  { remote = "myuser/python_env" }
+]
+```
+
+After saving and exiting, the environment will now behave as it did with the local include:
+
+```
+$ flox list -d composed_python_project
+hypothesis: python312Packages.hypothesis (6.127.4)
+poetry: poetry (2.1.1)
+pytest: python312Packages.pytest (8.3.5)
+python312: python312 (python3-3.12.9)
+```
 
 ## Conclusion
 
