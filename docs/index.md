@@ -47,11 +47,11 @@ There are no containers involved, so there's no isolation preventing you from us
     
     [:octicons-arrow-right-24: Search packages in FloxHub][floxhub_packages]{:target="_blank"}
 
--   :material-nix:{ .lg .middle } __Already installed Nix? Start here__
+-   :material-nix:{ .lg .middle } __Already using Nix? Start here__
 
     ---
 
-    ...Flox / Nix connection...
+    Flox makes the power of Nix more accessible for your team, and maybe for you too
 
     [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox.md?h=nix#__tabbed_1_6){:target="_blank"}
 
@@ -92,7 +92,8 @@ See how to get started with Flox in your language:
 
 ## Reproducible dev environments
 
-Flox lets you define what an environment _is_ in a way that can be reused across local dev, CI, and production. Leverage [pre-built integrations](https://flox.dev/docs/tutorials/ci-cd/?h=ci) for GitHub Actions, CircleCI, and GitLab to pull and activate the same environments locally, in CI and in prod. Or use Flox [containerize](https://flox.dev/docs/reference/command-reference/flox-containerize/?h=containerize) to package your environments as OCI images—fully pinned and runnable anywhere. From bare metal to VMs, from Docker Swarm to Kubernetes to AWS Lambda—the runtime context might change, but Flox environments run and behave the same everywhere.
+..one paragraph description, can include links within to services concepts, sharing, etc...
+
 
 ## Reproducible package manager for any system
 
@@ -109,9 +110,13 @@ If you're already using Homebrew, you can easily [migrate or use Homebrew and Fl
 
 ## Consistent builds from local to CI to production
 
-...one paragraph description, can include links within to CI/CD tutorial, CI blog, containerize reference, etc...
+Flox lets you define what an environment _is_ in a way that can be reused across local dev, CI, and production. 
+Leverage [pre-built integrations](https://flox.dev/docs/tutorials/ci-cd/?h=ci) for GitHub Actions, CircleCI, and GitLab to pull and activate the same environments locally, in CI and in prod. 
 
+Or use Flox [containerize](https://flox.dev/docs/reference/command-reference/flox-containerize/?h=containerize) to package your environments as OCI images—fully pinned and runnable anywhere. 
+From bare metal to VMs, from Docker Swarm to Kubernetes to AWS Lambda—the runtime context might change, but Flox environments run and behave the same everywhere.
 
+Need an example? See how [the Flox Docs team uses Flox in CI](https://flox.dev/blog/integrating-flox-with-ci-for-consistent-reproducible-dev-environments/) to build, test and deploy this docs site. 
 
 
 [install_flox]: ./install-flox.md
