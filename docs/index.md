@@ -39,7 +39,7 @@ There are no containers involved, so there's no isolation preventing you from us
     ---
 
     Install `flox` with `brew` and get your dev 
-    environment set up in minutes
+    environment set up in minutes.
 
     [:octicons-arrow-right-24: Download & Install][install_flox]
 
@@ -51,7 +51,7 @@ There are no containers involved, so there's no isolation preventing you from us
 
     ---
 
-    Flox makes the power of Nix more accessible for your team, and maybe for you too
+    Flox makes the power of Nix more accessible for your team, and maybe for you too.
 
     [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox.md?h=nix#__tabbed_1_6){:target="_blank"}
 
@@ -68,34 +68,37 @@ Combine multiple languages in a single environment or layer environments for mor
 
 See how to get started with Flox in your language:
 
-<div class="grid cards" markdown>
 
-- :simple-nodedotjs: __Node__ <br> 
-[Set up a NodeJS environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-nodejs-environments/) 
-- :fontawesome-brands-golang: __Go__ <br>
-[Set up a Go environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-go-environments/)
-- :fontawesome-brands-python: __Python__ <br>
-[Set up a Python environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/)
-- :fontawesome-brands-rust: __Rust__ <br>
-[Set up a Rust environment](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/) <br>
-- :material-language-ruby: __Ruby__  <br>
-[Set up a Ruby environment](https://flox.dev/blog/making-ruby-projects-easier-to-share/)
-</div>
+[Node :simple-nodedotjs:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-nodejs-environments/){ .md-button }
+[Go :fontawesome-brands-golang:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-go-environments/){ .md-button }
+[Python :fontawesome-brands-python:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/){ .md-button }
+[Rust :fontawesome-brands-rust:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/){ .md-button }
+[Ruby :material-language-ruby:](https://flox.dev/blog/making-ruby-projects-easier-to-share/){ .md-button }
+
+
 
 ## Why Flox?
 
-...high level overview of use cases, exact titles TBD... 
+...very high level about same old software problems with increasingly complex solutions... 
+
+Flox provides a simpler way to get:
 
 1. Reproducible dev environments
-2. Reproducible package manager for your whole system
+2. Reproducible package management for any system
 3. Consistent builds from local to CI to production
 
 ## Reproducible dev environments
 
-..one paragraph description, can include links within to services concepts, sharing, etc...
+Set up a [local developer environment](https://flox.dev/docs/tutorials/creating-environments/) that will work the same across multiple system types and architectures. [Activate](https://flox.dev/docs/concepts/activation/) an environment to enter a subshell with the configuration when you need it, then exit to return to use a different version just as quickly.
+
+All the [packages](https://hub.flox.dev/packages), [activation scripts](https://flox.dev/blog/mastering-hooks-and-profiles-for-reproducible-flox-environments/), [environment variables](https://flox.dev/docs/tutorials/creating-environments/#customize-the-shell-hook-and-environment-variables) and [services](https://flox.dev/docs/concepts/services/) needed to reproduce the environment are declared in a simple [manifest](https://flox.dev/docs/concepts/manifest/) that can be checked into [version control along with your source code](https://flox.dev/blog/flox-and-teams-managing-your-code-and-your-runtime-environment-in-just-one-place/).
+
+Once your environment is all set up, you can simplify your project's README to a single command (`flox activate`) to easily [share environments with your team](https://flox.dev/blog/flox-and-teams-using-shared-flox-environments/) or [onboard new developers](https://flox.dev/blog/flox-and-teams-onboarding-made-easy-with-github-and-flox/).
+
+Create a reusable toolchain or templates to bootstrap new projects by [reusing and combining dev environments](https://flox.dev/docs/tutorials/composition/).
 
 
-## Reproducible package manager for any system
+## Reproducible package management for any system
 
 Use Flox to set up your [default environment](https://flox.dev/docs/tutorials/default-environment/) with a set of 
 packages that you always want available, whether you're on macOS or Linux -- x86 or ARM.
