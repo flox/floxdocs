@@ -79,21 +79,23 @@ See how to get started with Flox in your language:
 
 ## Why Flox?
 
-...very high level about same old software problems with increasingly complex solutions... 
+The same challenges, no matter the stack: inconsistent environments, dependency drift, and brittle build processes that don’t scale well across machines, teams, or deployment targets. Current solutions often add complexity and fragmentation.
 
-Flox provides a simpler way to get:
+Flox takes a different approach — providing a consistent, language-agnostic workflow for managing environments that just works, from local development to CI to production. 
 
-1. Reproducible dev environments
-2. Reproducible package management for any system
-3. Consistent builds from local to CI to production
+Use Flox to solve three common use cases: 
+
+- Reproducible dev environments 
+- Reliable package management across systems 
+- Consistent builds from local to production
 
 ## Reproducible dev environments
 
-Set up a [local developer environment](https://flox.dev/docs/tutorials/creating-environments/) that will work the same across multiple system types and architectures. [Activate](https://flox.dev/docs/concepts/activation/) an environment to enter a subshell with the configuration when you need it, then exit to return to use a different version just as quickly.
+Set up a [local developer environment](https://flox.dev/docs/tutorials/creating-environments/) that will work the same across multiple system types and architectures. [Activate](https://flox.dev/docs/concepts/activation/) an environment to enter a subshell with the configuration only when you need it. Switch between development environments across multiple language ecosystems using a consistent, unified workflow.
 
 All the [packages](https://hub.flox.dev/packages), [activation scripts](https://flox.dev/blog/mastering-hooks-and-profiles-for-reproducible-flox-environments/), [environment variables](https://flox.dev/docs/tutorials/creating-environments/#customize-the-shell-hook-and-environment-variables) and [services](https://flox.dev/docs/concepts/services/) needed to reproduce the environment are declared in a simple [manifest](https://flox.dev/docs/concepts/manifest/) that can be checked into [version control along with your source code](https://flox.dev/blog/flox-and-teams-managing-your-code-and-your-runtime-environment-in-just-one-place/).
 
-Once your environment is all set up, you can simplify your project's README to a single command (`flox activate`) to easily [share environments with your team](https://flox.dev/blog/flox-and-teams-using-shared-flox-environments/) or [onboard new developers](https://flox.dev/blog/flox-and-teams-onboarding-made-easy-with-github-and-flox/).
+Once your environment is configured, you can simplify the setup instructions in your README to a single command (`flox activate`), making it easy to [share environments](https://flox.dev/blog/flox-and-teams-using-shared-flox-environments/) and [onboard new developers](https://flox.dev/blog/flox-and-teams-onboarding-made-easy-with-github-and-flox/).
 
 Create a reusable toolchain or templates to bootstrap new projects by [reusing and combining dev environments](https://flox.dev/docs/tutorials/composition/).
 
