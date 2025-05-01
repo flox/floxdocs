@@ -74,7 +74,7 @@ Guides for getting started in just a few of the many languages Flox supports:
 
 The same challenges, no matter the stack: inconsistent environments, dependency drift, and brittle build processes that don’t scale well across machines, teams, or deployment targets. Current solutions often add complexity and fragmentation.
 
-Flox takes a different approach — providing a consistent, language-agnostic workflow for managing environments that just works, from local development to CI to production. 
+Flox takes a different approach: it provides a consistent, language-agnostic workflow for managing environments, from local development to CI to production.
 
 Use Flox to solve three common use cases: 
 
@@ -94,7 +94,7 @@ Once your environment is configured, you can simplify the setup instructions in 
 ### __Reproducible package management for any system__
 
 Set up your [default environment](https://flox.dev/docs/tutorials/default-environment/) with a set of 
-packages that you always want available, whether you're on macOS or Linux -- x86 or ARM.
+packages that you always want available, whether you're on macOS or Linux—x86 or ARM.
 
 Then, when you need to [set up a new laptop](https://flox.dev/blog/setting-up-a-new-laptop-made-easy-with-flox/
 ), or [keep multiple machines in sync](https://flox.dev/docs/tutorials/sharing-environments/#always-using-the-same-environment-across-multiple-devices
