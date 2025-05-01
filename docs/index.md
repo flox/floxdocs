@@ -26,7 +26,7 @@ Flox achieves isolation through pre-configured sub-shells, not containers, so it
 Flox makes it easy to work locally, test in CI, and deploy to production—all with the same environment.
 
 
- <iframe width="400" height="220" src="https://www.youtube.com/embed/aidi5svDml8?si=rrgQ6a0oQzdFNgWs" title="What is Flox?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
+ <iframe width="550" height="300" src="https://www.youtube.com/embed/aidi5svDml8?si=rrgQ6a0oQzdFNgWs" title="What is Flox?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
 
 
 
@@ -65,7 +65,7 @@ Guides for getting started in just a few of the many languages Flox supports:
 [Node :simple-nodedotjs:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-nodejs-environments/){ .md-button }
 [Go :fontawesome-brands-golang:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-go-environments/){ .md-button }
 [Python :fontawesome-brands-python:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/){ .md-button }
-[Rust :fontawesome-brands-rust:](https://flox.dev/blog/using-flox-to-create-portable-reproducible-python-environments/){ .md-button }
+[Rust :fontawesome-brands-rust:](https://flox.dev/blog/a-real-world-rust-project-with-flox/){ .md-button }
 [Ruby :material-language-ruby:](https://flox.dev/blog/making-ruby-projects-easier-to-share/){ .md-button }
 
 
@@ -86,12 +86,12 @@ Use Flox to solve three common use cases:
 
 Set up a [local developer environment](https://flox.dev/docs/tutorials/creating-environments/) that will work the same across multiple system types and architectures. Seamlessly switch between development environments across multiple language ecosystems using a consistent, unified workflow.
 
-Declare all the [packages](https://hub.flox.dev/packages), [activation scripts](https://flox.dev/blog/mastering-hooks-and-profiles-for-reproducible-flox-environments/), [environment variables](https://flox.dev/docs/tutorials/creating-environments/#customize-the-shell-hook-and-environment-variables) and [services](https://flox.dev/docs/concepts/services/) needed to reproduce the environment in a simple [manifest](https://flox.dev/docs/concepts/manifest/) that can be checked into [version control along with your source code](https://flox.dev/blog/flox-and-teams-managing-your-code-and-your-runtime-environment-in-just-one-place/).
+Declare all the packages, activation scripts, environment variables and [services](https://flox.dev/docs/concepts/services/) needed to reproduce the environment in a simple manifest that can be checked into [version control along with your source code](https://flox.dev/blog/flox-and-teams-managing-your-code-and-your-runtime-environment-in-just-one-place/).
 
 Once your environment is configured, you can simplify the setup instructions in your README to a single command (`flox activate`), making it easy to [share environments](https://flox.dev/blog/flox-and-teams-using-shared-flox-environments/) and [onboard new developers](https://flox.dev/blog/flox-and-teams-onboarding-made-easy-with-github-and-flox/).
 
 
-### __Reproducible package management for any system__
+### __Cross-platform package management for your whole system__
 
 Set up your [default environment](https://flox.dev/docs/tutorials/default-environment/) with a set of 
 packages that you always want available, whether you're on macOS or Linux—x86 or ARM.
@@ -115,11 +115,11 @@ From bare metal to VMs, from Docker Swarm to Kubernetes to AWS Lambda—the runt
 Need an example? See how [the Flox Docs team uses Flox in CI](https://flox.dev/blog/integrating-flox-with-ci-for-consistent-reproducible-dev-environments/) to build, test and deploy this docs site. 
 
 
-### And more...
+### __And more...__
 
 - Create a reusable toolchain or templates to bootstrap new projects by [reusing and combining dev environments](https://flox.dev/docs/tutorials/composition/).
 
-- Create a portable [environment with transparent auth](https://flox.dev/blog/get-your-preferred-secrets-manager-in-a-portable-cross-platform-cli-toolkit/) via a third-party secrets manager so cross-platform workflows work the same everywhere —- locally, in CI, or in production.
+- Create a portable [environment with transparent auth](https://flox.dev/blog/get-your-preferred-secrets-manager-in-a-portable-cross-platform-cli-toolkit/) via a third-party secrets manager so cross-platform workflows work the same everywhere: locally, in CI, or in production.
 
 
 [install_flox]: ./install-flox.md
