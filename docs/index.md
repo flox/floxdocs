@@ -16,9 +16,9 @@ description: What is Flox?
 
 Flox is a next-generation, language-agnostic package and environment manager.   
 
-  - Define everything your environment needs—packages, tools, environment variables, and services—in one manifest.  
-  - Switch between environments easily, share them with your team, and keep everything in version control.   
-  - Use the same setup across macOS and Linux, on both x86 and ARM.     
+- Define everything your environment needs—packages, tools, environment variables, and services—in one manifest.  
+- Switch between environments easily, share them with your team, and keep everything in version control.   
+- Use the same setup across macOS and Linux, on both x86 and ARM.     
 
 Flox achieves isolation through pre-configured sub-shells, not containers, so it works seamlessly with your existing tools, shells, and dotfiles. Under the hood, Flox uses Nix to ensure reproducibility—without requiring you to learn Nix.    
 
