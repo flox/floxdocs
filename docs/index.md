@@ -16,10 +16,9 @@ description: What is Flox?
 
 Flox is a next-generation, language-agnostic package and environment manager.   
 
-  :material-arrow-right-thick: Define everything your environment needs—packages, tools, environment variables, and services—in one manifest.  
-  :material-arrow-right-thick: Switch between environments easily, share them with your team, and keep everything in version control.   
-  :material-arrow-right-thick: Use the same setup across macOS and Linux, on both x86 and ARM.     
-
+  - Define everything your environment needs—packages, tools, environment variables, and services—in one manifest.  
+  - Switch between environments easily, share them with your team, and keep everything in version control.   
+  - Use the same setup across macOS and Linux, on both x86 and ARM.     
 
 Flox achieves isolation through pre-configured sub-shells, not containers, so it works seamlessly with your existing tools, shells, and dotfiles. Under the hood, Flox uses Nix to ensure reproducibility—without requiring you to learn Nix.    
 
@@ -28,7 +27,7 @@ Flox makes it easy to work locally, test in CI, and deploy to production—all w
 
  <iframe width="550" height="300" src="https://www.youtube.com/embed/aidi5svDml8?si=rrgQ6a0oQzdFNgWs" title="What is Flox?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> 
 
-
+---
 
 ## Get Started
 <div class="grid cards" markdown>
@@ -37,7 +36,7 @@ Flox makes it easy to work locally, test in CI, and deploy to production—all w
 
     ---
 
-    Install `flox` with `brew` and get your dev 
+    Install `flox` with `apt`, `yum`, `brew`, or a system installer to get your dev 
     environment set up in minutes.
 
     [:octicons-arrow-right-24: Download & Install][install_flox]
@@ -50,7 +49,7 @@ Flox makes it easy to work locally, test in CI, and deploy to production—all w
 
     ---
 
-    Flox makes the power of Nix more accessible for your team, and maybe for you too.
+    Flox brings the power of Nix to your team, and can simplify your workflows too.
 
     [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox.md?h=nix#__tabbed_1_6){:target="_blank"}
 
@@ -68,11 +67,11 @@ Guides for getting started in just a few of the many languages Flox supports:
 [Rust :fontawesome-brands-rust:](https://flox.dev/blog/a-real-world-rust-project-with-flox/){ .md-button }
 [Ruby :material-language-ruby:](https://flox.dev/blog/making-ruby-projects-easier-to-share/){ .md-button }
 
-
+---
 
 ## Why Flox?
 
-The same challenges, no matter the stack: inconsistent environments, dependency drift, and brittle build processes that don’t scale well across machines, teams, or deployment targets. Current solutions often add complexity and fragmentation.
+We encounter the same challenges, no matter the stack: inconsistent environments, dependency drift, and brittle build processes that don’t scale well across machines, teams, or deployment targets. Current solutions often add complexity and fragmentation.
 
 Flox takes a different approach: it provides a consistent, language-agnostic workflow for managing environments, from local development to CI to production.
 
