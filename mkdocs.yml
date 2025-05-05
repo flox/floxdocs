@@ -289,4 +289,13 @@ plugins:
     - macros
 
     # Support for D2 diagrams
+    # https://github.com/landmaj/mkdocs-d2-plugin
     - d2
+
+    # Create page redirects (e.g. for moved/renamed pages)
+    # https://github.com/mkdocs/mkdocs-redirects
+    - redirects:
+        redirect_maps:
+        #  'old.md': 'new.md'
+        #  'old/file.md': 'new/file.md'
+        #  'some_file.md': 'http://external.url.com/foobar'
