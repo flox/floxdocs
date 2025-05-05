@@ -32,8 +32,9 @@ extra:
     provider: custom
 
 nav:
+  - Introduction: index.md
   - Install Flox: install-flox.md
-  - Flox in 5 minutes: index.md
+  - Flox in 5 minutes: flox-5-minutes.md
   - Tutorials:
     - Creating environments: tutorials/creating-environments.md
     - The default environment: tutorials/default-environment.md
