@@ -145,7 +145,7 @@ Then, from the Apple machine, lets pull the latest.
 
 ``` console
 $ flox pull
-✅ Pulled ghudgins/default from https://hub.flox.dev/
+✅ Pulled youruser/eng-team-tools from https://hub.flox.dev/
 
 You can activate this environment with 'flox activate' 
 $ flox list
