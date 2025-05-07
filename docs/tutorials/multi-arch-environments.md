@@ -84,55 +84,19 @@ Looks like the environment works cross-platform, nice!
 ## Handling unsupported packages
 
 However, some packages only work with a subset of systems.
-To demonstrate this let's install a package that **isn't compatible with an Apple machine** and set a system-specific option for these packages.
+To demonstrate this let's install a package that **isn't compatible with an Apple machine**.
 
 From the Linux machine...
 
 ``` console
-$ flox install systemd # (1)!
-❌ ERROR: resolution failed: package 'systemd' not available for
-    - aarch64-darwin
-    - x86_64-darwin
-  but it is available for
-    - aarch64-linux
-    - x86_64-linux
+$ flox install systemd
+⚠️  'systemd' installed only for the following systems: aarch64-linux, x86_64-linux
 ```
 
-1. `systemd` is only available on Linux systems
-
-To install `systemd` for compatible systems, [`flox edit`][flox_edit] the [manifest][manifest_toml].
-
-``` console
-$ flox edit
-```
-
-We will **add systemd** and include its `systems` attribute to filter only for
-the supported systems.
-
-``` toml title="manifest.toml"
-[install]
-...
-gnupg.pkg-path = "gnupg" # (1)!
-vim.pkg-path = "vim"
-
-systemd.pkg-path = "systemd" # (2)!
-systemd.systems = ["aarch64-linux", "x86_64-linux"] # (3)!
-```
-
-1. These packages were installed using `flox install` earlier.
-2. Here we are declaring a new installation, `systemd`.
-3. To allow non-Linux users to use this environment, the system attribute filters for just Linux systems.
-
-With the edits complete, save and quit your editor.
-The environment should update successfully!
-
-``` console
-$ flox edit
-✅ Environment successfully updated.
-```
-
-Finally, we can push this update so we can list packages from the Apple machine
-to verify everything works.
+Flox installs the package for all systems that it's compatible with,
+but it skips Apple systems since they don't support the package.
+We can push this update so we can list packages from the Apple machine to verify
+everything works.
 
 ``` console
 $ flox push
@@ -141,27 +105,30 @@ $ flox push
     Use 'flox pull youruser/eng-team-tools' to get this environment in any other location.
 ```
 
-Then, from the Apple machine, lets pull the latest.
+Then, from the Apple machine, let's pull the latest and inspect the manifest.
 
 ``` console
 $ flox pull
 ✅ Pulled youruser/eng-team-tools from https://hub.flox.dev/
 
-You can activate this environment with 'flox activate' 
+You can activate this environment with 'flox activate'
+
 $ flox list
 gnupg: gnupg (2.4.5)
 vim: vim (9.1.0377)
+
 $ flox list -c
 ...
 [install]
 gnupg.pkg-path = "gnupg"
 vim.pkg-path = "vim"
 systemd.pkg-path = "systemd"
-systemd.systems = ["aarch64-linux"]
+systemd.systems = ["aarch64-linux", "x86_64-linux"]
 ...
 ```
 
-The Apple machine does not have `systemd` despite it appearing in the manifest.
+The Apple machine does not have `systemd`, because the `systemd.systems` list
+specifies that `systemd` should only be installed on Linux.
 This environment will activate on both machines and the Apple machine won't
 get the `systemd` package.
 
