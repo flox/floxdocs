@@ -672,6 +672,7 @@ version = "1.2.2"
 description = "A MkDocs plugin for dynamic page redirects to prevent broken links"
 optional = false
 python-versions = ">=3.8"
+groups = ["main"]
 files = [
     {file = "mkdocs_redirects-1.2.2-py3-none-any.whl", hash = "sha256:7dbfa5647b79a3589da4401403d69494bd1f4ad03b9c15136720367e1f340ed5"},
     {file = "mkdocs_redirects-1.2.2.tar.gz", hash = "sha256:3094981b42ffab29313c2c1b8ac3969861109f58b2dd58c45fc81cd44bfa0095"},
@@ -1365,14 +1366,14 @@ test = ["pytest", "ruff"]
 
 [[package]]
 name = "trove-classifiers"
-version = "2025.5.1.12"
+version = "2025.5.9.12"
 description = "Canonical source for classifiers on PyPI (pypi.org)."
 optional = false
 python-versions = "*"
 groups = ["dev"]
 files = [
-    {file = "trove_classifiers-2025.5.1.12-py3-none-any.whl", hash = "sha256:9ed1030cfcc8d0eb944155f05b4add4efaceba4ba6aca3f9f348a21f1e700404"},
-    {file = "trove_classifiers-2025.5.1.12.tar.gz", hash = "sha256:28d24c3d043dc6b0459813d6bf4a231e788509b55ee3d54ba08ce72638031182"},
+    {file = "trove_classifiers-2025.5.9.12-py3-none-any.whl", hash = "sha256:e381c05537adac78881c8fa345fd0e9970159f4e4a04fcc42cfd3129cca640ce"},
+    {file = "trove_classifiers-2025.5.9.12.tar.gz", hash = "sha256:7ca7c8a7a76e2cd314468c677c69d12cc2357711fcab4a60f87994c1589e5cb5"},
 ]
 
 [[package]]
