@@ -32,8 +32,9 @@ extra:
     provider: custom
 
 nav:
+  - Introduction: index.md
   - Install Flox: install-flox.md
-  - Flox in 5 minutes: index.md
+  - Flox in 5 minutes: flox-5-minutes.md
   - Tutorials:
     - Creating environments: tutorials/creating-environments.md
     - The default environment: tutorials/default-environment.md
@@ -289,4 +290,13 @@ plugins:
     - macros
 
     # Support for D2 diagrams
+    # https://github.com/landmaj/mkdocs-d2-plugin
     - d2
+
+    # Create page redirects (e.g. for moved/renamed pages)
+    # https://github.com/mkdocs/mkdocs-redirects
+    - redirects:
+        redirect_maps:
+        #  'old.md': 'new.md'
+        #  'old/file.md': 'new/file.md'
+        #  'some_file.md': 'http://external.url.com/foobar'
