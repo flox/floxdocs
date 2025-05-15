@@ -52,7 +52,7 @@ file in a `.flox` directory wherever the [`flox init`][flox_init] command was
 run.
 Let's look closer at the files that were generated.
 
-### Environment manifest: `.flox/env/manifest.toml`
+### `manifest.toml`
 
 The manifest is a declarative specification for the environment and contains 5
 parts:
@@ -67,7 +67,7 @@ parts:
 [customizing environments guide][customizing_environments_guide] to walk through
 examples.
 
-### Manifest lock: `.flox/env/manifest.lock`
+### `manifest.lock`
 
 The lock file serves as a snapshot of the specific versions of dependencies that
 were built and activated at a particular point in time.
@@ -89,7 +89,7 @@ were built and activated at a particular point in time.
 }
 ```
 
-### Environment metadata: `.flox/env.json`
+### `env.json`
 
 A metadata file that contains the name of the environment and the environment's
 version. Flox manages this file for you.
