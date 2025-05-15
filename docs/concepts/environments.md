@@ -50,27 +50,29 @@ sharing and working with different types of environments.
 A Flox environment stores its metadata, declarative manifest, and manifest lock
 file in a `.flox` directory wherever the [`flox init`][flox_init] command was
 run.
+All of these files can be stored in version control when working with path environments.
+
 Let's look closer at the files that were generated.
 
 ### `manifest.toml`
 
-The manifest is a declarative specification for the environment and contains 5
-parts:
+The manifest is a declarative specification for the environment which is [TOML][toml_spec] formatted.
 
-- **Install:** the packages installed to the environment.
-- **Vars:** environment variables for use in the activated environment.
-- **Hook:** Bash script executed before passing control to the user's shell.
-- **Profile:** Shell-specific scripts sourced by the user's shell.
-- **Options:** Environment-scoped options such as supported systems.
+The best way to edit the manifest is by running [`flox edit`][flox_edit] which will launch your default editor and run validation when you save changes.
 
-**[Read more about the manifest][manifest_concept]** and consult the
-[customizing environments guide][customizing_environments_guide] to walk through
-examples.
+See [`manifest.toml`][manifest] for a complete description of the manifest format and the [customizing environments guide][customizing_environments_guide] to walk through examples.
+
+```toml title="manifest.toml"
+version  = 1
+
+[install]
+nodejs.pkg-path = "nodejs_24"
+```
 
 ### `manifest.lock`
 
-The lock file serves as a snapshot of the specific versions of dependencies that
-were built and activated at a particular point in time.
+The lock file serves as a snapshot of the specific package versions and their dependencies that were built and activated at a particular point in time.
+Flox manages this file for you.
 
 ``` json title="manifest.lock"
 {
@@ -114,6 +116,7 @@ version. Flox manages this file for you.
 [create_guide]: ../tutorials/creating-environments.md
 [customizing_environments_guide]: ../tutorials/customizing-environments.md
 [generation_concept]: ./generations.md
-[manifest_concept]: ./manifest.md
 [floxhub_concept]: ./floxhub.md
 [discourse]: https://discourse.flox.dev/
+[manifest]: ../reference/command-reference/manifest.toml.md
+[toml_spec]: https://toml.io/en/v1.0.0

@@ -16,7 +16,7 @@ Flox provides **three main ways of sharing environments** with others:
 New [environments][environment_concept] created with [`flox init`][flox_init] will create a `.flox` folder in the directory where [`flox init`][flox_init] was run. This folder contains everything required to run this environment on their system and can be sent to another user any way files are shared. It is most common to commit the `.flox` to a version controlled code repository such as git. If shared this way, the user needs only `git clone` the project and `flox activate` in the directory containing the `.flox`.  
 
 !!! note "Note"
-    If you are sharing an environment with a user on a different CPU architecture or OS from the person who created the environment, you may run into some issues where system-specific packages are not available on their OS. This can be fixed with a minor edit to the manifest, described in the [manifest concept][edit_manifest_tutorial]. If you get stumped, reach out to us on our [forum][discourse] for assistance.
+    If you are sharing an environment with a user on a different CPU architecture or OS from the person who created the environment, you may run into some issues where system-specific packages are not available on their OS. This can be fixed with a minor edit to the manifest, described in the [manifest concept][manifest_concept]. If you get stumped, reach out to us on our [forum][discourse] for assistance.
 
 Here is an example of sharing a project with files. The first person creates the environment:
 
@@ -56,7 +56,7 @@ $ flox activate
 
 [flox_init]: ../reference/command-reference/flox-init.md
 [discourse]: https://discourse.flox.dev/
-[edit_manifest_tutorial]: ../concepts/manifest.md
+[manifest_concept]: ../concepts/environments.md#manifesttoml
 
 ## Sharing environments on FloxHub
 
