@@ -48,7 +48,6 @@ nav:
       - ... | flat | tutorials/migrations/*
   - Concepts:
     - Environments: concepts/environments.md
-    - Environment manifest: concepts/manifest.md
     - Activating environments: concepts/activation.md
     - FloxHub: concepts/floxhub.md
     - Generations: concepts/generations.md
@@ -297,6 +296,4 @@ plugins:
     # https://github.com/mkdocs/mkdocs-redirects
     - redirects:
         redirect_maps:
-        #  'old.md': 'new.md'
-        #  'old/file.md': 'new/file.md'
-        #  'some_file.md': 'http://external.url.com/foobar'
+            'concepts/manifest.md': 'concepts/environments.md#manifesttoml'
