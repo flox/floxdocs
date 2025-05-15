@@ -74,23 +74,18 @@ were built and activated at a particular point in time.
 
 ``` json title="manifest.lock"
 {
-  "lockfile-version": 0,
- ...
-        "input": {
-          "attrs": {
-            "lastModified": 1703581207,
-            "narHash": "3ef...",
-            "owner": "NixOS",
-            "repo": "nixpkgs",
-            "rev": "3ef...",
-            "type": "github"
-          },
-          "fingerprint": "3ef...",
-          "url": "github:NixOS/nixpkgs/3ef..."
-        },
-        "priority": 5
+  …
+  "packages": [
+    {
+      "install_id": "nodejs",
+      "version": "24.0.1",
+      "system": "aarch64-darwin",
+      "outputs": {
+        "dev": "/nix/store/by9av8x8vmk8lpw4cxhhxfbf7s1h4xzx-nodejs-24.0.1-dev",
+        "libv8": "/nix/store/li49fpxxlgzaz20sahhfj6n8cbkqi7m1-nodejs-24.0.1-libv8",
+        "out": "/nix/store/naafq480zhq05xbi2d3kzpnna2rdqsfb-nodejs-24.0.1"
       },
-      "nodejs": {    
+  …
 }
 ```
 
