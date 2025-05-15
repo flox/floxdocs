@@ -50,51 +50,48 @@ sharing and working with different types of environments.
 A Flox environment stores its metadata, declarative manifest, and manifest lock
 file in a `.flox` directory wherever the [`flox init`][flox_init] command was
 run.
+All of these files can be stored in version control when working with path environments.
+
 Let's look closer at the files that were generated.
 
-### Environment manifest: `.flox/env/manifest.toml`
+### `manifest.toml`
 
-The manifest is a declarative specification for the environment and contains 5
-parts:
+The manifest is a declarative specification for the environment which is [TOML][toml_spec] formatted.
 
-- **Install:** the packages installed to the environment.
-- **Vars:** environment variables for use in the activated environment.
-- **Hook:** Bash script executed before passing control to the user's shell.
-- **Profile:** Shell-specific scripts sourced by the user's shell.
-- **Options:** Environment-scoped options such as supported systems.
+The best way to edit the manifest is by running [`flox edit`][flox_edit] which will launch your default editor and run validation when you save changes.
 
-**[Read more about the manifest][manifest_concept]** and consult the
-[customizing environments guide][customizing_environments_guide] to walk through
-examples.
+See [`manifest.toml`][manifest] for a complete description of the manifest format and the [customizing environments guide][customizing_environments_guide] to walk through examples.
 
-### Manifest lock: `.flox/env/manifest.lock`
+```toml title="manifest.toml"
+version  = 1
 
-The lock file serves as a snapshot of the specific versions of dependencies that
-were built and activated at a particular point in time.
+[install]
+nodejs.pkg-path = "nodejs_24"
+```
+
+### `manifest.lock`
+
+The lock file serves as a snapshot of the specific package versions and their dependencies that were built and activated at a particular point in time.
+Flox manages this file for you.
 
 ``` json title="manifest.lock"
 {
-  "lockfile-version": 0,
- ...
-        "input": {
-          "attrs": {
-            "lastModified": 1703581207,
-            "narHash": "3ef...",
-            "owner": "NixOS",
-            "repo": "nixpkgs",
-            "rev": "3ef...",
-            "type": "github"
-          },
-          "fingerprint": "3ef...",
-          "url": "github:NixOS/nixpkgs/3ef..."
-        },
-        "priority": 5
+  …
+  "packages": [
+    {
+      "install_id": "nodejs",
+      "version": "24.0.1",
+      "system": "aarch64-darwin",
+      "outputs": {
+        "dev": "/nix/store/by9av8x8vmk8lpw4cxhhxfbf7s1h4xzx-nodejs-24.0.1-dev",
+        "libv8": "/nix/store/li49fpxxlgzaz20sahhfj6n8cbkqi7m1-nodejs-24.0.1-libv8",
+        "out": "/nix/store/naafq480zhq05xbi2d3kzpnna2rdqsfb-nodejs-24.0.1"
       },
-      "nodejs": {    
+  …
 }
 ```
 
-### Environment metadata: `.flox/env.json`
+### `env.json`
 
 A metadata file that contains the name of the environment and the environment's
 version. Flox manages this file for you.
@@ -119,6 +116,7 @@ version. Flox manages this file for you.
 [create_guide]: ../tutorials/creating-environments.md
 [customizing_environments_guide]: ../tutorials/customizing-environments.md
 [generation_concept]: ./generations.md
-[manifest_concept]: ./manifest.md
 [floxhub_concept]: ./floxhub.md
 [discourse]: https://discourse.flox.dev/
+[manifest]: ../reference/command-reference/manifest.toml.md
+[toml_spec]: https://toml.io/en/v1.0.0

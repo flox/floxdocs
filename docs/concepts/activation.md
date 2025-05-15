@@ -325,6 +325,6 @@ that prepare your environment just how you like them.
 
 [environment-concept]: ./services.md
 [bash-func-export]: https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-export
-[vars-section]: ../concepts/manifest.md#vars-section
-[hook-section]: ../concepts/manifest.md#hook-section
-[profile-section]: ../concepts/manifest.md#profile-section
+[vars-section]: ../reference/command-reference/manifest.toml.md#vars
+[hook-section]: ../reference/command-reference/manifest.toml.md#hook
+[profile-section]: ../reference/command-reference/manifest.toml.md#profile
