@@ -70,18 +70,19 @@
     {
       "attr_path": "lychee",
       "broken": false,
-      "derivation": "/nix/store/w1dyjf4m353viyhagy49ikq8009n5kq1-lychee-0.18.1.drv",
+      "derivation": "/nix/store/yn4ww3n519ih2rmvzpi28l437gr1nrb8-lychee-0.18.1.drv",
       "description": "Fast, async, stream-based link checker written in Rust",
       "install_id": "lychee",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "lychee-0.18.1",
       "pname": "lychee",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T01:11:06.803770Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T04:21:35.834229Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -90,7 +91,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/mj153kzj38yxxaqb98ixbp718rgl2kbp-lychee-0.18.1"
+        "out": "/nix/store/1nq2rk1yr7ax6m2fq13f6f1flkb9pkxc-lychee-0.18.1"
       },
       "system": "aarch64-darwin",
       "group": "lint",
@@ -99,18 +100,19 @@
     {
       "attr_path": "lychee",
       "broken": false,
-      "derivation": "/nix/store/l9951hiq1cnz5h0biz9rgwcx722kdhmc-lychee-0.18.1.drv",
+      "derivation": "/nix/store/kqfyqlyga7bams4w7596x8ydkh1jsn18-lychee-0.18.1.drv",
       "description": "Fast, async, stream-based link checker written in Rust",
       "install_id": "lychee",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "lychee-0.18.1",
       "pname": "lychee",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T01:27:49.846081Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T04:40:22.807118Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -119,7 +121,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/lrrbxqrfd35wxwf7mpdycprmxpvaq8k0-lychee-0.18.1"
+        "out": "/nix/store/2b63yc2y94f1a9h0a3pr4kiw4pkvkb8b-lychee-0.18.1"
       },
       "system": "aarch64-linux",
       "group": "lint",
@@ -128,18 +130,19 @@
     {
       "attr_path": "lychee",
       "broken": false,
-      "derivation": "/nix/store/q4ban3jgbx4b77a8wlvv6n5w1qy60aii-lychee-0.18.1.drv",
+      "derivation": "/nix/store/i85gjm7kxv5ap10sdxsh6k91665r4lvw-lychee-0.18.1.drv",
       "description": "Fast, async, stream-based link checker written in Rust",
       "install_id": "lychee",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "lychee-0.18.1",
       "pname": "lychee",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T01:43:11.568179Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T04:56:46.837607Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -148,7 +151,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/41m4z7744fbd87vz9s4r5pm0jci2qarj-lychee-0.18.1"
+        "out": "/nix/store/b1ir1ig8clagkm725722cz21ny4145qz-lychee-0.18.1"
       },
       "system": "x86_64-darwin",
       "group": "lint",
@@ -157,18 +160,19 @@
     {
       "attr_path": "lychee",
       "broken": false,
-      "derivation": "/nix/store/pw8nf99arcsysirp2f786asxmbnqnadj-lychee-0.18.1.drv",
+      "derivation": "/nix/store/ac12zx9ilw6a7fsd2z6swfa6k3sc9hss-lychee-0.18.1.drv",
       "description": "Fast, async, stream-based link checker written in Rust",
       "install_id": "lychee",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "lychee-0.18.1",
       "pname": "lychee",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T02:01:32.153010Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T05:18:49.123968Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -177,7 +181,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/ayjs0djisibjlfr7qrd6wf11ays1k8ff-lychee-0.18.1"
+        "out": "/nix/store/9hvgbrhwgcl1bkd3rfdphcgb8m837zgw-lychee-0.18.1"
       },
       "system": "x86_64-linux",
       "group": "lint",
@@ -186,18 +190,19 @@
     {
       "attr_path": "markdownlint-cli2",
       "broken": false,
-      "derivation": "/nix/store/bzfygvbgxq6n3x1mff3d7pbgxcm1yl9m-markdownlint-cli2-0.17.2.drv",
+      "derivation": "/nix/store/kx3bpp24sm9cvk4cwz7v5wrsxdzy26w6-markdownlint-cli2-0.17.2.drv",
       "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
       "install_id": "markdownlint-cli2",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "markdownlint-cli2-0.17.2",
       "pname": "markdownlint-cli2",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T01:11:06.878920Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T04:21:35.915308Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -206,7 +211,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/fijbycs2g9r458vc2jdgdjipp59sx5gm-markdownlint-cli2-0.17.2"
+        "out": "/nix/store/qb9y2z6lhkys13m4dpzdv6ncc60j6yzx-markdownlint-cli2-0.17.2"
       },
       "system": "aarch64-darwin",
       "group": "lint",
@@ -215,18 +220,19 @@
     {
       "attr_path": "markdownlint-cli2",
       "broken": false,
-      "derivation": "/nix/store/ap5ig688z25w1alv6f04sw7fmnkhhsk9-markdownlint-cli2-0.17.2.drv",
+      "derivation": "/nix/store/rvc0yj411n2hb4jrswilq91llal6522z-markdownlint-cli2-0.17.2.drv",
       "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
       "install_id": "markdownlint-cli2",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "markdownlint-cli2-0.17.2",
       "pname": "markdownlint-cli2",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T01:27:50.029364Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T04:40:22.991139Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -235,7 +241,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/v9nfpvr9na9h2fdvy6wx6ykfw73fq5y6-markdownlint-cli2-0.17.2"
+        "out": "/nix/store/gcxh0d3xmxsnmw9cn860g921mnic8vaa-markdownlint-cli2-0.17.2"
       },
       "system": "aarch64-linux",
       "group": "lint",
@@ -244,18 +250,19 @@
     {
       "attr_path": "markdownlint-cli2",
       "broken": false,
-      "derivation": "/nix/store/4v0lr5flj7jy17ig9jk679syhc3ds5kd-markdownlint-cli2-0.17.2.drv",
+      "derivation": "/nix/store/5lhpq3df4ycxbv235zalgm5zw4gfzy5h-markdownlint-cli2-0.17.2.drv",
       "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
       "install_id": "markdownlint-cli2",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "markdownlint-cli2-0.17.2",
       "pname": "markdownlint-cli2",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T01:43:11.643411Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T04:56:46.914907Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -264,7 +271,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/jj2nl6q889v0qdjwvqpw89slx0d17hi8-markdownlint-cli2-0.17.2"
+        "out": "/nix/store/lli9s2svr212px4n7wjd72k083v4v4qy-markdownlint-cli2-0.17.2"
       },
       "system": "x86_64-darwin",
       "group": "lint",
@@ -273,18 +280,19 @@
     {
       "attr_path": "markdownlint-cli2",
       "broken": false,
-      "derivation": "/nix/store/mljv69w195w9piipg6z9wrw9jjn3h8zy-markdownlint-cli2-0.17.2.drv",
+      "derivation": "/nix/store/lm68zhvpkf5ic48g00wcp43b5xxdpyz5-markdownlint-cli2-0.17.2.drv",
       "description": "Fast, flexible, configuration-based command-line interface for linting Markdown/CommonMark files with the markdownlint library",
       "install_id": "markdownlint-cli2",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=f675531bc7e6657c10a18b565cfebd8aa9e24c14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=adaa24fbf46737f3f1b5497bf64bae750f82942e",
       "name": "markdownlint-cli2-0.17.2",
       "pname": "markdownlint-cli2",
-      "rev": "f675531bc7e6657c10a18b565cfebd8aa9e24c14",
-      "rev_count": 781462,
-      "rev_date": "2025-04-09T21:06:01Z",
-      "scrape_date": "2025-04-12T02:01:32.367578Z",
+      "rev": "adaa24fbf46737f3f1b5497bf64bae750f82942e",
+      "rev_count": 799423,
+      "rev_date": "2025-05-13T23:30:50Z",
+      "scrape_date": "2025-05-16T05:18:49.331114Z",
       "stabilities": [
+        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -293,7 +301,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/q18k1wfldz6wlrxdyvc1zvlfcsxgzg62-markdownlint-cli2-0.17.2"
+        "out": "/nix/store/yk2b9sdcp30c7w2lfzi9xn1nqvr4frfp-markdownlint-cli2-0.17.2"
       },
       "system": "x86_64-linux",
       "group": "lint",
