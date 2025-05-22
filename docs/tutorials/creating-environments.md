@@ -237,7 +237,7 @@ $
 [flox_edit]: ../reference/command-reference/flox-edit.md
 [sharing_guide]: ./sharing-environments.md
 [layering_guide]: ./layering-multiple-environments.md
-[manifest_concept]: ../concepts/manifest.md
+[manifest_concept]: ../concepts/environments.md#manifesttoml
 [environment_concept]: ../concepts/environments.md
 [customizing_guide]: ./customizing-environments.md
 

@@ -37,5 +37,5 @@ Source by the Open Source Initiative (OSI).
 [flox_show]: ../reference/command-reference/flox-show.md
 [flox_install]: ../reference/command-reference/flox-install.md
 [flox_update]: ../reference/command-reference/flox-update.md
-[manifest_concept]:./manifest.md
+[manifest_concept]: ./environments.md#manifesttoml
 [nixpkgs]: https://github.com/NixOS/nixpkgs

@@ -147,6 +147,5 @@ Success. You can now start the database server using:
 [flox_activate]: ../reference/command-reference/flox-activate.md
 [create_enviornments_guide]: ./creating-environments.md
 [multi-arch-guide]: ./multi-arch-environments.md
-[manifest_concept]: ../concepts/manifest.md
 [environment_concept]: ../concepts/environments.md
-[hook_concept]: ../concepts/manifest.md#hook-section
+[hook_concept]: ../reference/command-reference/manifest.toml.md#hook
