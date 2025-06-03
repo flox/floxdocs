@@ -681,7 +681,7 @@ description: Install or upgrade Flox
 
 ## Uninstall Flox
 
-While we are sad we see you uninstalling `flox` we would like **thank you**
+While we are sad we see you uninstalling `flox` we would like to **thank you**
 for giving `flox` a try.
 
 As we try to improve `flox` we really appreciate any feedback, especially
