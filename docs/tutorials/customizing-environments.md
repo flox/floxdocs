@@ -1,151 +1,180 @@
 ---
-title: Customizing the environment shell hooks
-description: Building an enviornment with custom shell hooks.
+title: Customizing the shell environment
+description: Using setup scripts, aliases, and environment variables to improve your workflows.
 ---
 
-# Customizing the environment shell hook
+# Customizing the shell environment
 
-This guide uses the [environment's][environment_concept]
-[shell hooks][hook_concept] to set up a PostgreSQL development database.
+Activating a Flox [environment][environment_concept] places you into a subshell.
+You likely already have some customizations built into your shell from your shell's configuration (`.bashrc`, `.zshrc`, `config.fish`, etc), but it can be convenient to further customize your shell based on the project that you're working on.
+This guide will walk you through leveraging various features of a Flox environment to improve your quality of life when developing a Rust project, but many of the ideas are applicable to other languages as well.
 
-## Create a PostgreSQL environment
+## Setup
 
-Say your project has a variable it expects to be set and you need to generate
-the value for development.
-This is a great use for the environment's **[shell hooks][hook_concept]**.
+Let's assume you have a Rust project that you regularly work on.
+To do that work you would already have `cargo`, `rustc`, and a few other tools installed.
+For more details on what it looks like to develop in Rust with Flox, see the [Rust language guide][rust_guide].
 
-Let's set up a Flox [environment][environment_concept] using the `postgresql_15`
-package in your environment:
+If you'd like to follow along with a real Flox environment, create an environment via [`flox init`][flox_init] and install the tools as shown below:
 
-``` console
-$ flox init --name postgres-example
-
-✨ Created environment postgres-example (aarch64-darwin)
-
-Next:
-  $ flox search <package>    <- Search for a package
-  $ flox install <package>   <- Install a package into an environment
-  $ flox activate            <- Enter the environment
+```bash
+$ mkdir mycli
+$ cd mycli
+$ flox init
+$ flox install rustc cargo libiconv
 ```
 
-``` console
-$ flox install postgresql_15
-✅ 'postgresql_15' installed to environment postgres-example at /Users/youruser
+Then generate a basic "Hello, World" program using `cargo init` inside the environment:
+
+```bash
+$ flox activate -- cargo init --bin .
 ```
 
-## Customize the environment's shell hook
+## Vars, hook, or profile?
 
-Let's add some properties PostgreSQL needs to run properly in this
-[environment][environment_concept].
+When customizing your shell environment you have three basic knobs you can turn:
 
-``` console
-$ flox edit
+- The `[vars]` section
+- The `hook.on-activate` script
+- The `[profile]` section
+
+The logic for deciding where a customization should go is application specific, but there are some simple guidelines you can follow.
+For a full discussion of what logic to place in which section and why, see the [activation concept page][activation_concept].
+Otherwise, try this:
+
+- Are you setting an environment variable?
+    - Is it a constant value?
+        - If so, set it in the `[vars]` section.
+        - If not, compute and `export` the variable in the `hook.on-activate` script.
+- Are you sourcing a script (like activating a Python virtual environment)?
+    - If so, do this in the `[profile]` section.
+- Are you setting shell aliases?
+    - If so, set them in the `[profile]` section.
+- Are you doing general project setup actions (like creating a directory, etc)?
+    - If so, do that in the `hook.on-activate` script.
+
+## Adding a directory to PATH
+
+It can be convenient to quickly run commands against the development build of a program you're working on.
+For instance, if you're working on a command line application you might want to check that the help text is formatted properly by interactively running `mycli -h`.
+
+In our case, when we build the application `cargo` will place the compiled program in `target/debug`:
+
+```
+mycli/
+    .flox
+    Cargo.toml
+    Cargo.lock
+    src/
+        main.rs
+    target/
+        debug/
+            mycli
 ```
 
-Specifically, let's modify the **[hook section][hook_concept]**
-and create a **script**.
-All hook scripts inherit variables defined in the `[vars]` section of the manifest,
-and environment variables set in the `hook.on-activate` script
-are in turn inherited by the `[profile]` scripts that follow.
+If we want to run commands with this newly compiled `mycli`, we can either tell `cargo` to build it (again) and then run it, or we can add `target/debug` to `PATH` so that we can run `mycli` like any other program.
+This second option is more convenient, so let's see how you can tell your Flox environment to do that for you automatically.
 
-``` toml title="manifest.toml"
+If we follow the logic listed above, we're wanting to modify an existing environment variable (`PATH`), so we'll do this in the `hook.on-activate` script.
+Modify your `hook.on-activate` script to look like this:
 
-[install]
-postgresql_15.pkg-path = "postgresql_15"
-
-...
-
+```toml
 [hook]
-on-activate = """
-    export PGPORT="${PGPORT:-5432}"
-
-    export PGUSER=pg-example
-    export PGPASS=pg-example
-    export PGDATABASE=example-database
-    export SESSION_SECRET="$USER-session-secret"
-
-    # Postgres environment variables
-    export PGDATA=$PWD/postgres_data
-    export PGHOST=$PWD/postgres
-    export LOG_PATH=$PGHOST/LOG
-    export DATABASE_URL="postgresql:///$PGDATABASE?host=$PGHOST&port=$PGPORT"
-...
-
+on-activate = '''
+    export PATH="$PWD/target/debug:$PATH"
+'''
 ```
 
-We can also use the **on-activate** hook
-to add initialization logic that runs conditionally.
+Now if you activate the environment and build `mycli` for the first time, you should be able to run `mycli` without needing to type out the path to it (e.g. `target/debug/mycli`):
 
-``` toml title="manifest.toml"
-[hook]
-on-activate = """
-...
-    mkdir -p $PGHOST
-    if [ ! -d $PGDATA ]; then
-      echo 'Initializing postgresql database...'
-      initdb $PGDATA --username $PGUSER -A md5 --pwfile=<(echo $PGPASS) --auth=trust
-      echo "listen_addresses='*'" >> $PGDATA/postgresql.conf
-      echo "unix_socket_directories='$PGHOST'" >> $PGDATA/postgresql.conf
-      echo "unix_socket_permissions=0700" >> $PGDATA/postgresql.conf
-    fi
-...
-"""
-```
-
-!!! note "Note"
-    The `hook.on-activate` script is always run in a `bash` shell.
-
-**Save and exit your editor**, you should see a confirmation after Flox
-validates the environment.
-
-```
-✅ Environment successfully updated.
-```
-
-## Test the environment
-
-You can now [`flox activate`][flox_activate] the environment to see the result
-of your hard work!
-
-```
+```bash
 $ flox activate
-✅ You are now using the environment postgres-example at /Users/youruser.
-To stop using this environment, type 'exit'
+...
+$ cargo build
+...
+$ mycli
+Hello, World!
+```
 
-Initializing postgresql database...
-The files belonging to this database system will be owned by user "youruser".
-This user must also own the server process.
+### Why do I need to exit and re-activate?
 
-The database cluster will be initialized with locale "en_US.UTF-8".
-The default database encoding has accordingly been set to "UTF8".
-The default text search configuration will be set to "english".
+Any time the Flox CLI detects that you've changed a section of the manifest that it can't automatically make take effect, you'll need to exit and reactivate.
+For instance, when you install a new package via [`flox install`][flox_install], the CLI is able to make that immediately available to you so there's no need to exit and re-activate.
 
-Data page checksums are disabled.
+However, editing the `hook.on-activate` script has no effect on the currently activated environment because the `hook.on-activate` script is only run during the activation process (and the same goes for `[profile]`).
+Similarly, editing the `[vars]` section has no effect on the currently activated environment because the `hook.on-activate` and `[profile]` scripts may rely on the values of variables in `[vars]`, so for the sake of correctness it makes sense to re-run those scripts.
 
-creating directory /Users/youruser/postgres_data ... ok
-creating subdirectories ... ok
-selecting dynamic shared memory implementation ... posix
-selecting default max_connections ... 100
-selecting default shared_buffers ... 128MB
-selecting default time zone ... America/New_York
-creating configuration files ... ok
-running bootstrap script ... ok
-performing post-bootstrap initialization ... ok
-syncing data to disk ... ok
+## Enabling feature flags
 
-Success. You can now start the database server using:
+Now let's say that you've worked on `mycli` for a while and developed some features that aren't publically available, but can be accessed by setting certain feature flags.
+A common way to enable or disable feature flags is by environment variables.
+If you want to be able to test out those features during development, this sounds like a great thing for Flox to do for you automatically.
 
-    pg_ctl -D /Users/youruser/postgres_data -l logfile start
+Let's say that we have feature flags `MYCLI_ENABLE_COLOR` and `MYCLI_TURBO_MODE` and they're enabled when we set them to `"1"`.
+
+Going back to our "vars, hook, or profile" logic, we see that we're trying to set new environment variables with constant values.
+This means we'll want to set these variables in the `[vars]` section.
+Edit your `[vars]` section to look like this:
+
+```toml
+[vars]
+MYCLI_ENABLE_COLOR="1"
+MYCLI_TURBO_MODE="1"
+```
+
+If you're currently in the environment, exit it and activate it again for the changes to take effect, otherwise you can simply activate the environment.
+In the activated environment you should now see that these two variables are set:
+
+```bash
+$ flox activate
+...
+$ echo $MYCLI_TURBO_MODE
+1
+```
+
+## Adding shell aliases
+
+Now let's say that you'd like to use `mycli` from anywhere on your system.
+Let's also say that you have a `$HOME/bin` directory that you add to `PATH` in your shell's config file.
+You might use this as a place to put programs you've compiled yourself that you want to be able to run from anywhere.
+We're going to create an alias for your developer environment that will build `mycli` and copy it to this directory so that it's quick and easy to install `mycli` after completing a feature you've been working on.
+
+Going back to our "vars, hook, or profile" logic, we see that we're creating a shell alias.
+This means that we'll be adding it to the `[profile]` section.
+However, the syntax for defining shell aliases is shell-specific, so we'll need to declare this alias in the subsection that corresponds to our shell.
+For this tutorial we'll assume that you're an enlightened [fish shell][fish_shell] user, meaning that we'll edit our `profile.fish` script.
+
+We'll call this alias `install-bin` and it will build `mycli` in "release" mode e.g. with full optimizations so it runs as fast as possible.
+Edit your `[profile]` section to look like this:
+
+```toml
+[profile]
+fish = '''
+    alias install-bin "cargo build --release && cp $PWD/target/release/mycli $HOME/bin/mycli"
+'''
+```
+
+Again, if you're currently in the environment, exit it.
+If you want to test this alias you'll also want to create the `$HOME/bin` directory.
+Now if you activate the environment and run `install-bin` you should find a copy of `mycli` in `$HOME/bin`:
+
+```bash
+$ flox activate
+...
+$ install-bin
+...
+$ ls $HOME/bin
+mycli
 ```
 
 ## Where to next?
 
 - :simple-readme:{ .flox-purple .flox-heart } [Multiple architecture environments][multi-arch-guide]
 
-[flox_edit]: ../reference/command-reference/flox-edit.md
-[flox_search]: ../reference/command-reference/flox-search.md
 [flox_activate]: ../reference/command-reference/flox-activate.md
-[create_enviornments_guide]: ./creating-environments.md
 [multi-arch-guide]: ./multi-arch-environments.md
-[environment_concept]: ../concepts/environments.md
-[hook_concept]: ../reference/command-reference/manifest.toml.md#hook
+[rust_guide]: ../cookbook/languages/rust.md
+[flox_init]: ../reference/command-reference/flox-init.md
+[activation_concept]: ../concepts/activation.md
+[fish_shell]: https://fishshell.com/
+[flox_install]: ../reference/command-reference/flox-install.md
