@@ -42,6 +42,7 @@ The logic for deciding where a customization should go is application specific, 
 For a full discussion of what logic to place in which section and why, see the [activation concept page][activation_concept].
 Otherwise, try this:
 
+<!-- markdownlint-disable MD007 -->
 - Are you setting an environment variable?
     - Is it a constant value?
         - If so, set it in the `[vars]` section.
@@ -52,6 +53,7 @@ Otherwise, try this:
     - If so, set them in the `[profile]` section.
 - Are you doing general project setup actions (like creating a directory, etc)?
     - If so, do that in the `hook.on-activate` script.
+<!-- markdownlint-enable MD007 -->
 
 ## Adding a directory to PATH
 
