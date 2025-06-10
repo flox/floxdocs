@@ -57,10 +57,6 @@
         "x86_64-darwin",
         "x86_64-linux"
       ],
-      "allow": {
-        "licenses": []
-      },
-      "semver": {},
       "cuda-detection": false
     },
     "services": {
