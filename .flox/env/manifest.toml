@@ -138,15 +138,18 @@ echo ""
 '''
 bash = '''
   source "$(poetry env info --path)/bin/activate"
+  alias lint=markdownlint-cli2
 '''
 fish = '''
   source "$(poetry env info --path)/bin/activate.fish"
+  alias lint markdownlint-cli2
 '''
 tcsh = '''
   source "$(poetry env info --path)/bin/activate.csh"
 '''
 zsh = '''
   source "$(poetry env info --path)/bin/activate"
+  alias lint=markdownlint-cli2
 '''
 
 # The `[services]` section of the manifest allows you to define services.

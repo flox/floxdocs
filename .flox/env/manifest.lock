@@ -45,9 +45,9 @@
     },
     "profile": {
       "common": "echo \"\"\necho \"     ╔═══════════════════════════════════╗\"\necho \"     ║                                   ║\"\necho \"     ║  To build a production docs run:  ║\"\necho \"     ║  > mkdocs build                   ║\"\necho \"     ║                                   ║\"\necho \"     ║  To write docs locally run:       ║\"\necho \"     ║  > mkdocs serve                   ║\"\necho \"     ║                                   ║\"\necho \"     ╚═══════════════════════════════════╝\"\necho \"\"\n",
-      "bash": "  source \"$(poetry env info --path)/bin/activate\"\n",
-      "zsh": "  source \"$(poetry env info --path)/bin/activate\"\n",
-      "fish": "  source \"$(poetry env info --path)/bin/activate.fish\"\n",
+      "bash": "  source \"$(poetry env info --path)/bin/activate\"\n  alias lint=markdownlint-cli2\n",
+      "zsh": "  source \"$(poetry env info --path)/bin/activate\"\n  alias lint=markdownlint-cli2\n",
+      "fish": "  source \"$(poetry env info --path)/bin/activate.fish\"\n  alias lint markdownlint-cli2\n",
       "tcsh": "  source \"$(poetry env info --path)/bin/activate.csh\"\n"
     },
     "options": {
