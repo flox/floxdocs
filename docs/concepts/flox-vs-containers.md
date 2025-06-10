@@ -447,6 +447,6 @@ you need to build a container so that it can be deployed.
 [activate]: ../reference/command-reference/flox-activate.md
 [services-start]: ../reference/command-reference/flox-services-start.md
 [services]: ../concepts/services.md
-[manifest]: ../concepts/manifest.md
+[manifest]: ../concepts/environments.md#manifesttoml
 [early]: https://flox.dev/early/
 [ci-cd]: ../tutorials/ci-cd.md
