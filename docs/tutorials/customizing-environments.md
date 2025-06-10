@@ -108,7 +108,7 @@ Similarly, editing the `[vars]` section has no effect on the currently activated
 
 ## Enabling feature flags
 
-Now let's say that you've worked on `mycli` for a while and developed some features that aren't publically available, but can be accessed by setting certain feature flags.
+Now let's say that you've worked on `mycli` for a while and developed some features that aren't publicly available, but can be accessed by setting certain feature flags.
 A common way to enable or disable feature flags is by environment variables.
 If you want to be able to test out those features during development, this sounds like a great thing for Flox to do for you automatically.
 
@@ -146,7 +146,7 @@ This means that we'll be adding it to the `[profile]` section.
 However, the syntax for defining shell aliases is shell-specific, so we'll need to declare this alias in the subsection that corresponds to our shell.
 For this tutorial we'll assume that you're an enlightened [fish shell][fish_shell] user, meaning that we'll edit our `profile.fish` script.
 
-We'll call this alias `install-bin` and it will build `mycli` in "release" mode e.g. with full optimizations so it runs as fast as possible.
+We'll call this alias `install-bin` and it will build `mycli` in "release" mode, i.e. with full optimizations so it runs as fast as possible.
 Edit your `[profile]` section to look like this:
 
 ```toml
@@ -173,6 +173,7 @@ mycli
 
 - :simple-readme:{ .flox-purple .flox-heart } [Multiple architecture environments][multi-arch-guide]
 
+[environment_concept]: ../concepts/environments.md
 [flox_activate]: ../reference/command-reference/flox-activate.md
 [multi-arch-guide]: ./multi-arch-environments.md
 [rust_guide]: ../cookbook/languages/rust.md
