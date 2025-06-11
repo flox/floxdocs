@@ -224,10 +224,10 @@ description: Install or upgrade Flox
 
     **Install into an existing container**
 
-    If you need to install Flox into an existing container, you can use the .deb
-    or .rpm installers.
+    If you need to install Flox into an existing container, you can use the `.deb`
+    or `.rpm` installers.
     Note that Flox can only be used as root in containers, unless the container
-    happens to have systemd.
+    happens to have `systemd` installed.
 
     **Verify Flox installation**
 
