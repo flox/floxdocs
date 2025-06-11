@@ -245,6 +245,7 @@ For example, [this section][go-example] contains an example build for the Go lan
 [publish-concept]: ./publishing.md
 [fhs-docs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 [pkg-groups]: ./manifest.md#installing-packages-to-package-groups
+[pkg-groups]: ../reference/command-reference/manifest.toml.md#package-descriptors
 [grpc]: https://grpc.io/
 [organizations-concept]: ./organizations.md
 [go-example]: ../cookbook/languages/go.md#build-with-flox
