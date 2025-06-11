@@ -5,10 +5,7 @@ description: Create a Catalog Store for publishing your own Flox packages
 
 # Setting up a Catalog Store
 
-!!! tip "This is a Flox for Teams feature"
-
-    A Catalog Store is required for publishing, and publishing is a paid feature included with Flox for Teams.
-    Sign up for [early access][early] if you are interested in accessing this feature.
+--8<-- "paid-feature.md"
 
 Publishing your own software to your organization's Flox Catalog requires some
 initial setup, but the process is relatively straightforward. Flox supports
