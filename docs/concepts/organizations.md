@@ -1,9 +1,6 @@
 # Understanding Organizations in FloxHub
 
-!!! tip "This is a Flox for Teams feature"
-
-    This is a paid feature included with Flox for Teams.
-    Sign up for [early access][early] if you are interested in accessing this feature.
+--8<-- "paid-feature.md"
 
 An **organization** in FloxHub represents a shared workspace for teams. It provides:
 

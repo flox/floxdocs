@@ -188,10 +188,7 @@ Completed build of hello-opt-unknown in local mode
 
 ## Publish the artifact
 
-!!! tip "This is a Flox for Teams feature"
-
-    This is a paid feature included with Flox for Teams.
-    Sign up for [early access][early] if you are interested in accessing this feature.
+--8<-- "paid-feature.md"
 
 Now that the artifact is built, we can send it somewhere.
 Every user has a private catalog that they can publish artifacts to.
