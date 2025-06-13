@@ -287,3 +287,70 @@ At this point, the version of `eralchemy` is available within your environment.
 (python) flox [eralchemy] $ which eralchemy
 /home/floxfan/eralchemy/.flox/cache/python/bin/eralchemy
 ```
+
+## Build with Flox
+
+Not only can you _develop_ your software with Flox, but you can _build_ it as well.
+See the [builds][build-concept] concept page for more details.
+
+### Pip
+
+For Python projects using `pip`, a build looks like installing the project to the `$out` directory.
+
+```toml
+[build.myproject]
+command = '''
+  pip install --target=$out .
+'''
+```
+
+Note the trailing `.` to indicate that you're installing the package in the
+current directory.
+If you're working in a repository with multiple packages in subdirectories,
+you would replace `.` with the path to the package sources.
+
+### Poetry
+
+For Poetry and tools that create a virtual environment for you, a build entails installing the virtual environment to `$out`.
+Poetry in particular does not allow you to choose the location (or name) of the virtual environment directory itself, but it does allow you to configure the _parent_ directory of the virtual environment.
+The build command shown below uses environment variables to tell Poetry to use the `$out` directory as the parent of the virtual environment.
+After running `poetry install` you should have a directory structure that looks like this:
+
+```
+$out/
+  myproject-<hash>-py3.12/
+    ...
+```
+
+Since Poetry doesn't let you decide where _exactly_ this virtual environment belongs, you need to symlink any executables from the virtual environment into the `$out/bin` directory yourself to ensure that the build output adheres to the Filesystem Hierarchy Standard (FHS).
+You also need to install a Python interpreter and add it to `runtime-packages` so that the virtual environment can reference it.
+
+The full manifest for a build using Poetry is shown below:
+
+```toml
+version = 1
+
+[install]
+python3.pkg-path = "python3"
+python3.version = ">=3.12"
+poetry.pkg-path = "poetry"
+
+[build.myproject]
+command = '''
+  # Install to a new virtualenv.
+  export POETRY_VIRTUALENVS_PATH=$out
+  export POETRY_VIRTUALENVS_IN_PROJECT=false
+  export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true
+  poetry install
+
+  # Symlink any executables from the virtualenv.
+  mkdir -p "${out}/bin"
+  cd $out/bin
+  ln -s ../*/bin/myproject .
+'''
+runtime-packages = [
+  "python3",
+]
+```
+
+[build-concept]: ../../concepts/manifest-builds.md
