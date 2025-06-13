@@ -3,12 +3,9 @@ title: "Publishing"
 description: How to use Flox environments to build artifacts 
 ---
 
---8<-- "paid-feature.md"
-
-Once you've built an artifact with the [`flox build`][builds-concept] command, you likely want to put it somewhere.
-The `flox publish` command gives you the ability to upload artifacts to your private catalog.
+Once you've built an artifact with the [`flox build`][flox-build] command, you likely want to _use_ it somewhere.
+The [`flox publish`][flox-publish] command gives you the ability to upload artifacts to your private catalog so that you can _install_ them into your environments.
 In order to share packages with other people you must create an organization.
-This is a paid feature, and if you would like access to it you should contact Flox directly.
 See the [organizations][organizations-concept] page for more details.
 
 ## Uploading an artifact
@@ -37,13 +34,13 @@ Flox imposes some constraints on the build and publish process.
 - The git repository has a remote defined, and the current revision has been pushed to it.
 - The Flox environment must have at least one package installed to it.
 
-All of this is there to ensure that the build environment isn't dirty and that we can associate the uploaded artifact with a point in time in the Base Catalog.
-As a reminder, the Base Catalog is the built-in [catalog][catalog-concept] provided by Flox.
+All of this is there to ensure that the published artifact can be locked to a point in time in the Base Catalog and an upstream source revision.
+As a reminder, the Base Catalog is the built-in [Catalog][catalog-concept] provided by Flox.
 
 As part of the `flox publish` command, the CLI will clone the git repository to a temporary directory to ensure that any files referenced in the build are tracked by the repository.
 A clean `flox build` is then run in this directory.
 
-The package closure is then signed with the user-supplied signing key and uploaded to your private catalog.
+If the build completes successfully, the artifact, its closure (all the software it depends on), and its metadata are uploaded to your Catalog.
 
 ## The published payload
 
@@ -52,42 +49,35 @@ A published artifact consists of two parts:
 - The artifact metadata
 - The artifact itself
 
-The artifact metadata is uploaded to Flox servers so that the Flox CLI can see that it's available via the `flox search`, `flox show`, and `flox install` commands.
+The artifact metadata is uploaded to Flox servers so that the Flox CLI can see that it's available via the [`flox search`][flox-search], [`flox show`][flox-show], and [`flox install`][flox-install] commands.
 The artifact itself is uploaded to a Catalog Store.
 
-For individual users we provide your Catalog Store.
-For organizations you provide your own Catalog Store, but a hosted offering will be available in the future.
-When the Catalog Store is user-provided it means that your organization has complete control over your artifacts, and many organizations will still choose this route even when a hosted option is available.
+A Catalog Store is effectively a cache for published artifacts, and Flox provides one by default.
+An organization can choose to provide their own Catalog Store in the form of an S3-compatible storage provider.
+In this case, it means that your organization has complete control over your artifacts and they will never be stored by Flox.
+To pursue this option, contact Flox directly.
 
 ## Consuming published artifacts
 
 Once you have uploaded an artifact via `flox publish`, the package becomes available in `flox search`, `flox show`, and `flox install`.
 To distinguish these packages from those provided by the Base Catalog, published packages are prefixed with the name of the user or organization.
-For example, if your user is called `myuser` and it publishes an artifact named `hello`, the artifact will appear as `myuser/hello` in the Flox CLI.
+For example, if your user is called `myuser` and you publish an artifact named `hello`, the artifact will appear as `myuser/hello` in the Flox CLI.
 
 When a user runs `flox install myuser/hello`, the artifact is downloaded directly from the Catalog Store that it was published to.
+If organizations configure their own Catalog Store (rather than using the default Catalog Store provided by Flox), it is never downloaded to or cached on Flox servers.
 
-For individual users, only the user can consume artifacts from their catalog.
+### Sharing
+
+--8<-- "paid-feature.md"
+
 Sharing packages with multiple users is only possible with an organization.
-Access control for users in an organization is set via the `catalog-util` package that is provided to you as part of setting up your organization.
-
-## Configuration
-
-### Catalog Store
-
-The Flox CLI uses Nix under the hood to perform certain operations, and must be configured to be made aware of the user-provided Catalog Store.
-A Catalog Store is an S3-compatible service.
-See the "Catalog Store" cookbook page to learn more about how to provision the service.
-
-### Signing key
-
-Artifacts uploaded to a Catalog Store may be signed.
-This key is provided to Flox via the `flox publish --signing-key` argument so that the key can be used to sign artifacts during the publish process.
-Similarly, in order to install packages signed with this key, Nix must be configured to trust this key.
-See the ["Catalog Store" cookbook page][catalog-store-cookbook] to learn more about how to configure Nix to trust the signing key.
+This means that individual users will not be able to share packages they've published with other users.
 
 [builds-concept]: ./manifest-builds.md
-[early]: https://flox.dev/early/
-[catalog-util]: https://github.com/flox/catalog-util
 [catalog-concept]: ./packages-and-catalog.md
-[catalog-store-cookbook]: ../cookbook/publish/catalog-store.md
+[flox-build]: ../reference/command-reference/flox-build.md
+[flox-publish]: ../reference/command-reference/flox-publish.md
+[flox-search]: ../reference/command-reference/flox-search.md
+[flox-show]: ../reference/command-reference/flox-show.md
+[flox-install]: ../reference/command-reference/flox-install.md
+[organizations-concept]: ./organizations.md
