@@ -63,8 +63,6 @@ nav:
   - Cookbook:
     - Languages:
       - ... | flat | cookbook/languages/*
-    - Publish:
-      - ... | flat | cookbook/publish/*
   - Reference:
     - Flox manual:
       - reference/command-reference/flox.md
