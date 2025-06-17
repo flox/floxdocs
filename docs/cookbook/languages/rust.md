@@ -195,6 +195,24 @@ command = '''
 '''
 ```
 
+### macOS builds require libiconv
+
+Rust executables built for macOS link against the `libiconv` library, which is used for some Unicode operations.
+This library is provided by macOS, and the large majority of Rust packages on macOS link against this library already, so this is not a dependency introduced by building via Flox.
+For reproducibility you must include this package as a dependency rather than depending on being able to locate the library on the system at runtime.
+
+### Linux builds require GCC
+
+On Linux, Rust executables link against `libgcc` for stack unwinding.
+`libgcc` is provided as part of the `gcc` package, which means that `gcc` needs to be available to your package at runtime on Linux.
+This happens by default if the `gcc` package is installed in the `toplevel` (default) package group, i.e. there is no `pkg-group` set.
+If `runtime-packages` is set for this package, `gcc` must be included in the list of included packages.
+
+There are two current limitations related to this issue that are on the roadmap to be addressed:
+
+- `runtime-packages` are not system-specific, which means that both macOS and Linux builds of this package will include `gcc` if you set `runtime-packages = [ "gcc" ]`.
+- Depending on the `gcc` package at runtime includes the `libgcc`, the compiler, its manpages, etc when in reality the package only depends on `libgcc` at runtime on Linux.
+
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
 [custom-toolchains]: https://github.com/zmitchell/rust-toolchains
 [esp32]: https://www.espressif.com/en/products/socs/esp32
