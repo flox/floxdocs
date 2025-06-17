@@ -1,6 +1,6 @@
 ---
 title: Build and publish packages
-description: Building and publishing software artifacts with Flox
+description: Building and publishing custom packages with Flox
 ---
 
 # Building with Flox
@@ -86,8 +86,8 @@ Everything appears to be in working order, so now we can discuss what it looks l
 ## Define a build
 
 In order to define a Flox build, we add an entry to the `[build]` section of the manifest.
-Every name added to the `build` section creates a new artifact.
-In our case the artifact will be the compiled Go program, but you can use Flox to build all kinds of things.
+Every name added to the `build` section creates a new package.
+In our case the package will be the compiled Go program, but you can use Flox to build all kinds of things.
 See the [builds][build-concept] page for more examples of what you can build with Flox.
 
 All that's necessary to define a build is a short script that does two things:
@@ -95,7 +95,7 @@ All that's necessary to define a build is a short script that does two things:
 - Runs any commands necessary to build the program
 - Copies the program to a directory called `$out`
 
-The `$out` shell variable holds the path to a temporary directory where your build artifact should be placed (again, "artifact" in our case means the compiled `hello` program).
+The `$out` shell variable holds the path to a temporary directory where your build package should be placed (again, "package" in our case means the compiled `hello` program).
 The `$out` directory adheres to the [Filesystem Hierarchy Standard (FHS)][fhs], which is just the formal name for the convention of placing executable files in `/bin`, libraries in `/lib`, etc.
 For this `hello` program we'll want to place it in `$out/bin` since `hello` is an executable program, and that's where the FHS says to put those types of files.
 Flox expects you to put executables there, and if you put them somewhere else you may experience unexpected behavior.
@@ -186,18 +186,18 @@ Completed build of hello-opt-unknown in local mode
 ✨ Build completed successfully. Output created: ./result-hello-opt
 ```
 
-## Publish the artifact
+## Publish the package
 
 --8<-- "paid-feature.md"
 
-Now that the artifact is built, we can send it somewhere.
-Every user has a private catalog that they can publish artifacts to.
+Now that the package is built, we can send it somewhere.
+Every user has a private catalog that they can publish packages to.
 In order to share packages with other people you must create an organization.
 This is a paid feature, and if you would like access to it you should contact Flox directly.
 See the [organizations][organizations-concept] page for more details.
 
-Now that you've built the artifact you can [publish][publish-concept] it to your private catalog via the `flox publish` command.
-This command has a few requirements to make sure that the artifact you're publishing can be built by other people reproducibly:
+Now that you've built the package you can [publish][publish-concept] it to your private catalog via the `flox publish` command.
+This command has a few requirements to make sure that the package you're publishing can be built by other people reproducibly:
 
 - The Flox environment must be in a git repository.
 - All tracked files in the repository must be clean.
@@ -211,16 +211,16 @@ Let's say that we've done all of that so that we can publish our `hello` program
 flox [myproject] $ flox publish hello
 ```
 
-The `flox publish` command performs a clean build of the artifact in a temporary directory to ensure that the build doesn't depend on anything outside of the git repository.
+The `flox publish` command performs a clean build of the package in a temporary directory to ensure that the build doesn't depend on anything outside of the git repository.
 
-In order to upload an artifact during the publish process (and not just upload metadata), you must provide a signing key via the `--signing-private-key` option.
-Attempting to upload an artifact without a signing key is an error because other users would not be able to install the artifact.
+In order to upload a package during the publish process (and not just upload metadata), you must provide a signing key via the `--signing-private-key` option.
+Attempting to upload a package without a signing key is an error because other users would not be able to install the package.
 
-## Install the artifact
+## Install the package
 
-Now that you've published the artifact, it will show up in [`flox search`][flox-search] and [`flox show`][flox-show], and can be installed via [`flox install`][flox-install].
+Now that you've published the package, it will show up in [`flox search`][flox-search] and [`flox show`][flox-show], and can be installed via [`flox install`][flox-install].
 The package will appear with your username or organization name prefixed to the package name.
-Let's say your username is `myuser` and the package name is `hello`, in which case the published artifact will appear as `myuser/hello` in `flox show`, `flox search`, and `flox install`.
+Let's say your username is `myuser` and the package name is `hello`, in which case the published package will appear as `myuser/hello` in `flox show`, `flox search`, and `flox install`.
 Let's see that in action with `flox search`:
 
 ```text
