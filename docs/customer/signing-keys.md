@@ -5,7 +5,15 @@ description: Create and use signing keys to sign built artifacts
 
 # Signing keys
 
-In order to upload a built artifact it must be signed, and in order to install an artifact published to a Flox Catalog you must configure your system to trust the public signing key.
+In order to upload a package it must be signed, and in order to install a package published to a Flox Catalog you must configure your system to trust the public key used to sign the package.
+By default, packages are signed with a key that's included with the Flox installer, so Flox is configured to be able to install user-published packages out of the box.
+
+However, if you're providing your own Catalog Store, then you must
+
+- Create the signing keys
+- Distribute the private key to users trusted to publish packages
+- Distribute the public key to users allowed to install those packages
+- Have those users configure their systems to trust the public key
 
 ## Create a signing key pair
 
@@ -34,12 +42,11 @@ flox config --set publish.signing_private_key "/path/to/signing-key.key"
 
 If you need to use a different signing key (for example, to publish to a different catalog), you can use the `--signing-key` option with the `flox publish` command.
 The private key is necessary for uploading artifacts, so anyone that needs that capability will need access to the key.
-This is a temporary situation and will be made smoother in the future.
 One solution is to put the key in a password manager and grant access to users that need to publish.
 
 ## Trust a public key to install published artifacts
 
-In order to install a published artifact you must configure your system to trust the corresponding public key that the artifact was signed with.
+In order to install a published package you must configure your system to trust the corresponding public key that the artifact was signed with.
 This amounts to adding the public key to the list of `extra-trusted-public-keys` in your Nix configuration.
 
 ### Add a new trusted key
@@ -49,6 +56,8 @@ This amounts to adding the public key to the list of `extra-trusted-public-keys`
 If you installed Nix as part of your Flox installation, you need to edit your `/etc/nix/nix.conf` to add a new entry to the `extra-trusted-public-keys` option.
 If `/etc/nix/nix.conf` doesn't exist, create it.
 If the `extra-trusted-public-keys` option doesn't exist, create it.
+This option is a space-delimited list of trusted public keys.
+
 Add the following line, where `<key contents>` is the contents of the signing public key file and `<existing keys>` is any keys that were already populated for this option (if it existed):
 
 ```text
