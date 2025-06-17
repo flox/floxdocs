@@ -5,20 +5,17 @@ description: Create a Catalog Store for publishing your own Flox packages
 
 # Setting up a Catalog Store
 
---8<-- "paid-feature.md"
+Note that this page is only relevant if your organization has chosen to provide its own Catalog Store.
+By default provides a pre-configured Catalog Store to each organization as part of the organization's private Catalog.
 
-Publishing your own software to your organization's Flox Catalog requires some
-initial setup, but the process is relatively straightforward. Flox supports
-publishing packages to a Catalog Store, which can exist in an AWS S3 bucket
-or in any S3 compatible service, like [MinIO][minio-s3-compatible]{:target="\_blank"}
+A user-provided Catalog Store is an AWS S3 bucket
+or any S3 compatible service, like [MinIO][minio-s3-compatible]{:target="\_blank"}
 or [Backblaze B2][backblaze-b2-cloud-storage]{:target="\_blank"}. (For the
 sake of simplicity, this guide focuses on S3, but there are other providers
 available if you prefer them to AWS.)
 
-In order to use an S3 bucket to store artifacts built with Flox, you will need
-to set ingress and egress URIs on the catalog using a utility published by Flox.
-Then, all you need to do to publish your software is to call `flox publish`,
-and Flox will take care of the rest.
+To configure your Catalog to use this Catalog Store, you will need to set ingress (where new packages are uploaded to) and egress (where packages are downloaded from) URIs for the Catalog.
+This is done with a command line utility provided by Flox.
 
 [minio-s3-compatible]: https://min.io/product/s3-compatibility
 [backblaze-b2-cloud-storage]: https://www.backblaze.com/cloud-storage
@@ -78,7 +75,7 @@ You can confirm that everything is set up correctly by inspecting the values sto
 
 ## Set Catalog Store ingress and egress URIs
 
-This step is accomplished as part of your organizational onboarding to Flox for Teams Early Access. Utilities for proper adminstration and self-service are coming soon.
+Reach out to your Flox point of contact to accomplish this step.
 
 ## Create and set a signing key
 
@@ -90,4 +87,3 @@ The private key is used to sign artifacts before uploading them, whereas the pub
 See the [signing keys][signing-keys] Cookbook page for instructions on configuring your signing keys.
 
 [signing-keys]: ./signing-keys.md
-[early]: https://flox.dev/early/
