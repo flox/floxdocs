@@ -212,9 +212,6 @@ flox [myproject] $ flox publish hello
 
 The `flox publish` command performs a clean build of the package in a temporary directory to ensure that the build doesn't depend on anything outside of the git repository.
 
-In order to upload a package during the publish process (and not just upload metadata), you must provide a signing key via the `--signing-private-key` option.
-Attempting to upload a package without a signing key is an error because other users would not be able to install the package.
-
 ## Install the package
 
 Now that you've published the package, it will show up in [`flox search`][flox-search] and [`flox show`][flox-show], and can be installed via [`flox install`][flox-install].
