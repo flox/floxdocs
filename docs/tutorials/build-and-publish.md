@@ -85,7 +85,7 @@ Everything appears to be in working order, so now we can discuss what it looks l
 
 ## Define a build
 
-In order to define a Flox build, we add an entry to the `[build]` section of the manifest.
+In order to define a Flox build, we add an entry to the [`[build]`][flox-manifest-build-section] section of the manifest.
 Every name added to the `build` section creates a new package.
 In our case the package will be the compiled Go program, but you can use Flox to build all kinds of things.
 See the [builds][build-concept] page for more examples of what you can build with Flox.
@@ -256,6 +256,7 @@ The story doesn't end here though.
 In this guide we've shown you how to build and distribute programs, but you can also use it to distribute configuration files (or any other file).
 See the [builds][extra-builds] concept page for examples of what else you can build and publish with Flox.
 
+[flox-manifest-build-section]: ../reference/command-reference/manifest.toml.md#build
 [build-concept]: ../concepts/manifest-builds.md
 [fhs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 [flox-install]: ../reference/command-reference/flox-install.md
