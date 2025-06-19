@@ -261,5 +261,6 @@ See the [builds][extra-builds] concept page for examples of what else you can bu
 [flox-show]: ../reference/command-reference/flox-show.md
 [flox-search]: ../reference/command-reference/flox-search.md
 [extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
+[publish-concept]: ../concepts/publishing.md
 [organizations-concept]: ../concepts/organizations.md
 [early]: https://flox.dev/early/
