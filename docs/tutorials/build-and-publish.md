@@ -120,16 +120,15 @@ It's the moment of truth, let's run `flox build` to have Flox build our `hello` 
 ```text
 flox [myproject] $ flox build
 Rendering hello build script to /var/folders/qn/77rf0syj2s7djp588bzp5vkm0000gn/T//d6f2efa3-hello-build.bash
-Building hello-unknown in local mode
+Building hello-0.0.0 in local mode
 00:00:00.004571 + go build
-00:00:00.205192 + mkdir -p /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-unknown/bin
-00:00:00.207584 + cp hello /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-unknown/bin/hello
+00:00:00.205192 + mkdir -p /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-0.0.0/bin
+00:00:00.207584 + cp hello /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-0.0.0/bin/hello
 this derivation will be built:
-  /nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-unknown.drv
-building '/nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-unknown.drv'...
-hello-unknown> signing /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-unknown
-hello-unknown> patching script interpreter paths in /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-unknown/bin/hello
-Completed build of hello-unknown in local mode
+  /nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-0.0.0.drv
+building '/nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-0.0.0.drv'...
+hello-0.0.0> patching script interpreter paths in /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-0.0.0/bin/hello
+Completed build of hello-0.0.0 in local mode
 
 ✨ Build completed successfully. Output created: ./result-hello
 ```
