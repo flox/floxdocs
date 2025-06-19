@@ -214,6 +214,8 @@ The `flox publish` command performs a clean build of the package in a temporary 
 
 ## Install the package
 
+--8<-- "paid-feature.md"
+
 Now that you've published the package, it will show up in [`flox search`][flox-search] and [`flox show`][flox-show], and can be installed via [`flox install`][flox-install].
 The package will appear with your username or organization name prefixed to the package name.
 Let's say your username is `myuser` and the package name is `hello`, in which case the published package will appear as `myuser/hello` in `flox show`, `flox search`, and `flox install`.
