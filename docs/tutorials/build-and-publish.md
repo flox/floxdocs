@@ -101,7 +101,7 @@ For this `hello` program we'll want to place it in `$out/bin` since `hello` is a
 Flox expects you to put executables there, and if you put them somewhere else you may experience unexpected behavior.
 
 Let's now define our build.
-Run `flox edit` so that you can edit your manifest, and add the following section:
+Run [`flox edit`][flox-edit] so that you can edit your manifest, and add the following section:
 
 ```toml
 [build.hello]
@@ -115,7 +115,7 @@ command = '''
 
 ## Perform a build
 
-It's the moment of truth, let's run `flox build` to have Flox build our `hello` program for us:
+It's the moment of truth, let's run [`flox build`][flox-build] to have Flox build our `hello` program for us:
 
 ```text
 flox [myproject] $ flox build
@@ -163,6 +163,8 @@ command = '''
   mkdir -p $out/bin
   cp hello $out/bin/hello
 '''
+description = "A program that greets you, very quickly"
+version = "1.0.0"
 ```
 
 This build produces a version of our `hello` program with some optimizations applied.
@@ -171,16 +173,16 @@ Now if you run `flox build` it will run both the `hello` and `hello-opt` builds,
 ```text
 flox [myproject] $ flox build hello-opt
 Rendering hello-opt build script to /var/folders/qn/77rf0syj2s7djp588bzp5vkm0000gn/T//60dfcc45-hello-opt-build.bash
-Building hello-opt-unknown in local mode
+Building hello-opt-1.0.0 in local mode
 00:00:00.004522 + go build '-ldflags=-s -w' -gcflags=-l=4
-00:00:00.155021 + mkdir -p /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-unknown/bin
-00:00:00.157435 + cp hello /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-unknown/bin/hello
+00:00:00.155021 + mkdir -p /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-1.0.0/bin
+00:00:00.157435 + cp hello /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-1.0.0/bin/hello
 this derivation will be built:
-  /nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-unknown.drv
-building '/nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-unknown.drv'...
-hello-opt-unknown> signing /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-unknown
-hello-opt-unknown> patching script interpreter paths in /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-unknown/bin/hello
-Completed build of hello-opt-unknown in local mode
+  /nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-1.0.0.drv
+building '/nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-1.0.0.drv'...
+hello-opt-1.0.0> signing /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-1.0.0
+hello-opt-1.0.0> patching script interpreter paths in /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-1.0.0/bin/hello
+Completed build of hello-opt-1.0.0 in local mode
 
 ✨ Build completed successfully. Output created: ./result-hello-opt
 ```
@@ -195,7 +197,7 @@ In order to share packages with other people you must create an organization.
 This is a paid feature, and if you would like access to it you should contact Flox directly.
 See the [organizations][organizations-concept] page for more details.
 
-Now that you've built the package you can [publish][publish-concept] it to your private catalog via the `flox publish` command.
+Now that you've built the package you can [publish][publish-concept] it to your private catalog via the [`flox publish`][flox-publish] command.
 This command has a few requirements to make sure that the package you're publishing can be built by other people reproducibly:
 
 - The Flox environment must be in a git repository.
@@ -259,6 +261,9 @@ See the [builds][extra-builds] concept page for examples of what else you can bu
 [flox-install]: ../reference/command-reference/flox-install.md
 [flox-show]: ../reference/command-reference/flox-show.md
 [flox-search]: ../reference/command-reference/flox-search.md
+[flox-edit]: ../reference/command-reference/flox-edit.md
+[flox-build]: ../reference/command-reference/flox-build.md
+[flox-publish]: ../reference/command-reference/flox-publish.md
 [extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
 [publish-concept]: ../concepts/publishing.md
 [organizations-concept]: ../concepts/organizations.md
