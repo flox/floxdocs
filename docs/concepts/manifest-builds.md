@@ -134,7 +134,7 @@ $ ./result-myproject/bin/myproject
 The obvious answer to this question is, of course, "software", but this omits a variety of interesting use cases that may not be immediately obvious.
 
 At the end of the day, a "build" is just a script that runs in your activated environment and places one or more files into a directory.
-Once that build is done, the package can be [published][publish-concept] so that your or anyone else in your [organization][organization-concept] can install it into their environment.
+Once that build is done, the package can be [published][publish-concept] so that your or anyone else in your [organization][organizations-concept] can install it into their environment.
 This can be a very convenient method of distributing all kinds of files, regardless of whether they're executables or configuration files.
 
 Sharing packages with other users is only possible with an organization.
