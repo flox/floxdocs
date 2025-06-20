@@ -79,11 +79,13 @@ Builds can be performed with different levels of "purity", meaning different lev
 This is controlled with the `sandbox` option.
 
 By default this option is set to `"off"`, which instructs the Flox CLI to perform the build in the root of the repository with no restrictions on network or filesystem access.
-This allows your build to use local caches or intermediate build artifacts that already exist.
+This is convenient because it allows your build scripts to work as they do in your development environment, such as using local caches and intermediate build artifacts that already exist.
+However, there are less guarantees that the build is reproducible, meaning that both the build script and built package may not work the same way on another machine.
 
 When set to `sandbox = "pure"` the Flox CLI is instructed to perform the build in a clean environment.
 This entails copying all files tracked by `git` into a temporary directory and running the build in a sandboxed environment that limits filesystem access to those files copied to the temporary build directory.
 Sandboxed builds on Linux are also restricted from accessing the network, but the sandboxing mechanisms on macOS are somewhat limited and thus pure builds on macOS **_will still have network access_**.
+This provides much stronger guarantees that the build is reproducible, but will often require some additional changes to your build scripts.
 
 ### Vendoring dependencies
 
