@@ -80,7 +80,8 @@ This is controlled with the `sandbox` option.
 
 By default this option is set to `"off"`, which instructs the Flox CLI to perform the build in the root of the repository with no restrictions on network or filesystem access.
 This is convenient because it allows your build scripts to work as they do in your development environment, such as using local caches and intermediate build artifacts that already exist.
-However, there are less guarantees that the build is reproducible, meaning that both the build script and built package may not work the same way on another machine.
+However, that also implies that builds can access and embed information about files (e.g. configuration in `$HOME`) or programs (e.g. system wide applications) that are specific to your machine.
+This can subsequently hurt the reproducibility of the build script and the ability to run binaries on other machines where those referenced files do not exist.
 
 When set to `sandbox = "pure"` the Flox CLI is instructed to perform the build in a clean environment.
 This entails copying all files tracked by `git` into a temporary directory and running the build in a sandboxed environment that limits filesystem access to those files copied to the temporary build directory.
