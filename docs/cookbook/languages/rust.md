@@ -201,14 +201,13 @@ Rust executables built for macOS link against the `libiconv` library, which is u
 This library is provided by macOS, and the large majority of Rust packages on macOS link against this library already, so this is not a dependency introduced by building via Flox.
 For reproducibility you must include this package as a dependency rather than depending on being able to locate the library on the system at runtime.
 
-If you build rust applications on macos, add the following to the manifest under `[install]`:
+If you build rust applications on macOS, add the following to the manifest under `[install]`:
 
-```toml
-# file: .flox/env/manifest.toml
-# [install]
-
+```toml title="manifest.toml"
 libiconv.pkg-path = "libiconv"
 libiconv.systems = ["aarch64-darwin", "x86_64-darwin"]
+```
+
 ### Linux builds require GCC
 
 On Linux, Rust executables link against `libgcc` for stack unwinding.
