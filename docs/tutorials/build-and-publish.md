@@ -85,7 +85,7 @@ Everything appears to be in working order, so now we can discuss what it looks l
 
 ## Define a build
 
-In order to define a Flox build, we add an entry to the `[build]` section of the manifest.
+In order to define a Flox build, we add an entry to the [`[build]`][flox-manifest-build-section] section of the manifest.
 Every name added to the `build` section creates a new package.
 In our case the package will be the compiled Go program, but you can use Flox to build all kinds of things.
 See the [builds][build-concept] page for more examples of what you can build with Flox.
@@ -101,7 +101,7 @@ For this `hello` program we'll want to place it in `$out/bin` since `hello` is a
 Flox expects you to put executables there, and if you put them somewhere else you may experience unexpected behavior.
 
 Let's now define our build.
-Run `flox edit` so that you can edit your manifest, and add the following section:
+Run [`flox edit`][flox-edit] so that you can edit your manifest, and add the following section:
 
 ```toml
 [build.hello]
@@ -115,21 +115,20 @@ command = '''
 
 ## Perform a build
 
-It's the moment of truth, let's run `flox build` to have Flox build our `hello` program for us:
+It's the moment of truth, let's run [`flox build`][flox-build] to have Flox build our `hello` program for us:
 
 ```text
 flox [myproject] $ flox build
 Rendering hello build script to /var/folders/qn/77rf0syj2s7djp588bzp5vkm0000gn/T//d6f2efa3-hello-build.bash
-Building hello-unknown in local mode
+Building hello-0.0.0 in local mode
 00:00:00.004571 + go build
-00:00:00.205192 + mkdir -p /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-unknown/bin
-00:00:00.207584 + cp hello /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-unknown/bin/hello
+00:00:00.205192 + mkdir -p /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-0.0.0/bin
+00:00:00.207584 + cp hello /tmp/store_d6f2efa321a606aebf3b41d0d96ace1d-hello-0.0.0/bin/hello
 this derivation will be built:
-  /nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-unknown.drv
-building '/nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-unknown.drv'...
-hello-unknown> signing /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-unknown
-hello-unknown> patching script interpreter paths in /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-unknown/bin/hello
-Completed build of hello-unknown in local mode
+  /nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-0.0.0.drv
+building '/nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-0.0.0.drv'...
+hello-0.0.0> patching script interpreter paths in /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-0.0.0/bin/hello
+Completed build of hello-0.0.0 in local mode
 
 ✨ Build completed successfully. Output created: ./result-hello
 ```
@@ -164,6 +163,8 @@ command = '''
   mkdir -p $out/bin
   cp hello $out/bin/hello
 '''
+description = "A program that greets you, very quickly"
+version = "1.0.0"
 ```
 
 This build produces a version of our `hello` program with some optimizations applied.
@@ -172,16 +173,16 @@ Now if you run `flox build` it will run both the `hello` and `hello-opt` builds,
 ```text
 flox [myproject] $ flox build hello-opt
 Rendering hello-opt build script to /var/folders/qn/77rf0syj2s7djp588bzp5vkm0000gn/T//60dfcc45-hello-opt-build.bash
-Building hello-opt-unknown in local mode
+Building hello-opt-1.0.0 in local mode
 00:00:00.004522 + go build '-ldflags=-s -w' -gcflags=-l=4
-00:00:00.155021 + mkdir -p /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-unknown/bin
-00:00:00.157435 + cp hello /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-unknown/bin/hello
+00:00:00.155021 + mkdir -p /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-1.0.0/bin
+00:00:00.157435 + cp hello /tmp/store_60dfcc45203ccd97815dbc9aecc6d84d-hello-opt-1.0.0/bin/hello
 this derivation will be built:
-  /nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-unknown.drv
-building '/nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-unknown.drv'...
-hello-opt-unknown> signing /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-unknown
-hello-opt-unknown> patching script interpreter paths in /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-unknown/bin/hello
-Completed build of hello-opt-unknown in local mode
+  /nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-1.0.0.drv
+building '/nix/store/k6za2nx7jla6rwzs7lj1qm4rc03v9z7q-hello-opt-1.0.0.drv'...
+hello-opt-1.0.0> signing /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-1.0.0
+hello-opt-1.0.0> patching script interpreter paths in /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-1.0.0/bin/hello
+Completed build of hello-opt-1.0.0 in local mode
 
 ✨ Build completed successfully. Output created: ./result-hello-opt
 ```
@@ -196,7 +197,7 @@ In order to share packages with other people you must create an organization.
 This is a paid feature, and if you would like access to it you should contact Flox directly.
 See the [organizations][organizations-concept] page for more details.
 
-Now that you've built the package you can [publish][publish-concept] it to your private catalog via the `flox publish` command.
+Now that you've built the package you can [publish][publish-concept] it to your private catalog via the [`flox publish`][flox-publish] command.
 This command has a few requirements to make sure that the package you're publishing can be built by other people reproducibly:
 
 - The Flox environment must be in a git repository.
@@ -213,10 +214,9 @@ flox [myproject] $ flox publish hello
 
 The `flox publish` command performs a clean build of the package in a temporary directory to ensure that the build doesn't depend on anything outside of the git repository.
 
-In order to upload a package during the publish process (and not just upload metadata), you must provide a signing key via the `--signing-private-key` option.
-Attempting to upload a package without a signing key is an error because other users would not be able to install the package.
-
 ## Install the package
+
+--8<-- "paid-feature.md"
 
 Now that you've published the package, it will show up in [`flox search`][flox-search] and [`flox show`][flox-show], and can be installed via [`flox install`][flox-install].
 The package will appear with your username or organization name prefixed to the package name.
@@ -256,11 +256,16 @@ The story doesn't end here though.
 In this guide we've shown you how to build and distribute programs, but you can also use it to distribute configuration files (or any other file).
 See the [builds][extra-builds] concept page for examples of what else you can build and publish with Flox.
 
+[flox-manifest-build-section]: ../reference/command-reference/manifest.toml.md#build
 [build-concept]: ../concepts/manifest-builds.md
 [fhs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 [flox-install]: ../reference/command-reference/flox-install.md
 [flox-show]: ../reference/command-reference/flox-show.md
 [flox-search]: ../reference/command-reference/flox-search.md
+[flox-edit]: ../reference/command-reference/flox-edit.md
+[flox-build]: ../reference/command-reference/flox-build.md
+[flox-publish]: ../reference/command-reference/flox-publish.md
 [extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
+[publish-concept]: ../concepts/publishing.md
 [organizations-concept]: ../concepts/organizations.md
 [early]: https://flox.dev/early/
