@@ -213,12 +213,22 @@ libiconv.systems = ["aarch64-darwin", "x86_64-darwin"]
 On Linux, Rust executables link against `libgcc` for stack unwinding.
 `libgcc` is provided as part of the `gcc` package, which means that `gcc` needs to be available to your package at runtime on Linux.
 This happens by default if the `gcc` package is installed in the `toplevel` (default) package group, i.e. there is no `pkg-group` set.
+
+```toml title="manifest.toml"
+gcc.pkg-path = "gcc"
+gcc.systems = ["aarch64-linux", "x86_64-linux"]
+```
+
 If `runtime-packages` is set for this package, `gcc` must be included in the list of included packages.
 
-There are two current limitations related to this issue that are on the roadmap to be addressed:
+```toml title="manifest.toml"
+[build.myproject]
+…
+runtime-packages = [… "gcc"]
+```
 
-- `runtime-packages` are not system-specific, which means that both macOS and Linux builds of this package will include `gcc` if you set `runtime-packages = [ "gcc" ]`.
-- Depending on the `gcc` package at runtime includes the `libgcc`, the compiler, its manpages, etc when in reality the package only depends on `libgcc` at runtime on Linux.
+!!! note "Note"
+    Depending on the `gcc` package at runtime includes the `libgcc`, the compiler, its manpages, etc when in reality the package only depends on `libgcc` at runtime on Linux. This limitation will be address in the future.
 
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
 [custom-toolchains]: https://github.com/zmitchell/rust-toolchains
