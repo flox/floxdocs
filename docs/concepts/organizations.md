@@ -10,36 +10,23 @@ An **organization** in FloxHub represents a shared workspace for teams. It provi
 
 This document outlines how organizations work today, and how they can be managed.
 
-## Creating an Organization
-
-At this time, creating an organization for FloxHub  is a manual process. To request a new organization, contact the Flox team directly via your preferred communication channel.
-
-When making a request, be prepared to provide:
-
-- The name of your organization
-- A list of GitHub usernames to be associated with the org
-- Whether each user should have read or write access to the organization's catalog
-
-Currently, each organization can support a single private catalog.
-
 ## User Membership
 
-A user can belong to more than one organization. This way users can collaborate across different teams or business units while maintaining clear separation between environments, catalogs, and permissions.
-
-## Managing Organization Properties
-
-The properties of an organization (such as membership or access levels) can be updated upon request. Updates _must* be initiated by the organization’s owner. Please contact the Flox team with the desired changes and we will handle the update process.
+A user can belong to more than one organization. This allows users to use a single FloxHub account in multiple contexts.
 
 ## Permissions and Access Control
 
-- Each organization has an owner
-- Each organization is associated with a single private catalog
-- Access to the catalog is granted based on each user’s GitHub username
-- Read and write privileges can be assigned on a per-user basis
+Organizations in FloxHub use role-based access control (RBAC) to assign permissions to organization members. A user can have one of the following roles within an organization:
+
+- **Owner**: Full administrative access, including managing members and settings.
+- **Writer**: Can create and update environments and packages, but cannot manage members or organization settings.
+- **Reader**: Can view and pull environments and can install packages, but cannot create or modify them.
+
+The organization must have at least one owner, but may have multiple. Owners can manage the organization, including adding or removing members and changing roles. Owners may not modify their own role or remove themselves from the organization.
 
 ## Machine Access Tokens
 
-In addition to _user-level_ access based on GitHub usernames, FloxHub supports _programmatic_ access via `Auth0`-issued machine tokens, using the client credentials grant. These tokens are not tied to users—they authenticate as the organization itself and are intended for CI/CD or other non-interactive use cases.
+In addition to _user-level_ access based on FloxHub accounts, FloxHub supports _programmatic_ access via `Auth0`-issued machine tokens, using the client credentials grant. These tokens are not tied to users—they authenticate as the organization itself and are intended for CI/CD or other non-interactive use cases.
 
 FloxHub supports this via the client credentials grant. To enable it, contact the Flox team to request a client ID and secret. Once provisioned, your workflows can fetch an access token using a `curl` command:
 
@@ -57,7 +44,7 @@ The token can be used to authenticate calls to FloxHub’s API or CLI tools in t
 
 ## Environment Visibility and Management
 
-Organizations in FloxHub include a view of all environments owned by the organization.
+Organizations in FloxHub include a view of all environments and packages owned by the organization.
 
 For each environment, users can:
 
@@ -65,12 +52,8 @@ For each environment, users can:
 - Configure basic settings, such as owner and name
 - Delete environments
 
-Environments created within an organization are visible to all its members, with access governed by the organization’s catalog permissions.
+For each package, users can:
 
-## Limitations and Future Work
+- See package details, including supported systems and available versions
 
-We’re working to enable each owner to self-manage the organization they create. Unfortunately, in the near term, all changes to a FloxHub organization must be handled manually by the Flox team.
-
-For any questions or requests related to your organization, please reach out to your Flox representative.
-
-[early]: https://flox.dev/early/
+Environments and packages created within an organization are visible to all its members, with access governed by the organization’s RBAC configuration.
