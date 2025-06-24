@@ -39,4 +39,47 @@ command = '''
 '''
 ```
 
+### Vendoring dependencies in pure builds
+
+As discussed in the [pure builds][pure-builds-section] of the Builds concept page, pure builds run in a sandbox without network access on Linux.
+A pure build can be run as a multi-stage build where the first step vendors dependencies.
+An example is shown below:
+
+
+```toml
+[build.myproject-deps]
+command = """
+   # Don't use or update paths in the real project config.
+   export BUNDLE_IGNORE_CONFIG=true
+
+   # Pre-fetch the deps outside of the sandbox.
+   export BUNDLE_PATH=$out
+   export BUNDLE_CACHE_PATH=${out}/cache
+   bundle cache --no-install
+
+   # These gems appear to be duplicated irrespective of `--no-install`
+   rm -rf $out/ruby
+"""
+
+[build.myproject]
+command = """
+   mkdir -p $out/{lib,bin}
+
+   # Don't use or update paths in the real project config.
+   export BUNDLE_IGNORE_CONFIG=true
+
+   # Perform an isolated install using pre-fetched deps.
+   export BUNDLE_PATH=$out/lib/vendor
+   export BUNDLE_CACHE_PATH=${myproject-deps}/cache
+   export BUNDLE_DEPLOYMENT=true
+   bundle install --standalone --local
+
+   cp Gemfile Gemfile.lock $out/lib
+   cp app.rb quotes.json $out/lib
+   cp quotes $out/bin/myproject
+"""
+sandbox = "pure"
+```
+
 [build-concept]: ../../concepts/manifest-builds.md
+[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
