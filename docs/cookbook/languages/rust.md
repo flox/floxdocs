@@ -228,10 +228,46 @@ runtime-packages = [… "gcc"]
 ```
 
 !!! note "Note"
-    Depending on the `gcc` package at runtime includes the `libgcc`, the compiler, its manpages, etc when in reality the package only depends on `libgcc` at runtime on Linux. This limitation will be address in the future.
+    Depending on the `gcc` package at runtime includes `libgcc`, the compiler, its manpages, etc when in reality the package only depends on `libgcc` at runtime on Linux. This limitation will be addressed in the future.
+
+### Vendoring dependencies in pure builds
+
+As discussed in the [pure builds][pure-builds-section] of the Builds concept page, pure builds run in a sandbox without network access on Linux.
+A pure build can be run as a multi-stage build where the first step vendors dependencies.
+An example is shown below:
+
+```toml
+[build.myproject-deps]
+command = '''
+  mkdir -p $out/etc
+  cargo vendor $out/etc/vendor
+'''
+
+[build.myproject]
+command = '''
+  # Create a .cargo/config.toml to tell Cargo to use the vendored
+  # dependencies.
+  mkdir -p .cargo
+  cat <<-'EOF' > .cargo/vendor-config.toml
+  [source.crates-io]
+  replace-with = "vendored-sources"
+
+  [source.vendored-sources]
+  directory = "${myproject-deps}/etc/vendor"
+EOF
+
+  # Perform the build
+  mkdir -p $out/bin
+  cargo build --release --offline --config .cargo/vendor-config.toml
+  cp target/release/myproject $out/bin/myproject
+'''
+sandbox = "pure"
+runtime-packages = ["libiconv", "gcc"]
+```
 
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
 [custom-toolchains]: https://github.com/zmitchell/rust-toolchains
 [esp32]: https://www.espressif.com/en/products/socs/esp32
 [risc-v]: https://en.wikipedia.org/wiki/RISC-V
 [build-concept]: ../../concepts/manifest-builds.md
+[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
