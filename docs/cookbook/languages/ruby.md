@@ -45,7 +45,6 @@ As discussed in the [pure builds][pure-builds-section] of the Builds concept pag
 A pure build can be run as a multi-stage build where the first step vendors dependencies.
 An example is shown below:
 
-
 ```toml
 [build.myproject-deps]
 command = """
