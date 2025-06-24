@@ -26,7 +26,7 @@ export POETRY_VIRTUALENVS_PATH="$FLOX_ENV_CACHE/poetry/virtualenvs"
 if [ -z "$(poetry env info --path)" ]; then
   poetry env use python &> /dev/null
 fi
-source "$(poetry env info --path)/bin/activate" &> /dev/null
+eval "$(poetry env activate)" &> /dev/null
 poetry install --quiet &> /dev/null
 echo "1. 👉 Python environment activated"
 
@@ -113,18 +113,18 @@ echo "     ╚══════════════════════
 echo ""
 '''
 bash = '''
-  source "$(poetry env info --path)/bin/activate"
+  eval "$(poetry env activate)"
   alias lint=markdownlint-cli2
 '''
 fish = '''
-  source "$(poetry env info --path)/bin/activate.fish"
+  eval (poetry env activate)
   alias lint markdownlint-cli2
 '''
 tcsh = '''
-  source "$(poetry env info --path)/bin/activate.csh"
+  eval "`poetry env activate`"
 '''
 zsh = '''
-  source "$(poetry env info --path)/bin/activate"
+  eval "$(poetry env activate)"
   alias lint=markdownlint-cli2
 '''
 
