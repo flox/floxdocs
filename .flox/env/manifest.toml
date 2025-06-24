@@ -24,7 +24,7 @@ on-activate = '''
 #
 export POETRY_VIRTUALENVS_PATH="$FLOX_ENV_CACHE/poetry/virtualenvs"
 if [ -z "$(poetry env info --path)" ]; then
-  poetry env use python &> /dev/null
+  poetry env use "$(which python)" &> /dev/null
 fi
 eval "$(poetry env activate)" &> /dev/null
 poetry install --quiet &> /dev/null
