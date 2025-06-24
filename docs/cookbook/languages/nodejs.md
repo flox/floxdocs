@@ -48,4 +48,29 @@ chmod 755 $out/bin/myproject
 
 2. If your `npm build` already produces a binary that can be executed drectly, you can also copy or link that to `$out/bin`. Note that only binaries in `$out/bin` are wrapped to ensure they run within a consistent environment.
 
+### Vendoring dependencies in pure builds
+
+As discussed in the [pure builds][pure-builds-section] of the Builds concept page, pure builds run in a sandbox without network access on Linux.
+A pure build can be run as a multi-stage build where the first step vendors dependencies.
+An example is shown below:
+
+```toml
+[build.myproject-deps]
+command = '''
+  mkdir -p $out
+  npm ci
+  cp -r node_modules $out
+'''
+
+[build.myproject]
+command = '''
+  # Copy node modules built in the previous step
+  cp --no-preserve=mode -r ${myproject-deps}/node_modules ./
+  ...
+  # The rest of the build is the same
+'''
+sandbox = "pure"
+```
+
 [build-concept]: ../../concepts/manifest-builds.md
+[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
