@@ -24,7 +24,7 @@ pymdown-extensions = "*"
 # PR waiting in upstream: https://github.com/OceanSprint/tesh/pull/45
 tesh = { git = "https://github.com/garbas/tesh", branch = "remove-mkdocs-code-annotations" }
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 trove-classifiers = "*"
 
 [build-system]

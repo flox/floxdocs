@@ -214,11 +214,20 @@ description: Install or upgrade Flox
     If you have Docker installed then you can also run flox in a container to
     try it out before installing on your system.
 
-    **Invoke Flox container**
+    **Use Flox container**
+
+    The easiest way to run Flox in a container is to run the Flox provided container:
 
     ``` { .text .code-command .copy }
     docker run --pull always --rm -it ghcr.io/flox/flox
     ```
+
+    **Install into an existing container**
+
+    If you need to install Flox into an existing container, you can use the `.deb`
+    or `.rpm` installers.
+    Note that Flox can only be used as root in containers, unless the container
+    happens to have `systemd` installed.
 
     **Verify Flox installation**
 

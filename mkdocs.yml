@@ -40,7 +40,9 @@ nav:
     - The default environment: tutorials/default-environment.md
     - Sharing environments: tutorials/sharing-environments.md
     - Layering multiple environments: tutorials/layering-multiple-environments.md
-    - Customizing the environment shell hook: tutorials/customizing-environments.md
+    - Customizing the shell environment: tutorials/customizing-environments.md
+    - Designing multi-arch environments: tutorials/multi-arch-environments.md
+    - Building and publishing packages: tutorials/build-and-publish.md
     - Running Flox in CI/CD: tutorials/ci-cd.md
     - Designing cross-platform environments: tutorials/multi-arch-environments.md
     - Reusing and combining developer environments: tutorials/composition.md
@@ -54,6 +56,9 @@ nav:
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Services: concepts/services.md
     - Composing environments: concepts/composition.md
+    - Organizations: concepts/organizations.md
+    - Builds: concepts/manifest-builds.md
+    - Publishing: concepts/publishing.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
     - Languages:
@@ -183,7 +188,8 @@ markdown_extensions:
         line_spans: __span
         pygments_lang_class: true
     - pymdownx.inlinehilite
-    - pymdownx.snippets
+    - pymdownx.snippets:
+        base_path: "docs/snippets"
     - pymdownx.superfences
 
     # Content tabs
