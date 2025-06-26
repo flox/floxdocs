@@ -47,7 +47,16 @@ The Go `net/http` package has a few runtime dependencies that you may not know y
 - `mailcap`: used to resolve MIME types.
 - `tzdata`: used to resolve timezones.
 
-You'll need to add those packages to your environment and add them to the `runtime-packages` of your build if you're limiting which packages are present at runtime:
+You'll need to add those packages to your environment
+
+```toml
+[install]
+iana-etc.pkg-path = "iana-etc"
+mailcap.pkg-path = "mailcap"
+tzdata.pkg-path = "tzdata"
+```
+
+and add them to the `runtime-packages` of your build if you're limiting which packages are present at runtime:
 
 ```toml
 runtime-packages = [

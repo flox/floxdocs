@@ -1,17 +1,18 @@
 ---
-title: C
+title: C/C++
 description: Common questions and solutions for using C with Flox
 ---
 
-# C
+# C/C++
 
 ## Build with Flox
 
 Not only can you _develop_ your software with Flox, but you can _build_ it as well.
 See the [builds][build-concept] concept page for more details.
 
-This example will assume you're using `autotools`.
-Since `autotools` isn't specific to the C language, this example will also work for any project using `autotools`.
+### Autotools
+
+Since `autotools` isn't specific to C, this example will also work for any project using `autotools`.
 Since the output of the build must be copied to the `$out` directory, you must set the install prefix to `$out`.
 
 ```toml
@@ -20,6 +21,19 @@ command = '''
   ./configure --prefix=$out
   make
   make install
+'''
+```
+
+### CMake
+
+Doing a `CMake` build looks much the same as `autotools`.
+
+```toml
+[build.myproject]
+command = '''
+  cmake -DCMAKE_INSTALL_PREFIX=$out
+  make
+  make install PREFIX=$out
 '''
 ```
 
