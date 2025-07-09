@@ -120,6 +120,12 @@ Need an example? See how [the Flox Docs team uses Flox in CI](https://flox.dev/b
 
 - Create a portable [environment with transparent auth](https://flox.dev/blog/get-your-preferred-secrets-manager-in-a-portable-cross-platform-cli-toolkit/) via a third-party secrets manager so cross-platform workflows work the same everywhere: locally, in CI, or in production.
 
+## __Have questions?__
+
+__Ask us on [Slack :fontawesome-brands-slack:](https://go.flox.dev/slack){:target="_blank"} or [Discourse :fontawesome-brands-discourse:](https://discourse.flox.dev){:target="_blank"}__
+
+The Flox product and engineering teams love to hear directly from users. Your questions and feedback will help us prioritize the improvements to the product that matter most to you.
+
 
 [install_flox]: ./install-flox.md
 [flox_5_minutes]: ./flox-5-minutes.md
