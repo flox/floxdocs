@@ -167,8 +167,8 @@ Note that this expression is saved as `default.nix` in its own sub-directory so 
 This build also defines tests so they have to be modified too:
 
 ```diff title="./flox/pkgs/hello-shouty/shouty.patch"
---- hello-2.12.2/src/hello.c	2025-05-19 12:49:04
-+++ hello-patched/src/hello.c	2025-07-04 10:33:57
+--- hello-2.12.2/src/hello.c  2025-05-19  12:49:04
++++ hello-patched/src/hello.c 2025-07-04 10:33:57
 @@ -145,7 +145,7 @@
  #endif
  
@@ -179,8 +179,8 @@ This build also defines tests so they have to be modified too:
    /* Even exiting has subtleties.  On exit, if any writes failed, change
       the exit status.  The /dev/full device on GNU/Linux can be used for
 diff -ru hello-2.12.2/tests/hello-1 hello-patched/tests/hello-1
---- hello-2.12.2/tests/hello-1	2025-05-19 12:49:04
-+++ hello-patched/tests/hello-1	2025-07-04 10:48:38
+--- hello-2.12.2/tests/hello-1  2025-05-19 12:49:04
++++ hello-patched/tests/hello-1 2025-07-04 10:48:38
 @@ -21,7 +21,7 @@
  
  tmpfiles="hello-test1.ok"
