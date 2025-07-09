@@ -353,4 +353,4 @@ runtime-packages = [
 ]
 ```
 
-[build-concept]: ../../concepts/manifest-builds.md
+[build-concept]: ../../concepts/builds.md

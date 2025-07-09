@@ -57,7 +57,9 @@ nav:
     - Services: concepts/services.md
     - Composing environments: concepts/composition.md
     - Organizations: concepts/organizations.md
-    - Builds: concepts/manifest-builds.md
+    - Builds: concepts/builds.md
+    - Manifest builds: concepts/manifest-builds.md
+    - Nix expression builds: concepts/nix-expression-builds.md
     - Publishing: concepts/publishing.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
