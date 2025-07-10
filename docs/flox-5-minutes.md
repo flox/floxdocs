@@ -633,7 +633,7 @@ you can activate _both_ environments to do that work.
 - :simple-readme:{ .flox-purple .flox-heart } See **all the possibilities** for
 [configuring your environment][manifest].
 
-[install_flox]: ./install-flox.md
+[install_flox]: ./install-flox/install.md
 [create_guide]: ./tutorials/creating-environments.md
 [share_guide]: ./tutorials/sharing-environments.md
 [init]: ./reference/command-reference/flox-init.md
