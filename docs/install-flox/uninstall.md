@@ -139,7 +139,6 @@ Here's how to **completely remove `flox` from your system**.
         Complete!
         ```
 
-
 === "Nix - Generic"
 
     If you've installed flox to the system-wide `default` profile
@@ -166,8 +165,5 @@ Here's how to **completely remove `flox` from your system**.
     Please follow the instructions provided on either the Debian or RPM tab
     (whichever matches the existing Linux Distribution installed with your
     WSL) to uninstall Flox.
-
-
-
 
 [flox_discourse]: https://discourse.flox.dev

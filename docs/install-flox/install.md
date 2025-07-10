@@ -5,8 +5,6 @@ description: How to install or upgrade the Flox CLI
 
 # Install Flox { #install-flox }
 
-
-
 ??? info "Minimum Requirements"
 
     While the resource requirements for Flox will vary based on the
@@ -19,8 +17,6 @@ description: How to install or upgrade the Flox CLI
 ??? info "Existing Nix installations"
 
     Use the Flox installer for your system to allow some opinionated configuration of Nix, or use the "Nix - Generic" instructions for full control of your Nix installation. 
-
-
 
 === "MacOS - Pkg"
 
@@ -74,10 +70,7 @@ description: How to install or upgrade the Flox CLI
 
     Download and install the latest image as described above.
 
-
 === "MacOS - Homebrew"
-
-   
 
     **Brew install** 
     
@@ -90,7 +83,6 @@ description: How to install or upgrade the Flox CLI
     !!! note "Note"
         You may be prompted for a `sudo` password or be asked if your terminal has authorization to modify disk contents.
 
-    
 
     ??? info "Replacing an existing Nix installation"
 
@@ -134,7 +126,6 @@ description: How to install or upgrade the Flox CLI
     brew upgrade flox
     ```
 
-
 === "Debian"
 
     For use on Debian, Ubuntu, and other Debian-based distributions.
@@ -174,8 +165,6 @@ description: How to install or upgrade the Flox CLI
     sudo apt update
     sudo apt --only-upgrade install flox
     ```
-
-
 
 === "RPM"
 
@@ -246,8 +235,6 @@ description: How to install or upgrade the Flox CLI
     ``` { .text .code-command .copy }
     sudo dnf update flox
     ```
-
-
 
 === "Nix - Generic"
 
@@ -415,7 +402,6 @@ description: How to install or upgrade the Flox CLI
     1.  The version you will see might be different.
 
 
-
     **Upgrade existing Flox installation**    
 
     If you've installed Flox to the system-wide `default` profile
@@ -450,8 +436,6 @@ description: How to install or upgrade the Flox CLI
     Nix does not always update transitive dependencies when the version is
     changed,
     so to ensure all updates are applied, run `nix flake update`.
-
-
 
 === "Nix - NixOS"
 
@@ -685,16 +669,6 @@ description: How to install or upgrade the Flox CLI
     Please follow the instructions provided on either the Debian or RPM tab
     (whichever matches the existing Linux Distribution installed with your
     WSL) to update to latest version of Flox.
-
-
-
-
-
-
-
-
-
-
 
 [flox]: https://flox.dev
 [flox_x86_64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-{{ FLOX_VERSION }}.x86_64-linux.deb
