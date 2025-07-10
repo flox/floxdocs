@@ -5,19 +5,6 @@ description: How to install or upgrade the Flox CLI
 
 # Install Flox { #install-flox }
 
-??? info "Minimum Requirements"
-
-    While the resource requirements for Flox will vary based on the
-    software you install, we recommend a minimum of 4Gb of memory and 8Gb of
-    storage to install most software.
-
-    Minimum requirements for running installed software is not affected
-    by Flox.
-
-??? info "Existing Nix installations"
-
-    Use the Flox installer for your system to allow some opinionated configuration of Nix, or use the "Nix - Generic" instructions for full control of your Nix installation. 
-
 === "MacOS - Pkg"
 
     **Download and install the package that matches your machine's architecture.**
@@ -237,6 +224,10 @@ description: How to install or upgrade the Flox CLI
     ```
 
 === "Nix - Generic"
+
+    !!! question "Which install method for existing Nix installation?"
+
+        Use the Flox installer for your system to allow some opinionated configuration of Nix, or use these "Nix - Generic" instructions for full control of your Nix installation.
 
     **Install Nix**
 
