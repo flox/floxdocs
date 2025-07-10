@@ -1,26 +1,139 @@
 ---
 title: Install Flox
-description: Install or upgrade Flox
+description: How to install or upgrade the Flox CLI
 ---
 
 # Install Flox { #install-flox }
 
-## Install Flox from scratch
 
-[View release notes][release_notes]
 
 ??? info "Minimum Requirements"
 
-    While the resource requirements for [Flox][flox] will vary based on the
+    While the resource requirements for Flox will vary based on the
     software you install, we recommend a minimum of 4Gb of memory and 8Gb of
     storage to install most software.
 
-    Minimum requirements for running installed software is not effected
-    by [Flox][flox].
+    Minimum requirements for running installed software is not affected
+    by Flox.
 
 ??? info "Existing Nix installations"
 
-    Use the Flox installer for your system to allow some opinionated configuration of Nix, or use the "Nix - Generic" instructions for full control of your Nix installation.
+    Use the Flox installer for your system to allow some opinionated configuration of Nix, or use the "Nix - Generic" instructions for full control of your Nix installation. 
+
+
+
+=== "MacOS - Pkg"
+
+    **Download and install the package that matches your machine's architecture.**
+
+    1. Download installer for Macs with
+
+        [Apple Silicon][flox_mac_apple_silicon_install]{:target="_blank" .md-button .md-button--primary}
+        [Intel processors][flox_mac_intel_install]{:target="_blank" .md-button .md-button--primary}
+
+    2. Double-click to install the downloaded file
+    3. Open a terminal window to continue below
+
+    ??? info "Replacing an existing Nix installation"
+
+        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
+        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
+
+        When installing over a previous installation of Nix the Flox installation
+        will:
+
+        1. Back out customizations made to the following files when Nix was
+            installed:
+            * `/etc/bashrc`
+            * `/etc/bash.bashrc`
+            * `/etc/profile.d/nix.sh`
+            * `/etc/zshrc`
+            * `/etc/zsh/zshrc`
+        2. Overwrite the system-wide `/etc/nix/nix.conf`
+        3. (If applicable) convert the Nix installation to a multi-user install
+        4. Reconfigure the `nix-daemon` invocation
+
+        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
+
+        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
+
+    **Verify Flox installation**
+
+    If the following command returns without error then you're ready to get
+    started!
+
+    ``` console
+    $ flox --version # (1)!
+    {{ FLOX_VERSION }}
+
+    ```
+
+    4.  The version you will see might be different.   
+
+    **Upgrades to existing Flox installation**
+
+    Download and install the latest image as described above.
+
+
+=== "MacOS - Homebrew"
+
+   
+
+    **Brew install** 
+    
+    In your terminal run:
+
+    ``` { .text .code-command .copy }
+    brew install flox
+    ```
+
+    !!! note "Note"
+        You may be prompted for a `sudo` password or be asked if your terminal has authorization to modify disk contents.
+
+    
+
+    ??? info "Replacing an existing Nix installation"
+
+        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
+        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
+
+        When installing over a previous installation of Nix the Flox installation
+        will:
+
+        1. Back out customizations made to the following files when Nix was
+            installed:
+            * `/etc/bashrc`
+            * `/etc/bash.bashrc`
+            * `/etc/profile.d/nix.sh`
+            * `/etc/zshrc`
+            * `/etc/zsh/zshrc`
+        2. Overwrite the system-wide `/etc/nix/nix.conf`
+        3. (If applicable) convert the Nix installation to a multi-user install
+        4. Reconfigure the `nix-daemon` invocation
+
+        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
+
+        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first. 
+
+    **Verify Flox installation**
+
+    If the following command returns without error then you're ready to get
+    started!
+
+    ``` console
+    $ flox --version # (1)!
+    {{ FLOX_VERSION }}
+
+    ```
+
+    1.  The version you will see might be different.
+
+    **Upgrade existing Flox installation**
+
+    ``` { .text .code-command .copy }
+    brew upgrade flox
+    ```
+
 
 === "Debian"
 
@@ -54,6 +167,15 @@ description: Install or upgrade Flox
     ```
 
     1.  The version you will see might be different.
+
+    **Upgrade existing Flox installation**
+
+    ``` { .text .code-command .copy }
+    sudo apt update
+    sudo apt --only-upgrade install flox
+    ```
+
+
 
 === "RPM"
 
@@ -113,134 +235,19 @@ description: Install or upgrade Flox
 
     1.  The version you will see might be different.
 
-=== "MacOS - Pkg"
-
-    **Download and install the package that matches your machine's
-    architecture.**
-
-    1. Download installer for Macs with
-
-        [Apple Silicon][flox_mac_apple_silicon_install]{:target="_blank" .md-button .md-button--primary}
-        [Intel processors][flox_mac_intel_install]{:target="_blank" .md-button .md-button--primary}
-
-    1. Double-click to install the downloaded file
-    1. Open a terminal window to continue below
-
-    ??? info "Replacing an existing Nix installation"
-
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
-        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
-
-        When installing over a previous installation of Nix the Flox installation
-        will:
-
-        1. Back out customizations made to the following files when Nix was
-            installed:
-            * `/etc/bashrc`
-            * `/etc/bash.bashrc`
-            * `/etc/profile.d/nix.sh`
-            * `/etc/zshrc`
-            * `/etc/zsh/zshrc`
-        1. Overwrite the system-wide `/etc/nix/nix.conf`
-        1. (If applicable) convert the Nix installation to a multi-user install
-        1. Reconfigure the `nix-daemon` invocation
-
-        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
-
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
-
-    **Verify Flox installation**
-
-    If the following command returns without error then you're ready to get
-    started!
-
-    ``` console
-    $ flox --version # (1)!
-    {{ FLOX_VERSION }}
-
-    ```
-
-    1.  The version you will see might be different.        
-
-=== "MacOS - Homebrew"
-
-    !!! note "Note"
-        You may be prompted for a `sudo` password or be asked if your terminal has authorization to modify disk contents.
-
-    In your terminal run:
+    **Upgrade existing Flox installation**
 
     ``` { .text .code-command .copy }
-    brew install flox
+    sudo yum update flox
     ```
 
-    ??? info "Replacing an existing Nix installation"
-
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
-        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
-
-        When installing over a previous installation of Nix the Flox installation
-        will:
-
-        1. Back out customizations made to the following files when Nix was
-            installed:
-            * `/etc/bashrc`
-            * `/etc/bash.bashrc`
-            * `/etc/profile.d/nix.sh`
-            * `/etc/zshrc`
-            * `/etc/zsh/zshrc`
-        1. Overwrite the system-wide `/etc/nix/nix.conf`
-        1. (If applicable) convert the Nix installation to a multi-user install
-        1. Reconfigure the `nix-daemon` invocation
-
-        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
-
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first. 
-
-    **Verify Flox installation**
-
-    If the following command returns without error then you're ready to get
-    started!
-
-    ``` console
-    $ flox --version # (1)!
-    {{ FLOX_VERSION }}
-
-    ```
-
-    1.  The version you will see might be different.           
-
-=== "Container"
-
-    If you have Docker installed then you can also run flox in a container to
-    try it out before installing on your system.
-
-    **Use Flox container**
-
-    The easiest way to run Flox in a container is to run the Flox provided container:
+    or
 
     ``` { .text .code-command .copy }
-    docker run --pull always --rm -it ghcr.io/flox/flox
+    sudo dnf update flox
     ```
 
-    **Install into an existing container**
 
-    If you need to install Flox into an existing container, you can use the `.deb`
-    or `.rpm` installers.
-    Note that Flox can only be used as root in containers, unless the container
-    happens to have `systemd` installed.
-
-    **Verify Flox installation**
-
-    If the following command returns without error then you're ready to get
-    started!
-
-    ``` console
-    $ flox --version # (1)!
-    {{ FLOX_VERSION }}
-
-    ```
-
-    1.  The version you will see might be different.
 
 === "Nix - Generic"
 
@@ -407,6 +414,45 @@ description: Install or upgrade Flox
 
     1.  The version you will see might be different.
 
+
+
+    **Upgrade existing Flox installation**    
+
+    If you've installed Flox to the system-wide `default` profile
+
+    ``` { .text .code-command .copy }
+    sudo -H nix profile upgrade \
+            --profile /nix/var/nix/profiles/default \
+            --experimental-features "nix-command flakes" \
+            --accept-flake-config \
+            '.*flox'
+    ```
+
+    Or, if you've installed Flox to your own _personal_ profile
+
+    ``` { .text .code-command .copy }
+    nix profile upgrade \
+        --experimental-features "nix-command flakes" \
+        --accept-flake-config \
+        '.*flox'
+    ```
+
+    Or, if you've declared Flox using a flake, update the version in the flake
+
+    ``` { .text .code-command .copy }
+    ...
+        flox = {
+            url = "github:flox/flox/v{{ FLOX_VERSION }}";
+        };
+    ...
+    ```
+
+    Nix does not always update transitive dependencies when the version is
+    changed,
+    so to ensure all updates are applied, run `nix flake update`.
+
+
+
 === "Nix - NixOS"
 
     **Configure Substituters**
@@ -460,6 +506,30 @@ description: Install or upgrade Flox
         If you encounter any other errors with the installer please report the
         bug by way of [discourse][flox_discourse]{:target="_blank"}, including
         a full copy of the command invoked and error encountered.
+
+    **Verify Flox installation**
+
+    If the following command returns without error then you're ready to get
+    started!
+
+    ``` console
+    $ flox --version # (1)!
+    {{ FLOX_VERSION }}
+
+    ```
+
+    1.  The version you will see might be different.
+
+=== "Container"
+
+    If you have Docker installed then you can also run flox in a container to
+    try it out before installing on your system.
+
+    **Invoke Flox container**
+
+    ``` { .text .code-command .copy }
+    docker run --pull always --rm -it ghcr.io/flox/flox
+    ```
 
     **Verify Flox installation**
 
@@ -610,246 +680,21 @@ description: Install or upgrade Flox
 
     1.  The version you will see might be different.
 
-## Upgrade existing Flox installation
-
-=== "Debian"
-
-    For use on Debian, Ubuntu, and other Debian-based distributions.
-
-    ``` { .text .code-command .copy }
-    sudo apt update
-    sudo apt --only-upgrade install flox
-    ```
-
-=== "RPM"
-
-    For use on RedHat, CentOS, Amazon Linux, and other RPM-based
-    distributions.
-
-    ``` { .text .code-command .copy }
-    sudo yum update flox
-    ```
-
-    or
-
-    ``` { .text .code-command .copy }
-    sudo dnf update flox
-    ```
-
-=== "WSL"
+    **Upgrade existing Flox installation**
 
     Please follow the instructions provided on either the Debian or RPM tab
     (whichever matches the existing Linux Distribution installed with your
     WSL) to update to latest version of Flox.
 
-=== "MacOS - Pkg"
 
-    Download and install the latest image as described in the MacOS column
-    of [the install section](#install-flox).
 
-=== "MacOS - Homebrew"
 
-    ``` { .text .code-command .copy }
-    brew upgrade flox
-    ```
 
-=== "Nix/Generic"
 
-    If you've installed Flox to the system-wide `default` profile
 
-    ``` { .text .code-command .copy }
-    sudo -H nix profile upgrade \
-            --profile /nix/var/nix/profiles/default \
-            --experimental-features "nix-command flakes" \
-            --accept-flake-config \
-            '.*flox'
-    ```
 
-    Or, if you've installed Flox to your own _personal_ profile
 
-    ``` { .text .code-command .copy }
-    nix profile upgrade \
-        --experimental-features "nix-command flakes" \
-        --accept-flake-config \
-        '.*flox'
-    ```
 
-    Or, if you've declared Flox using a flake, update the version in the flake
-
-    ``` { .text .code-command .copy }
-    ...
-        flox = {
-            url = "github:flox/flox/v{{ FLOX_VERSION }}";
-        };
-    ...
-    ```
-
-    Nix does not always update transitive dependencies when the version is
-    changed,
-    so to ensure all updates are applied, run `nix flake update`.
-
-## Uninstall Flox
-
-While we are sad we see you uninstalling `flox` we would like to **thank you**
-for giving `flox` a try.
-
-As we try to improve `flox` we really appreciate any feedback, especially
-where we failed. We like to know what was not working or where could we do
-a better job. If you can, please reach us [via
-discourse][flox_discourse]{:target="_blank"} or [via
-email](mailto:hello@floxdev.com).
-
-Here's how to **completely remove `flox` from your system**.
-
-=== "Debian"
-
-    For use on Debian, Ubuntu, and other Debian-based distributions.
-
-    !!! warning "The following command will completely remove Nix and the contents of `/nix/*` from the system."
-
-    Be sure to back up the system and/or extract any important Nix-related
-    files and packages before continuing.
-
-    ``` { .text .code-command .copy }
-    sudo apt-get purge flox
-    ```
-
-    We recommend rebooting your system after uninstalling Flox.
-
-=== "RPM"
-
-    For use on RedHat, CentOS, Amazon Linux, and other RPM-based
-    distributions.
-
-    !!! warning "The following command will completely remove Nix and the contents of `/nix/*` from the system."
-
-    Be sure to back up the system and/or extract any important Nix-related
-    files and packages before continuing.
-
-    ``` { .text .code-command .copy }
-    sudo yum remove flox
-    ```
-
-    We recommend rebooting your system after uninstalling Flox.
-
-    ??? info "Output on success:"
-
-        ```
-        $ sudo yum remove flox
-        Updating Subscription Management repositories.
-        Unable to read consumer identity
-
-        This system is not registered to Red Hat Subscription Management.
-        You can use subscription-manager to register.
-
-        Dependencies resolved.
-        ======================================================================
-            Package       Architecture    Version              Repository   Size
-        ======================================================================
-        Removing:
-            flox          x86_64          1.4.3-1625910780     @@System     109 M
-
-        Transaction Summary
-        ======================================================================
-        Remove  1 Package
-
-        Freed space: 109 M
-        Is this ok [y/N]: y
-        Running transaction check
-        Transaction check succeeded.
-        Running transaction test
-        Transaction test succeeded.
-        Running transaction
-            Preparing        :                                               1/1
-            Running scriptlet: flox-1.4.3-1625910780.x86_64                  1/1
-        floxadm uninstall complete
-
-            Erasing          : flox-1.4.3-1625910780.x86_64                  1/1
-            Running scriptlet: flox-1.4.3-1625910780.x86_64                  1/1
-            Verifying        : flox-1.4.3-1625910780.x86_64                  1/1
-        Installed products updated.
-
-        Removed:
-            flox-1.4.3-1625910780.x86_64
-
-        Complete!
-        ```
-
-=== "WSL"
-
-    Please follow the instructions provided on either the Debian or RPM tab
-    (whichever matches the existing Linux Distribution installed with your
-    WSL) to uninstall Flox.
-
-=== "MacOS - Pkg"
-
-    !!! warning "The following commands will completely remove Nix and the contents of `/nix/*` from the system."
-
-    Be sure to back up the system and/or extract any important Nix-related
-    files and packages before continuing.
-
-    1. Ensure no running processes are using `/nix`.
-
-    1. Run:
-
-        ``` { .text .code-command .copy }
-        sudo /usr/local/share/flox/scripts/uninstall
-        ```
-
-    Regardless of the current state, brew can be used to perform a full clean up:
-    ``` { .text .code-command .copy }
-    brew uninstall --force --zap flox
-    ```
-
-    We recommend rebooting your system after uninstalling Flox.
-=== "MacOS - Homebrew"
-
-    !!! warning "The following commands will completely remove Nix and the contents of `/nix/*` from the system."
-
-    Be sure to back up the system and/or extract any important Nix-related
-    files and packages before continuing.
-
-    !!! note "You may be asked if the terminal has permission to modify contents of the disk."
-
-    Run:
-
-    ``` { .text .code-command .copy }
-    brew uninstall flox
-    ```
-
-    To remove all traces of flox including user preferences uninstall with:
-
-    ``` { .text .code-command .copy }
-    brew uninstall --zap flox
-    ```
-
-    In the case of recovering a partial install, a force and zap can help:
-    ``` { .text .code-command .copy }
-    brew uninstall --force --zap flox
-    ```
-
-    We recommend rebooting your system after uninstalling Flox.
-
-=== "Nix/Generic"
-
-    If you've installed flox to the system-wide `default` profile
-
-    ``` { .text .code-command .copy }
-    sudo -H nix profile remove \
-            '.*flox' \
-            --profile /nix/var/nix/profiles/default \
-            --experimental-features "nix-command flakes"
-    ```
-
-    Or, if you've installed flox to your own _personal_ profile
-
-    ``` { .text .code-command .copy }
-    nix profile remove \
-            '.*flox' \
-            --experimental-features "nix-command flakes"
-    ```
-
-    Or, if you've declared Flox using a flake, remove the Flake
 
 [flox]: https://flox.dev
 [flox_x86_64_deb_install]: https://downloads.flox.dev/by-env/stable/deb/flox-{{ FLOX_VERSION }}.x86_64-linux.deb

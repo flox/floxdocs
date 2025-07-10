@@ -51,7 +51,7 @@ Flox makes it easy to work locally, test in CI, and deploy to production—all w
 
     Flox brings the power of Nix to your team, and can simplify your workflows.
 
-    [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox.md?h=nix#__tabbed_1_6){:target="_blank"}
+    [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox/install.md#__tabbed_1_5){:target="_blank"}
 
     [:octicons-arrow-right-24: Flox brings Nix to your teams](https://flox.dev/blog/its-time-to-bring-nix-to-work/){:target="_blank"}
 
@@ -121,7 +121,7 @@ Need an example? See how [the Flox Docs team uses Flox in CI](https://flox.dev/b
 - Create a portable [environment with transparent auth](https://flox.dev/blog/get-your-preferred-secrets-manager-in-a-portable-cross-platform-cli-toolkit/) via a third-party secrets manager so cross-platform workflows work the same everywhere: locally, in CI, or in production.
 
 
-[install_flox]: ./install-flox.md
+[install_flox]: ./install-flox/install.md
 [flox_5_minutes]: ./flox-5-minutes.md
 [create_guide]: ./tutorials/creating-environments.md
 [share_guide]: ./tutorials/sharing-environments.md
