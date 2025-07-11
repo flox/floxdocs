@@ -72,5 +72,5 @@ command = '''
 sandbox = "pure"
 ```
 
-[build-concept]: ../../concepts/manifest-builds.md
+[build-concept]: ../../concepts/builds.md
 [pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds

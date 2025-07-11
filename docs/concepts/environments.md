@@ -62,7 +62,7 @@ The best way to edit the manifest is by running [`flox edit`][flox_edit] which w
 
 See [`manifest.toml`][manifest] for a complete description of the manifest format and the [customizing environments guide][customizing_environments_guide] to walk through examples.
 
-```toml title="manifest.toml"
+```toml title=".flox/env/manifest.toml"
 version  = 1
 
 [install]
@@ -74,7 +74,7 @@ nodejs.pkg-path = "nodejs_24"
 The lock file serves as a snapshot of the specific package versions and their dependencies that were built and activated at a particular point in time.
 Flox manages this file for you.
 
-``` json title="manifest.lock"
+``` json title=".flox/env/manifest.lock"
 {
   …
   "packages": [
@@ -91,12 +91,16 @@ Flox manages this file for you.
 }
 ```
 
+### `pkgs`
+
+[Nix expression builds][nix-expression-builds-concept] are stored in the directory `.flox/pkgs`.
+
 ### `env.json`
 
 A metadata file that contains the name of the environment and the environment's
 version. Flox manages this file for you.
 
-``` json title="env.json"
+``` json title=".flox/env.json"
 {
   "name": "example-project",
   "version": 1
@@ -119,4 +123,5 @@ version. Flox manages this file for you.
 [floxhub_concept]: ./floxhub.md
 [discourse]: https://discourse.flox.dev/
 [manifest]: ../reference/command-reference/manifest.toml.md
+[nix-expression-builds-concept]: ./nix-expression-builds.md
 [toml_spec]: https://toml.io/en/v1.0.0

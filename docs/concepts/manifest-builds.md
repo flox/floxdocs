@@ -1,19 +1,13 @@
 ---
-title: "Builds"
-description: Understanding how to build packages with Flox
+title: "Manifest Builds"
+description: Manifest builds with Flox
 ---
 
-The typical development lifecycle involves a step where your source code and potentially some other assets are bundled together into a package.
-That package could be a compiled executable, an archive containing source files, or something else entirely.
+See the [builds concept][builds-concept] page for an overview of the different types of builds and how to perform them.
 
-A Flox environment ensures that the same set of tools, dependencies, and environment variables are available where the environment is activated, whether that's during development, running in CI, or _when building packages_.
-Flox environments have native support for defining builds that should be performed in the context of the environment, making it quick and easy to transition from _developing_ your software in a reliable and reproducible way, to _building_ your software in a reliable and reproducible way.
+## Overview
 
-## The big picture
-
-Builds are defined in the `[build]` section of the manifest, and are performed using the [`flox build`][flox-build] command.
-
-A build takes place in the context of an environment.
+Manifest builds are defined in the `[build]` section of the manifest and take place in the context of an environment.
 What that means is that a build run by the Flox CLI behaves similarly to activating the environment yourself and running the build commands manually.
 This allows you to achieve a level of reproducibility while still being able to run the build commands you're familiar with (`cargo build`, `go build`, etc).
 
@@ -114,24 +108,6 @@ command = '''
 sandbox = "pure"
 ```
 
-## Performing builds
-
-Builds are performed with the [`flox build`][flox-build] command.
-When invoked with no other arguments, `flox build` will execute each build listed in the manifest.
-You can optionally specify which builds to perform:
-
-```bash
-$ flox build myproject
-```
-
-For each build that `flox` successfully executes, a symlink named `result-<name>` will be placed in the root directory of the project.
-These symlinks link to the read-only locations where the contents of each `$out` directory are stored.
-Continuing with the `myproject` example, after the build you could run the compiled binary via
-
-```bash
-$ ./result-myproject/bin/myproject
-```
-
 ## What can you build?
 
 The obvious answer to this question is, of course, "software", but this omits a variety of interesting use cases that may not be immediately obvious.
@@ -207,26 +183,18 @@ systems = ["aarch64-darwin", "x86_64-darwin", "aarch64-linux", "x86_64-linux"]
 
 Note again that we include the `install-id` `"hello"` in `runtime-packages`, not the name of the package itself (`hello-go`).
 
-## Cross-platform builds
-
-When you build a package, it is built on your host machine, and therefore only built for the system (`aarch64-darwin`, `x86_64-linux`, etc) of your host machine.
-This means that if you want packages built for multiple platforms, you need to run the build on multiple platforms.
-One way to accomplish this is to run your builds in [CI][flox-ci-cd].
-
 ## Examples
 
 We've compiled a list of example commands to demonstrate how to use Flox to build packages in various ecosystems.
 Each language guide in the Languages section of the Cookbook contains an example of building a package with Flox.
 For example, [this section][go-example] contains an example build for the Go language.
 
-[flox-build]: ../reference/command-reference/flox-build.md
+[builds-concept]: ./builds.md
 [manifest-reference]: ../reference/command-reference/manifest.toml.md#build
 [services-concept]: ./services.md
 [publish-concept]: ./publishing.md
 [fhs-docs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
-[pkg-groups]: ./manifest.md#installing-packages-to-package-groups
 [pkg-groups]: ../reference/command-reference/manifest.toml.md#package-descriptors
 [grpc]: https://grpc.io/
 [organizations-concept]: ./organizations.md
 [go-example]: ../cookbook/languages/go.md#build-with-flox
-[flox-ci-cd]: ../tutorials/ci-cd.md

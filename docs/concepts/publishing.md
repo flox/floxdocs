@@ -73,7 +73,7 @@ If organizations configure their own Catalog Store (rather than using the defaul
 Sharing packages with multiple users is only possible with an organization.
 This means that individual users will not be able to share packages they've published with other users.
 
-[builds-concept]: ./manifest-builds.md
+[builds-concept]: ./builds.md
 [catalog-concept]: ./packages-and-catalog.md
 [flox-build]: ../reference/command-reference/flox-build.md
 [flox-publish]: ../reference/command-reference/flox-publish.md
