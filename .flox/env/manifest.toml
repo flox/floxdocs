@@ -41,7 +41,7 @@ echo "2. 👉 FLOX_VERSION set to $FLOX_VERSION"
 # 
 export FLOX_SRC_ARCHIVE="$FLOX_ENV_CACHE/flox-v$FLOX_VERSION.tar.gz"
 if [ ! -e "$FLOX_SRC_ARCHIVE" ]; then
-  curl -sL "https://github.com/flox/flox/archive/refs/tags/v$FLOX_VERSION.tar.gz" -o $FLOX_SRC_ARCHIVE
+  curl -sL "https://github.com/flox/flox/archive/refs/version-docs" -o $FLOX_SRC_ARCHIVE
 fi
 echo "3. 👉 Downloaded Flox source archive"
 
