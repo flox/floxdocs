@@ -137,7 +137,7 @@ If the latest version of a package isn't yet available in the Flox Catalog then 
 ```nix title=".flox/pkgs/hello.nix"
 { hello, fetchurl }:
 
-hello.overrideAttrs (finalAttrs: old: {
+hello.overrideAttrs (finalAttrs: oldAttrs: {
   version = "2.12.2";
   src = fetchurl {
     url = "mirror://gnu/hello/hello-${finalAttrs.version}.tar.gz";
@@ -153,11 +153,11 @@ If you want to apply a patch, such as an unreleased bug fix, to an existing pack
 ```nix title=".flox/pkgs/hello-shouty/default.nix"
 { hello }:
 
-hello.overrideAttrs (old: {
-  patches = (old.patches or []) ++ [
+hello.overrideAttrs (oldAttrs: {
+  patches = (oldAttrs.patches or []) ++ [
     ./shouty.patch
   ];
-  meta = old.meta // {
+  meta = oldAttrs.meta // {
     description = "A patched version of hello that shouts the default greeting.";
   };
 })
