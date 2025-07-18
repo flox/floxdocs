@@ -137,7 +137,7 @@ If the latest version of a package isn't yet available in the Flox Catalog then 
 ```nix title=".flox/pkgs/hello.nix"
 { hello, fetchurl }:
 
-hello.overrideAttrs (finalAttrs: oldAttrs: {
+hello.overrideAttrs (finalAttrs: _oldAttrs: {
   version = "2.12.2";
   src = fetchurl {
     url = "mirror://gnu/hello/hello-${finalAttrs.version}.tar.gz";
