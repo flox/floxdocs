@@ -37,4 +37,4 @@ command = '''
 '''
 ```
 
-[build-concept]: ../../concepts/builds.md
+[build-concept]: ../../concepts/manifest-builds.md
