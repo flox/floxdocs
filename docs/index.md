@@ -51,7 +51,7 @@ Flox makes it easy to work locally, test in CI, and deploy to production—all w
 
     Flox brings the power of Nix to your team, and can simplify your workflows.
 
-    [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox.md?h=nix#__tabbed_1_6){:target="_blank"}
+    [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox/install.md#__tabbed_1_5){:target="_blank"}
 
     [:octicons-arrow-right-24: Flox brings Nix to your teams](https://flox.dev/blog/its-time-to-bring-nix-to-work/){:target="_blank"}
 
@@ -127,7 +127,7 @@ __Ask us on [Slack :fontawesome-brands-slack:](https://go.flox.dev/slack){:targe
 The Flox product and engineering teams love to hear directly from users. Your questions and feedback will help us prioritize the improvements to the product that matter most to you.
 
 
-[install_flox]: ./install-flox.md
+[install_flox]: ./install-flox/install.md
 [flox_5_minutes]: ./flox-5-minutes.md
 [create_guide]: ./tutorials/creating-environments.md
 [share_guide]: ./tutorials/sharing-environments.md

@@ -89,5 +89,5 @@ command = """
 sandbox = "pure"
 ```
 
-[build-concept]: ../../concepts/manifest-builds.md
+[build-concept]: ../../concepts/builds.md
 [pure-build-section]: ../../concepts/manifest-builds.md#pure-builds

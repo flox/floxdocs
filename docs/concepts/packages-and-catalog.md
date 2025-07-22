@@ -11,7 +11,7 @@ There are two types of catalogs:
 
 The Base Catalog is populated by Flox and contains packages over time as maintained by the Nix Community by way of The [Nixpkgs](https://github.com/nixos/nixpkgs) Collection.
 
-Custom Catalogs are maintained by the Users and Organizations that own them by way of the `flox publish` command, as described in the [Build][manifest-builds] and [Publish][publishing] concept pages.
+Custom Catalogs are maintained by the Users and Organizations that own them by way of the `flox publish` command, as described in the [Build][builds] and [Publish][publishing] concept pages.
 
 The visibility of Custom Catalogs can be public or private, and packages from all types of catalog are consumed by way of the same flox (search|show|install) commands.
 
@@ -44,5 +44,5 @@ Source by the Open Source Initiative (OSI).
 [flox_update]: ../reference/command-reference/flox-update.md
 [manifest_concept]: ./environments.md#manifesttoml
 [nixpkgs]: https://github.com/NixOS/nixpkgs
-[manifest-builds]: ./manifest-builds.md
+[builds]: ./builds.md
 [publishing]: ./publishing.md

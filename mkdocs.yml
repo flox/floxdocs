@@ -33,7 +33,9 @@ extra:
 
 nav:
   - Introduction: index.md
-  - Install Flox: install-flox.md
+  - Install Flox: 
+    - Install: install-flox/install.md
+    - Uninstall: install-flox/uninstall.md
   - Flox in 5 minutes: flox-5-minutes.md
   - Tutorials:
     - Creating environments: tutorials/creating-environments.md
@@ -57,7 +59,9 @@ nav:
     - Services: concepts/services.md
     - Composing environments: concepts/composition.md
     - Organizations: concepts/organizations.md
-    - Builds: concepts/manifest-builds.md
+    - Builds: concepts/builds.md
+    - Manifest builds: concepts/manifest-builds.md
+    - Nix expression builds: concepts/nix-expression-builds.md
     - Publishing: concepts/publishing.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Cookbook:
