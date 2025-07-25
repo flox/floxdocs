@@ -90,4 +90,4 @@ sandbox = "pure"
 ```
 
 [build-concept]: ../../concepts/builds.md
-[pure-build-section]: ../../concepts/manifest-builds.md#pure-builds
+[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
