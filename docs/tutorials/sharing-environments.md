@@ -47,7 +47,7 @@ $ git add .flox
 $ git commit -m "sharing flox environment"
 ```
 
-Another developer on the same project can get started immediately with [`flox activate`][flox_activate]
+Another developer on the same project can get started immediately with [`flox activate`][flox_activate], which will automatically download the same versions of those packages to their machine:
 
 ```
 $ git clone ..example-project
