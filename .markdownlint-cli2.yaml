@@ -10,7 +10,6 @@ config:
 
   # May not play well with mkdocs processing.
   no-bare-urls: false
-  reference-links-images: false
   link-image-reference-definitions: false
 
   # Take care fixing.
