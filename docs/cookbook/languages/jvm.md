@@ -10,6 +10,8 @@ description: Common questions and solutions for using the JVM ecosystem with Flo
 Not only can you _develop_ your software with Flox, but you can _build_ it as well.
 See the [builds][build-concept] concept page for more details.
 
+### Manifest builds
+
 This example will use [Gradle][gradle] and the [shadowJar][shadow] plugin, though a number of build systems exist in the Java ecosystem.
 The core of building a Java artifact with Flox looks like this:
 

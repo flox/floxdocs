@@ -293,7 +293,9 @@ At this point, the version of `eralchemy` is available within your environment.
 Not only can you _develop_ your software with Flox, but you can _build_ it as well.
 See the [builds][build-concept] concept page for more details.
 
-### Pip
+### Manifest builds
+
+#### Pip
 
 For Python projects using `pip`, a build looks like installing the project to the `$out` directory.
 
@@ -309,7 +311,7 @@ current directory.
 If you're working in a repository with multiple packages in subdirectories,
 you would replace `.` with the path to the package sources.
 
-### Poetry
+#### Poetry
 
 For Poetry and tools that create a virtual environment for you, a build entails installing the virtual environment to `$out`.
 Poetry in particular does not allow you to choose the location (or name) of the virtual environment directory itself, but it does allow you to configure the _parent_ directory of the virtual environment.
