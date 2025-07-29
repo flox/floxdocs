@@ -307,3 +307,4 @@ plugins:
     - redirects:
         redirect_maps:
             'concepts/manifest.md': 'concepts/environments.md#manifesttoml'
+            'install-flox.md': 'install-flox/install.md'

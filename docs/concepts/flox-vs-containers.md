@@ -267,7 +267,7 @@ same environment.
     you can simply check this directory into source control.
 
     ```bash
-    $ git add ./flox
+    $ git add .flox
     $ git commit -m "Add Flox environment"
     $ git push
     ```
