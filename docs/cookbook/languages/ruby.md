@@ -10,6 +10,8 @@ description: Common questions and solutions for using Ruby with Flox
 Not only can you _develop_ your software with Flox, but you can _build_ it as well.
 See the [builds][build-concept] concept page for more details.
 
+### Manifest builds
+
 Since Ruby is not a compiled language, to create an executable artifact you must create a shell script that calls `bundle exec`. Configure bundler to use the local directory to store the bundles by setting `$GEM_HOME` to something like `./vendor`. If you're Gemfile compiles native extensions, you may also want to `unset CPATH`. See the [Flox ruby environment](https://hub.flox.dev/flox/ruby) for more information, examples and specific details.
 
 For example, say you have an application whose source is in `app.rb`, and that you created a script called `myproject` at the root of your repository with the following contents:
@@ -39,7 +41,7 @@ command = '''
 '''
 ```
 
-### Vendoring dependencies in pure builds
+#### Vendoring dependencies in pure builds
 
 As discussed in the [pure builds][pure-builds-section] of the Builds concept page, pure builds run in a sandbox without network access on Linux.
 A pure build can be run as a multi-stage build where the first step vendors dependencies.

@@ -183,6 +183,8 @@ It includes a GitHub Action that runs daily to keep up to date with the latest R
 Not only can you _develop_ your software with Flox, but you can _build_ it as well.
 See the [builds][build-concept] concept page for more details.
 
+### Manifest builds
+
 Since the output of the build must be copied to the `$out` directory, you'll need to copy the compiled executable out of the `target` directory and into `$out`.
 There is an unstable environment variable in Cargo that will allow you to set the output directory of the build, but we'll stick to stable features here:
 
@@ -195,7 +197,7 @@ command = '''
 '''
 ```
 
-### macOS builds require libiconv
+#### macOS builds require libiconv
 
 Rust executables built for macOS link against the `libiconv` library, which is used for some Unicode operations.
 This library is provided by macOS, and the large majority of Rust packages on macOS link against this library already, so this is not a dependency introduced by building via Flox.
@@ -208,7 +210,7 @@ libiconv.pkg-path = "libiconv"
 libiconv.systems = ["aarch64-darwin", "x86_64-darwin"]
 ```
 
-### Linux builds require GCC
+#### Linux builds require GCC
 
 On Linux, Rust executables link against `libgcc` for stack unwinding.
 `libgcc` is provided as part of the `gcc` package, which means that `gcc` needs to be available to your package at runtime on Linux.
@@ -230,7 +232,7 @@ runtime-packages = [… "gcc"]
 !!! note "Note"
     Depending on the `gcc` package at runtime includes `libgcc`, the compiler, its manpages, etc when in reality the package only depends on `libgcc` at runtime on Linux. This limitation will be addressed in the future.
 
-### Vendoring dependencies in pure builds
+#### Vendoring dependencies in pure builds
 
 As discussed in the [pure builds][pure-builds-section] of the Builds concept page, pure builds run in a sandbox without network access on Linux.
 A pure build can be run as a multi-stage build where the first step vendors dependencies.
@@ -263,6 +265,24 @@ EOF
 '''
 sandbox = "pure"
 runtime-packages = ["libiconv", "gcc"]
+```
+
+### Nix expression builds
+
+To build a project using [`buildRustPackage`](https://nixos.org/manual/nixpkgs/stable/#rust) which will import your existing dependency file:
+
+```nix
+{ rustPlatform }:
+
+rustPlatform.buildRustPackage {
+  pname = "myproject";
+  version = "0.0.1";
+  src = ../../../.;
+
+  cargoLock = {
+    lockFile = src + "/Cargo.lock";
+  };
+}
 ```
 
 [example_env]: https://github.com/flox/floxenvs/tree/main/rust
