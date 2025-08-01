@@ -190,7 +190,7 @@ or to use it as a starting point without otherwise linking the two machines.
 
     ```bash
     $ cd ~
-    $ flox pull your_user/default
+    $ flox pull <your user>/default
     ```
 
     Now on the new machine you'll [`flox pull`][pull] to get the latest updates
@@ -204,13 +204,41 @@ or to use it as a starting point without otherwise linking the two machines.
 
     ```bash
     $ cd ~
-    $ flox pull --copy your_user/default
+    $ flox pull --copy <your user>/default
     ```
 
     Now you can install/uninstall packages all you like and it won't affect
     any other machine using this environment.
 
 ---
+
+## Generations
+
+Pushing an environment creates the first version of the environment tracked on
+FloxHub, which is called a generation.
+
+To see how generations can be used to undo changes, edit the environment,
+perhaps adding a variable `FOO = "bar"` to the `[vars]` section.
+Then push the environment to FloxHub:
+
+```bash
+$ flox edit
+$ flox push
+```
+
+This should print a link to your environment on FloxHub.
+Follow the link and click the `Generations` tab.
+This should show the most recent generation created by the `flox edit` command.
+
+To revert to the version of the environment prior to the edit, run rollback:
+
+```
+$ flox generation rollback
+$ flox push
+```
+
+Now if you run `flox pull` on another host, you'll get the rolled-back
+environment, without the edit.
 
 ## Conclusion
 
