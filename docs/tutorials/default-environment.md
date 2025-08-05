@@ -233,7 +233,7 @@ This should show the most recent generation created by the `flox edit` command.
 To revert to the version of the environment prior to the edit, run rollback:
 
 ```
-$ flox generation rollback
+$ flox generations rollback
 $ flox push
 ```
 
