@@ -10,6 +10,8 @@ description: Common questions and solutions for using Go with Flox
 Not only can you _develop_ your software with Flox, but you can _build_ it as well.
 See the [builds][build-concept] concept page for more details.
 
+### Manifest builds
+
 Since the output of the build must be copied to the `$out` directory, you may either install the output directly to `$out`, or you may copy the executable there manually after running `go build`.
 
 Install directly to `$out`:
@@ -32,14 +34,14 @@ command = '''
 '''
 ```
 
-### Go compiler adds metadata
+#### Go compiler adds metadata
 
 Go adds metadata to compiled binaries that allows details from the build environment to leak through.
 For example, a compiled binary will contain absolute paths to source files.
 This can cause builds to fail as it interferes with Flox's ability to determine when a build depends on an artifact that aren't included in the build's closure, i.e. when a build has missing dependencies.
 To address this you'll need to compile your programs with the `-trimpath` option.
 
-### Go builds depend on iana, mailcap, tzdata
+#### Go builds depend on iana, mailcap, tzdata
 
 The Go `net/http` package has a few runtime dependencies that you may not know you depend on:
 
@@ -66,7 +68,7 @@ runtime-packages = [
 ]
 ```
 
-### Vendoring dependencies in pure builds
+#### Vendoring dependencies in pure builds
 
 As discussed in the [pure builds][pure-builds-section] of the Builds concept page, pure builds run in a sandbox without network access on Linux.
 A pure build can be run as a multi-stage build where the first step vendors dependencies.
@@ -89,5 +91,22 @@ command = """
 sandbox = "pure"
 ```
 
+### Nix expression builds
+
+To build a project using [`buildGoModule`](https://nixos.org/manual/nixpkgs/stable/#sec-language-go) which will import your existing dependency file, but you will need to [update the hash][nix-expression-hashes]:
+
+```go
+{ buildGoModule }:
+
+buildGoModule {
+  pname = "myproject";
+  version = "0.1.0";
+  src = ../../../.;
+
+  vendorHash = "<YOUR_HASH>";
+}
+```
+
 [build-concept]: ../../concepts/builds.md
-[pure-build-section]: ../../concepts/manifest-builds.md#pure-builds
+[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
+[nix-expression-hashes]: ../../concepts/nix-expression-builds.md#generating-hashes
