@@ -151,13 +151,13 @@ You can configure that with a single command:
 === "Do show the Flox prompt"
 
     ```bash
-    $ flox config --set-bool hide_default_prompt false
+    $ flox config --set hide_default_prompt false
     ```
 
 === "Don't show the Flox prompt"
 
     ```bash
-    $ flox config --set-bool hide_default_prompt true
+    $ flox config --set hide_default_prompt true
     ```
 
 ---
