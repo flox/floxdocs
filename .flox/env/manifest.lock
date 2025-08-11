@@ -295,17 +295,17 @@
     {
       "attr_path": "coreutils",
       "broken": false,
-      "derivation": "/nix/store/00x0msamp93pnyzw9x6hd53k9a63g27y-coreutils-9.7.drv",
+      "derivation": "/nix/store/gakan7s3zz4f52ryq14q003013vm78di-coreutils-9.7.drv",
       "description": "GNU Core Utilities",
       "install_id": "coreutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "coreutils-9.7",
       "pname": "coreutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:21.097924Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:20.835206Z",
       "stabilities": [
         "unstable"
       ],
@@ -315,8 +315,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/fl61rhxfm6nkpqwnfwi8n5m2mlizwzw8-coreutils-9.7-info",
-        "out": "/nix/store/avh1maz05kap7i4cqxwjmh04k9kkfx46-coreutils-9.7"
+        "info": "/nix/store/06yc80769mip8qs0v04vmw32qhiy1hiy-coreutils-9.7-info",
+        "out": "/nix/store/7712hv9svx4cf3cc5g848aa073aak0a4-coreutils-9.7"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -325,17 +325,17 @@
     {
       "attr_path": "coreutils",
       "broken": false,
-      "derivation": "/nix/store/v7ksrhnk07ia2zrqp2i3msqqiykj9jn9-coreutils-9.7.drv",
+      "derivation": "/nix/store/ynxqpqvpn3ajzcdbrddpljhdzz47lrx9-coreutils-9.7.drv",
       "description": "GNU Core Utilities",
       "install_id": "coreutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "coreutils-9.7",
       "pname": "coreutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:10.776538Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:14.812286Z",
       "stabilities": [
         "unstable"
       ],
@@ -345,9 +345,9 @@
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/kj4xwwd8dskqckn611bz3k8fpd77wj8f-coreutils-9.7-debug",
-        "info": "/nix/store/k2ghmmn3ci9jy0glzgmfaw179d7gplk0-coreutils-9.7-info",
-        "out": "/nix/store/yh10czs8i3ppbhz780ix1m2xw98g74j9-coreutils-9.7"
+        "debug": "/nix/store/a465x241qnwmk8a7j8sryr3by1w43bry-coreutils-9.7-debug",
+        "info": "/nix/store/j571l41q05v8bzigwj98y5w8qv6y3ib8-coreutils-9.7-info",
+        "out": "/nix/store/8b7y59p9vzlkwbx52q42lzpf9gwkzih2-coreutils-9.7"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -356,17 +356,17 @@
     {
       "attr_path": "coreutils",
       "broken": false,
-      "derivation": "/nix/store/3rzvz53kbsrqnjfqnjfai5nhms60cjzn-coreutils-9.7.drv",
+      "derivation": "/nix/store/34230vngwp25fwbq2hgyjmpa2cc3x5dc-coreutils-9.7.drv",
       "description": "GNU Core Utilities",
       "install_id": "coreutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "coreutils-9.7",
       "pname": "coreutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:06:54.389224Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:48.994997Z",
       "stabilities": [
         "unstable"
       ],
@@ -376,8 +376,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/19ki8bg4bwm0p0dyngzsa8q0y1d05bpz-coreutils-9.7-info",
-        "out": "/nix/store/xyg9iar3jl034lp61sv7vscvmfv0ifp8-coreutils-9.7"
+        "info": "/nix/store/s5mamzn38dqib8vnsg6xkzjng6qhcrm5-coreutils-9.7-info",
+        "out": "/nix/store/4kg0dzgzcwnm9cgn2adbgjavn50l9cyc-coreutils-9.7"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -386,17 +386,17 @@
     {
       "attr_path": "coreutils",
       "broken": false,
-      "derivation": "/nix/store/qpd66m3w68abpy6fvy1dajrnk1hrnqi7-coreutils-9.7.drv",
+      "derivation": "/nix/store/m1iqxjf7qjdwzhvwcsmqjzr88vbfnw4c-coreutils-9.7.drv",
       "description": "GNU Core Utilities",
       "install_id": "coreutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "coreutils-9.7",
       "pname": "coreutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:28:52.769030Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:32:57.615762Z",
       "stabilities": [
         "unstable"
       ],
@@ -406,9 +406,9 @@
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/9vciakx2jjg9ddgznvy0qzp6wpx8rnql-coreutils-9.7-debug",
-        "info": "/nix/store/v3fn63r3bw93chibfbxb4igcfczf1qry-coreutils-9.7-info",
-        "out": "/nix/store/0qrgvvnnvw55xnk7bn8pbz2rqy6m8x15-coreutils-9.7"
+        "debug": "/nix/store/djp1j1sr6znqdyklb60irysmbkr6b51h-coreutils-9.7-debug",
+        "info": "/nix/store/qq91hijdh4gmwrkpx4q9158sk469n12n-coreutils-9.7-info",
+        "out": "/nix/store/ih779chzzag1nm91fgnrndml4mghm3la-coreutils-9.7"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -417,17 +417,17 @@
     {
       "attr_path": "d2",
       "broken": false,
-      "derivation": "/nix/store/h0rrhkfgfv5cxpf1b3k9fxk5i6ii5lkh-d2-0.7.0.drv",
+      "derivation": "/nix/store/g8ma1n57bz4mv7qg2b19yx2w3nl1g6kn-d2-0.7.0.drv",
       "description": "Modern diagram scripting language that turns text to diagrams",
       "install_id": "d2",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "d2-0.7.0",
       "pname": "d2",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:21.146455Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:20.879771Z",
       "stabilities": [
         "unstable"
       ],
@@ -437,7 +437,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/c7faify4w3z9c9386lgvjrjbjy10av00-d2-0.7.0"
+        "out": "/nix/store/nl9plxg6qha926jaml8w1b0pmlbhjqfz-d2-0.7.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -446,17 +446,17 @@
     {
       "attr_path": "d2",
       "broken": false,
-      "derivation": "/nix/store/4yfap7jambi617r7vq97ldxhjl0b1ikk-d2-0.7.0.drv",
+      "derivation": "/nix/store/zrj4fmz8xx1clcy3gqni2rlskr4zsqnm-d2-0.7.0.drv",
       "description": "Modern diagram scripting language that turns text to diagrams",
       "install_id": "d2",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "d2-0.7.0",
       "pname": "d2",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:10.870948Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:14.905819Z",
       "stabilities": [
         "unstable"
       ],
@@ -466,7 +466,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/n7b9376az25zj90pxj84kv7padrrdvir-d2-0.7.0"
+        "out": "/nix/store/vnrs48228lkykhwgfmyklfxqiz8f1kzd-d2-0.7.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -475,17 +475,17 @@
     {
       "attr_path": "d2",
       "broken": false,
-      "derivation": "/nix/store/1qhgv9y4l9pvm1lijb404x54s47gh8ag-d2-0.7.0.drv",
+      "derivation": "/nix/store/aj873vwfm16wynrgglzvzhibpzkqny0g-d2-0.7.0.drv",
       "description": "Modern diagram scripting language that turns text to diagrams",
       "install_id": "d2",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "d2-0.7.0",
       "pname": "d2",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:06:54.434513Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:49.040312Z",
       "stabilities": [
         "unstable"
       ],
@@ -495,7 +495,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/4w4x9vgm0mycbm5gmg2r48cvzr71isnz-d2-0.7.0"
+        "out": "/nix/store/d2pqf6fmfwa4p0ilhh3ni0g0q7x8b583-d2-0.7.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -504,17 +504,17 @@
     {
       "attr_path": "d2",
       "broken": false,
-      "derivation": "/nix/store/9ax6im5g321xyi0lpqy7w4kizchbng40-d2-0.7.0.drv",
+      "derivation": "/nix/store/gcblsk7x9ffzrpap233rd47f2xdfyg5y-d2-0.7.0.drv",
       "description": "Modern diagram scripting language that turns text to diagrams",
       "install_id": "d2",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "d2-0.7.0",
       "pname": "d2",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:28:52.882525Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:32:57.725300Z",
       "stabilities": [
         "unstable"
       ],
@@ -524,7 +524,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/xacp1qax4jy4px00i2alvk9y4nw0vcmr-d2-0.7.0"
+        "out": "/nix/store/bykvj4rl6pyvrl02v5yrpnwxm1ary826-d2-0.7.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -533,17 +533,17 @@
     {
       "attr_path": "findutils",
       "broken": false,
-      "derivation": "/nix/store/4jy6znp1j8aj93d36llj1zdb43w3imsn-findutils-4.10.0.drv",
+      "derivation": "/nix/store/lbz8jwqcnv5f9n9zwsrgsahqhkzinkfx-findutils-4.10.0.drv",
       "description": "GNU Find Utilities, the basic directory searching utilities of the GNU operating system",
       "install_id": "findutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "findutils-4.10.0",
       "pname": "findutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:21.417079Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:21.154037Z",
       "stabilities": [
         "unstable"
       ],
@@ -553,9 +553,9 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/vyvirncx6pjshdphxrli01alq39jhkjn-findutils-4.10.0-info",
-        "locate": "/nix/store/gfqmrwkmj0qxb8djl4h9mxw1m4573q0v-findutils-4.10.0-locate",
-        "out": "/nix/store/m4vnpy671nk8q7qbx0llf25c1y29fpdi-findutils-4.10.0"
+        "info": "/nix/store/7vsxmwy3and0mxrypp0i4r9z9cxasmr4-findutils-4.10.0-info",
+        "locate": "/nix/store/hi38cgyzpxqah45p9386bswnpzkk0xb7-findutils-4.10.0-locate",
+        "out": "/nix/store/aign8i8aq0h1bdxpby211vckabvvd1g7-findutils-4.10.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -564,17 +564,17 @@
     {
       "attr_path": "findutils",
       "broken": false,
-      "derivation": "/nix/store/pyk4rigmd5jv5x6wmdvn98mmfx2yyayj-findutils-4.10.0.drv",
+      "derivation": "/nix/store/zc8jpjszixa6l6mbz9j5q87b4bqq26xl-findutils-4.10.0.drv",
       "description": "GNU Find Utilities, the basic directory searching utilities of the GNU operating system",
       "install_id": "findutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "findutils-4.10.0",
       "pname": "findutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:11.357106Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:15.386945Z",
       "stabilities": [
         "unstable"
       ],
@@ -584,9 +584,9 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/gvdiyc4n6d4md27vzpjk2w1lj1nad2in-findutils-4.10.0-info",
-        "locate": "/nix/store/33gr7zi6mvrl4mxxq7pj6v8hb2i5xv7b-findutils-4.10.0-locate",
-        "out": "/nix/store/2f46n1nlmgc45ypp46g6svgvafydy12x-findutils-4.10.0"
+        "info": "/nix/store/nms6xjl42fpwb3cwnq6c23kgsply1rch-findutils-4.10.0-info",
+        "locate": "/nix/store/mh9wbfddiwaqfyrpganz312pi32hbwwx-findutils-4.10.0-locate",
+        "out": "/nix/store/0z21lf9xrq52v9lls1x7s0hd1cwj2adn-findutils-4.10.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -595,17 +595,17 @@
     {
       "attr_path": "findutils",
       "broken": false,
-      "derivation": "/nix/store/fg0ywwnqslx9ap3qi335xwaha2mdd9mv-findutils-4.10.0.drv",
+      "derivation": "/nix/store/id5pr8cs0bb3a0y1z03yd9pp45q8d6m7-findutils-4.10.0.drv",
       "description": "GNU Find Utilities, the basic directory searching utilities of the GNU operating system",
       "install_id": "findutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "findutils-4.10.0",
       "pname": "findutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:06:54.706375Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:49.311611Z",
       "stabilities": [
         "unstable"
       ],
@@ -615,9 +615,9 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/v8ybj1r026sll3qx3cjmq7m5wnk2fx72-findutils-4.10.0-info",
-        "locate": "/nix/store/3nlv31hxkdizhxlbvvj90shrclwi4yz6-findutils-4.10.0-locate",
-        "out": "/nix/store/irqymqziqbi2km9wzn9fbx2yi6m7253b-findutils-4.10.0"
+        "info": "/nix/store/0rly64nypcqmccp4fhdj7b21s4pkkcfa-findutils-4.10.0-info",
+        "locate": "/nix/store/7vbyxbp7bak3rcf6mzf3k3dmjnfhll69-findutils-4.10.0-locate",
+        "out": "/nix/store/0rc41p9jig2wnbb8qny35v2bq0zgja3b-findutils-4.10.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -626,17 +626,17 @@
     {
       "attr_path": "findutils",
       "broken": false,
-      "derivation": "/nix/store/akdcddckm1zmnjfirycv0abkk1i7r0hq-findutils-4.10.0.drv",
+      "derivation": "/nix/store/6slm5mrb7x8nk59nwq5hwnm0alirmz7i-findutils-4.10.0.drv",
       "description": "GNU Find Utilities, the basic directory searching utilities of the GNU operating system",
       "install_id": "findutils",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "findutils-4.10.0",
       "pname": "findutils",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:28:53.440584Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:32:58.261165Z",
       "stabilities": [
         "unstable"
       ],
@@ -646,9 +646,9 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/43sh29yyx24kn6kk5si9wgafb6q4gi1q-findutils-4.10.0-info",
-        "locate": "/nix/store/fanl8lvl8jyqyk4q7a8yngybyza9bb90-findutils-4.10.0-locate",
-        "out": "/nix/store/zmxciylqkkfmdf2h218na01v3pxwsb95-findutils-4.10.0"
+        "info": "/nix/store/lf9gwi8hp44js7g2yjls9chavjqrf9p3-findutils-4.10.0-info",
+        "locate": "/nix/store/1r98jxk39ly35xx12x735wcxhcgamyqa-findutils-4.10.0-locate",
+        "out": "/nix/store/3xi6s71d3znq0ivl2r7ypg5rsz71j16h-findutils-4.10.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -657,17 +657,17 @@
     {
       "attr_path": "gnused",
       "broken": false,
-      "derivation": "/nix/store/dr1dyjiqh0x2pikd3yy8cjbvrc0x65ga-gnused-4.9.drv",
+      "derivation": "/nix/store/dp3ks0336r1r7f7414fz8siqm5bch790-gnused-4.9.drv",
       "description": "GNU sed, a batch stream editor",
       "install_id": "gnused",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnused-4.9",
       "pname": "gnused",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:21.679599Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:21.418192Z",
       "stabilities": [
         "unstable"
       ],
@@ -677,8 +677,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/f80jnfxaqjkcgxa32cr86i63c24lc8rh-gnused-4.9-info",
-        "out": "/nix/store/rfamp52xp73gr0rm8d9rsph2n2y56ycg-gnused-4.9"
+        "info": "/nix/store/3iq8pi0lkz0mhpmcwqbsq9qk0bfim6p0-gnused-4.9-info",
+        "out": "/nix/store/1299nwb4c57z3hamkfa33r1hf1cm73li-gnused-4.9"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -687,17 +687,17 @@
     {
       "attr_path": "gnused",
       "broken": false,
-      "derivation": "/nix/store/jpm51g9p7rkyxn5vzd860jihf6g9qi28-gnused-4.9.drv",
+      "derivation": "/nix/store/v2hagnkhibc0d95rsvmp1yb644xqgq3b-gnused-4.9.drv",
       "description": "GNU sed, a batch stream editor",
       "install_id": "gnused",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnused-4.9",
       "pname": "gnused",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:12.082544Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:16.096438Z",
       "stabilities": [
         "unstable"
       ],
@@ -707,8 +707,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/g1w3maf43v4zfyi8i7zjhl2r5lap03dj-gnused-4.9-info",
-        "out": "/nix/store/pa5rr27jmflwnffqygr5xnfvfmzms0jw-gnused-4.9"
+        "info": "/nix/store/klf1jsapqylamznp4ajf3d7y8lm1a1by-gnused-4.9-info",
+        "out": "/nix/store/b6xhk3vpaa7xh4if3a5agm26b0xd29lk-gnused-4.9"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -717,17 +717,17 @@
     {
       "attr_path": "gnused",
       "broken": false,
-      "derivation": "/nix/store/hk3cl4gbsr2kg6v6m5cr76dwzwh1cn5s-gnused-4.9.drv",
+      "derivation": "/nix/store/gjpyljf5fsvhkha17ya3k3k4hcn3435l-gnused-4.9.drv",
       "description": "GNU sed, a batch stream editor",
       "install_id": "gnused",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnused-4.9",
       "pname": "gnused",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:06:55.001134Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:49.605780Z",
       "stabilities": [
         "unstable"
       ],
@@ -737,8 +737,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/b0ll15k6vam30vib8dwf6ilzjjz82rqk-gnused-4.9-info",
-        "out": "/nix/store/gqvzs9sg4qn22ss1nf7zbs5wnd0k1h3n-gnused-4.9"
+        "info": "/nix/store/ggy2kqzdiynzpkimb4sv3r17k5kqzcv7-gnused-4.9-info",
+        "out": "/nix/store/ayvlyyh845f11a8y0j3h01gcz0f4xwr5-gnused-4.9"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -747,17 +747,17 @@
     {
       "attr_path": "gnused",
       "broken": false,
-      "derivation": "/nix/store/b95s6c57gva53z2bnk1j4ldr4xwqfnjl-gnused-4.9.drv",
+      "derivation": "/nix/store/kjraz0h56k41265kgazngg8277ridigw-gnused-4.9.drv",
       "description": "GNU sed, a batch stream editor",
       "install_id": "gnused",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnused-4.9",
       "pname": "gnused",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:28:54.270102Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:32:59.107717Z",
       "stabilities": [
         "unstable"
       ],
@@ -767,8 +767,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/jlgw19kahncfjy4m119py18lkbjr0kzy-gnused-4.9-info",
-        "out": "/nix/store/140daj0gckxd1v5gws3rlva8vkji6inp-gnused-4.9"
+        "info": "/nix/store/pg0x36jmj9b3kbfhasgx7gr6p0k24jhi-gnused-4.9-info",
+        "out": "/nix/store/ql68miwsgz9094bi3qa7nk17bfwf6h6a-gnused-4.9"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -777,17 +777,17 @@
     {
       "attr_path": "gnutar",
       "broken": false,
-      "derivation": "/nix/store/qpyvygs3lrhmivfyxf10rb5jx8y52rf0-gnutar-1.35.drv",
+      "derivation": "/nix/store/xazf7iyjihx5rwl08p66hh9gzim731zg-gnutar-1.35.drv",
       "description": "GNU implementation of the `tar' archiver",
       "install_id": "gnutar",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnutar-1.35",
       "pname": "gnutar",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:21.680564Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:21.419146Z",
       "stabilities": [
         "unstable"
       ],
@@ -797,8 +797,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/18i9qgxq4j1d7pg2ig84yd2bk0d0vhpz-gnutar-1.35-info",
-        "out": "/nix/store/25v7jy2zfx4mx2ca8grk8lkmyn8zbkap-gnutar-1.35"
+        "info": "/nix/store/scm78yjrmm7d6cprj8gq7sdp7156ask4-gnutar-1.35-info",
+        "out": "/nix/store/8q719jjpny4yszxjk02aag9k1swjj4dn-gnutar-1.35"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -807,17 +807,17 @@
     {
       "attr_path": "gnutar",
       "broken": false,
-      "derivation": "/nix/store/i3qbmbdzpbn47af5mc4l0dczrcpmrh5j-gnutar-1.35.drv",
+      "derivation": "/nix/store/nv6av2jpmwgjcvc07z0hc1i2k440kgsq-gnutar-1.35.drv",
       "description": "GNU implementation of the `tar' archiver",
       "install_id": "gnutar",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnutar-1.35",
       "pname": "gnutar",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:12.085249Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:16.099090Z",
       "stabilities": [
         "unstable"
       ],
@@ -827,8 +827,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/gc8hq046ai7r8j2hyvzli0sachnna419-gnutar-1.35-info",
-        "out": "/nix/store/jd5qc5c2ynrpcasqg63j3p89sbcwnx4d-gnutar-1.35"
+        "info": "/nix/store/2plpdshw2bcf0kd9f1371x4wrv1bgvwg-gnutar-1.35-info",
+        "out": "/nix/store/3xzjsrjrgdpf95ygk9xjnv88xpjm8819-gnutar-1.35"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -837,17 +837,17 @@
     {
       "attr_path": "gnutar",
       "broken": false,
-      "derivation": "/nix/store/7k9gd3jmcjpmgxzl7h8il5hh7n9v0vkw-gnutar-1.35.drv",
+      "derivation": "/nix/store/rbdh14l1vc89gzb2ywbbvp6imkppaipj-gnutar-1.35.drv",
       "description": "GNU implementation of the `tar' archiver",
       "install_id": "gnutar",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnutar-1.35",
       "pname": "gnutar",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:06:55.002118Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:49.606765Z",
       "stabilities": [
         "unstable"
       ],
@@ -857,8 +857,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/924afll5ph3z99pmw3xm5p8i0n4s46fw-gnutar-1.35-info",
-        "out": "/nix/store/g276b6cxc85h665p209z122k2bm3xirm-gnutar-1.35"
+        "info": "/nix/store/fr4qf4k4pl184zi7k7f5g6yxn3kgk7r0-gnutar-1.35-info",
+        "out": "/nix/store/k7kw6wi1dbhgd0y5z4krmsj94fibxk32-gnutar-1.35"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -867,17 +867,17 @@
     {
       "attr_path": "gnutar",
       "broken": false,
-      "derivation": "/nix/store/12nh3yqk1shap94xhpnwagbysph1dwzl-gnutar-1.35.drv",
+      "derivation": "/nix/store/6v4s0bzbpalnw8fki9s40k94x388dh3q-gnutar-1.35.drv",
       "description": "GNU implementation of the `tar' archiver",
       "install_id": "gnutar",
       "license": "GPL-3.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "gnutar-1.35",
       "pname": "gnutar",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:28:54.273019Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:32:59.110498Z",
       "stabilities": [
         "unstable"
       ],
@@ -887,8 +887,8 @@
         "out"
       ],
       "outputs": {
-        "info": "/nix/store/rgpjnib70l7gq9k1zvjbx0hicpg3b2n7-gnutar-1.35-info",
-        "out": "/nix/store/r8d70l24x06f4fgq246wz2s8zvmj6vxb-gnutar-1.35"
+        "info": "/nix/store/zid2ypv4vwwmgkwbkpn3akycmac2zkk7-gnutar-1.35-info",
+        "out": "/nix/store/bpn20jn4235mij1372xvpmibgzzpqa3m-gnutar-1.35"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -897,17 +897,17 @@
     {
       "attr_path": "pandoc",
       "broken": false,
-      "derivation": "/nix/store/sd0nfpzfdd2f99dl9rxmdadxvrw5f0wf-pandoc-cli-3.6.drv",
+      "derivation": "/nix/store/q36xdm05zfxwwz4fgwjdh6cvps16720x-pandoc-cli-3.6.drv",
       "description": "Conversion between documentation formats",
       "install_id": "pandoc",
       "license": "GPL-2.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pandoc-cli-3.6",
       "pname": "pandoc",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:25.262018Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:24.985755Z",
       "stabilities": [
         "unstable"
       ],
@@ -917,7 +917,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/6rmb1fhabmhmb50h2z24hsibcgl2km6w-pandoc-cli-3.6"
+        "out": "/nix/store/xvv6ywa8k1jglrq2nnw7q6v24y9fllk9-pandoc-cli-3.6"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -926,17 +926,17 @@
     {
       "attr_path": "pandoc",
       "broken": false,
-      "derivation": "/nix/store/kvc3nbqw7w6yw085v3mf56dj2cpzkwdl-pandoc-cli-3.6.drv",
+      "derivation": "/nix/store/1pkchbavxx3lraiq8za8g3vsgg0j7xm4-pandoc-cli-3.6.drv",
       "description": "Conversion between documentation formats",
       "install_id": "pandoc",
       "license": "GPL-2.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pandoc-cli-3.6",
       "pname": "pandoc",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:23.305383Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:27.915547Z",
       "stabilities": [
         "unstable"
       ],
@@ -946,7 +946,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/hflwd32h0nxga4q6fdi1zgysgz6jz8s1-pandoc-cli-3.6"
+        "out": "/nix/store/c5hmvi4k3ngy9581mhaxpa0400zgc98p-pandoc-cli-3.6"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -955,17 +955,17 @@
     {
       "attr_path": "pandoc",
       "broken": false,
-      "derivation": "/nix/store/s3h1i4is45x0yqbdv6lrjpm7g5n5a3h6-pandoc-cli-3.6.drv",
+      "derivation": "/nix/store/i0gxxs4zwq8dw910phg93j3wpl246jvq-pandoc-cli-3.6.drv",
       "description": "Conversion between documentation formats",
       "install_id": "pandoc",
       "license": "GPL-2.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pandoc-cli-3.6",
       "pname": "pandoc",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:06:58.629322Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:53.220197Z",
       "stabilities": [
         "unstable"
       ],
@@ -975,7 +975,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/95vksv99j6mprjlvqgrhyxj7628d82i2-pandoc-cli-3.6"
+        "out": "/nix/store/121jrcfinkibbq78pzrs5n52qnpmxds2-pandoc-cli-3.6"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -984,17 +984,17 @@
     {
       "attr_path": "pandoc",
       "broken": false,
-      "derivation": "/nix/store/6nsjhaiaq7z30yv1mkn2pc2vxg9iphpa-pandoc-cli-3.6.drv",
+      "derivation": "/nix/store/wl7g0hd8mr3qqhcbra6gnvdm3pbskl2s-pandoc-cli-3.6.drv",
       "description": "Conversion between documentation formats",
       "install_id": "pandoc",
       "license": "GPL-2.0-or-later",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pandoc-cli-3.6",
       "pname": "pandoc",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:29:07.760433Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:33:12.188734Z",
       "stabilities": [
         "unstable"
       ],
@@ -1004,7 +1004,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/6zgdghbfwjxp2f24vhl62qch76pph6gb-pandoc-cli-3.6"
+        "out": "/nix/store/zl2ga0yhal1yhp91n8bcskxnqj2pyx4y-pandoc-cli-3.6"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -1013,17 +1013,17 @@
     {
       "attr_path": "pngquant",
       "broken": false,
-      "derivation": "/nix/store/b4fbnbcimaq5iksvdhh8br489nmsbxr4-pngquant-3.0.3.drv",
+      "derivation": "/nix/store/2b9vifyspaj39mljanr9y7ls4yrqnxkq-pngquant-3.0.3.drv",
       "description": "Tool to convert 24/32-bit RGBA PNGs to 8-bit palette with alpha channel preserved",
       "install_id": "pngquant",
       "license": "[ GPL-3.0-or-later, HPND, BSD-2-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pngquant-3.0.3",
       "pname": "pngquant",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:29.664720Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:29.381546Z",
       "stabilities": [
         "unstable"
       ],
@@ -1034,8 +1034,8 @@
         "out"
       ],
       "outputs": {
-        "man": "/nix/store/4gjii1ddi7066mhl6j2n36a9vhhzwcq5-pngquant-3.0.3-man",
-        "out": "/nix/store/z1wn39v0n8xy5agz1ibrmhmhpwbmljzw-pngquant-3.0.3"
+        "man": "/nix/store/m2x6k774w5a19yflfbi43kgibid43y3j-pngquant-3.0.3-man",
+        "out": "/nix/store/83wvqb6km010d2cnrgq03as4r4r2dm5l-pngquant-3.0.3"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -1044,17 +1044,17 @@
     {
       "attr_path": "pngquant",
       "broken": false,
-      "derivation": "/nix/store/z5fpilw3dw8f6qky7vxhlnbxr3j7lisl-pngquant-3.0.3.drv",
+      "derivation": "/nix/store/bwcxy40hlmf2jraw3lnin5kwz16s3v72-pngquant-3.0.3.drv",
       "description": "Tool to convert 24/32-bit RGBA PNGs to 8-bit palette with alpha channel preserved",
       "install_id": "pngquant",
       "license": "[ GPL-3.0-or-later, HPND, BSD-2-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pngquant-3.0.3",
       "pname": "pngquant",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:31.226853Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:35.812667Z",
       "stabilities": [
         "unstable"
       ],
@@ -1065,8 +1065,8 @@
         "out"
       ],
       "outputs": {
-        "man": "/nix/store/27yds8sgp59zvcrbklxcqcrbwf2vn639-pngquant-3.0.3-man",
-        "out": "/nix/store/8k0rs0rfkvzrrv2im1yjdq7g96rnayg9-pngquant-3.0.3"
+        "man": "/nix/store/mbhmph8rb4xz5iv1gkp9nn4jda6jaziv-pngquant-3.0.3-man",
+        "out": "/nix/store/b7mr3zaf9wx9r95n1mf9abglapfyl3p0-pngquant-3.0.3"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -1075,17 +1075,17 @@
     {
       "attr_path": "pngquant",
       "broken": false,
-      "derivation": "/nix/store/xl66iqcrdfd08l45ga1b7wiqndl8ak9i-pngquant-3.0.3.drv",
+      "derivation": "/nix/store/ssqbd50l0gqdlz37sn3sdg3kywcfizc2-pngquant-3.0.3.drv",
       "description": "Tool to convert 24/32-bit RGBA PNGs to 8-bit palette with alpha channel preserved",
       "install_id": "pngquant",
       "license": "[ GPL-3.0-or-later, HPND, BSD-2-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pngquant-3.0.3",
       "pname": "pngquant",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:07:03.084069Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:57.641738Z",
       "stabilities": [
         "unstable"
       ],
@@ -1096,8 +1096,8 @@
         "out"
       ],
       "outputs": {
-        "man": "/nix/store/9gnx608mg0a8zkxvarfqxdhyzxgcvjgy-pngquant-3.0.3-man",
-        "out": "/nix/store/x8gh1682jcg2qfbbvcw8gdy64s7akyn4-pngquant-3.0.3"
+        "man": "/nix/store/kma0l3g022ywkhd1gwmj6ay0gshs65z9-pngquant-3.0.3-man",
+        "out": "/nix/store/bgk0aaha0sb0w2v8cmf4pi5qasfhxqbr-pngquant-3.0.3"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -1106,17 +1106,17 @@
     {
       "attr_path": "pngquant",
       "broken": false,
-      "derivation": "/nix/store/335cdzakiz2x9yn2jnigafwvjw5vqzgp-pngquant-3.0.3.drv",
+      "derivation": "/nix/store/zk9rj0kfd8j7x1sdpyvkspf1plmn1jcj-pngquant-3.0.3.drv",
       "description": "Tool to convert 24/32-bit RGBA PNGs to 8-bit palette with alpha channel preserved",
       "install_id": "pngquant",
       "license": "[ GPL-3.0-or-later, HPND, BSD-2-Clause ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "pngquant-3.0.3",
       "pname": "pngquant",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:29:16.476783Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:33:20.587087Z",
       "stabilities": [
         "unstable"
       ],
@@ -1127,8 +1127,8 @@
         "out"
       ],
       "outputs": {
-        "man": "/nix/store/ccrr72cd5v9g4x7wpv2g714kjv2s9h08-pngquant-3.0.3-man",
-        "out": "/nix/store/xmvdkbznj2cxclfmayq9p2wmycbx24zw-pngquant-3.0.3"
+        "man": "/nix/store/hd1q4agr0z9n93lnpk6nw98rg7ajr4vl-pngquant-3.0.3-man",
+        "out": "/nix/store/qs7iz9mr8q2zb7fsx6b51313nmxq1wp6-pngquant-3.0.3"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -1137,17 +1137,17 @@
     {
       "attr_path": "poetry",
       "broken": false,
-      "derivation": "/nix/store/2m9npmv9xqyzb25i60dyda7bj31556ww-python3.13-poetry-2.1.3.drv",
+      "derivation": "/nix/store/55f9xwkcsgrhxxl6y15szfcjzwvqrhsi-python3.13-poetry-2.1.3.drv",
       "description": "Python dependency management and packaging made easy",
       "install_id": "poetry",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "poetry-2.1.3",
       "pname": "poetry",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:29.687596Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:29.404353Z",
       "stabilities": [
         "unstable"
       ],
@@ -1157,8 +1157,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/xac5q3c552fh7hw7h3hrw73yqvc8vr8g-python3.13-poetry-2.1.3-dist",
-        "out": "/nix/store/pnp8sxd8nhnkms5k8shy02ylvb06prjn-python3.13-poetry-2.1.3"
+        "dist": "/nix/store/qp1xickc7kz98m8jm1iqv70frgqpx80k-python3.13-poetry-2.1.3-dist",
+        "out": "/nix/store/s3azmc6nzlz3ykkj03l3l8cmncavs339-python3.13-poetry-2.1.3"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -1167,17 +1167,17 @@
     {
       "attr_path": "poetry",
       "broken": false,
-      "derivation": "/nix/store/0ydsypxcyl1cj0ljy6xlkahvai6gyv00-python3.13-poetry-2.1.3.drv",
+      "derivation": "/nix/store/qqarhbmmhdlin20jgsmdc6yfmxr3fwwr-python3.13-poetry-2.1.3.drv",
       "description": "Python dependency management and packaging made easy",
       "install_id": "poetry",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "poetry-2.1.3",
       "pname": "poetry",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:31.268145Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:35.853562Z",
       "stabilities": [
         "unstable"
       ],
@@ -1187,8 +1187,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/c8siygc9s572lpz1ys7wv20bkzi1rnqb-python3.13-poetry-2.1.3-dist",
-        "out": "/nix/store/djkvbgm4x8dxicmdin3lifvlxpnvlmn7-python3.13-poetry-2.1.3"
+        "dist": "/nix/store/62gdzvb9p3gl7qb011g2qacl2zkfyj8b-python3.13-poetry-2.1.3-dist",
+        "out": "/nix/store/4imnvsfaqdil3nv8lgwpqmlk3sbni9y7-python3.13-poetry-2.1.3"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -1197,17 +1197,17 @@
     {
       "attr_path": "poetry",
       "broken": false,
-      "derivation": "/nix/store/al9nrbn5g13iywdypn1kxlrqs4c5khb3-python3.13-poetry-2.1.3.drv",
+      "derivation": "/nix/store/lr1cx4laz072yxd78410wx1n1g2hgxh5-python3.13-poetry-2.1.3.drv",
       "description": "Python dependency management and packaging made easy",
       "install_id": "poetry",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "poetry-2.1.3",
       "pname": "poetry",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:07:03.106458Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:57.663955Z",
       "stabilities": [
         "unstable"
       ],
@@ -1217,8 +1217,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/pimv85ra7l7sv1f52w0d4km6i7sgax03-python3.13-poetry-2.1.3-dist",
-        "out": "/nix/store/3dn5r4j8xsnxnb3vjs6gfsclp6sia4f3-python3.13-poetry-2.1.3"
+        "dist": "/nix/store/3b61fwv9am2hwm7a487ikzhs6zspp7b2-python3.13-poetry-2.1.3-dist",
+        "out": "/nix/store/3rb52sblvgm6l30wdh8is9l394zhn1z6-python3.13-poetry-2.1.3"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -1227,17 +1227,17 @@
     {
       "attr_path": "poetry",
       "broken": false,
-      "derivation": "/nix/store/sm81ypfhks0z0fiyi55k35qxa3jdvrqh-python3.13-poetry-2.1.3.drv",
+      "derivation": "/nix/store/hnfzh0pg1rz9l4807w8dhlawx1xf0w1a-python3.13-poetry-2.1.3.drv",
       "description": "Python dependency management and packaging made easy",
       "install_id": "poetry",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "poetry-2.1.3",
       "pname": "poetry",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:29:16.521604Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:33:20.630239Z",
       "stabilities": [
         "unstable"
       ],
@@ -1247,8 +1247,8 @@
         "out"
       ],
       "outputs": {
-        "dist": "/nix/store/52rdwhvvxg0gav6d6hl64mmip5lqrh5d-python3.13-poetry-2.1.3-dist",
-        "out": "/nix/store/f20v6y7pndsvj6bqpck98kbr3ajj0wjc-python3.13-poetry-2.1.3"
+        "dist": "/nix/store/rn0yha9629m7zhg7j2na7sa36rg1i2fr-python3.13-poetry-2.1.3-dist",
+        "out": "/nix/store/dajc0gcpni7vh261z5higcgawn0dc5v5-python3.13-poetry-2.1.3"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -1257,17 +1257,17 @@
     {
       "attr_path": "python311",
       "broken": false,
-      "derivation": "/nix/store/gn2xhhm1ccnbxasi58w0lgfi63z3rxw5-python3-3.11.13.drv",
+      "derivation": "/nix/store/81zb0hvf6nyvid190xxw4b3hk16sb8hm-python3-3.11.13.drv",
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "python3-3.11.13",
       "pname": "python311",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:28:30.423962Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:29:30.138240Z",
       "stabilities": [
         "unstable"
       ],
@@ -1277,7 +1277,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/ycjsccacicqdghkaafhp2m120crj1kpf-python3-3.11.13"
+        "out": "/nix/store/ifxz6hniba9h7p1lcfi8zd4xpslgsy6x-python3-3.11.13"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -1286,17 +1286,17 @@
     {
       "attr_path": "python311",
       "broken": false,
-      "derivation": "/nix/store/0l8qd4b6lal7x5irlnl3sy2qwly6c8k1-python3-3.11.13.drv",
+      "derivation": "/nix/store/s67pbchcckph3gpjk1ixqlg7ysk96gw1-python3-3.11.13.drv",
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "python3-3.11.13",
       "pname": "python311",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T00:48:32.621246Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T00:49:37.188118Z",
       "stabilities": [
         "unstable"
       ],
@@ -1306,8 +1306,8 @@
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/y9rf7n4n7s2rkzysk0whw1chp6s3jx64-python3-3.11.13-debug",
-        "out": "/nix/store/8wv78828icd6q6wj3bgsg0kvghjgnsjz-python3-3.11.13"
+        "debug": "/nix/store/ixsm2j4hkbwbdvx35qyy4lb0hycg0cix-python3-3.11.13-debug",
+        "out": "/nix/store/9gj7a7mjy47l19xx1sh8zrgh687ilqbs-python3-3.11.13"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -1316,17 +1316,17 @@
     {
       "attr_path": "python311",
       "broken": false,
-      "derivation": "/nix/store/ddqlc8ccnzlzfl8wibaqh2cvrir0j7cq-python3-3.11.13.drv",
+      "derivation": "/nix/store/36na0yna0qkgpw23axizkjpkxgfim9cc-python3-3.11.13.drv",
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "python3-3.11.13",
       "pname": "python311",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:07:03.851531Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:08:58.401474Z",
       "stabilities": [
         "unstable"
       ],
@@ -1336,7 +1336,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/fp45304m5h723ypsbsbx7a1x5mka8ini-python3-3.11.13"
+        "out": "/nix/store/bg2fr8g676s6cvf6afh7md21bz86j4sv-python3-3.11.13"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -1345,17 +1345,17 @@
     {
       "attr_path": "python311",
       "broken": false,
-      "derivation": "/nix/store/lxs6x9mpmmpszczf7xmlhz0i16p5f3z5-python3-3.11.13.drv",
+      "derivation": "/nix/store/icnafj9xn5m2nf38z61rr5h21x6zawpf-python3-3.11.13.drv",
       "description": "High-level dynamically-typed programming language",
       "install_id": "python",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=7fd36ee82c0275fb545775cc5e4d30542899511d",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=5b09dc45f24cf32316283e62aec81ffee3c3e376",
       "name": "python3-3.11.13",
       "pname": "python311",
-      "rev": "7fd36ee82c0275fb545775cc5e4d30542899511d",
-      "rev_count": 834672,
-      "rev_date": "2025-07-25T07:48:04Z",
-      "scrape_date": "2025-07-27T01:29:18.015353Z",
+      "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+      "rev_count": 838708,
+      "rev_date": "2025-08-03T09:47:33Z",
+      "scrape_date": "2025-08-05T01:33:22.066995Z",
       "stabilities": [
         "unstable"
       ],
@@ -1365,8 +1365,8 @@
         "out"
       ],
       "outputs": {
-        "debug": "/nix/store/jpnzi866ylj7lxcxjngbmy2m2f670yqi-python3-3.11.13-debug",
-        "out": "/nix/store/blmbwskhrdv9y3vibxbwhw7602aikfww-python3-3.11.13"
+        "debug": "/nix/store/5ay9f62pyshj15dxfpvw40wa8w6pzwbc-python3-3.11.13-debug",
+        "out": "/nix/store/xldyfac0kbcl5c1yp9ygsag5y23irwxs-python3-3.11.13"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
