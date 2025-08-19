@@ -22,16 +22,16 @@ Builds are performed with the [`flox build`][flox-build] command.
 When invoked with no other arguments, `flox build` will execute each build defined in the environment.
 You can optionally specify which builds to perform:
 
-```bash
-$ flox build myproject
+```{ .bash .copy }
+flox build myproject
 ```
 
 For each build that `flox` successfully executes, a symlink named `result-<name>` will be placed in the root directory of the project.
 These symlinks link to the read-only locations where the contents of each package are stored.
 Continuing with the `myproject` example, after the build you could run the compiled binary via
 
-```bash
-$ ./result-myproject/bin/myproject
+```{ .bash .copy }
+./result-myproject/bin/myproject
 ```
 
 ## Cross-platform builds

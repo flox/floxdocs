@@ -36,7 +36,7 @@ gdb - The GNU Project debugger
 
 First let's install some packages to our environment running on Linux:
 
-``` console
+```console
 $ flox init --name eng-team-tools
 ✨ Created environment eng-team-tools (aarch64-linux)
 ...
@@ -48,7 +48,7 @@ $ flox install gnupg vim
 To make it easy to share this system across platforms we are going to share it
 on FloxHub with [`flox push`][flox_push].
 
-``` console
+```console
 $ flox push
 ✅  eng-team-tools successfully pushed to FloxHub
 
@@ -67,7 +67,7 @@ Apple machine with an M-series processor.
 This system type is `aarch64-darwin`.
 Then lets run the a simple `gpg --version` command to test everything is working.
 
-``` console
+```console
 $ flox pull youruser/eng-team-tools
 ✨  Pulled youruser/eng-team-tools from https://hub.flox.dev
 
@@ -88,7 +88,7 @@ To demonstrate this let's install a package that **isn't compatible with an Appl
 
 From the Linux machine...
 
-``` console
+```console
 $ flox install systemd
 ⚠️  'systemd' installed only for the following systems: aarch64-linux, x86_64-linux
 ```
@@ -98,7 +98,7 @@ but it skips Apple systems since they don't support the package.
 We can push this update so we can list packages from the Apple machine to verify
 everything works.
 
-``` console
+```console
 $ flox push
 ✅  Updates to eng-team-tools successfully pushed to FloxHub
 
@@ -107,7 +107,7 @@ $ flox push
 
 Then, from the Apple machine, let's pull the latest and inspect the manifest.
 
-``` console
+```console
 $ flox pull
 ✅ Pulled youruser/eng-team-tools from https://hub.flox.dev/
 

@@ -30,7 +30,7 @@ In addition to _user-level_ access based on FloxHub accounts, FloxHub supports _
 
 FloxHub supports this via the client credentials grant. To enable it, contact the Flox team to request a client ID and secret. Once provisioned, your workflows can fetch an access token using a `curl` command:
 
-```
+```{ .sh .copy }
 curl --request POST \
   --url https://auth.flox.dev/oauth/token \
   --header 'content-type: application/x-www-form-urlencoded' \

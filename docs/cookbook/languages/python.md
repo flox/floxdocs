@@ -11,19 +11,19 @@ This provides an overview of how to create Flox environments for new or existing
 
 Getting started with Flox is super simple. First, create and/or `cd` into your project directory.
 
-```
+```{ .sh .copy }
 mkdir new-python-project && cd new-python-project
 ```
 
 Next, initialize your Flox environment:
 
-```
+```{ .sh .copy }
 flox init
 ```
 
 This will suggest a few commands you can run next:
 
-```
+```console
 $ flox init
 ✨ Created environment 'new-python-project' (x86_64-linux)
 
@@ -40,13 +40,13 @@ This Flox environment is now ready to be populated with packages.
 
 To begin, we need a Python interpreter. For this example, we will be using Python 3.11. Search for the version of Python your project requires, omitting the dot between major and minor numbers:
 
-```
+```{ .sh .copy }
 flox search python311
 ```
 
 This will show you the list of packages matching the major and minor version of Python you specified:
 
-```
+```console
 $ flox search python311
 python311      High-level dynamically-typed programming language
 python311Full  High-level dynamically-typed programming language
@@ -56,13 +56,13 @@ Use 'flox show <package>' to see available versions
 
 To see the specific versions of Python available in the Flox Catalog, use the `flox show` command:
 
-```
+```{ .sh .copy }
 flox show python311Full
 ```
 
 This will list all of the releases that match the major and minor numbers you provided:
 
-```
+```console
 $ flox show python311Full
 python311Full - High-level dynamically-typed programming language
     python311Full@python3-3.11.9
@@ -78,13 +78,13 @@ python311Full - High-level dynamically-typed programming language
 
 At this point, you can install the latest version by running `flox install` without a version specified:
 
-```
+```{ .sh .copy }
 flox install python311Full
 ```
 
 This will show a message indicating the package was successfully installed:
 
-```
+```console
 $ flox install python311Full
 ✅ 'python311Full' installed to environment 'new-python-project'
 $ flox list
@@ -93,7 +93,7 @@ python311Full: python311Full (python3-3.11.9)
 
 When `flox upgrade` is run in this environment, the version of Python will be upgraded to the latest version available in the catalog matching those major and minor numbers. If you wish to pin your Flox environment to a specific release of Python, you can specify it in the `flox install` command:
 
-```
+```{ .sh .copy }
 flox install python311Full@python3-3.11.3
 ```
 
@@ -103,13 +103,13 @@ Python projects often require a collection of packages in addition to an interpr
 
 To find these Python packages in the Flox Catalog, use the same `flox search` syntax from before:
 
-```
+```{ .sh .copy }
 flox search numpy
 ```
 
 This will return the set of packages that match your search term:
 
-```
+```console
 $ flox search numpy
 [...]
 python311Packages.numpy    Scientific tools for Python
@@ -118,13 +118,13 @@ python311Packages.numpy    Scientific tools for Python
 
 Python packages will have a prefix of `pythonXXXPackages.` in their package name, with `XXX` matching the version of Python you have installed into your environment. To install them, use the entire package name including the prefix:
 
-```
+```{ .sh .copy }
 flox install python311Packages.numpy python311Packages.pandas
 ```
 
 You will see output indicating that the packages were successfully installed. If installation was not successful, you should see an error message indicating the failure:
 
-```
+```console
 $ flox install python311Packages.numpy python311Packages.pandas
 ✅ 'numpy' installed to environment 'new-python-project'
 ✅ 'pandas' installed to environment 'new-python-project'
@@ -134,13 +134,13 @@ $ flox install python311Packages.numpy python311Packages.pandas
 
 Once the packages have been installed, activate the new environment:
 
-```
+```{ .sh .copy }
 flox activate
 ```
 
 This will put you into a new subshell with your environment active:
 
-```
+```console
 $ flox activate
 ✅ You are now using the environment 'new-python-project'.
 To stop using this environment, type 'exit'
@@ -154,7 +154,7 @@ If you are working with an existing project that is already configured for Pytho
 
 For this example we will clone the `eralchemy` repo, which already contains Python configuration:
 
-```
+```{ .sh .copy }
 git clone https://github.com/eralchemy/eralchemy.git && cd eralchemy
 ```
 
@@ -162,13 +162,13 @@ git clone https://github.com/eralchemy/eralchemy.git && cd eralchemy
 
 Once inside the `eralchemy` project directory, initialize a new Flox environment:
 
-```
+```{ .sh .copy }
 flox init
 ```
 
 You will see the following question in the output:
 
-```
+```console
 $ flox init
 Flox detected a Python project with the following Python provider(s):
 
@@ -196,7 +196,7 @@ Here's what each option does:
 
 If you would like to preview the proposed changes, you can choose the "Show" option. It will show you the proposed changes to each section of your environment manifest, e.g.:
 
-```
+```console
 > Show suggested modifications for pyproject
 [Use '--auto-setup' to apply Flox recommendations in the future.]
 
@@ -246,7 +246,7 @@ zsh = '''
 
 If you choose “Yes” to accept this configuration, you can edit or customize it once Flox finishes building just by typing `flox edit`. For future projects, you can automate this setup process for Python environments by running:
 
-```
+```{ .sh .copy }
 flox init --auto-setup
 ```
 
@@ -256,7 +256,7 @@ The only dependency from `pyproject.toml` that Flox did not install for us is [G
 
 To do this, we could run `flox edit` and add `graphviz` to the `[install]` section of our environment's software manifest, but it's just as easy to install it from the command line. So let’s do that instead:
 
-```
+```{ .sh .copy }
 flox install graphviz
 ```
 
@@ -266,13 +266,13 @@ Now it's time to put this environment through its paces.
 
 First let's activate the environment:
 
-```
+```{ .sh .copy }
 flox activate
 ```
 
 You should see output indicating that the Python virtual environment has been created:
 
-```
+```console
 $ flox activate
 ✅ You are now using the environment 'eralchemy'.
 To stop using this environment, type 'exit'
@@ -283,7 +283,7 @@ Activating python virtual environment
 
 At this point, the version of `eralchemy` is available within your environment.
 
-```
+```console
 (python) flox [eralchemy] $ which eralchemy
 /home/floxfan/eralchemy/.flox/cache/python/bin/eralchemy
 ```
@@ -318,7 +318,7 @@ Poetry in particular does not allow you to choose the location (or name) of the 
 The build command shown below uses environment variables to tell Poetry to use the `$out` directory as the parent of the virtual environment.
 After running `poetry install` you should have a directory structure that looks like this:
 
-```
+```console
 $out/
   myproject-<hash>-py3.12/
     ...

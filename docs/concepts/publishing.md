@@ -20,8 +20,8 @@ command = '''
 '''
 ```
 
-```console
-$ flox publish mypkg
+```{ .sh .copy }
+flox publish mypkg
 ```
 
 ## Publish process

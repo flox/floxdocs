@@ -23,12 +23,12 @@ projects as well.
 Let's set up a project called `example-project` using the
 [`flox init`][flox_init] command:
 
-``` console
+```console
 $ git init example-project && cd example-project
 Initialized empty Git repository in /Users/your-username/example-project/.git/
 ```
 
-``` console
+```console
 $ flox init
 ✨ Created environment example-project (aarch64-darwin)
 
@@ -56,7 +56,7 @@ Search for and install packages using [`flox search`][flox_search],
 Let's assume `example-project` is a nodejs/npm project.
 Begin by searching for `nodejs` with [`flox search`][flox_search] in Flox:
 
-``` console
+```console
 $ flox search nodejs
 nodejs              Event-driven I/O framework for the V8 JavaScript engine
 nodejs_20           Event-driven I/O framework for the V8 JavaScript engine
@@ -81,7 +81,7 @@ use [`flox show`][flox_show].
 
 Here we're showing nodejs:
 
-``` console
+```console
 $ flox show nodejs
 nodejs - Event-driven I/O framework for the V8 JavaScript engine
     nodejs@18.18.2
@@ -96,7 +96,7 @@ nodejs - Event-driven I/O framework for the V8 JavaScript engine
 Once you've found the right package, you can install it with
 [`flox install`][flox_install].
 
-```
+```console
 $ flox install nodejs
 ✅ 'nodejs' installed to environment example-project at /Users/myuser/example-project
 ```
@@ -109,14 +109,14 @@ In addition to applications, let's **install system dependencies** that nodejs
 may need,
 such as a certificate generator.
 
-```
+```console
 $ flox search mkcert
 mkcert  A simple tool for making locally-trusted development certificates
 
 Use `flox show <package>` to see available versions
 ```
 
-```
+```console
 $ flox install mkcert
 ✅ 'mkcert' installed to environment example-project at /Users/myuser/example-project
 ```
@@ -131,16 +131,16 @@ you will see your terminal's prompt change.
 This example demonstrates that the packages are now available by running
 `which node` and `which mkcert`.
 
-```
-$ flox activate
+``` {.sh .copy }
+flox activate
 ```
 
-```
+```console
 flox [example-project] $ which node
 /Users/myuser/example-project/.flox/run/aarch64-darwin.flox/bin/node
 ```
 
-```
+```console
 flox [example-project] $ which mkcert
 /Users/myuser/example-project/.flox/run/aarch64-darwin.flox/bin/mkcert
 ```
@@ -163,14 +163,14 @@ Let's add a simple instruction to `example-project`'s environment.
 To interactively edit and validate your environment,
 use Flox's built-in edit function which uses your default terminal `$EDITOR`:
 
-```
+```console
 flox [example-project] $ flox edit
 ```
 
 From within the editor,
 add a custom activation script under the `[hook]` block:
 
-``` toml title="manifest.toml"
+```toml title="manifest.toml"
 # List packages you wish to install in your environment under
 # the `[install]` table
 [install]
@@ -205,11 +205,11 @@ Save changes to the file.
 Test out the new shell hook by running `exit` and
 [`flox activate`][flox_activate] again:
 
-```
+```console
 flox [example-project] $ exit
 ```
 
-```
+```console
 $ flox activate
 
 Start the server with 'npm start'
@@ -223,9 +223,9 @@ We're done!
 To exit the last [environment][environment_concept] activated,
 use the `exit` command or the shell shortcut, `CTRL + D`.
 
-```
+```console
 flox [example-project] $ exit
-$ 
+$
 ```
 
 [flox_init]: ../reference/command-reference/flox-init.md

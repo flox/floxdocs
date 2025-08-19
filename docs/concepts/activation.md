@@ -34,7 +34,7 @@ The most basic way to activate an environment is simply by calling
 `flox activate`,
 which puts you into a subshell with everything configured:
 
-```bash
+```{ .console .no-copy }
 $ flox activate
 flox [myenv] $ # Now you can use your packages
 ```
@@ -82,11 +82,15 @@ but in this case it's the original shell.
 
 To make this happen you could do one of these options in Bash:
 
-```bash
-# Option 1
-source <(flox activate)
+Option 1
 
-# Option 2
+```{ .bash .copy }
+source <(flox activate)
+```
+
+Option 2
+
+```{ .bash .copy }
 eval "$(flox activate)"
 ```
 
@@ -133,8 +137,8 @@ which you may not want.
 
 The easy way to do this is:
 
-```bash
-$ flox activate -- <your command>
+```{ .bash .copy }
+flox activate -- <your command>
 ```
 
 This starts a Flox-configured subshell, runs your command,
