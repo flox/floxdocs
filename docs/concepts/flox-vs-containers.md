@@ -19,17 +19,17 @@ Let's say you've created a new directory for your project,
 `myproject`,
 and entered it:
 
-```bash
-$ mkdir myproject
-$ cd myproject
+```{ .bash .copy }
+mkdir myproject;
+cd myproject
 ```
 
 === "Flox"
 
     Create a Flox environment for the project via [`flox init`][init]:
 
-    ```bash
-    $ flox init
+    ```{ .bash .copy }
+    flox init
     ```
 
     This creates a `.flox` directory in `myproject`.
@@ -40,16 +40,16 @@ $ cd myproject
 
     Create a new `Dockerfile`.
 
-    ```bash
-    $ touch Dockerfile
+    ```{ .bash .copy }
+    touch Dockerfile
     ```
 
     At this point the `Dockerfile` isn't really useable since it doesn't say which
     image to build on top of (there's no `FROM` line).
     Let's pick the latest Ubuntu LTS release.
 
-    ```bash
-    $ echo "FROM ubuntu:noble" >> Dockerfile
+    ```{ .bash .copy }
+    echo "FROM ubuntu:noble" >> Dockerfile
     ```
 
     This already adds some variability in that which image this refers to may
@@ -77,8 +77,8 @@ We'll pick a single package from each category:
 
     This is pretty straightforward:
 
-    ```bash
-    $ flox install curl yarn@1.22 python3@3.10
+    ```{ .bash .copy }
+    flox install curl yarn@1.22 python3@3.10
     ```
 
     Adding another package at a later date is as simple as running
@@ -88,7 +88,7 @@ We'll pick a single package from each category:
 
     Add a `RUN` command to your `Dockerfile`:
 
-    ```dockerfile
+    ```{ .dockerfile .copy }
     RUN apt update && apt install curl npm
     ```
 
@@ -97,7 +97,7 @@ We'll pick a single package from each category:
     so you must install it from a Personal Package Archive (PPA).
     Do that with another `RUN` command:
 
-    ```dockerfile
+    ```{ .dockerfile .copy }
     RUN sudo add-apt-repository ppa:deadsnakes/ppa -y && \
         sudo apt update && \
         sudo apt install python3.10
@@ -142,7 +142,7 @@ out of the box to ensure that there are no nasty surprises down the line.
 A container is configured via a `Dockerfile`,
 which is an imperative sequence of commands.
 
-```dockerfile
+```{ .dockerfile .copy }
 FROM ubuntu:noble
 
 RUN apt update && apt install curl npm
@@ -169,7 +169,7 @@ However, with containers you also need to mount in your source code, etc.
 
     Activate the environment:
 
-    ```bash
+    ```console
     $ flox activate
     flox [myproject] $ # now you're in the environment
     ```
@@ -182,13 +182,13 @@ However, with containers you also need to mount in your source code, etc.
 
     First build the image:
 
-    ```bash
-    $ docker build -t myproject .
+    ```{ .bash .copy }
+    docker build -t myproject .
     ```
 
     Then start the image (mounting your source) and create a shell inside of it:
 
-    ```
+    ```console
     $ docker run -v ./src:/src myproject -d --name myproject_container
     $ docker exec -it myproject_container bash
     $ # now you're inside the container
@@ -206,7 +206,7 @@ However, with containers you also need to mount in your source code, etc.
 
     This is pretty straightforward:
 
-    ```bash
+    ```console
     flox [myproject] $ exit
     ```
 
@@ -214,7 +214,7 @@ However, with containers you also need to mount in your source code, etc.
 
     This is pretty straightforward:
 
-    ```bash
+    ```console
     $ exit # leave the container shell
     $ docker stop myproject_container
     ```
@@ -266,15 +266,15 @@ same environment.
     Since [`flox init`][init] creates a `.flox` directory inside your project,
     you can simply check this directory into source control.
 
-    ```bash
+    ```console
     $ git add .flox
     $ git commit -m "Add Flox environment"
     $ git push
     ```
-    
+
     Anyone with Flox installed can now work on this project with two commands:
 
-    ```bash
+    ```console
     $ git clone <your repo>
     $ flox activate
     ```
@@ -289,7 +289,7 @@ same environment.
     could also push the environment to FloxHub with [`flox push`][push].
     Then your team would activate the environment as a "remote" environment:
 
-    ```bash
+    ```console
     $ # You
     $ flox push
     $ # Your coworker
@@ -330,8 +330,8 @@ environment variables set.
 
     First install Caddy:
 
-    ```bash
-    $ flox install caddy
+    ```{ .bash .copy }
+    flox install caddy
     ```
 
     Then [edit][edit] your manifest to create a new [service][services]:
@@ -420,7 +420,7 @@ you need to build a container so that it can be deployed.
     that you used for both local development and CI.
     If your environment already contains the programs you want to run in
     production, you're in good shape.
-    
+
     There is a work in progress feature for producing build artifacts from
     a Flox environment.
     We have some exciting things happening in this space!

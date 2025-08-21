@@ -121,7 +121,7 @@ Inactive environments:
 ## Where to next
 
 - :simple-readme:{ .flox-purple .flox-heart } [Sharing environments][sharing_guide]
-  
+
 - :simple-readme:{ .flox-purple .flox-heart } [Customizing the shell hook][customizing_guide]
 
 - :simple-readme:{ .flox-purple .flox-heart } [Designing multiple architecture environments][multi_arch_guide]

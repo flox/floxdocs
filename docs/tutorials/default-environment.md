@@ -36,9 +36,9 @@ In some cases Flox will prompt to set up your `default` environment for you.
 To create the `default` environment yourself,
 simply navigate to your home directory and run [`flox init`][init].
 
-```bash
-$ cd ~
-$ flox init
+```{ .bash .copy }
+cd ~;
+flox init
 ```
 
 Once the environment has been created,
@@ -54,7 +54,7 @@ or you can add a single line to your shell's RC file:
     `.bashrc` and `.profile`.
     Add the following line to the very end of each of those files:
 
-    ```bash
+    ```{ .bash .copy }
     eval "$(flox activate -d ~ -m run)"
     ```
 
@@ -63,7 +63,7 @@ or you can add a single line to your shell's RC file:
     Add the following line to the very end of your `.zprofile` and `.zshrc`
     files:
 
-    ```bash
+    ```{ .zsh .copy }
     eval "$(flox activate -d ~ -m run)"
     ```
 
@@ -71,7 +71,7 @@ or you can add a single line to your shell's RC file:
 
     Add the following line to the very end of your `config.fish` file:
 
-    ```fish
+    ```{ .fish .copy }
     flox activate -d ~ -m run | source
     ```
 
@@ -79,7 +79,7 @@ or you can add a single line to your shell's RC file:
 
     Add the following line to the very end of your `.tcshrc` file:
 
-    ```bash
+    ``` { .tcsh .copy }
     eval "`flox activate -d ~ -m run`"
     ```
 
@@ -92,7 +92,7 @@ If you don't want to activate it automatically, the default
 environment can simply be activated using `-d` parameter of the Flox CLI
 like so:
 
-```bash
+```{ .bash .copy }
 flox activate -d "$HOME"
 ```
 
@@ -103,18 +103,17 @@ If you're in an arbitrary directory and `apt install hello` you would expect
 it to be available no matter what directory you're in.
 Let's do the same with Flox.
 
-Let's create a new directory that we know doesn't have an environment in it.
+Let's create a new temporary directory that we know doesn't have an environment in it.
 
-```bash
-# Create and enter a new temporary directory
-$ cd $(mktemp -d)
+```{ .bash .copy }
+cd $(mktemp -d)
 ```
 
 Now we'll install a package and see that it gets installed to the `default`
 environment,
 like you would expect from your system's package manager:
 
-```bash
+```console
 $ flox install hello
 ✅ 'hello' installed to environment 'default'
 ```
@@ -131,7 +130,7 @@ Nevertheless, it's still easy to install whatever you wish to your `default`
 environment.
 All you need to do is pass the `-d` argument to the `install` command, like so:
 
-```bash
+```{ .bash .copy }
 flox install -d ~ hello
 ```
 
@@ -150,14 +149,14 @@ You can configure that with a single command:
 
 === "Do show the Flox prompt"
 
-    ```bash
-    $ flox config --set hide_default_prompt false
+    ```{ .bash .copy }
+    flox config --set hide_default_prompt false
     ```
 
 === "Don't show the Flox prompt"
 
-    ```bash
-    $ flox config --set hide_default_prompt true
+    ```{ .bash .copy }
+    flox config --set hide_default_prompt true
     ```
 
 ---
@@ -170,9 +169,9 @@ it's possible to push this environment and share it between machines.
 From the machine with your `default` environment set up the way you like it,
 run the [`flox push`][push] command:
 
-```bash
-$ cd ~
-$ flox push
+```{ .bash .copy }
+cd ~;
+flox push
 ```
 
 You may need to authenticate with FloxHub first,
@@ -188,9 +187,9 @@ or to use it as a starting point without otherwise linking the two machines.
 
     From the new machine:
 
-    ```bash
-    $ cd ~
-    $ flox pull <your user>/default
+    ```{ .bash .copy }
+    cd ~;
+    flox pull <your user>/default
     ```
 
     Now on the new machine you'll [`flox pull`][pull] to get the latest updates
@@ -202,9 +201,9 @@ or to use it as a starting point without otherwise linking the two machines.
 
     From the new machine:
 
-    ```bash
-    $ cd ~
-    $ flox pull --copy <your user>/default
+    ```{ .bash .copy }
+    cd ~;
+    flox pull --copy <your user>/default
     ```
 
     Now you can install/uninstall packages all you like and it won't affect
@@ -221,9 +220,9 @@ To see how generations can be used to undo changes, edit the environment,
 perhaps adding a variable `FOO = "bar"` to the `[vars]` section.
 Then push the environment to FloxHub:
 
-```bash
-$ flox edit
-$ flox push
+```{ .sh .copy }
+flox edit;
+flox push
 ```
 
 This should print a link to your environment on FloxHub.
@@ -232,9 +231,9 @@ This should show the most recent generation created by the `flox edit` command.
 
 To revert to the version of the environment prior to the edit, run rollback:
 
-```
-$ flox generations rollback
-$ flox push
+```{ .sh .copy }
+flox generations rollback;
+flox push
 ```
 
 Now if you run `flox pull` on another host, you'll get the rolled-back

@@ -19,7 +19,7 @@ description: How to install or upgrade the Flox CLI
 
     ??? info "Replacing an existing Nix installation"
 
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
+        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
         If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
 
         When installing over a previous installation of Nix the Flox installation
@@ -45,13 +45,13 @@ description: How to install or upgrade the Flox CLI
     If the following command returns without error then you're ready to get
     started!
 
-    ``` console
+    ```console
     $ flox --version # (1)!
     {{ FLOX_VERSION }}
 
     ```
 
-    4.  The version you will see might be different.   
+    4.  The version you will see might be different.
 
     **Upgrades to existing Flox installation**
 
@@ -59,11 +59,11 @@ description: How to install or upgrade the Flox CLI
 
 === "MacOS - Homebrew"
 
-    **Brew install** 
-    
+    **Brew install**
+
     In your terminal run:
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     brew install flox
     ```
 
@@ -73,7 +73,7 @@ description: How to install or upgrade the Flox CLI
 
     ??? info "Replacing an existing Nix installation"
 
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
+        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
         If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
 
         When installing over a previous installation of Nix the Flox installation
@@ -92,14 +92,14 @@ description: How to install or upgrade the Flox CLI
 
         These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
 
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first. 
+        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
 
     **Verify Flox installation**
 
     If the following command returns without error then you're ready to get
     started!
 
-    ``` console
+    ```console
     $ flox --version # (1)!
     {{ FLOX_VERSION }}
 
@@ -109,7 +109,7 @@ description: How to install or upgrade the Flox CLI
 
     **Upgrade existing Flox installation**
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     brew upgrade flox
     ```
 
@@ -129,13 +129,13 @@ description: How to install or upgrade the Flox CLI
 
     1. Install the downloaded file
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         sudo dpkg -i /path/to/flox.deb
         ```
 
     ??? info "Replacing an existing Nix installation"
 
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
+        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
         If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
 
         When installing over a previous installation of Nix the Flox installation
@@ -171,8 +171,8 @@ description: How to install or upgrade the Flox CLI
 
     **Upgrade existing Flox installation**
 
-    ``` { .text .code-command .copy }
-    sudo apt update
+    ``` { .sh .code-command .copy }
+    sudo apt update;
     sudo apt --only-upgrade install flox
     ```
 
@@ -193,14 +193,14 @@ description: How to install or upgrade the Flox CLI
 
     1. Install the downloaded file
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         sudo rpm --import https://downloads.flox.dev/by-env/stable/rpm/flox-archive-keyring.asc
         sudo rpm -ivh /path/to/flox.rpm
         ```
 
     ??? info "Replacing an existing Nix installation"
 
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.    
+        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
         If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
 
         When installing over a previous installation of Nix the Flox installation
@@ -226,7 +226,7 @@ description: How to install or upgrade the Flox CLI
     If the following command returns without error then you're ready to get
     started!
 
-    ``` console
+    ```console
     $ flox --version # (1)!
     {{ FLOX_VERSION }}
 
@@ -236,13 +236,13 @@ description: How to install or upgrade the Flox CLI
 
     **Upgrade existing Flox installation**
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     sudo yum update flox
     ```
 
     or
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     sudo dnf update flox
     ```
 
@@ -272,18 +272,18 @@ description: How to install or upgrade the Flox CLI
         Then restart the `nix-daemon`, if applicable:
 
         * Linux:
-            ``` { .text .code-command .copy-2 }
+            ```{ .sh .code-command .copy-2 }
             sudo systemctl stop nix-daemon.service
             sudo systemctl restart nix-daemon.socket
             ```
         * MacOS:
-            ``` { .text .code-command .copy-2 }
+            ```{ .sh .code-command .copy-2 }
             sudo launchctl kickstart -k -p system/org.nixos.nix-daemon
             ```
 
     * Install Flox to your _personal_ profile:
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         nix profile install \
               --experimental-features "nix-command flakes" \
               --accept-flake-config \
@@ -292,7 +292,7 @@ description: How to install or upgrade the Flox CLI
 
     * Install Flox to the system-wide `default` profile as root:
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         sudo -H nix profile install \
               --profile /nix/var/nix/profiles/default \
               --experimental-features "nix-command flakes" \
@@ -318,7 +318,7 @@ description: How to install or upgrade the Flox CLI
 
     **Install Flox with Nix declaratively**
 
-    The following example is for a Nix darwin installation. 
+    The following example is for a Nix darwin installation.
     You may need to modify inputs to match your system.
 
     ??? info "Using Flox's binary cache"
@@ -346,7 +346,7 @@ description: How to install or upgrade the Flox CLI
         Note that if you don't add either of these options, Flox will be built from source, together with a patched version of Nix.
         Which might take a while on less powerful systems.
 
-    ``` { .text .code-command .copy}
+    ```{ .sh .code-command .copy}
     {
       decription = "Example Darwin system flake";
 
@@ -399,7 +399,7 @@ description: How to install or upgrade the Flox CLI
 
     ```
 
-    Run `nix-darwin` to install the configuration and packages you’ve declared. 
+    Run `nix-darwin` to install the configuration and packages you’ve declared.
     This is an example on `nix-darwin`: `nix run nix-darwin -- switch --flake ~/path/to/flake`
 
     **Verify Flox installation**
@@ -407,7 +407,7 @@ description: How to install or upgrade the Flox CLI
     If the following command returns without error then you're ready to get
     started!
 
-    ``` console
+    ```console
     $ flox --version # (1)!
     {{ FLOX_VERSION }}
 
@@ -416,11 +416,11 @@ description: How to install or upgrade the Flox CLI
     1.  The version you will see might be different.
 
 
-    **Upgrade existing Flox installation**    
+    **Upgrade existing Flox installation**
 
     If you've installed Flox to the system-wide `default` profile
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     sudo -H nix profile upgrade \
             --profile /nix/var/nix/profiles/default \
             --experimental-features "nix-command flakes" \
@@ -430,7 +430,7 @@ description: How to install or upgrade the Flox CLI
 
     Or, if you've installed Flox to your own _personal_ profile
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     nix profile upgrade \
         --experimental-features "nix-command flakes" \
         --accept-flake-config \
@@ -439,7 +439,7 @@ description: How to install or upgrade the Flox CLI
 
     Or, if you've declared Flox using a flake, update the version in the flake
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     ...
         flox = {
             url = "github:flox/flox/v{{ FLOX_VERSION }}";
@@ -464,7 +464,7 @@ description: How to install or upgrade the Flox CLI
 
     ... and then invoke:
 
-    ``` { .text .code-command .copy }
+    ```{ .sh .code-command .copy }
     sudo nixos-rebuild switch
     ```
 
@@ -472,7 +472,7 @@ description: How to install or upgrade the Flox CLI
 
     * Install to your _personal_ profile:
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         nix profile install \
               --experimental-features "nix-command flakes" \
               --accept-flake-config \
@@ -481,7 +481,7 @@ description: How to install or upgrade the Flox CLI
 
     * Install Flox to the system-wide `default` profile as root:
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         sudo -H nix profile install \
               --profile /nix/var/nix/profiles/default \
               --experimental-features "nix-command flakes" \
@@ -510,7 +510,7 @@ description: How to install or upgrade the Flox CLI
     If the following command returns without error then you're ready to get
     started!
 
-    ``` console
+    ```console
     $ flox --version # (1)!
     {{ FLOX_VERSION }}
 
@@ -525,7 +525,7 @@ description: How to install or upgrade the Flox CLI
 
     **Invoke Flox container**
 
-    ``` { .text .code-command .copy }
+    ``` { .sh .code-command .copy }
     docker run --pull always --rm -it ghcr.io/flox/flox
     ```
 
@@ -584,7 +584,7 @@ description: How to install or upgrade the Flox CLI
 
         1. Install the downloaded file
 
-            ``` { .text .code-command .copy }
+            ```{ .sh .code-command .copy }
             sudo dpkg -i /path/to/flox.deb
             ```
 
@@ -592,7 +592,7 @@ description: How to install or upgrade the Flox CLI
 
         **Install prerequisites**
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         sudo apt-get install policycoreutils semodule-utils tar wget xz-utils
         ```
 
@@ -605,7 +605,7 @@ description: How to install or upgrade the Flox CLI
 
         1. Install the downloaded file
 
-            ``` { .text .code-command .copy }
+            ```{ .sh .code-command .copy }
             sudo dpkg -i /path/to/flox.deb
             ```
 
@@ -613,7 +613,7 @@ description: How to install or upgrade the Flox CLI
 
         **Install prerequisites**
 
-        ``` { .text .code-command .copy }
+        ```{ .sh .code-command .copy }
         sudo yum install tar xz
         ```
 
@@ -627,7 +627,7 @@ description: How to install or upgrade the Flox CLI
         1. Install the downloaded file
 
 
-            ``` { .text .code-command .copy }
+            ```{ .sh .code-command .copy }
             sudo rpm -ivh /path/to/flox.rpm
             ```
 
@@ -653,7 +653,7 @@ description: How to install or upgrade the Flox CLI
     Run the following command to add the necessary logic to invoke `nix-daemon`
     by way of your `~/.bashrc` file:
 
-    ``` { .text .code-command .copy }
+    ```{ .sh .code-command .copy }
     cat >> ~/.bashrc <<EOF
     ( wsl.exe -d $WSL_DISTRO_NAME -u root service nix-daemon status 2>&1 >/dev/null ) || wsl.exe -d $WSL_DISTRO_NAME -u root service nix-daemon start
     EOF
@@ -662,7 +662,7 @@ description: How to install or upgrade the Flox CLI
     Then restart your WSL shell (or start another) and run the following
     command to ensure that the `nix-daemon` is working correctly:
 
-    ``` { .text .code-command .copy }
+    ```{ .sh .code-command .copy }
     nix --extra-experimental-features nix-command store ping
     ```
     **Verify Flox installation**
@@ -670,7 +670,7 @@ description: How to install or upgrade the Flox CLI
     If the following command returns without error then you're ready to get
     started!
 
-    ``` console
+    ```console
     $ flox --version # (1)!
     {{ FLOX_VERSION }}
 

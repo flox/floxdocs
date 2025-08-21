@@ -43,7 +43,7 @@ We recommend using `brew leaves` for this, so you can easily differentiate betwe
 
 For example:
 
-```
+```console
 % brew leaves
 aider
 awscli
@@ -70,7 +70,7 @@ wget
 
 Then, search Flox for one of the formulae you have installed with Homebrew. In this case, for example, you could choose `jq`:
 
-```
+```console
 % flox search jq
 jq                   Lightweight and flexible command-line JSON processor
 ijq                  Interactive wrapper for jq
@@ -94,13 +94,13 @@ The first one on the list is the correct Flox package to install, and it has the
 
 To install your first package, use `flox install`:
 
-```
-% flox install jq
+```{ .sh .copy }
+flox install jq
 ```
 
 The first time you install a package, Flox will ask you whether you want to create a [default environment][default_tutorial].
 
-```
+```console
 % flox install jq
 Packages must be installed into a Flox environment, which can be
 a user 'default' environment or attached to a directory.
@@ -113,7 +113,7 @@ a user 'default' environment or attached to a directory.
 
 If you choose to do so, Flox will then ask you whether you want to configure your shell to automatically activate the new default environment.
 
-```
+```console
 The 'default' environment can be activated automatically for every new shell
 by adding one line to your .bashrc file:
 eval "$(flox activate -d ~ -m run)"
@@ -144,7 +144,7 @@ Exit your active shell and create a new one, causing the dotfile changes to take
 
 Once the shell is available, you can verify that your default environment is active by running [`flox envs`][envs]:
 
-```
+```console
 flox [default] % flox envs
 ✨ Active environments:
   default           /Users/rturk
@@ -154,7 +154,7 @@ If you see `default` listed amongst the active environments, your dotfiles have 
 
 Verify that your package has been installed using [`flox list`][list]:
 
-```
+```console
 flox [default] % flox list
 jq: jq (1.7.1)
 ```

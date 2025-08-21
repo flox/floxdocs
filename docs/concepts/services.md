@@ -141,7 +141,7 @@ command.
 This will display the name of the service, the PID, and its status.
 An example is shown below:
 
-```
+```console
 NAME       STATUS            PID
 database   Running         12345
 server     Running         23456

@@ -17,7 +17,7 @@ Let's do that now and we'll show you some examples of different ways you can reu
 Create a new directory called `myproject` and `cd` into it.
 Then create a new environment called `python_env` in it with the [`flox init`][flox-init] command.
 
-```
+```console
 $ mkdir myproject && cd myproject
 $ flox init -d python_env
 ✨ Created environment 'python_env' (aarch64-darwin)
@@ -39,7 +39,7 @@ myproject/
 
 Now install `python312` and `poetry` to this environment with the [`flox install`][flox-install] command:
 
-```
+```console
 $ flox install -d python_env python312 poetry
 ✅ 'python312', 'poetry' installed to environment 'python_env'
 ```
@@ -48,7 +48,7 @@ Now you can push this environment to [FloxHub][floxhub].
 Once the environment is on FloxHub you can share it with other people, but, more importantly, you can now use it as a template for new projects.
 Let's start by pushing the environment to FloxHub:
 
-```
+```console
 $ flox push -d python_env
 ✅ python_env successfully pushed to FloxHub
 
@@ -70,7 +70,7 @@ One way to do this is to make a new, local copy of the environment that's not co
 You accomplish this with the [`flox pull --copy`][flox-pull] command.
 Let's create a new copy of this environment in a directory called `new_python_project`:
 
-```
+```console
 $ flox pull -d new_python_project --copy myuser/python_env
 ✨ Created path environment from myuser/python_env.
 
@@ -79,7 +79,7 @@ You can activate this environment with 'flox activate'
 
 Your directory structure should now look like this:
 
-```
+```text
 myproject/
   python_env/
     .flox/
@@ -113,7 +113,7 @@ You can install packages to the composing environment just like you would any ot
 Let's see an example of this in action.
 As a reminder, you currently have this directory structure:
 
-```
+```text
 myproject/
   python_env/
     .flox/
@@ -123,7 +123,7 @@ myproject/
 
 Let's create a environment in a `composed_python_project` directory.
 
-```
+```console
 $ flox init -d composed_python_project
 ✨ Created environment 'composed_python_project' (aarch64-darwin)
 
@@ -136,7 +136,7 @@ Next:
 
 Your directory structure should now look like this:
 
-```
+```text
 myproject/
   python_env/
     .flox/
@@ -162,7 +162,7 @@ This `include.environments` list tells the Flox CLI where to find the environmen
 When there is more than one environment in this list, the order of the environments in the list also specifies their priority (later ones in the list have higher priority).
 Once you save and exit you should see this output:
 
-```
+```console
 ✅ Environment successfully updated.
 ℹ The following manifest fields were overridden during merging:
 - This environment set:
@@ -177,7 +177,7 @@ The message about `options.systems` is simply a result of the fact that the defa
 
 If you now run [`flox list`][flox-list], you should see the packages from the `python_env` environment, even though we never ran a `flox install` command on the `composed_python_project` environment!
 
-```
+```console
 $ flox list -d composed_python_project
 poetry: poetry (2.1.1)
 python312: python312 (python3-3.12.9)
@@ -187,7 +187,7 @@ Remembering that as part of the build process we merge manifests, if you want to
 When you use this command _without_ a composed environment, it prints the (unmerged) manifest.
 When you use this command _with_ a composed environment, it prints the merged manifest.
 
-```
+```console
 $ flox list -c -d composed_python_project
 version = 1
 
@@ -214,7 +214,7 @@ In short, it does what you would expect.
 
 Let's add the `pytest` package:
 
-```
+```console
 $ flox install -d composed_python_project python312Packages.pytest
 ✅ 'pytest' installed to environment 'composed_python_project'
 ```
@@ -231,14 +231,14 @@ This is accomplished with the `flox include upgrade` command, which fetches the 
 
 Let's add that package to `python_env`:
 
-```
+```console
 $ flox install -d python_env python312Packages.hypothesis
 ✅ 'hypothesis' installed to environment 'myuser/python_env'
 ```
 
 Now let's propagate those changes to the composed environment:
 
-```
+```console
 $ flox include upgrade -d composed_python_project
 ✅ Upgraded 'composed_python_project' with latest changes to:
 - 'python_env'
@@ -246,7 +246,7 @@ $ flox include upgrade -d composed_python_project
 
 Now if you run `flox list` you should see that the composed environment now contains the `hypothesis` package:
 
-```
+```console
 $ flox list -d composed_python_project
 hypothesis: python312Packages.hypothesis (6.127.4)
 poetry: poetry (2.1.1)
@@ -264,7 +264,7 @@ This is especially useful if you're including the same environment across multip
 
 Push the additional package that we installed to `myuser/python_env` earlier:
 
-```
+```console
 $ flox push -d python_env
 ✅ Updates to python_env successfully pushed to FloxHub
 
@@ -282,7 +282,7 @@ environments = [
 
 After saving and exiting, the environment will now behave as it did with the local include:
 
-```
+```console
 $ flox list -d composed_python_project
 hypothesis: python312Packages.hypothesis (6.127.4)
 poetry: poetry (2.1.1)

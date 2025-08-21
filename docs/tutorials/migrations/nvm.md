@@ -26,13 +26,13 @@ Download and install Flox as described in our [installation instructions][instal
 
 Navigate to your project's directory and run this command to initialize a Flox environment:
 
-```sh
+```{ .sh .copy }
 flox init
 ```
 
 After that's done, you can search for the version of Node.js that is currently included in your `.nvmrc`, or in the `"engines"` property of your `package.json`. (Note that node is listed as `nodejs` and variants thereof in the Flox Catalog.)
 
-```sh
+```{ .sh .copy }
 flox search nodejs
 ```
 
@@ -60,7 +60,7 @@ There is _a lot_ of software in the Flox Catalog, so you should have no trouble 
 
 At any rate, for this project, perhaps you decide to install Node.js v20.18.1. You can start by running the following command:
 
-```sh
+```{ .sh .copy }
 flox install nodejs_20
 ```
 
@@ -75,7 +75,7 @@ This should yield the following output:
 
 Now that you've installed node, you activate the Flox environment to verify that it has the the version you expect.
 
-```sh
+```{ .sh .copy }
 flox activate
 ```
 
@@ -89,7 +89,7 @@ To stop using this environment, type 'exit'
 
 Within the active Flox environment, you can verify the node version as follows:
 
-```sh
+```{ .sh .copy }
 node -v
 ```
 
@@ -106,7 +106,7 @@ If you need an older version of node in your environment, we recommend that you 
 
 At this point, you should run the following command to edit the Flox environment configuration manually:
 
-```sh
+```{ .sh .copy }
 flox edit
 ```
 
@@ -123,7 +123,7 @@ nodejs_20 = { pkg-path = "nodejs_20", pkg-group = "node-toolchain" }
 
 Assuming your project is like most Node.js applications, you probably have dependencies other than node to install. In this case, maybe you need PostgreSQL and nginx. Fortunately, you can install both using Flox, in the same way in which you installed node.
 
-```sh
+```{ .sh .copy }
 flox install postgresql nginx
 ```
 
@@ -141,7 +141,7 @@ Now you have everything you need to develop locally, and you didn't have to figu
 
 If you want to install a different node version, you can always update your environment to include the version you need. For example, let's say you're upgrading your project to Node.js v22. The best way to get the correct Flox Catalog version name for your desired version is to run `flox show <package>`:
 
-```sh
+```{ .sh .copy }
 flox show nodejs_22
 ```
 
@@ -164,7 +164,7 @@ nodejs_22 - Event-driven I/O framework for the V8 JavaScript engine
 
 Once you know what's available, you can run the edit command to open up the manifest for the environment:
 
-```sh
+```{ .sh .copy }
 flox edit
 ```
 

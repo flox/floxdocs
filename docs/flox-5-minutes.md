@@ -50,7 +50,7 @@ would like Flox to automatically do some language-specific setup for you.
 
 === "Python"
 
-    ```
+    ```console
     $ cd my_project
 
     my_project $ flox init
@@ -94,7 +94,7 @@ would like Flox to automatically do some language-specific setup for you.
 
 === "Node.js"
 
-    ```
+    ```console
     $ cd my_project
 
     my_project $ flox init
@@ -135,7 +135,7 @@ would like Flox to automatically do some language-specific setup for you.
 
 === "Go"
 
-    ```
+    ```console
     $ cd my_project
 
     my_project $ flox init
@@ -169,7 +169,7 @@ would like Flox to automatically do some language-specific setup for you.
 
 === "Other"
 
-    ```
+    ```console
     $ cd my_project
 
     my_project $ flox init
@@ -209,7 +209,7 @@ so the next thing we'll do is find the packages we need with
 === "Python"
 
     If you started from scratch you probably need a Python interpreter:
-    ```
+    ```console
     my_project $ flox search python3
     python3      High-level dynamically-typed programming language
     python39     High-level dynamically-typed programming language
@@ -264,7 +264,7 @@ so the next thing we'll do is find the packages we need with
 
     If you started from scratch you probably need Node.js,
     so let's search for that:
-    ```
+    ```console
     my_project $ flox search node
     renode    Virtual development framework for complex embedded systems
     nodenv    Manage multiple NodeJS versions
@@ -284,7 +284,7 @@ so the next thing we'll do is find the packages we need with
     Related search results for 'nodejs':
     nodejs     Event-driven I/O framework for the V8 JavaScript engine
     nodejs_22  Event-driven I/O framework for the V8 JavaScript engine
-    nodejs_21  Event-driven I/O framework for the V8 JavaScript engine 
+    nodejs_21  Event-driven I/O framework for the V8 JavaScript engine
     ```
 
     Note that `node` wasn't exactly the right package name,
@@ -293,7 +293,7 @@ so the next thing we'll do is find the packages we need with
 === "Go"
 
     If you started from scratch you probably need a Go toolchain:
-    ```
+    ```console
     my_project $ flox search go
     go    Go Programming language
     wgo   Live reload for Go apps
@@ -314,7 +314,7 @@ so the next thing we'll do is find the packages we need with
 === "Rust"
 
     Let's do a search for `rust` and see what we get:
-    ```
+    ```console
     my_project $ flox search rust
     rustc    Safe, concurrent, practical language (wrapper script)
     irust    Cross Platform Rust Repl
@@ -347,7 +347,7 @@ so the next thing we'll do is find the packages we need with
 
 You'll notice that each search output contains a line like
 
-```
+```console
 Showing 10 of 4772 results. Use `flox search go --all` to see the full list.
 ```
 
@@ -359,7 +359,7 @@ There's a separate command for that.
 Let's see which Node.js versions are in the Flox Catalog via
 [`flox show`][show]:
 
-```
+```console
 my_project $ flox show nodejs
 nodejs - Event-driven I/O framework for the V8 JavaScript engine
     nodejs@20.17.0
@@ -405,14 +405,14 @@ which we'll do in the next step,
 but this means that the packages in a Flox environment don't get in your way
 when you aren't using an environment.
 
-```
-my_project $ flox install go
+```{ .sh .copy }
+flox install go
 ```
 
 You can also install specific versions at the command line using semver syntax:
 
-```
-my_project $ flox install go@1.22.6
+```{ .sh .copy }
+flox install go@1.22.6
 ```
 
 ## Activate the environment
@@ -426,7 +426,7 @@ all of the packages in your environment should be available.
 For instance, if you installed `go` 1.22.6 above,
 activating your environment would look something like this:
 
-```
+```console
 my_project $ go version
 fish: Unknown command: go
 
@@ -560,14 +560,14 @@ bash = '''
 
 A user activating this environment in a Bash shell would see this printed:
 
-```
+```console
 Hello from all shells
 Hello from Bash
 ```
 
 whereas a user activating from any other supported shell would see this:
 
-```
+```console
 Hello from all shells
 ```
 

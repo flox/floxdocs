@@ -17,7 +17,7 @@ See the [builds][build-concept] concept page for more details.
 Building Node.js packages with `npm` looks similar to building for containers or serverless functions.
 On a high level, builds for Node.js-based projects generally follow this pattern:
 
-```.toml
+```toml
 [build.myproject]
 command = '''
 # Install dependencies
