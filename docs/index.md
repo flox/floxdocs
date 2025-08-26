@@ -85,7 +85,7 @@ Use Flox to solve three common use cases:
 
 Set up a [local developer environment](https://flox.dev/docs/tutorials/creating-environments/) that will work the same across multiple operating systems and architectures. Seamlessly switch between development environments across multiple language ecosystems using a consistent, unified workflow.
 
-Declare all the packages, activation scripts, environment variables and [services](https://flox.dev/docs/concepts/services/) needed to reproduce the environment in a simple manifest that can be checked into [version control along with your source code](https://flox.dev/blog/flox-and-teams-managing-your-code-and-your-runtime-environment-in-just-one-place/).
+Declare all the packages, activation scripts, environment variables and [services](https://flox.dev/docs/explanations/services/) needed to reproduce the environment in a simple manifest that can be checked into [version control along with your source code](https://flox.dev/blog/flox-and-teams-managing-your-code-and-your-runtime-environment-in-just-one-place/).
 
 Once your environment is configured, you can simplify the setup instructions in your README to a single command (`flox activate`), making it easy to [share environments](https://flox.dev/blog/flox-and-teams-using-shared-flox-environments/) and [onboard new developers](https://flox.dev/blog/flox-and-teams-onboarding-made-easy-with-github-and-flox/).
 
@@ -134,7 +134,7 @@ The Flox product and engineering teams love to hear directly from users. Your qu
 [init]: ./man/flox-init.md
 [search]: ./man/flox-search.md
 [show]: ./man/flox-show.md
-[catalog]: ./concepts/packages-and-catalog.md
+[catalog]: ./explanations/packages-and-catalog.md
 [install]: ./man/flox-install.md
 [activate]: ./man/flox-activate.md
 [edit]: ./man/flox-edit.md
@@ -146,5 +146,5 @@ The Flox product and engineering teams love to hear directly from users. Your qu
 [rust-cookbook]: ./cookbook/languages/rust.md
 [multi-arch]: ./tutorials/multi-arch-environments.md
 [config]: ./man/flox-config.md
-[services]: ./concepts/services.md
+[services]: ./explanations/services.md
 [floxhub_packages]: https://hub.flox.dev/packages

@@ -107,6 +107,6 @@ buildGoModule {
 }
 ```
 
-[build-concept]: ../../concepts/builds.md
-[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
-[nix-expression-hashes]: ../../concepts/nix-expression-builds.md#generating-hashes
+[build-concept]: ../../explanations/builds.md
+[pure-builds-section]: ../../explanations/manifest-builds.md#pure-builds
+[nix-expression-hashes]: ../../explanations/nix-expression-builds.md#generating-hashes

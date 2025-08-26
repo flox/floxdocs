@@ -639,7 +639,7 @@ you can activate _both_ environments to do that work.
 [init]: ./man/flox-init.md
 [search]: ./man/flox-search.md
 [show]: ./man/flox-show.md
-[catalog]: ./concepts/packages-and-catalog.md
+[catalog]: ./explanations/packages-and-catalog.md
 [install]: ./man/flox-install.md
 [activate]: ./man/flox-activate.md
 [edit]: ./man/flox-edit.md
@@ -651,4 +651,4 @@ you can activate _both_ environments to do that work.
 [rust-cookbook]: ./cookbook/languages/rust.md
 [multi-arch]: ./tutorials/multi-arch-environments.md
 [config]: ./man/flox-config.md
-[services]: ./concepts/services.md
+[services]: ./explanations/services.md

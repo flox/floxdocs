@@ -86,7 +86,7 @@ Store that it was published to.
 a package published to an individual user’s Catalog may only be seen and
 installed by that user. In order to share packages with other users you
 must create an organization. See
-https://flox.dev/docs/concepts/organizations/ for more details on
+https://flox.dev/docs/explanations/organizations/ for more details on
 organizations and how to create them. Note that this is a paid feature
 available with Flox for Teams.
 

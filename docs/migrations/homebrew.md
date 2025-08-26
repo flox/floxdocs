@@ -197,7 +197,7 @@ However, if you have the Flox default environment enabled, you should be aware o
 
 We recommend that the Flox default environment activation lines appear lowest in your dotfiles, ensuring that packages in the default environment appear in your `PATH` sooner than those from Homebrew.
 
-[manifest_concept]: ../../concepts/environments.md#manifesttoml
+[manifest_concept]: ../../explanations/environments.md#manifesttoml
 [default_tutorial]: ../default-environment.md
 [default_tutorial_setup]: ../default-environment.md#initial-setup
 [creating_tutorial]: ../creating-environments.md
@@ -205,7 +205,7 @@ We recommend that the Flox default environment activation lines appear lowest in
 [search]: ../../man/flox-search.md
 [envs]: ../../man/flox-envs.md
 [list]: ../../man/flox-list.md
-[catalog]: ../../concepts/packages-and-catalog.md
+[catalog]: ../../explanations/packages-and-catalog.md
 [install]: ../../man/flox-install.md
 [uninstall]: ../../man/flox-uninstall.md
 [activate]: ../../man/flox-activate.md

@@ -187,7 +187,7 @@ At this point, you can replace any nvm-related instructions in your README with 
 
 Now that you're managing your project's Node.js version using Flox, you can `git rm .nvmrc` and commit the result. You're free to repeat the process in other project directories before following the [instructions for uninstalling nvm as listed in the nvm README](https://github.com/nvm-sh/nvm?tab=readme-ov-file#uninstalling--removal){:target="\_blank"}.
 
-[environment_concept]: ../../concepts/environments.md
+[environment_concept]: ../../explanations/environments.md
 [install_flox]: ../../install-flox/install.md
 [manifest]: ../../man/manifest.toml.md
-[services]: ../../concepts/services.md
+[services]: ../../explanations/services.md

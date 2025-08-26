@@ -302,5 +302,5 @@ Similarly, since you're treating environments like dependencies, if you make an 
 [flox-install]: ../man/flox-install.md
 [flox-edit]: ../man/flox-edit.md
 [flox-list]: ../man/flox-list.md
-[floxhub]: ../concepts/floxhub.md
+[floxhub]: ../explanations/floxhub.md
 [hypothesis]: https://hypothesis.readthedocs.io/en/latest/

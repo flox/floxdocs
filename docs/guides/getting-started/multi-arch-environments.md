@@ -136,7 +136,7 @@ get the `systemd` package.
 
 - :simple-readme:{ .flox-purple .flox-heart } [Environment concept][environment_concept]
 
-[environment_concept]: ../concepts/environments.md
+[environment_concept]: ../explanations/environments.md
 [sharing_guide]: ./sharing-environments.md
 [flox_search]: ../man/flox-search.md
 [flox_show]: ../man/flox-show.md

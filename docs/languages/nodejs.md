@@ -97,5 +97,5 @@ buildNpmPackage (final: {
 });
 ```
 
-[build-concept]: ../../concepts/builds.md
-[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
+[build-concept]: ../../explanations/builds.md
+[pure-builds-section]: ../../explanations/manifest-builds.md#pure-builds

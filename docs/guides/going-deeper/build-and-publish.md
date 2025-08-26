@@ -257,7 +257,7 @@ In this guide we've shown you how to build and distribute programs, but you can 
 See the [builds][extra-builds] concept page for examples of what else you can build and publish with Flox.
 
 [flox-manifest-build-section]: ../man/manifest.toml.md#build
-[build-concept]: ../concepts/builds.md
+[build-concept]: ../explanations/builds.md
 [fhs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 [flox-install]: ../man/flox-install.md
 [flox-show]: ../man/flox-show.md
@@ -265,7 +265,7 @@ See the [builds][extra-builds] concept page for examples of what else you can bu
 [flox-edit]: ../man/flox-edit.md
 [flox-build]: ../man/flox-build.md
 [flox-publish]: ../man/flox-publish.md
-[extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
-[publish-concept]: ../concepts/publishing.md
-[organizations-concept]: ../concepts/organizations.md
+[extra-builds]: ../explanations/manifest-builds.md#example-configuration-files
+[publish-concept]: ../explanations/publishing.md
+[organizations-concept]: ../explanations/organizations.md
 [early]: https://flox.dev/early/

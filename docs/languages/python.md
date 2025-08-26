@@ -355,4 +355,4 @@ runtime-packages = [
 ]
 ```
 
-[build-concept]: ../../concepts/builds.md
+[build-concept]: ../../explanations/builds.md

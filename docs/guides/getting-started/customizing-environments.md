@@ -173,11 +173,11 @@ mycli
 
 - :simple-readme:{ .flox-purple .flox-heart } [Multiple architecture environments][multi-arch-guide]
 
-[environment_concept]: ../concepts/environments.md
+[environment_concept]: ../explanations/environments.md
 [flox_activate]: ../man/flox-activate.md
 [multi-arch-guide]: ./multi-arch-environments.md
 [rust_guide]: ../cookbook/languages/rust.md
 [flox_init]: ../man/flox-init.md
-[activation_concept]: ../concepts/activation.md
+[activation_concept]: ../explanations/activation.md
 [fish_shell]: https://fishshell.com/
 [flox_install]: ../man/flox-install.md

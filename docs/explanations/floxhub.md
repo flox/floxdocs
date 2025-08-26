@@ -104,6 +104,6 @@ Run the [`flox auth logout`][flox_auth] command.
 [flox_edit]: ../man/flox-edit.md
 [flox_install]: ../man/flox-install.md
 [flox_uninstall]: ../man/flox-uninstall.md
-[generation_concept]: ../concepts/generations.md
-[manifest_concept]: ../concepts/environments.md#manifesttoml
-[environments_concept]: ../concepts/environments.md
+[generation_concept]: ../explanations/generations.md
+[manifest_concept]: ../explanations/environments.md#manifesttoml
+[environments_concept]: ../explanations/environments.md

@@ -56,7 +56,7 @@ flox activate
 
 [flox_init]: ../man/flox-init.md
 [discourse]: https://discourse.flox.dev/
-[manifest_concept]: ../concepts/environments.md#manifesttoml
+[manifest_concept]: ../explanations/environments.md#manifesttoml
 
 ## Sharing environments on FloxHub
 
@@ -131,7 +131,7 @@ $ flox push
 [flox_push]: ../man/flox-push.md
 [flox_pull]: ../man/flox-pull.md
 [flox_activate]: ../man/flox-activate.md
-[floxhub_concept]: ../concepts/floxhub.md
+[floxhub_concept]: ../explanations/floxhub.md
 
 ### Pulling a remote environment without connecting to FloxHub
 
@@ -225,7 +225,7 @@ telnet (GNU inetutils) 2.5
 - :simple-readme:{ .flox-purple .flox-heart } [Designing multiple architecture environments][multi_arch_guide]
 
 [multi_arch_guide]: ./multi-arch-environments.md
-[environment_concept]: ../concepts/environments.md
+[environment_concept]: ../explanations/environments.md
 [layering_guide]: ./layering-multiple-environments.md
 [customizing_guide]: ./customizing-environments.md
 [flox_containerize]: ../man/flox-containerize.md
