@@ -37,20 +37,21 @@ nav:
     - Install: install-flox/install.md
     - Uninstall: install-flox/uninstall.md
   - Flox in 5 minutes: flox-5-minutes.md
-  - Tutorials:
-    - Creating environments: tutorials/creating-environments.md
-    - The default environment: tutorials/default-environment.md
-    - Sharing environments: tutorials/sharing-environments.md
-    - Layering multiple environments: tutorials/layering-multiple-environments.md
-    - Customizing the shell environment: tutorials/customizing-environments.md
-    - Designing multi-arch environments: tutorials/multi-arch-environments.md
-    - Building and publishing packages: tutorials/build-and-publish.md
-    - Running Flox in CI/CD: tutorials/ci-cd.md
-    - Designing cross-platform environments: tutorials/multi-arch-environments.md
-    - Reusing and combining developer environments: tutorials/composition.md
-    - Migration guides:
-      - ... | flat | tutorials/migrations/*
-  - Concepts:
+  - Guides:
+    - Getting started:
+      - Creating environments: tutorials/creating-environments.md
+      - The default environment: tutorials/default-environment.md
+      - Sharing environments: tutorials/sharing-environments.md
+      - Customizing the shell environment: tutorials/customizing-environments.md
+      - Designing cross-platform environments: tutorials/multi-arch-environments.md
+    - Going deeper:
+      - Layering multiple environments: tutorials/layering-multiple-environments.md
+      - Building and publishing packages: tutorials/build-and-publish.md
+      - Running Flox in CI/CD: tutorials/ci-cd.md
+      - Reusing and combining developer environments: tutorials/composition.md
+  - Languages:
+    - ... | flat | cookbook/languages/*
+  - Explanations:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md
     - FloxHub: concepts/floxhub.md
@@ -63,14 +64,13 @@ nav:
     - Manifest builds: concepts/manifest-builds.md
     - Nix expression builds: concepts/nix-expression-builds.md
     - Publishing: concepts/publishing.md
-    - Flox vs. container workflows: concepts/flox-vs-containers.md
-  - Cookbook:
-    - Languages:
-      - ... | flat | cookbook/languages/*
-  - Reference:
-    - Flox manual:
-      - reference/command-reference/flox.md
-      - ... | flat | reference/command-reference/*
+  - Comparisons:
+    - Containers: concepts/flox-vs-containers.md
+  - Migration guides:
+    - ... | flat | tutorials/migrations/*
+  - Manual pages:
+    - reference/command-reference/flox.md
+    - ... | flat | reference/command-reference/*
 
 strict: true
 validation:
