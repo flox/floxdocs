@@ -75,9 +75,9 @@ This means that individual users will not be able to share packages they've publ
 
 [builds-concept]: ./builds.md
 [catalog-concept]: ./packages-and-catalog.md
-[flox-build]: ../reference/command-reference/flox-build.md
-[flox-publish]: ../reference/command-reference/flox-publish.md
-[flox-search]: ../reference/command-reference/flox-search.md
-[flox-show]: ../reference/command-reference/flox-show.md
-[flox-install]: ../reference/command-reference/flox-install.md
+[flox-build]: ../man/flox-build.md
+[flox-publish]: ../man/flox-publish.md
+[flox-search]: ../man/flox-search.md
+[flox-show]: ../man/flox-show.md
+[flox-install]: ../man/flox-install.md
 [organizations-concept]: ./organizations.md

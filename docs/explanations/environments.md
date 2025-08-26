@@ -110,21 +110,21 @@ version. Flox manages this file for you.
 }
 ```
 
-[flox_init]: ../reference/command-reference/flox-init.md
-[flox_show]: ../reference/command-reference/flox-show.md
-[flox_edit]: ../reference/command-reference/flox-edit.md
-[flox_install]: ../reference/command-reference/flox-install.md
-[flox_search]: ../reference/command-reference/flox-search.md
-[flox_edit]: ../reference/command-reference/flox-edit.md
-[flox_push]: ../reference/command-reference/flox-push.md
-[flox_pull]: ../reference/command-reference/flox-pull.md
-[flox_activate]: ../reference/command-reference/flox-activate.md
+[flox_init]: ../man/flox-init.md
+[flox_show]: ../man/flox-show.md
+[flox_edit]: ../man/flox-edit.md
+[flox_install]: ../man/flox-install.md
+[flox_search]: ../man/flox-search.md
+[flox_edit]: ../man/flox-edit.md
+[flox_push]: ../man/flox-push.md
+[flox_pull]: ../man/flox-pull.md
+[flox_activate]: ../man/flox-activate.md
 [sharing_guide]: ../tutorials/sharing-environments.md
 [create_guide]: ../tutorials/creating-environments.md
 [customizing_environments_guide]: ../tutorials/customizing-environments.md
 [generation_concept]: ./generations.md
 [floxhub_concept]: ./floxhub.md
 [discourse]: https://discourse.flox.dev/
-[manifest]: ../reference/command-reference/manifest.toml.md
+[manifest]: ../man/manifest.toml.md
 [nix-expression-builds-concept]: ./nix-expression-builds.md
 [toml_spec]: https://toml.io/en/v1.0.0
