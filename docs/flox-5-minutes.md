@@ -7,9 +7,9 @@ description: Get started with creating Flox environments.
 
 Flox is a next-generation, language-agnostic package and environment manager.
 With it you create sets of tools, environment variables, and setup scripts that work reproducibly from machine to machine, x86_64 to Arm, and macOS to Linux.
-The cherry on top is that all of this works without causing version conflicts between projects.
+The best part is that all of this works without causing version conflicts between projects.
 
-We call these stacks **"Flox environments"**.
+We call these stacks **Flox environments**.
 Flox environments are based on carefully configured subshells, so there's no container isolation preventing you from using your favorite tools or artisanally handcrafted dotfiles.
 Even better, these environments _compose_ and _layer_ so you can prepare different environments
 for different needs and combine them to seamlessly work across different contexts.
@@ -23,17 +23,16 @@ Buckle up, it's time for a whirlwind tour of Flox.
 We've prepared a sample project for you, but you'll need to [install Flox][install_flox] to follow along.
 Once you have Flox, you can clone the project:
 
-<!-- markdownlint-disable MD014 -->
-```console
-$ git clone https://github.com/flox/flox-in-5min.git
-$ cd flox-in-5min
+```{ .bash .copy }
+git clone https://github.com/flox/flox-in-5min.git
+cd flox-in-5min
 ```
 
 ## Tools prepared for you
 
 Once you have the project, you can run the [`flox activate`][activate] command to enter the environment:
 
-```console
+```{ .console }
 $ flox activate
 ✅ You are now using the environment 'flox-in-5min'.
 To stop using this environment, type 'exit'
@@ -42,7 +41,7 @@ To stop using this environment, type 'exit'
 You now have all of the dependencies needed to follow along.
 To prove it, run the following command:
 
-```console
+```{ .console }
 $ go run main.go
 Hello from Flox!
 ```
@@ -58,7 +57,7 @@ Time not spent installing tools and solving dependency conflicts is time spent g
 
 Now let's see what else is installed to the environment with the [`flox list`][list] command:
 
-```console
+```{ .console }
 $ flox list
 bun: bun (1.2.20)
 coreutils: coreutils (9.7)
@@ -77,9 +76,9 @@ Ensuring that everyone is using the _exact_ same packages prevents wasted time a
 
 ## Finding packages
 
-Let's saw we want a new package: `ripgrep`.
+Let's say we want a new package: `ripgrep`.
 
-```console
+```{ .console }
 $ flox search ripgrep
 ripgrep                           Utility that combines the usability of The Silver Searcher with the raw speed of grep
 ripgrep-all                       Ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, and more
@@ -96,7 +95,7 @@ Use 'flox show <package>' to see available versions
 
 Cool, what if I want a specific version?
 
-```console
+```{ .console }
 $ flox show ripgrep
 ripgrep - Utility that combines the usability of The Silver Searcher with the raw speed of grep
     ripgrep@14.1.1
@@ -105,6 +104,12 @@ ripgrep - Utility that combines the usability of The Silver Searcher with the ra
     ripgrep@14.0.1
     ripgrep@13.0.0
     ripgrep@12.1.1 (aarch64-linux, x86_64-darwin, x86_64-linux only)
+```
+
+To install it you would run
+
+```{ .bash .copy }
+flox install ripgrep
 ```
 
 ## What else can Flox do?
@@ -117,13 +122,11 @@ You can print it with `flox list -c` or edit it with [`flox edit`][edit].
 
 Let's take a look at this manifest:
 
-<!-- markdownlint-disable MD014 -->
-```console
-$ flox list -c
+```{ .bash .copy }
+flox list -c
 ```
 
-<!-- markdownlint-disable MD014 -->
-```toml
+```{ .toml .copy }
 version = 1
 
 [install]
@@ -152,7 +155,7 @@ What are these `[vars]` and `[services]` sections?
 The `[vars]` section defines environment variables you want set in your shell after running `flox activate`.
 See for yourself:
 
-```console
+```{ .console }
 $ echo "$MY_VAR"
 pretty neat
 ```
@@ -162,14 +165,14 @@ Imagine using this to set a port number or some other configuration value.
 The `[services]` section is how you define background processes for your environment, like a web server or a database.
 Start the `stopwatch` service with the `flox services start` command:
 
-```console
+```{ .console }
 $ flox services start
 ✅ Service 'stopwatch' started.
 ```
 
 Let's make sure it's running:
 
-```console
+```{ .console }
 $ flox services status
 NAME       STATUS       PID
 stopwatch  Running    51774
@@ -177,7 +180,7 @@ stopwatch  Running    51774
 
 Now let's see its logs:
 
-```console
+```{ .console }
 $ flox services logs --follow
 stopwatch: Fri Aug 22 19:17:30 MDT 2025
 stopwatch: Fri Aug 22 19:17:35 MDT 2025
@@ -193,7 +196,7 @@ This service prints the current time every 5 seconds, which you can see defined 
 Press `Ctrl-C` to stop watching the logs, unless you really enjoy that for some reason.
 We don't want the service to run forever, so let's stop it with the `flox services stop` command.
 
-```console
+```{ .console }
 $ flox services stop
 ✅ Service 'stopwatch' stopped
 ```
@@ -207,7 +210,7 @@ If you want services to start when you enter the environment, you can use the `-
 To wrap things up, let's say you want to set some project-specific aliases.
 Run `flox edit` and add this to the bottom of your manifest:
 
-```toml
+```{ .toml .copy }
 [profile]
 bash = '''
   alias sayhi="echo 'Hello there, bash user'"
@@ -227,7 +230,7 @@ tcsh = '''
 
 Now if you exit the Flox environment via `Ctrl-D` or `exit` and reactivate via `flox activate`, you'll have a wonderful new shell alias called `sayhi`:
 
-```console
+```{ .console }
 $ sayhi
 Hello there, fish user
 ```
@@ -238,12 +241,13 @@ See the [customizing the shell enviroment tutorial][activation-tutorial] for mor
 ## But wait, there's more!
 
 This probably took longer than 5 minutes, but hopefully changing the way you develop software was worth it.
-There's _so_ many things we didn't have time to cover, so here's some additional reading material to keep you busy:
+There are _so_ many things we didn't have time to cover, so here's some additional reading material to keep you busy:
 
 - [Designing cross-platform environments][multi-arch]
 - [Running Flox in CI][ci]
-- [Reusing and combining environments][composition]
+- [Reusing and combining environments][composition] (modular developer environments!)
 - [Replacing Homebrew with Flox][homebrew]
+- [Build and publish packages with Flox][build-publish]
 
 [install_flox]: ./install-flox/install.md
 [create_guide]: ./tutorials/creating-environments.md
@@ -269,3 +273,4 @@ There's _so_ many things we didn't have time to cover, so here's some additional
 [ci]: ./tutorials/ci-cd.md
 [composition]: ./tutorials/composition.md
 [homebrew]: ./tutorials/migrations/homebrew.md
+[build-publish]: ./tutorials/build-and-publish.md
