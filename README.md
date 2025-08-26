@@ -8,12 +8,13 @@ Live at: [flox.dev/docs](https://flox.dev/docs).
 $ flox activate
 ✅ You are now using the environment 'floxdocs'.
 
-λ (floxdocs) $ flox services start mkdocs
-✅ Service 'mkdocs' started.
-
+λ (floxdocs) $ mkdocs serve
+INFO    -  Building documentation...
+...
+INFO    -  [10:16:01] Serving on http://127.0.0.1:8000/docs/
 ```
 Once mkdocs service started you can preview the documentation at
-`https://127.0.0.1:8000`.
+`http://127.0.0.1:8000`.
 
 
 ## Guidelines
@@ -90,4 +91,3 @@ $ ./env/bin/pip install --upgrade build twine
 $ ./env/bin/python -m build
 $ cp dist/mkdocs_material-*.tar.gz path/to/floxdocs
 ```
-
