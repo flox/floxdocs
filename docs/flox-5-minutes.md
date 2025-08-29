@@ -634,8 +634,8 @@ you can activate _both_ environments to do that work.
 [configuring your environment][manifest].
 
 [install_flox]: ./install-flox/install.md
-[create_guide]: ./tutorials/creating-environments.md
-[share_guide]: ./tutorials/sharing-environments.md
+[create_guide]: ./guides/getting-started/creating-environments.md
+[share_guide]: ./guides/getting-started/sharing-environments.md
 [init]: ./man/flox-init.md
 [search]: ./man/flox-search.md
 [show]: ./man/flox-show.md
@@ -648,7 +648,7 @@ you can activate _both_ environments to do that work.
 [delete]: ./man/flox-delete.md
 [list]: ./man/flox-list.md
 [manifest]: ./man/manifest.toml.md
-[rust-cookbook]: ./cookbook/languages/rust.md
-[multi-arch]: ./tutorials/multi-arch-environments.md
+[rust-cookbook]: ./languages/rust.md
+[multi-arch]: ./guides/getting-started/multi-arch-environments.md
 [config]: ./man/flox-config.md
 [services]: ./explanations/services.md
