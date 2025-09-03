@@ -81,8 +81,8 @@ such as those that accept a `--remote` option,
 and some commands such as [`flox pull`][flox_pull] that implicitly refer to
 an environment on FloxHub.
 
-``` console
-$ flox pull example-owner/example-env
+```{ .sh .copy }
+flox pull example-owner/example-env
 ```
 
 ## Logging out of FloxHub

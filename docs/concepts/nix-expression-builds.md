@@ -38,7 +38,7 @@ You can also make modifications to existing packages that are already in the Flo
 
 To distribute a simple shell script which has a dependency on existing packages:
 
-```nix title=".flox/pkgs/my-ip.nix"
+```{ .nix .copy title=".flox/pkgs/my-ip.nix" }
 {writeShellApplication, curl}:
 
 writeShellApplication {
@@ -56,7 +56,7 @@ This will ensure that a known version of `bash` and `curl` are available to the 
 
 To build a Rust project that lives in the same repository as your Flox environment:
 
-```nix title=".flox/pkgs/quotes-app-rust.nix"
+```{ .nix .copy title=".flox/pkgs/quotes-app-rust.nix" }
 { rustPlatform, lib }:
 
 rustPlatform.buildRustPackage rec {
@@ -79,7 +79,7 @@ This will vendor dependencies from your `Cargo.lock` file, run `cargo build`, an
 
 If there's an open source Go project that isn't already available in the Flox Catalog:
 
-```nix title=".flox/pkgs/quotes-app-go.nix"
+```{ .nix .copy title=".flox/pkgs/quotes-app-go.nix" }
 { buildGoModule, fetchFromGitHub, lib }:
 
 buildGoModule rec {
@@ -108,7 +108,7 @@ This will vendor dependencies from your `go.mod` file, run `go build`, and packa
 
 If you want to use VS Code with some pre-installed extensions:
 
-```nix title=".flox/pkgs/vscode-with-extensions.nix"
+```{ .nix .copy title=".flox/pkgs/vscode-with-extensions.nix" }
 {vscode, vscode-utils, vscode-extensions, vscode-with-extensions}:
 
 vscode-with-extensions.override {
@@ -134,7 +134,7 @@ This will add the Nix, GitHub Copilot, and Flox extensions to the VS Code packag
 
 If the latest version of a package isn't yet available in the Flox Catalog then you can often just override the `version` and `src` attributes of the existing package:
 
-```nix title=".flox/pkgs/hello.nix"
+```{ .nix .copy title=".flox/pkgs/hello.nix" }
 { hello, fetchurl }:
 
 hello.overrideAttrs (finalAttrs: _oldAttrs: {
@@ -150,7 +150,7 @@ hello.overrideAttrs (finalAttrs: _oldAttrs: {
 
 If you want to apply a patch, such as an unreleased bug fix, to an existing package:
 
-```nix title=".flox/pkgs/hello-shouty/default.nix"
+```{ .nix .copy title=".flox/pkgs/hello-shouty/default.nix" }
 { hello }:
 
 hello.overrideAttrs (oldAttrs: {
@@ -171,24 +171,24 @@ This build also defines tests so they have to be modified too:
 +++ hello-patched/src/hello.c 2025-07-04 10:33:57
 @@ -145,7 +145,7 @@
  #endif
- 
+
    /* Having initialized gettext, get the default message. */
 -  greeting_msg = _("Hello, world!");
 +  greeting_msg = _("HELLO, WORLD!");
- 
+
    /* Even exiting has subtleties.  On exit, if any writes failed, change
       the exit status.  The /dev/full device on GNU/Linux can be used for
 diff -ru hello-2.12.2/tests/hello-1 hello-patched/tests/hello-1
 --- hello-2.12.2/tests/hello-1  2025-05-19 12:49:04
 +++ hello-patched/tests/hello-1 2025-07-04 10:48:38
 @@ -21,7 +21,7 @@
- 
+
  tmpfiles="hello-test1.ok"
  cat <<EOF > hello-test1.ok
 -Hello, world!
 +HELLO, WORLD!
  EOF
- 
+
  tmpfiles="$tmpfiles hello-test1.out"
 ```
 
@@ -196,7 +196,7 @@ diff -ru hello-2.12.2/tests/hello-1 hello-patched/tests/hello-1
 
 Typically you would only override specific attributes of an existing package, which allows you to continue benefiting from upstream changes and surface failures if there are any conflicts, but if you want to copy a package to make more fundamental changes or because it's being removed upstream:
 
-```sh
+```{ .sh .copy }
 EDITOR=cat \
   nix --extra-experimental-features "nix-command flakes" \
   edit 'nixpkgs#hello' \
@@ -213,7 +213,7 @@ Expressions that fetch external dependencies will often specify hashes to ensure
 
 If you don't have a way of verifying the current hash and you trust the source then you can specify an empty string value:
 
-```nix
+```{ .nix .copy }
   src = fetchurl {
     url = "mirror://gnu/hello/hello-${finalAttrs.version}.tar.gz";
     hash = "";
@@ -222,14 +222,14 @@ If you don't have a way of verifying the current hash and you trust the source t
 
 Then perform a `flox build` and take the correct value from the error message:
 
-```
+```console
 warning: found empty hash, assuming 'sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA='
 Building hello-2.12.2 in Nix expression mode
 these 2 derivations will be built:
   /nix/store/srm7s6pyckifs52ikyfasf6bqkk2c5ls-hello-2.12.2.tar.gz.drv
   /nix/store/3d9n2f5pg2s4y3p46awmsp46fxpdfkg6-hello-2.12.2.drv
 building '/nix/store/srm7s6pyckifs52ikyfasf6bqkk2c5ls-hello-2.12.2.tar.gz.drv'...
-hello> 
+hello>
 hello> trying https://ftpmirror.gnu.org/hello/hello-2.12.2.tar.gz
 hello>   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 hello>                                  Dload  Upload   Total   Spent    Left  Speed

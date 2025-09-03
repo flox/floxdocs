@@ -5,7 +5,6 @@ gitignore: true
 config:
   # Not worth worrying about.
   code-block-style: false
-  commands-show-output: false
   line-length: false
 
   # May not play well with mkdocs processing.
@@ -13,6 +12,9 @@ config:
   link-image-reference-definitions: false
 
   # Take care fixing.
-  fenced-code-language: false
   no-trailing-punctuation: false
   single-title: false
+
+  # Better code blocks. Be the change you want to see in the world.
+  commands-show-output: true
+  fenced-code-language: true

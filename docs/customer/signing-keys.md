@@ -19,14 +19,14 @@ However, if you're providing your own Catalog Store, then you must
 
 Use the `nix` CLI to generate a private key:
 
-```sh
-$ nix key generate-secret --key-name signing-key > signing-key.key
+```{ .sh .copy }
+nix key generate-secret --key-name signing-key > signing-key.key
 ```
 
 Then generate a public key from the private key:
 
-```sh
-$ nix key convert-secret-to-public < signing-key.key > signing-key-pub.key
+```{ .sh .copy }
+nix key convert-secret-to-public < signing-key.key > signing-key-pub.key
 ```
 
 ## Sign packages to upload artifacts
@@ -36,7 +36,7 @@ you publish with that (private) key:
 
 !!! warning "The path to the private key must configured with an absolute path for security purposes."
 
-```sh
+```{ .sh .copy }
 flox config --set publish.signing_private_key "/path/to/signing-key.key"
 ```
 
@@ -68,14 +68,14 @@ Note that you do not need quotes around keys in the `extra-trusted-public-keys` 
 In order for the newly trusted key to take effect, the Nix daemon needs to be restarted.
 On Linux the daemon is managed via `systemd`, so you can restart it with the following command:
 
-```bash
-$ sudo systemctl restart nix-daemon
+```{ .sh .copy }
+sudo systemctl restart nix-daemon
 ```
 
 On macOS the Nix daemon is managed via `launchd`, so you can restart it with the following command (note that you have to run the command twice, this is not a typo):
 
-```bash
-sudo launchctl kickstart -k system/org.nixos.nix-daemon
+```{ .sh .copy }
+sudo launchctl kickstart -k system/org.nixos.nix-daemon;
 sudo launchctl kickstart -k system/org.nixos.nix-daemon
 ```
 
@@ -97,6 +97,6 @@ Once this setting has been edited, rebuild and switch into your new configuratio
 Now verify that the daemon has been restarted and picked up the new key.
 You can do this by printing out the daemon's current configuration, and searching for the key that you've just added:
 
-```text
-$ nix config show | grep trusted-public-key
+```{ .sh .copy }
+nix config show | grep trusted-public-key
 ```

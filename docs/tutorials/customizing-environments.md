@@ -17,17 +17,17 @@ For more details on what it looks like to develop in Rust with Flox, see the [Ru
 
 If you'd like to follow along with a real Flox environment, create an environment via [`flox init`][flox_init] and install the tools as shown below:
 
-```bash
-$ mkdir mycli
-$ cd mycli
-$ flox init
-$ flox install rustc cargo libiconv
+```{ .bash .copy }
+mkdir mycli;
+cd mycli;
+flox init;
+flox install rustc cargo libiconv
 ```
 
 Then generate a basic "Hello, World" program using `cargo init` inside the environment:
 
-```bash
-$ flox activate -- cargo init --bin .
+```{ .bash .copy }
+flox activate -- cargo init --bin .
 ```
 
 ## Vars, hook, or profile?
@@ -62,7 +62,7 @@ For instance, if you're working on a command line application you might want to 
 
 In our case, when we build the application `cargo` will place the compiled program in `target/debug`:
 
-```
+```text
 mycli/
     .flox
     Cargo.toml
@@ -89,7 +89,7 @@ on-activate = '''
 
 Now if you activate the environment and build `mycli` for the first time, you should be able to run `mycli` without needing to type out the path to it (e.g. `target/debug/mycli`):
 
-```bash
+```console
 $ flox activate
 ...
 $ cargo build
@@ -127,7 +127,7 @@ MYCLI_TURBO_MODE="1"
 If you're currently in the environment, exit it and activate it again for the changes to take effect, otherwise you can simply activate the environment.
 In the activated environment you should now see that these two variables are set:
 
-```bash
+```console
 $ flox activate
 ...
 $ echo $MYCLI_TURBO_MODE
@@ -160,7 +160,7 @@ Again, if you're currently in the environment, exit it.
 If you want to test this alias you'll also want to create the `$HOME/bin` directory.
 Now if you activate the environment and run `install-bin` you should find a copy of `mycli` in `$HOME/bin`:
 
-```bash
+```console
 $ flox activate
 ...
 $ install-bin

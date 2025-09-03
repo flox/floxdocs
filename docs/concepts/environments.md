@@ -74,7 +74,7 @@ nodejs.pkg-path = "nodejs_24"
 The lock file serves as a snapshot of the specific package versions and their dependencies that were built and activated at a particular point in time.
 Flox manages this file for you.
 
-``` json title=".flox/env/manifest.lock"
+```json title=".flox/env/manifest.lock"
 {
   …
   "packages": [
@@ -87,7 +87,10 @@ Flox manages this file for you.
         "libv8": "/nix/store/li49fpxxlgzaz20sahhfj6n8cbkqi7m1-nodejs-24.0.1-libv8",
         "out": "/nix/store/naafq480zhq05xbi2d3kzpnna2rdqsfb-nodejs-24.0.1"
       },
+      …
+    }
   …
+  ]
 }
 ```
 
@@ -100,7 +103,7 @@ Flox manages this file for you.
 A metadata file that contains the name of the environment and the environment's
 version. Flox manages this file for you.
 
-``` json title=".flox/env.json"
+```json title=".flox/env.json"
 {
   "name": "example-project",
   "version": 1
