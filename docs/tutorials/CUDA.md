@@ -1,5 +1,7 @@
+---
 title: Flox + CUDA tutorial
 description: It's easy to install and use the CUDA Toolkit with Flox
+---
 
 # Flox + CUDA tutorial
 
@@ -40,10 +42,10 @@ examples in this repository.
 If you already have Flox installed, getting up and running is *very* easy:
 
 ```{ .bash .copy }
-$ git clone https://github.com/flox/cuda-samples.git
-$ cd cuda-samples
-$ git checkout flox-env
-$ flox activate
+git clone https://github.com/flox/cuda-samples.git
+cd cuda-samples
+git checkout flox-env
+flox activate
 
 ```
 
@@ -113,8 +115,8 @@ Now we're going to generate a rendering of the [Julia set](https://en.wikipedia.
 Navigate to `Samples/5_Domain_Specific/Mandelbrodt` then run the following commands:
 
 ```{ .bash .copy }
-$ mkdir build && cd build && cmake .. && make -j8
-$ ./Mandelbrodt
+mkdir build && cd build && cmake .. && make -j8
+./Mandelbrodt
 
 ```
 
@@ -134,9 +136,9 @@ and this time we'll build the environment from scratch to see how easy it is.
 Clone the PyTorch repository, navigate to the `mnist` example, and create a Flox environment in it:
 
 ```{ .bash .copy }
-$ git clone <https://github.com/pytorch/examples.git> pytorch-examples
-$ cd pytorch-examples/mnist
-$ flox init
+git clone <https://github.com/pytorch/examples.git> pytorch-examples
+cd pytorch-examples/mnist
+flox init
 
 ```
 
@@ -149,10 +151,10 @@ In this case we'll install the following packages:
 
 ```console
 $ flox install python313 python313Packages.torch-bin python313Packages.torchvision-bin
-⚠  The package 'torch-bin' has an unfree license, please verify the licensing terms of use
+⚠️  The package 'torch-bin' has an unfree license, please verify the licensing terms of use
 ✅ 'python313' installed to environment 'mnist'
-⚠  'torchvision-bin' installed only for the following systems: aarch64-darwin, aarch64-linux, x86_64-linux
-⚠  'torch-bin' installed only for the following systems: aarch64-darwin, aarch64-linux, x86_64-linux
+⚠️  'torchvision-bin' installed only for the following systems: aarch64-darwin, aarch64-linux, x86_64-linux
+⚠️  'torch-bin' installed only for the following systems: aarch64-darwin, aarch64-linux, x86_64-linux
 
 ```
 
