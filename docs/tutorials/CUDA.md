@@ -5,29 +5,29 @@ description: It's easy to install and use the CUDA Toolkit with Flox
 
 Flox is a next-generation, language-agnostic package and environment manager.
 
-With Flox you get reproducible collections of tools, environment variables, services, and setup scripts 
+With Flox you get reproducible collections of tools, environment variables, services, and setup scripts
 in the form of carefully configured subshells.
-There's no container isolation preventing you from using your favorite shell, painstakingly crafted 
+There's no container isolation preventing you from using your favorite shell, painstakingly crafted
 dotfiles, or favorite utilities.
-Since Flox "environments" are reproducible, you get the same exact setup no matter where you use it, 
-whether that's local development, in CI, bundled into a container, or deployed as a service on a 
+Since Flox "environments" are reproducible, you get the same exact setup no matter where you use it,
+whether that's local development, in CI, bundled into a container, or deployed as a service on a
 virtual machine.
 With Flox, "works on my machine" problems are a thing of the past.
 
-Flox is officially licensed to distribute NVIDIA's [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit), 
-which provides libraries for fully utilizing the computational power of NVIDIA GPUs for a variety of 
+Flox is officially licensed to distribute NVIDIA's [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit),
+which provides libraries for fully utilizing the computational power of NVIDIA GPUs for a variety of
 workloads, including AI, scientific research, and other enterprise applications.
 
-Figuring out the compatibility matrix between an upstream package that depends on CUDA, the CUDA 
+Figuring out the compatibility matrix between an upstream package that depends on CUDA, the CUDA
 Toolkit itself, and any other dependencies required for the package can be a big time investment.
 Flox makes that process easier by only requiring you to do the work once.
-Once the environment is built, anyone on Linux or Windows Subsystem for Linux gets exactly the same 
+Once the environment is built, anyone on Linux or Windows Subsystem for Linux gets exactly the same
 set of tools and dependencies.
-If that wasn’t cool enough, with Flox each project can have a different CUDA Toolkit installed with 
+If that wasn’t cool enough, with Flox each project can have a different CUDA Toolkit installed with
 causing version conflicts.
 Each project’s dependencies are completely independent of one another.
 
-For a quick overview of Flox, see [Flox in 5 Minutes](https://flox.dev/docs/flox-5-minutes/). 
+For a quick overview of Flox, see [Flox in 5 Minutes](https://flox.dev/docs/flox-5-minutes/).
 Otherwise, let's see how easy it is to install and use the CUDA Toolkit with Flox.
 
 ## Official CUDA examples
@@ -39,7 +39,7 @@ We've added a Flox environment on the `flox-env` branch that contains the depend
 examples in this repository.
 If you already have Flox installed, getting up and running is *very* easy:
 
-```console
+```{ .bash .copy }
 $ git clone https://github.com/flox/cuda-samples.git
 $ cd cuda-samples
 $ git checkout flox-env
@@ -112,7 +112,7 @@ run from inside an example directory the first time you want to build it. Feel f
 Now we're going to generate a rendering of the [Julia set](https://en.wikipedia.org/wiki/Julia_set).
 Navigate to `Samples/5_Domain_Specific/Mandelbrodt` then run the following commands:
 
-```console
+```{ .bash .copy }
 $ mkdir build && cd build && cmake .. && make -j8
 $ ./Mandelbrodt
 
@@ -133,7 +133,7 @@ and this time we'll build the environment from scratch to see how easy it is.
 
 Clone the PyTorch repository, navigate to the `mnist` example, and create a Flox environment in it:
 
-```console
+```{ .bash .copy }
 $ git clone <https://github.com/pytorch/examples.git> pytorch-examples
 $ cd pytorch-examples/mnist
 $ flox init
