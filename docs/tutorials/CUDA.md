@@ -124,7 +124,7 @@ This will open a window with a rendering of the [Mandelbrodt set](https://en.wik
 and display some instructions for tweaking the output.
 Press the `J` key to switch from the Mandelbrodt set to the Julia set, then play around with colors.
 Here's an example of what the output can look like after tweaking some of the parameters.
-![julia_set.png](attachment:ba562cb5-37bb-4b4f-93b7-8c4a28c348b5:julia_set.png)
+![julia_set.png](julia_set.png)
 
 ## PyTorch
 
