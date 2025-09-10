@@ -48,6 +48,7 @@ nav:
     - Running Flox in CI/CD: tutorials/ci-cd.md
     - Designing cross-platform environments: tutorials/multi-arch-environments.md
     - Reusing and combining developer environments: tutorials/composition.md
+    - Flox + CUDA: tutorials/cuda.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
   - Concepts:
