@@ -53,7 +53,7 @@ This may take some time because the download is quite large (~9GB), but that's b
 Toolkit is quite large and the examples in this repository demonstrate many of its capabilities.
 The upside is that the CUDA Toolkit in the Flox Catalog is broken into components, so for *your*
 applications you can install the minimal subset that you need and download much less.
-For example, to install the latest `nvcc` you would run `flox install cudaPackages.cuda_nvcc`.
+For example, to install the latest `nvcc` you would run `flox install flox-cuda/cudaPackages.cuda_nvcc`.
 
 Furthermore, since each Flox environment is scoped to a particular directory, you can have
 projects in different directories on your system that use and install completely different
@@ -150,11 +150,10 @@ some specific packages that have CUDA acceleration automatically enabled.
 In this case we'll install the following packages:
 
 ```console
-$ flox install python313 python313Packages.torch-bin python313Packages.torchvision-bin
-⚠️  The package 'torch-bin' has an unfree license, please verify the licensing terms of use
-✅ 'python313' installed to environment 'mnist'
-⚠️  'torchvision-bin' installed only for the following systems: aarch64-darwin, aarch64-linux, x86_64-linux
-⚠️  'torch-bin' installed only for the following systems: aarch64-darwin, aarch64-linux, x86_64-linux
+$ flox install python3 flox-cuda/python3Packages.torch flox-cuda/python3Packages.torchvision
+✅ 'python3' installed to environment 'mnist'
+⚠️  'torch' installed only for the following systems: x86_64-linux, aarch64-linux
+⚠️  'torchvision' installed only for the following systems: x86_64-linux
 
 ```
 
