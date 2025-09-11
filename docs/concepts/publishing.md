@@ -73,6 +73,14 @@ If organizations configure their own Catalog Store (rather than using the defaul
 Sharing packages with multiple users is only possible with an organization.
 This means that individual users will not be able to share packages they've published with other users.
 
+Packages can be published to an organization's catalog with
+`flox publish --org <organization>`.
+Packages published to an organization's catalog are visible to all other members
+of the organization,
+but they cannot be viewed by anyone outside the organization.
+For anyone in the organization, published packages become available in
+`flox search`, `flox show`, and `flox install`.
+
 [builds-concept]: ./builds.md
 [catalog-concept]: ./packages-and-catalog.md
 [flox-build]: ../reference/command-reference/flox-build.md
