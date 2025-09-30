@@ -19,3 +19,6 @@ will:
 These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
 
 If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
+
+The version of Nix installed by Flox tracks the stable version of Nix in nixpkgs, occasionally adding additional backports or patches.
+Nix is usually updated monthly, although if Nix makes breaking changes, updates may be less frequent.
