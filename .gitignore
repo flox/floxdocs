@@ -1,7 +1,7 @@
 .cache/
 .direnv/
 site/
-include/
+/include/
 docs/reference/command-reference
 result
 result-*
