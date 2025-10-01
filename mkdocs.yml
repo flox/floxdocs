@@ -25,7 +25,7 @@ repo_url: "https://github.com/flox/flox"
 copyright: "Copyright 2025 Flox. All rights reserved."
 
 extra:
-  FLOX_VERSION: !ENV [FLOX_VERSION, "X.Y.Z"]
+  FLOX_VERSION: !ENV [FLOX_VERSION, 'X.Y.Z']
   FLOX_PUBLIC_KEY: "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
   generator: false
   analytics:
@@ -34,42 +34,42 @@ extra:
 nav:
   - Introduction: index.md
   - Install Flox:
-      - Install: install-flox/install.md
-      - Uninstall: install-flox/uninstall.md
+    - Install: install-flox/install.md
+    - Uninstall: install-flox/uninstall.md
   - Flox in 5 minutes: flox-5-minutes.md
   - Tutorials:
-      - Creating environments: tutorials/creating-environments.md
-      - The default environment: tutorials/default-environment.md
-      - Sharing environments: tutorials/sharing-environments.md
-      - Layering multiple environments: tutorials/layering-multiple-environments.md
-      - Customizing the shell environment: tutorials/customizing-environments.md
-      - Designing multi-arch environments: tutorials/multi-arch-environments.md
-      - Building and publishing packages: tutorials/build-and-publish.md
-      - Running Flox in CI/CD: tutorials/ci-cd.md
-      - Designing cross-platform environments: tutorials/multi-arch-environments.md
-      - Reusing and combining developer environments: tutorials/composition.md
-      - Flox + CUDA: tutorials/cuda.md
-      - Migration guides:
-          - ... | flat | tutorials/migrations/*
+    - Creating environments: tutorials/creating-environments.md
+    - The default environment: tutorials/default-environment.md
+    - Sharing environments: tutorials/sharing-environments.md
+    - Layering multiple environments: tutorials/layering-multiple-environments.md
+    - Customizing the shell environment: tutorials/customizing-environments.md
+    - Designing multi-arch environments: tutorials/multi-arch-environments.md
+    - Building and publishing packages: tutorials/build-and-publish.md
+    - Running Flox in CI/CD: tutorials/ci-cd.md
+    - Designing cross-platform environments: tutorials/multi-arch-environments.md
+    - Reusing and combining developer environments: tutorials/composition.md
+    - Flox + CUDA: tutorials/cuda.md
+    - Migration guides:
+      - ... | flat | tutorials/migrations/*
   - Concepts:
-      - Environments: concepts/environments.md
-      - Activating environments: concepts/activation.md
-      - FloxHub: concepts/floxhub.md
-      - Generations: concepts/generations.md
-      - Catalog and Packages: concepts/packages-and-catalog.md
-      - Services: concepts/services.md
-      - Composing environments: concepts/composition.md
-      - Organizations: concepts/organizations.md
-      - Builds: concepts/builds.md
-      - Manifest builds: concepts/manifest-builds.md
-      - Nix expression builds: concepts/nix-expression-builds.md
-      - Publishing: concepts/publishing.md
-      - Flox vs. container workflows: concepts/flox-vs-containers.md
+    - Environments: concepts/environments.md
+    - Activating environments: concepts/activation.md
+    - FloxHub: concepts/floxhub.md
+    - Generations: concepts/generations.md
+    - Catalog and Packages: concepts/packages-and-catalog.md
+    - Services: concepts/services.md
+    - Composing environments: concepts/composition.md
+    - Organizations: concepts/organizations.md
+    - Builds: concepts/builds.md
+    - Manifest builds: concepts/manifest-builds.md
+    - Nix expression builds: concepts/nix-expression-builds.md
+    - Publishing: concepts/publishing.md
+    - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Languages:
-      - ... | flat | languages/*
+    - ... | flat | languages/*
   - Manual:
-      - manual/flox.md
-      - ... | flat | manual/*
+    - manual/flox.md
+    - ... | flat | manual/*
 
 strict: true
 validation:
@@ -86,223 +86,225 @@ extra_css:
   - css/extra.css
 
 theme:
-  name: material
+    name: material
 
-  custom_dir: overrides
+    custom_dir: overrides
 
-  language: en
-  direction: ltr
+    language: en
+    direction: ltr
 
-  favicon: img/favicon.ico
-  logo: img/logo.svg
+    favicon: img/favicon.ico
+    logo: img/logo.svg
 
-  font: false
+    font: false
 
-  palette:
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+    palette:
 
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+      # Palette toggle for light mode
+      - media: "(prefers-color-scheme: light)"
+        scheme: default
+        primary: custom
+        accent: custom
+        toggle:
+          icon: material/brightness-7
+          name: Switch to dark mode
 
-  icon:
-    # Repository icon
-    # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository-icon
-    repo: fontawesome/brands/github
+      # Palette toggle for dark mode
+      - media: "(prefers-color-scheme: dark)"
+        scheme: slate
+        primary: custom
+        accent: custom
+        toggle:
+          icon: material/brightness-4
+          name: Switch to light mode
 
-    # Admonition icons
-    # https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonition-icons
-    admonition:
-      announce: material/bullhorn
+    icon:
+      # Repository icon
+      # https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/#repository-icon
+      repo: fontawesome/brands/github
 
-  features:
-    # Clicks on all internal links will be intercepted and dispatched via
-    # XHR without fully reloading the page.
-    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
-    - navigation.instant # Instant loading
-    - navigation.instant.prefetch # Instant prefetching
-    - navigation.instant.progress # Progress indicator
-    - navigation.tracking # Anchor tracking
-    # - navigation.tabs               # Navigation tabs
-    # - navigation.sections           # Navigation sections
-    - navigation.expand # Navigation expansion
-    - navigation.path # Navigation path aka Breadcrumbs
-    - navigation.prune # Navigation pruning
-    # - navigation.indexes            # Section index pages
-    - navigation.top # Back-to-top button
-    - toc.follow # Anchor following
-    # - toc.integrate                 # Navigation integration
-    - navigation.footer
+      # Admonition icons
+      # https://squidfunk.github.io/mkdocs-material/reference/admonitions/#admonition-icons
+      admonition:
+        announce: material/bullhorn
 
-    # The search will display the likeliest completion for the last word
-    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#search-suggestions
-    - search.suggest
-    - search.highlight
-    - search.share
+    features:
+        # Clicks on all internal links will be intercepted and dispatched via
+        # XHR without fully reloading the page.
+        # https://squidfunk.github.io/mkdocs-material/setup/setting-up-navigation/#instant-loading
+        - navigation.instant            # Instant loading
+        - navigation.instant.prefetch   # Instant prefetching
+        - navigation.instant.progress   # Progress indicator
+        - navigation.tracking           # Anchor tracking
+        # - navigation.tabs               # Navigation tabs
+        # - navigation.sections           # Navigation sections
+        - navigation.expand             # Navigation expansion
+        - navigation.path               # Navigation path aka Breadcrumbs
+        - navigation.prune              # Navigation pruning
+        # - navigation.indexes            # Section index pages
+        - navigation.top                # Back-to-top button
+        - toc.follow                    # Anchor following
+        # - toc.integrate                 # Navigation integration
+        - navigation.footer
 
-    # Code blocks
-    # - content.code.copy     # Enable copy button on a case-by-case basis
-    # See https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-selection-button
-    - content.code.select # Code selection button
-    # See https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-annotations
-    - content.code.annotate # Code annotations
+        # The search will display the likeliest completion for the last word
+        # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#search-suggestions
+        - search.suggest
+        - search.highlight
+        - search.share
 
-    # Footnote tooltips
-    # https://squidfunk.github.io/mkdocs-material/reference/footnotes/#footnote-tooltips
-    - content.footnote.tooltips
+        # Code blocks
+        # - content.code.copy     # Enable copy button on a case-by-case basis
+        # See https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-selection-button
+        - content.code.select    # Code selection button
+        # See https://squidfunk.github.io/mkdocs-material/reference/code-blocks/#code-annotations
+        - content.code.annotate  # Code annotations
 
-    # Improved tooltips
-    # https://squidfunk.github.io/mkdocs-material/reference/tooltips/#improved-tooltips
-    - content.tooltips
+        # Footnote tooltips
+        # https://squidfunk.github.io/mkdocs-material/reference/footnotes/#footnote-tooltips
+        - content.footnote.tooltips
+
+        # Improved tooltips
+        # https://squidfunk.github.io/mkdocs-material/reference/tooltips/#improved-tooltips
+        - content.tooltips
 
 markdown_extensions:
-  # Admonitions
-  # https://squidfunk.github.io/mkdocs-material/reference/admonitions/
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
+    # Admonitions
+    # https://squidfunk.github.io/mkdocs-material/reference/admonitions/
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
 
-  # Annotations
-  # https://squidfunk.github.io/mkdocs-material/reference/annotations/
-  - attr_list
-  - md_in_html
-  - pymdownx.superfences
+    # Annotations
+    # https://squidfunk.github.io/mkdocs-material/reference/annotations/
+    - attr_list
+    - md_in_html
+    - pymdownx.superfences
 
-  # Buttons
-  # https://squidfunk.github.io/mkdocs-material/reference/buttons/
-  - attr_list
+    # Buttons
+    # https://squidfunk.github.io/mkdocs-material/reference/buttons/
+    - attr_list
 
-  # Code blocks
-  # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets:
-      base_path: "docs/snippets"
-  - pymdownx.superfences
+    # Code blocks
+    # https://squidfunk.github.io/mkdocs-material/reference/code-blocks/
+    - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets:
+        base_path: "docs/snippets"
+    - pymdownx.superfences
 
-  # Content tabs
-  # https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
+    # Content tabs
+    # https://squidfunk.github.io/mkdocs-material/reference/content-tabs/
+    - pymdownx.superfences
+    - pymdownx.tabbed:
+        alternate_style: true
 
-  # Data tables
-  # https://squidfunk.github.io/mkdocs-material/reference/data-tables/
-  - tables
+    # Data tables
+    # https://squidfunk.github.io/mkdocs-material/reference/data-tables/
+    - tables
 
-  # Diagrams
-  # https://squidfunk.github.io/mkdocs-material/reference/diagrams/
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
-            # Footnotes
-            # https://squidfunk.github.io/mkdocs-material/reference/footnotes/
+    # Diagrams
+    # https://squidfunk.github.io/mkdocs-material/reference/diagrams/
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
 
-  - footnotes
+    # Footnotes
+    # https://squidfunk.github.io/mkdocs-material/reference/footnotes/
+    - footnotes
 
-  # Formatting
-  # https://squidfunk.github.io/mkdocs-material/reference/formatting/
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.mark
-  - pymdownx.tilde
+    # Formatting
+    # https://squidfunk.github.io/mkdocs-material/reference/formatting/
+    - pymdownx.critic
+    - pymdownx.caret
+    - pymdownx.keys
+    - pymdownx.mark
+    - pymdownx.tilde
 
-  # Grids
-  # https://squidfunk.github.io/mkdocs-material/reference/grids/
-  - attr_list
-  - md_in_html
+    # Grids
+    # https://squidfunk.github.io/mkdocs-material/reference/grids/
+    - attr_list
+    - md_in_html
 
-  # Icons, Emojis
-  # https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-        # Images
-        # https://squidfunk.github.io/mkdocs-material/reference/images/
+    # Icons, Emojis
+    # https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-  - attr_list
-  - md_in_html
+    # Images
+    # https://squidfunk.github.io/mkdocs-material/reference/images/
+    - attr_list
+    - md_in_html
 
-  # Lists
-  # https://squidfunk.github.io/mkdocs-material/reference/lists/
-  - def_list
-  - pymdownx.tasklist:
-      custom_checkbox: true
+    # Lists
+    # https://squidfunk.github.io/mkdocs-material/reference/lists/
+    - def_list
+    - pymdownx.tasklist:
+        custom_checkbox: true
 
-  # Tooltips
-  # https://squidfunk.github.io/mkdocs-material/reference/tooltips/
-  - abbr
-  - attr_list
-  - pymdownx.snippets
+    # Tooltips
+    # https://squidfunk.github.io/mkdocs-material/reference/tooltips/
+    - abbr
+    - attr_list
+    - pymdownx.snippets
 
 plugins:
-  # Excellent client-side search implementation, omitting the need for the
-  # integration of third-party services
-  # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#built-in-search-plugin
-  - search
 
-  # The built-in optimize plugin automatically identifies and optimizes all
-  # media files as part of the build using compression and conversion
-  # techniques.
-  # https://squidfunk.github.io/mkdocs-material/setup/building-an-optimized-site/#built-in-optimize-plugin
-  - optimize
+    # Excellent client-side search implementation, omitting the need for the
+    # integration of third-party services
+    # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#built-in-search-plugin
+    - search
 
-  # Lightbox - image zoom
-  # https://github.com/blueswen/mkdocs-glightbox
-  - glightbox:
-      touchNavigation: true
-      loop: false
-      effect: zoom
-      slide_effect: slide
-      width: 100%
-      height: auto
-      zoomable: true
-      draggable: true
-      skip_classes:
-        - custom-skip-class-name
-      auto_caption: false
-      caption_position: bottom
-      background: white
-      shadow: true
+    # The built-in optimize plugin automatically identifies and optimizes all
+    # media files as part of the build using compression and conversion
+    # techniques.
+    # https://squidfunk.github.io/mkdocs-material/setup/building-an-optimized-site/#built-in-optimize-plugin
+    - optimize
 
-  # Simplifies configuring page titles and their order
-  # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
-  - awesome-pages
+    # Lightbox - image zoom
+    # https://github.com/blueswen/mkdocs-glightbox
+    - glightbox:
+        touchNavigation: true
+        loop: false
+        effect: zoom
+        slide_effect: slide
+        width: 100%
+        height: auto
+        zoomable: true
+        draggable: true
+        skip_classes:
+          - custom-skip-class-name
+        auto_caption: false
+        caption_position: bottom
+        background: white
+        shadow: true
 
-  # Enables markdown files to be included in other markdown files
-  # https://github.com/mondeja/mkdocs-include-markdown-plugin
-  - include-markdown
+    # Simplifies configuring page titles and their order
+    # https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin
+    - awesome-pages
 
-  # Unleash the power of MkDocs with variables and macros
-  # https://github.com/fralau/mkdocs-macros-plugin
-  - macros
+    # Enables markdown files to be included in other markdown files
+    # https://github.com/mondeja/mkdocs-include-markdown-plugin
+    - include-markdown
 
-  # Support for D2 diagrams
-  # https://github.com/landmaj/mkdocs-d2-plugin
-  - d2
+    # Unleash the power of MkDocs with variables and macros
+    # https://github.com/fralau/mkdocs-macros-plugin
+    - macros
 
-  # Create page redirects (e.g. for moved/renamed pages)
-  # https://github.com/mkdocs/mkdocs-redirects
-  - redirects:
-      redirect_maps:
-        "concepts/manifest.md": "concepts/environments.md#manifesttoml"
-        "install-flox.md": "install-flox/install.md"
+    # Support for D2 diagrams
+    # https://github.com/landmaj/mkdocs-d2-plugin
+    - d2
+
+    # Create page redirects (e.g. for moved/renamed pages)
+    # https://github.com/mkdocs/mkdocs-redirects
+    - redirects:
+        redirect_maps:
+            'concepts/manifest.md': 'concepts/environments.md#manifesttoml'
+            'install-flox.md': 'install-flox/install.md'
