@@ -18,27 +18,9 @@ description: How to install or upgrade the Flox CLI
     3. Open a terminal window to continue below
 
     ??? info "Replacing an existing Nix installation"
-
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
-        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
-
-        When installing over a previous installation of Nix the Flox installation
-        will:
-
-        1. Back out customizations made to the following files when Nix was
-            installed:
-            * `/etc/bashrc`
-            * `/etc/bash.bashrc`
-            * `/etc/profile.d/nix.sh`
-            * `/etc/zshrc`
-            * `/etc/zsh/zshrc`
-        2. Overwrite the system-wide `/etc/nix/nix.conf`
-        3. (If applicable) convert the Nix installation to a multi-user install
-        4. Reconfigure the `nix-daemon` invocation
-
-        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
-
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
+        {%
+            include-markdown "include/replacing-a-Nix-installation.md"
+        %}
 
     **Verify Flox installation**
 
@@ -72,27 +54,10 @@ description: How to install or upgrade the Flox CLI
 
 
     ??? info "Replacing an existing Nix installation"
+        {%
+            include-markdown "include/replacing-a-Nix-installation.md"
+        %}
 
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
-        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
-
-        When installing over a previous installation of Nix the Flox installation
-        will:
-
-        1. Back out customizations made to the following files when Nix was
-            installed:
-            * `/etc/bashrc`
-            * `/etc/bash.bashrc`
-            * `/etc/profile.d/nix.sh`
-            * `/etc/zshrc`
-            * `/etc/zsh/zshrc`
-        2. Overwrite the system-wide `/etc/nix/nix.conf`
-        3. (If applicable) convert the Nix installation to a multi-user install
-        4. Reconfigure the `nix-daemon` invocation
-
-        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
-
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
 
     **Verify Flox installation**
 
@@ -134,27 +99,9 @@ description: How to install or upgrade the Flox CLI
         ```
 
     ??? info "Replacing an existing Nix installation"
-
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
-        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
-
-        When installing over a previous installation of Nix the Flox installation
-        will:
-
-        1. Back out customizations made to the following files when Nix was
-            installed:
-            * `/etc/bashrc`
-            * `/etc/bash.bashrc`
-            * `/etc/profile.d/nix.sh`
-            * `/etc/zshrc`
-            * `/etc/zsh/zshrc`
-        1. Overwrite the system-wide `/etc/nix/nix.conf`
-        1. (If applicable) convert the Nix installation to a multi-user install
-        1. Reconfigure the `nix-daemon` invocation
-
-        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
-
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
+        {%
+            include-markdown "include/replacing-a-Nix-installation.md"
+        %}
 
     **Verify Flox installation**
 
@@ -199,27 +146,9 @@ description: How to install or upgrade the Flox CLI
         ```
 
     ??? info "Replacing an existing Nix installation"
-
-        The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
-        If you want full control of your Nix installation, see the instructions for installing Flox in the "Nix - Generic" tab above.
-
-        When installing over a previous installation of Nix the Flox installation
-        will:
-
-        1. Back out customizations made to the following files when Nix was
-            installed:
-            * `/etc/bashrc`
-            * `/etc/bash.bashrc`
-            * `/etc/profile.d/nix.sh`
-            * `/etc/zshrc`
-            * `/etc/zsh/zshrc`
-        1. Overwrite the system-wide `/etc/nix/nix.conf`
-        1. (If applicable) convert the Nix installation to a multi-user install
-        1. Reconfigure the `nix-daemon` invocation
-
-        These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
-
-        If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
+        {%
+            include-markdown "include/replacing-a-Nix-installation.md"
+        %}
 
     **Verify Flox installation**
 
