@@ -9,7 +9,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 lychee $SCRIPT_DIR/site \
   -nv \
   --remap "https://flox.dev/docs file://$PWD/site" \
-  --exclude "bash/man/html_node" \
+  --exclude "bash/manual/html_node" \
   --exclude "https://www.gnu.org/software/make/" \
   --exclude "https://github.com/flox/catalog-util" \
   --exclude "https://www.backblaze.com/cloud-storage"
