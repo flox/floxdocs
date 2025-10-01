@@ -76,7 +76,7 @@ sandbox = "pure"
 
 ### Nix expression builds
 
-To build a project using [`buildNpmPackage`](https://nixos.org/manual/nixpkgs/stable/#language-javascript) which will import your existing dependency file:
+To build a project using [`buildNpmPackage`](https://nixos.org/man/nixpkgs/stable/#language-javascript) which will import your existing dependency file:
 
 ```nix
 {

@@ -2,7 +2,7 @@
 .direnv/
 site/
 include/
-docs/manual
+docs/man
 result
 result-*
 bin/

@@ -68,8 +68,8 @@ nav:
   - Languages:
     - ... | flat | languages/*
   - Manual:
-    - manual/flox.md
-    - ... | flat | manual/*
+    - man/flox.md
+    - ... | flat | man/*
 
 strict: true
 validation:

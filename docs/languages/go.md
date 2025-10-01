@@ -93,7 +93,7 @@ sandbox = "pure"
 
 ### Nix expression builds
 
-To build a project using [`buildGoModule`](https://nixos.org/manual/nixpkgs/stable/#sec-language-go) which will import your existing dependency file, but you will need to [update the hash][nix-expression-hashes]:
+To build a project using [`buildGoModule`](https://nixos.org/man/nixpkgs/stable/#sec-language-go) which will import your existing dependency file, but you will need to [update the hash][nix-expression-hashes]:
 
 ```go
 { buildGoModule }:

@@ -242,4 +242,4 @@ error: hash mismatch in fixed-output derivation '/nix/store/srm7s6pyckifs52ikyfa
 
 [builds-concept]: ./builds.md
 [manifest-builds-concept]: ./manifest-builds.md
-[pkg-groups]: ../manual/manifest.toml.md#package-descriptors
+[pkg-groups]: ../man/manifest.toml.md#package-descriptors

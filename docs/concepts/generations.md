@@ -79,9 +79,9 @@ This allows this environment to advance to newer generations explicitly on the
 next [`flox pull`][flox_pull].
 
 [floxhub_concept]: .//floxhub.md
-[flox_push]: ../manual/flox-push.md
-[flox_install]: ../manual/flox-install.md
-[flox_edit]: ../manual/flox-edit.md
-[flox_pull]: ../manual/flox-pull.md
+[flox_push]: ../man/flox-push.md
+[flox_install]: ../man/flox-install.md
+[flox_edit]: ../man/flox-edit.md
+[flox_pull]: ../man/flox-pull.md
 [sharing_guide]: ../tutorials/sharing-environments.md
 [environment_guide]: ../tutorials/creating-environments.md

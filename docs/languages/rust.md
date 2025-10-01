@@ -269,7 +269,7 @@ runtime-packages = ["libiconv", "gcc"]
 
 ### Nix expression builds
 
-To build a project using [`buildRustPackage`](https://nixos.org/manual/nixpkgs/stable/#rust) which will import your existing dependency file:
+To build a project using [`buildRustPackage`](https://nixos.org/man/nixpkgs/stable/#rust) which will import your existing dependency file:
 
 ```nix
 { rustPlatform }:

@@ -228,13 +228,13 @@ flox [example-project] $ exit
 $
 ```
 
-[flox_init]: ../manual/flox-init.md
-[flox_search]: ../manual/flox-search.md
-[flox_show]: ../manual/flox-show.md
-[flox_install]: ../manual/flox-install.md
+[flox_init]: ../man/flox-init.md
+[flox_search]: ../man/flox-search.md
+[flox_show]: ../man/flox-show.md
+[flox_install]: ../man/flox-install.md
 [discourse]: https://discourse.floxdev.com/
-[flox_activate]: ../manual/flox-activate.md
-[flox_edit]: ../manual/flox-edit.md
+[flox_activate]: ../man/flox-activate.md
+[flox_edit]: ../man/flox-edit.md
 [sharing_guide]: ./sharing-environments.md
 [layering_guide]: ./layering-multiple-environments.md
 [manifest_concept]: ../concepts/environments.md#manifesttoml

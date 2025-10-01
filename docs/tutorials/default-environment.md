@@ -247,6 +247,6 @@ Flox has you covered.
 Even better, if you want both a package manager _and_ developer environments,
 with Flox you only need to learn one tool.
 
-[init]: ../manual/flox-init.md
-[push]: ../manual/flox-push.md
-[pull]: ../manual/flox-pull.md
+[init]: ../man/flox-init.md
+[push]: ../man/flox-push.md
+[pull]: ../man/flox-pull.md

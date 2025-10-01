@@ -52,7 +52,7 @@ if [ ! -d "$FLOX_SRC_DIR" ]; then
 fi
 echo "4. 👉 Extracted Flox source archive"
 
-export FLOX_MAN_PAGES_DIR="$PWD/docs/manual"
+export FLOX_MAN_PAGES_DIR="$PWD/docs/man"
 if [ -d "$FLOX_MAN_PAGES_DIR" ]; then
   rm -rf "$FLOX_MAN_PAGES_DIR/*"
 fi

@@ -256,15 +256,15 @@ The story doesn't end here though.
 In this guide we've shown you how to build and distribute programs, but you can also use it to distribute configuration files (or any other file).
 See the [builds][extra-builds] concept page for examples of what else you can build and publish with Flox.
 
-[flox-manifest-build-section]: ../manual/manifest.toml.md#build
+[flox-manifest-build-section]: ../man/manifest.toml.md#build
 [build-concept]: ../concepts/builds.md
 [fhs]: https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
-[flox-install]: ../manual/flox-install.md
-[flox-show]: ../manual/flox-show.md
-[flox-search]: ../manual/flox-search.md
-[flox-edit]: ../manual/flox-edit.md
-[flox-build]: ../manual/flox-build.md
-[flox-publish]: ../manual/flox-publish.md
+[flox-install]: ../man/flox-install.md
+[flox-show]: ../man/flox-show.md
+[flox-search]: ../man/flox-search.md
+[flox-edit]: ../man/flox-edit.md
+[flox-build]: ../man/flox-build.md
+[flox-publish]: ../man/flox-publish.md
 [extra-builds]: ../concepts/manifest-builds.md#example-configuration-files
 [publish-concept]: ../concepts/publishing.md
 [organizations-concept]: ../concepts/organizations.md

@@ -83,9 +83,9 @@ For anyone in the organization, published packages become available in
 
 [builds-concept]: ./builds.md
 [catalog-concept]: ./packages-and-catalog.md
-[flox-build]: ../manual/flox-build.md
-[flox-publish]: ../manual/flox-publish.md
-[flox-search]: ../manual/flox-search.md
-[flox-show]: ../manual/flox-show.md
-[flox-install]: ../manual/flox-install.md
+[flox-build]: ../man/flox-build.md
+[flox-publish]: ../man/flox-publish.md
+[flox-search]: ../man/flox-search.md
+[flox-show]: ../man/flox-show.md
+[flox-install]: ../man/flox-install.md
 [organizations-concept]: ./organizations.md

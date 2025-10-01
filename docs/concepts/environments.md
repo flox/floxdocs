@@ -110,21 +110,21 @@ version. Flox manages this file for you.
 }
 ```
 
-[flox_init]: ../manual/flox-init.md
-[flox_show]: ../manual/flox-show.md
-[flox_edit]: ../manual/flox-edit.md
-[flox_install]: ../manual/flox-install.md
-[flox_search]: ../manual/flox-search.md
-[flox_edit]: ../manual/flox-edit.md
-[flox_push]: ../manual/flox-push.md
-[flox_pull]: ../manual/flox-pull.md
-[flox_activate]: ../manual/flox-activate.md
+[flox_init]: ../man/flox-init.md
+[flox_show]: ../man/flox-show.md
+[flox_edit]: ../man/flox-edit.md
+[flox_install]: ../man/flox-install.md
+[flox_search]: ../man/flox-search.md
+[flox_edit]: ../man/flox-edit.md
+[flox_push]: ../man/flox-push.md
+[flox_pull]: ../man/flox-pull.md
+[flox_activate]: ../man/flox-activate.md
 [sharing_guide]: ../tutorials/sharing-environments.md
 [create_guide]: ../tutorials/creating-environments.md
 [customizing_environments_guide]: ../tutorials/customizing-environments.md
 [generation_concept]: ./generations.md
 [floxhub_concept]: ./floxhub.md
 [discourse]: https://discourse.flox.dev/
-[manifest]: ../manual/manifest.toml.md
+[manifest]: ../man/manifest.toml.md
 [nix-expression-builds-concept]: ./nix-expression-builds.md
 [toml_spec]: https://toml.io/en/v1.0.0
