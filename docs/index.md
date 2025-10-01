@@ -143,7 +143,7 @@ The Flox product and engineering teams love to hear directly from users. Your qu
 [delete]: ./reference/command-reference/flox-delete.md
 [list]: ./reference/command-reference/flox-list.md
 [manifest]: ./reference/command-reference/manifest.toml.md
-[rust-cookbook]: ./cookbook/languages/rust.md
+[rust-cookbook]: ./languages/rust.md
 [multi-arch]: ./tutorials/multi-arch-environments.md
 [config]: ./reference/command-reference/flox-config.md
 [services]: ./concepts/services.md

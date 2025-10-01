@@ -176,7 +176,7 @@ mycli
 [environment_concept]: ../concepts/environments.md
 [flox_activate]: ../reference/command-reference/flox-activate.md
 [multi-arch-guide]: ./multi-arch-environments.md
-[rust_guide]: ../cookbook/languages/rust.md
+[rust_guide]: ../languages/rust.md
 [flox_init]: ../reference/command-reference/flox-init.md
 [activation_concept]: ../concepts/activation.md
 [fish_shell]: https://fishshell.com/

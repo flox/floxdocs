@@ -197,4 +197,4 @@ For example, [this section][go-example] contains an example build for the Go lan
 [pkg-groups]: ../reference/command-reference/manifest.toml.md#package-descriptors
 [grpc]: https://grpc.io/
 [organizations-concept]: ./organizations.md
-[go-example]: ../cookbook/languages/go.md#build-with-flox
+[go-example]: ../languages/go.md#build-with-flox
