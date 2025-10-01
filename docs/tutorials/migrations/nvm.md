@@ -189,5 +189,5 @@ Now that you're managing your project's Node.js version using Flox, you can `git
 
 [environment_concept]: ../../concepts/environments.md
 [install_flox]: ../../install-flox/install.md
-[manifest]: ../../reference/command-reference/manifest.toml.md
+[manifest]: ../../man/manifest.toml.md
 [services]: ../../concepts/services.md
