@@ -54,7 +54,7 @@ git clone ..example-project;
 flox activate
 ```
 
-[flox_init]: ../reference/command-reference/flox-init.md
+[flox_init]: ../manual/flox-init.md
 [discourse]: https://discourse.flox.dev/
 [manifest_concept]: ../concepts/environments.md#manifesttoml
 
@@ -128,9 +128,9 @@ $ flox push
 !!! note "Note"
     Right now, only environment owners can push edits to their environments.
 
-[flox_push]: ../reference/command-reference/flox-push.md
-[flox_pull]: ../reference/command-reference/flox-pull.md
-[flox_activate]: ../reference/command-reference/flox-activate.md
+[flox_push]: ../manual/flox-push.md
+[flox_pull]: ../manual/flox-pull.md
+[flox_activate]: ../manual/flox-activate.md
 [floxhub_concept]: ../concepts/floxhub.md
 
 ### Pulling a remote environment without connecting to FloxHub
@@ -228,4 +228,4 @@ telnet (GNU inetutils) 2.5
 [environment_concept]: ../concepts/environments.md
 [layering_guide]: ./layering-multiple-environments.md
 [customizing_guide]: ./customizing-environments.md
-[flox_containerize]: ../reference/command-reference/flox-containerize.md
+[flox_containerize]: ../manual/flox-containerize.md

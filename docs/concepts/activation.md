@@ -310,7 +310,7 @@ attach to this new version of the environment.
 
 ## Development vs. runtime mode
 
-See the [`options.activate.mode`](../reference/command-reference/manifest.toml.md#options) option in the manifest.
+See the [`options.activate.mode`](../manual/manifest.toml.md#options) option in the manifest.
 
 ## Conclusion
 
@@ -329,6 +329,6 @@ that prepare your environment just how you like them.
 
 [environment-concept]: ./services.md
 [bash-func-export]: https://www.gnu.org/software/bash/manual/html_node/Bourne-Shell-Builtins.html#index-export
-[vars-section]: ../reference/command-reference/manifest.toml.md#vars
-[hook-section]: ../reference/command-reference/manifest.toml.md#hook
-[profile-section]: ../reference/command-reference/manifest.toml.md#profile
+[vars-section]: ../manual/manifest.toml.md#vars
+[hook-section]: ../manual/manifest.toml.md#hook
+[profile-section]: ../manual/manifest.toml.md#profile

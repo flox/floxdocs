@@ -42,5 +42,5 @@ One way to accomplish this is to run your builds in [CI][flox-ci-cd].
 
 [manifest-builds-concept]: ./manifest-builds.md
 [nix-expression-builds-concept]: ./nix-expression-builds.md
-[flox-build]: ../reference/command-reference/flox-build.md
+[flox-build]: ../manual/flox-build.md
 [flox-ci-cd]: ../tutorials/ci-cd.md

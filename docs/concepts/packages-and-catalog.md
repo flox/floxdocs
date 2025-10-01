@@ -38,10 +38,10 @@ Source by the Open Source Initiative (OSI).
 * **broken**: indicates if the package is marked as broken in
 [nixpkgs][nixpkgs].
 
-[flox_search]: ../reference/command-reference/flox-search.md
-[flox_show]: ../reference/command-reference/flox-show.md
-[flox_install]: ../reference/command-reference/flox-install.md
-[flox_update]: ../reference/command-reference/flox-update.md
+[flox_search]: ../manual/flox-search.md
+[flox_show]: ../manual/flox-show.md
+[flox_install]: ../manual/flox-install.md
+[flox_update]: ../manual/flox-update.md
 [manifest_concept]: ./environments.md#manifesttoml
 [nixpkgs]: https://github.com/NixOS/nixpkgs
 [builds]: ./builds.md

@@ -108,7 +108,7 @@ If you're already using Homebrew, you can easily [migrate or use Homebrew and Fl
 Flox lets you define what an environment _is_ in a way that can be reused across local dev, CI, and production.
 Leverage [pre-built integrations](https://flox.dev/docs/tutorials/ci-cd/?h=ci) for GitHub Actions, CircleCI, and GitLab to pull and activate the same environments locally, in CI and in production.
 
-Or use Flox [containerize](https://flox.dev/docs/reference/command-reference/flox-containerize/?h=containerize) to package your environments as OCI images—fully pinned and runnable anywhere.
+Or use Flox [containerize](https://flox.dev/docs/manual/flox-containerize/?h=containerize) to package your environments as OCI images—fully pinned and runnable anywhere.
 From bare metal to VMs, from Docker Swarm to Kubernetes to AWS Lambda—the runtime context might change, but Flox environments run and behave the same everywhere.
 
 Need an example? See how [the Flox Docs team uses Flox in CI](https://flox.dev/blog/integrating-flox-with-ci-for-consistent-reproducible-dev-environments/) to build, test and deploy this docs site.
@@ -131,20 +131,20 @@ The Flox product and engineering teams love to hear directly from users. Your qu
 [flox_5_minutes]: ./flox-5-minutes.md
 [create_guide]: ./tutorials/creating-environments.md
 [share_guide]: ./tutorials/sharing-environments.md
-[init]: ./reference/command-reference/flox-init.md
-[search]: ./reference/command-reference/flox-search.md
-[show]: ./reference/command-reference/flox-show.md
+[init]: ./manual/flox-init.md
+[search]: ./manual/flox-search.md
+[show]: ./manual/flox-show.md
 [catalog]: ./concepts/packages-and-catalog.md
-[install]: ./reference/command-reference/flox-install.md
-[activate]: ./reference/command-reference/flox-activate.md
-[edit]: ./reference/command-reference/flox-edit.md
-[push]: ./reference/command-reference/flox-push.md
-[pull]: ./reference/command-reference/flox-pull.md
-[delete]: ./reference/command-reference/flox-delete.md
-[list]: ./reference/command-reference/flox-list.md
-[manifest]: ./reference/command-reference/manifest.toml.md
+[install]: ./manual/flox-install.md
+[activate]: ./manual/flox-activate.md
+[edit]: ./manual/flox-edit.md
+[push]: ./manual/flox-push.md
+[pull]: ./manual/flox-pull.md
+[delete]: ./manual/flox-delete.md
+[list]: ./manual/flox-list.md
+[manifest]: ./manual/manifest.toml.md
 [rust-cookbook]: ./languages/rust.md
 [multi-arch]: ./tutorials/multi-arch-environments.md
-[config]: ./reference/command-reference/flox-config.md
+[config]: ./manual/flox-config.md
 [services]: ./concepts/services.md
 [floxhub_packages]: https://hub.flox.dev/packages

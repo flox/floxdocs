@@ -297,10 +297,10 @@ This means you can spend less time getting started, and more time developing you
 Similarly, since you're treating environments like dependencies, if you make an improvement to a template environment while working on one project, the improvement will become available to all of your other projects that use that environment as soon as they run `flox include upgrade`.
 
 [poetry]: https://python-poetry.org/
-[flox-init]: ../reference/command-reference/flox-init.md
-[flox-pull]: ../reference/command-reference/flox-pull.md
-[flox-install]: ../reference/command-reference/flox-install.md
-[flox-edit]: ../reference/command-reference/flox-edit.md
-[flox-list]: ../reference/command-reference/flox-list.md
+[flox-init]: ../manual/flox-init.md
+[flox-pull]: ../manual/flox-pull.md
+[flox-install]: ../manual/flox-install.md
+[flox-edit]: ../manual/flox-edit.md
+[flox-list]: ../manual/flox-list.md
 [floxhub]: ../concepts/floxhub.md
 [hypothesis]: https://hypothesis.readthedocs.io/en/latest/

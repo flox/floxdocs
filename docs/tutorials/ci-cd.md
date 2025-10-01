@@ -121,4 +121,4 @@ Here are some suggestions for things you can do with your Flox environment in CI
 [sharing_guide]: ./sharing-environments.md
 [layering_guide]: ./layering-multiple-environments.md
 [customizing_guide]: ./customizing-environments.md
-[containerize]: ../reference/command-reference/flox-containerize.md
+[containerize]: ../manual/flox-containerize.md

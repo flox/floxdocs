@@ -138,8 +138,8 @@ get the `systemd` package.
 
 [environment_concept]: ../concepts/environments.md
 [sharing_guide]: ./sharing-environments.md
-[flox_search]: ../reference/command-reference/flox-search.md
-[flox_show]: ../reference/command-reference/flox-show.md
-[flox_edit]: ../reference/command-reference/flox-edit.md
-[flox_push]: ../reference/command-reference/flox-push.md
-[flox_pull]: ../reference/command-reference/flox-pull.md
+[flox_search]: ../manual/flox-search.md
+[flox_show]: ../manual/flox-show.md
+[flox_edit]: ../manual/flox-edit.md
+[flox_push]: ../manual/flox-push.md
+[flox_pull]: ../manual/flox-pull.md

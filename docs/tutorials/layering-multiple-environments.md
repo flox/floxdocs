@@ -127,10 +127,10 @@ Inactive environments:
 - :simple-readme:{ .flox-purple .flox-heart } [Designing multiple architecture environments][multi_arch_guide]
 
 [default-env]: ./default-environment.md
-[flox_init]: ../reference/command-reference/flox-init.md
-[flox_install]: ../reference/command-reference/flox-install.md
-[flox_activate]: ../reference/command-reference/flox-activate.md
-[flox_list]: ../reference/command-reference/flox-list.md
+[flox_init]: ../manual/flox-init.md
+[flox_install]: ../manual/flox-install.md
+[flox_activate]: ../manual/flox-activate.md
+[flox_list]: ../manual/flox-list.md
 [sharing_guide]: ./sharing-environments.md
 [customizing_guide]: ./customizing-environments.md
 [multi_arch_guide]: ./multi-arch-environments.md

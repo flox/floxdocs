@@ -67,10 +67,9 @@ nav:
       - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Languages:
       - ... | flat | languages/*
-  - Reference:
-      - Flox manual:
-          - reference/command-reference/flox.md
-          - ... | flat | reference/command-reference/*
+  - Manual:
+      - manual/flox.md
+      - ... | flat | manual/*
 
 strict: true
 validation:

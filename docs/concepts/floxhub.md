@@ -97,13 +97,13 @@ flox pull example-owner/example-env
 Run the [`flox auth logout`][flox_auth] command.
 
 [flox_website]: https://flox.dev
-[flox_push]: ../reference/command-reference/flox-push.md
-[flox_pull]: ../reference/command-reference/flox-pull.md
-[flox_activate]: ../reference/command-reference/flox-activate.md
-[flox_auth]: ../reference/command-reference/flox-auth.md
-[flox_edit]: ../reference/command-reference/flox-edit.md
-[flox_install]: ../reference/command-reference/flox-install.md
-[flox_uninstall]: ../reference/command-reference/flox-uninstall.md
+[flox_push]: ../manual/flox-push.md
+[flox_pull]: ../manual/flox-pull.md
+[flox_activate]: ../manual/flox-activate.md
+[flox_auth]: ../manual/flox-auth.md
+[flox_edit]: ../manual/flox-edit.md
+[flox_install]: ../manual/flox-install.md
+[flox_uninstall]: ../manual/flox-uninstall.md
 [generation_concept]: ../concepts/generations.md
 [manifest_concept]: ../concepts/environments.md#manifesttoml
 [environments_concept]: ../concepts/environments.md

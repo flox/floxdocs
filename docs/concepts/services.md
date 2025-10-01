@@ -28,7 +28,7 @@ Services have a very simple schema consisting of a `command` to run to start
 the service,
 any `vars` you want set specifically for the service,
 and whether the service spawns a background process.
-See [`manifest-toml(1)`](../reference/command-reference/manifest.toml.md) for
+See [`manifest-toml(1)`](../manual/manifest.toml.md) for
 more details on the exact format of the `[services]` section of the manfiest.
 
 An example service definition is shown below:

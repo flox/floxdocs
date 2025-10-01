@@ -439,13 +439,13 @@ you need to build a container so that it can be deployed.
 
 ---
 
-[init]: ../reference/command-reference/flox-init.md
-[edit]: ../reference/command-reference/flox-edit.md
-[install]: ../reference/command-reference/flox-install.md
-[push]: ../reference/command-reference/flox-push.md
-[containerize]: ../reference/command-reference/flox-containerize.md
-[activate]: ../reference/command-reference/flox-activate.md
-[services-start]: ../reference/command-reference/flox-services-start.md
+[init]: ../manual/flox-init.md
+[edit]: ../manual/flox-edit.md
+[install]: ../manual/flox-install.md
+[push]: ../manual/flox-push.md
+[containerize]: ../manual/flox-containerize.md
+[activate]: ../manual/flox-activate.md
+[services-start]: ../manual/flox-services-start.md
 [services]: ../concepts/services.md
 [manifest]: ../concepts/environments.md#manifesttoml
 [early]: https://flox.dev/early/
