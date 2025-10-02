@@ -216,7 +216,7 @@ description: How to install or upgrade the Flox CLI
         nix profile install \
               --experimental-features "nix-command flakes" \
               --accept-flake-config \
-              'github:flox/flox'
+              'github:flox/flox/latest'
         ```
 
     * Install Flox to the system-wide `default` profile as root:
@@ -226,7 +226,7 @@ description: How to install or upgrade the Flox CLI
               --profile /nix/var/nix/profiles/default \
               --experimental-features "nix-command flakes" \
               --accept-flake-config \
-              'github:flox/flox'
+              'github:flox/flox/latest'
         ```
     ??? info "On error"
 
@@ -293,7 +293,7 @@ description: How to install or upgrade the Flox CLI
           inputs.nixpkgs.follows = "nixpkgs";
         };
         flox = {
-          url = "github:flox/flox/v{{ FLOX_VERSION }}";
+          url = "github:flox/flox/latest";
         };
       };
 
@@ -366,19 +366,7 @@ description: How to install or upgrade the Flox CLI
         '.*flox'
     ```
 
-    Or, if you've declared Flox using a flake, update the version in the flake
-
-    ``` { .sh .code-command .copy }
-    ...
-        flox = {
-            url = "github:flox/flox/v{{ FLOX_VERSION }}";
-        };
-    ...
-    ```
-
-    Nix does not always update transitive dependencies when the version is
-    changed,
-    so to ensure all updates are applied, run `nix flake update`.
+    Or, if you've declared Flox using a flake, run `nix flake update`.
 
 === "Nix - NixOS"
 
@@ -405,7 +393,7 @@ description: How to install or upgrade the Flox CLI
         nix profile install \
               --experimental-features "nix-command flakes" \
               --accept-flake-config \
-              'github:flox/flox'
+              'github:flox/flox/latest'
         ```
 
     * Install Flox to the system-wide `default` profile as root:
@@ -415,7 +403,7 @@ description: How to install or upgrade the Flox CLI
               --profile /nix/var/nix/profiles/default \
               --experimental-features "nix-command flakes" \
               --accept-flake-config \
-              'github:flox/flox'
+              'github:flox/flox/latest'
         ```
 
     ??? info "On error"
