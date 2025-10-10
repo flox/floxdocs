@@ -30,12 +30,13 @@ runs:
   using: "composite"
   steps:
     - name: "Setup Tailscale"
-      uses: "tailscale/github-action@v2"
-      if: ${{ inputs.TAILSCALE_URL && inputs.TAILSCALE_AUTH_KEY }}
+      uses: "tailscale/github-action@v3"
+      if: ${{ inputs.TAILSCALE_AUTH_KEY }}
       with:
-        args: "--timeout 30s --login-server ${{ inputs.TAILSCALE_URL }}"
+        oauth-secret: "${{ inputs.TAILSCALE_AUTH_KEY }}"
         tags: "tag:ci"
-        authkey: "${{ inputs.TAILSCALE_AUTH_KEY }}"
+        timeout: "30s"
+        use-cache: true
 
     - name: "Install newer Nix"
       uses: "cachix/install-nix-action@v24"
@@ -75,3 +76,6 @@ runs:
         cat $REMOTE_SERVER_USER_KNOWN_HOSTS_FILE
         echo "REMOTE_SERVER_ADDRESS=$REMOTE_SERVER_ADDRESS" >> $GITHUB_ENV
         echo "REMOTE_SERVER_USER_KNOWN_HOSTS_FILE=$REMOTE_SERVER_USER_KNOWN_HOSTS_FILE" >> $GITHUB_ENV
+        if [ -n "$REMOTE_SERVER_ADDRESS" ]; then
+          tailscale -- ping "$REMOTE_SERVER_ADDRESS"
+        fi
