@@ -1,50 +1,33 @@
-# Flox Environment Management
+[meta]
+canonical_json = "https://flox.dev/llms.json"
+version = "1.0.0"
+last_updated = "2025-10-17"
 
-Flox is a next-generation package manager and environment manager for software development and delivery. It allows for creation of reproducible environments for projects, either through imperative commands or declarative manifests.
+[about]
+name = "Flox"
+description = "Flox is a next-generation package and environment manager for reproducible software environments."
+homepage = "https://flox.dev"
+docs = "https://flox.dev/docs"
 
-If you see a `.flox` directory, that means the you are working with Flox to manage project dependencies and the environment lifecycle.
+[rules]
+no_interactive_activate = "NEVER run `flox activate` interactively — always use `flox activate -- <command>`."
+package_management = "ALWAYS use `flox install` instead of apt, yum, rpm, or brew."
+manifest_editing = "Edit `.flox/env/manifest.toml` directly (not using `flox edit`)."
 
-## Essential Commands
-```bash
-flox envs                        # See which environments are active
-flox search <term>               # Search for packages
-flox show <package>              # Show package details and versions
-flox init -d <dir>               # Initialize Flox environment in a directory
-flox list -d <dir>               # List installed packages
-flox install -d <dir> <package>  # Install package
-flox activate -d <dir> -- <cmd>  # Run command in environment
-```
+[commands]
+list_envs = "flox envs"
+search_packages = "flox search <term>"
+install_package = "flox install -d <dir> <package>"
+activate_command = "flox activate -d <dir> -- <cmd>"
 
-## Critical Rules for Agentic Usage
-1. **NEVER run `flox activate` interactively** - use `flox activate -- <command>`
-2. **ALWAYS use `flox install`** instead of apt/yum/rpm/brew
-3. Edit `.flox/env/manifest.toml` directly (not using `flox edit`)
+[examples]
+quick_start_backend = "flox init -d backend && flox install -d backend go sqlite"
+quick_start_frontend = "flox init -d frontend && flox install -d frontend nodejs"
 
-## Common Patterns
-```bash
-# Initialize environments in subdirectories
-flox init -d backend
-flox init -d frontend
-
-# Install packages in specific environments
-flox install -d backend go sqlite
-flox install -d frontend nodejs
-
-# Activate and run commands in specific environments
-flox activate -d backend -- sh -c "cd backend && go mod init"
-flox activate -d frontend -- sh -c "cd frontend && npm install"
-```
-
-## The Manifest
-For manifest.toml syntax and examples: `man manifest.toml`
-
-## Service Definition
-To define services, add them to the manifest. Examples:
-```toml
-[services]
-api.command = "go run main.go"       # Backend API server
-frontend.command = "npm run dev"     # Frontend dev server
-mydaemon.command = "mydaemon start"  # Daemon that forks
-mydaemon.is_daemon = true
-mydaemon.shutdown.command = "mydaemon stop"
-```
+[resources]
+manifest_reference = "https://flox.dev/docs/manifest"
+advanced_usage = "https://flox.dev/docs/advanced-usage"
+ci_cd_integration = "https://flox.dev/docs/ci-cd"
+troubleshooting = "https://flox.dev/docs/troubleshooting"
+mcp_manifest = "https://flox.dev/mcp/manifest.json"
+mcp_config_example = "https://flox.dev/mcp/config-example.json"

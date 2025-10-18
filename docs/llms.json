@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "canonical_text": "https://flox.dev/llms.txt",
+    "version": "1.0.0",
+    "last_updated": "2025-10-17",
+    "schema": "https://flox.dev/schemas/llms.schema.json"
+  },
+  "about": {
+    "name": "Flox",
+    "description": "Flox is a next-generation package and environment manager for reproducible software environments.",
+    "homepage": "https://flox.dev",
+    "docs": "https://flox.dev/docs"
+  },
+  "rules": {
+    "no_interactive_activate": "NEVER run `flox activate` interactively — always use `flox activate -- <command>`.",
+    "package_management": "ALWAYS use `flox install` instead of apt, yum, rpm, or brew.",
+    "manifest_editing": "Edit `.flox/env/manifest.toml` directly (not using `flox edit`)."
+  },
+  "commands": {
+    "list_envs": "flox envs",
+    "search_packages": "flox search <term>",
+    "install_package": "flox install -d <dir> <package>",
+    "activate_command": "flox activate -d <dir> -- <cmd>"
+  },
+  "examples": {
+    "quick_start_backend": "flox init -d backend && flox install -d backend go sqlite",
+    "quick_start_frontend": "flox init -d frontend && flox install -d frontend nodejs"
+  },
+  "resources": {
+    "manifest_reference": "https://flox.dev/docs/manifest",
+    "advanced_usage": "https://flox.dev/docs/advanced-usage",
+    "ci_cd_integration": "https://flox.dev/docs/ci-cd",
+    "troubleshooting": "https://flox.dev/docs/troubleshooting",
+    "mcp_manifest": "https://flox.dev/mcp/manifest.json",
+    "mcp_config_example": "https://flox.dev/mcp/config-example.json"
+  }
+}

@@ -3,3 +3,16 @@
   to = "/docs/"
   status = 302
   force = false
+
+[[headers]]
+  for = "/docs/llms.txt"
+  [headers.values]
+    Cache-Control = "max-age=3600, stale-while-revalidate=86400"
+    ETag = '"llms-txt-v1"'
+
+[[headers]]
+  for = "/docs/llms.json"
+  [headers.values]
+    Cache-Control = "max-age=3600, stale-while-revalidate=86400"
+    Content-Type = "application/json; charset=utf-8"
+    ETag = '"llms-json-v1"'
