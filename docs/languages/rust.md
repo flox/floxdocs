@@ -289,5 +289,5 @@ rustPlatform.buildRustPackage {
 [custom-toolchains]: https://github.com/zmitchell/rust-toolchains
 [esp32]: https://www.espressif.com/en/products/socs/esp32
 [risc-v]: https://en.wikipedia.org/wiki/RISC-V
-[build-concept]: ../../concepts/builds.md
-[pure-builds-section]: ../../concepts/manifest-builds.md#pure-builds
+[build-concept]: ../concepts/builds.md
+[pure-builds-section]: ../concepts/manifest-builds.md#pure-builds

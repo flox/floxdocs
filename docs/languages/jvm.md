@@ -44,4 +44,4 @@ Note that `pwd` will return the location from which the built artifact is run, n
 
 [gradle]: https://gradle.org/
 [shadow]: https://gradleup.com/shadow/
-[build-concept]: ../../concepts/builds.md
+[build-concept]: ../concepts/builds.md

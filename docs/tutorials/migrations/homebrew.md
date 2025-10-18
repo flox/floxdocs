@@ -202,10 +202,10 @@ We recommend that the Flox default environment activation lines appear lowest in
 [default_tutorial_setup]: ../default-environment.md#initial-setup
 [creating_tutorial]: ../creating-environments.md
 [install_flox]: ../../install-flox/install.md
-[search]: ../../reference/command-reference/flox-search.md
-[envs]: ../../reference/command-reference/flox-envs.md
-[list]: ../../reference/command-reference/flox-list.md
+[search]: ../../man/flox-search.md
+[envs]: ../../man/flox-envs.md
+[list]: ../../man/flox-list.md
 [catalog]: ../../concepts/packages-and-catalog.md
-[install]: ../../reference/command-reference/flox-install.md
-[uninstall]: ../../reference/command-reference/flox-uninstall.md
-[activate]: ../../reference/command-reference/flox-activate.md
+[install]: ../../man/flox-install.md
+[uninstall]: ../../man/flox-uninstall.md
+[activate]: ../../man/flox-activate.md
