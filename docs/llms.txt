@@ -1,0 +1,50 @@
+# Flox Environment Management
+
+Flox is a next-generation package manager and environment manager for software development and delivery. It allows for creation of reproducible environments for projects, either through imperative commands or declarative manifests.
+
+If you see a `.flox` directory, that means the you are working with Flox to manage project dependencies and the environment lifecycle.
+
+## Essential Commands
+```bash
+flox envs                        # See which environments are active
+flox search <term>               # Search for packages
+flox show <package>              # Show package details and versions
+flox init -d <dir>               # Initialize Flox environment in a directory
+flox list -d <dir>               # List installed packages
+flox install -d <dir> <package>  # Install package
+flox activate -d <dir> -- <cmd>  # Run command in environment
+```
+
+## Critical Rules for Agentic Usage
+1. **NEVER run `flox activate` interactively** - use `flox activate -- <command>`
+2. **ALWAYS use `flox install`** instead of apt/yum/rpm/brew
+3. Edit `.flox/env/manifest.toml` directly (not using `flox edit`)
+
+## Common Patterns
+```bash
+# Initialize environments in subdirectories
+flox init -d backend
+flox init -d frontend
+
+# Install packages in specific environments
+flox install -d backend go sqlite
+flox install -d frontend nodejs
+
+# Activate and run commands in specific environments
+flox activate -d backend -- sh -c "cd backend && go mod init"
+flox activate -d frontend -- sh -c "cd frontend && npm install"
+```
+
+## The Manifest
+For manifest.toml syntax and examples: `man manifest.toml`
+
+## Service Definition
+To define services, add them to the manifest. Examples:
+```toml
+[services]
+api.command = "go run main.go"       # Backend API server
+frontend.command = "npm run dev"     # Frontend dev server
+mydaemon.command = "mydaemon start"  # Daemon that forks
+mydaemon.is_daemon = true
+mydaemon.shutdown.command = "mydaemon stop"
+```

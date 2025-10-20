@@ -68,7 +68,7 @@ nav:
     - Containers: comparisons/flox-vs-containers.md
   - Migration guides:
     - ... | flat | migrations/*
-  - Manual pages:
+  - Reference:
     - man/flox.md
     - ... | flat | man/*
 
