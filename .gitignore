@@ -1,7 +1,7 @@
 .cache/
 .direnv/
 site/
-include/
+/include/
 docs/man
 result
 result-*
