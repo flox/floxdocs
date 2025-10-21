@@ -2,7 +2,7 @@
 .direnv/
 site/
 /include/
-docs/reference/command-reference
+docs/man
 result
 result-*
 bin/
