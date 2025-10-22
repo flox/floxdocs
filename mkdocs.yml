@@ -51,6 +51,15 @@ nav:
     - Flox + CUDA: tutorials/cuda.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
+  - Kubernetes on Flox:
+    - Introduction: k8s/intro.md
+    - Installation:
+      - Amazon EKS: k8s/install/eks.md
+      - Unmanaged: k8s/install/unmanaged.md
+    - Examples:
+      - ... | flat | k8s/examples/*
+    - Authentication: k8s/auth.md
+    - Telemetry: k8s/telemetry.md
   - Concepts:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md
