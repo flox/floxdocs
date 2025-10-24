@@ -82,8 +82,8 @@ Some cloud providers don't allow you to modify the nodes in the Kubernetes clust
 
 See the [installation][install-section] for more details on installing KoF to your cluster.
 
-To try out KoF locally, see the [examples][examples-section], which uses `kind` to create a local cluster of virtual machines.
+To try out KoF locally, see the [examples][examples-section], which uses `kind` to create a local Kubernetes cluster.
 
 [generations-concept]: ../concepts/generations.md
 [install-section]: ./install/eks.md
-[examples-section]: ./examples/foo.md
+[examples-section]: ./examples/kind-demo.md
