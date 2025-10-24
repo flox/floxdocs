@@ -85,5 +85,5 @@ See the [installation][install-section] for more details on installing KoF to yo
 To try out KoF locally, see the [examples][examples-section], which uses `kind` to create a local cluster of virtual machines.
 
 [generations-concept]: ../concepts/generations.md
-[install-section]: ./install/eks.md
+[install-section]: ./install/eks/terraform.md
 [examples-section]: ./examples/foo.md

@@ -54,7 +54,8 @@ nav:
   - Kubernetes on Flox:
     - Introduction: k8s/intro.md
     - Installation:
-      - Amazon EKS: k8s/install/eks.md
+      - Amazon EKS: 
+        - Terraform: k8s/install/eks/terraform.md
       - Unmanaged: k8s/install/unmanaged.md
     - Examples:
       - ... | flat | k8s/examples/*
