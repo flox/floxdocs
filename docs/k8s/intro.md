@@ -1,17 +1,17 @@
 ---
 title: "Introduction"
-description: "What is Kubernetes on Flox?"
+description: "What is Imageless Kubernetes?"
 ---
 
-Kubernetes on Flox (KoF) is a new way to run Kubernetes backed by Flox environments rather than containers.
-This means that rather than managing image pipelines and constantly rebuilding containers, you now have lightweight Flox environments that build *reproducibly*, with centralized control via FloxHub.
+Imageless Kubernetes is a new way to run Kubernetes backed by Flox environments rather than container images.
+This means that rather than managing image pipelines and constantly rebuilding containers, you now have lightweight Flox environments that *build reproducibly*, with centralized control via FloxHub.
 And since Flox environments give you the same set of dependencies no matter where they're run, you can rest easy knowing that the tools you used during development and CI are the same as those running in a Kubernetes pod.
 
 Let's take a closer look at what this buys you.
 
 ## Centralized management
 
-Each KoF pod specifies a command to run and the Flox environment to run inside of it.
+Each pod specifies a command to run and the Flox environment to run inside of it.
 The syntax is slightly different to a typical pod spec, so the syntax will be explained shortly.
 For now, just know that you need to specify a Flox environment to run your command in.
 
@@ -80,9 +80,9 @@ Some cloud providers don't allow you to modify the nodes in the Kubernetes clust
 - Amazon EKS
 - Unmanaged Kubernetes clusters
 
-See the [installation][install-section] for more details on installing KoF to your cluster.
+See the [installation][install-section] for more details on installing Imageless Kubernetes to your cluster.
 
-To try out KoF locally, see the [examples][examples-section], which uses `kind` to create a local Kubernetes cluster.
+To try out Imageless Kubernetes locally, see the [examples][examples-section], which uses `kind` to create a local Kubernetes cluster.
 
 [generations-concept]: ../concepts/generations.md
 [install-section]: ./install/eks.md
