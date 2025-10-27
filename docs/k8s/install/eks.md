@@ -96,7 +96,7 @@ module "eks_managed_node_group" {
             flox activate -r flox/containerd-shim-flox-installer --trust -g 2
           EOT
     },
-    {https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+    {
       content_type = "application/node.eks.aws"
       content      = <<-EOT
             ---
