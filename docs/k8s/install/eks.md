@@ -22,6 +22,8 @@ This guide will walk through the steps needed to create the node group and confi
 !!! info "Info"
     The below examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
 
+--8<-- "k8s-shim-cli-version.md"
+
 ## Node Configuration via Terraform
 
 ### Terraform Prerequisites
