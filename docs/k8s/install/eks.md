@@ -3,7 +3,11 @@ title: "Amazon EKS"
 description: "Installing Imageless Kubernetes to Amazon EKS"
 ---
 
+# Amazon EKS
+
 If you have an existing EKS cluster, we recommend creating a new node group specifically for Imageless Kubernetes.
+
+This guide will walk through the steps needed to create the node group and configure the cluster with both [Terraform][terraform] and [eksctl][eksctl].
 
 To run on EKS, each node in the node group will need to:
 
@@ -16,8 +20,6 @@ Most of this can be done as part of the node bootstrapping process, using custom
 
 !!! note "Note"
     Additional information on `nodeadm` and bootstrapping with user data can be found in the [EKS documentation][userdata-docs].
-
-This guide will walk through the steps needed to create the node group and configure the cluster with both [Terraform][terraform] and [eksctl][eksctl].
 
 !!! info "Info"
     The below examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
