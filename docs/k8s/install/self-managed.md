@@ -31,7 +31,7 @@ We provide an installer in the form of a Flox environment that deploys Imageless
 - Updating the `containerd` configuration as necessary
 - Restarting `containerd`
 
-Details about the installer can be found on its [FloxHub page][shim-installer].
+Details about the installer can be found on its [FloxHub page][shim-installer]; the script is the activation hook for the environment.
 
 Once Flox is installed, the runtime shim can be installed by running
 
