@@ -154,7 +154,7 @@ For our purposes, `eksctl` greatly simplifies appending custom configuration to 
 
 #### Cluster access
 
-First, install `ekctl` and ensure that you have access to the cluster:
+First, install `eksctl` and ensure that you have access to the cluster:
 
 - Install `eksctl` (e.g. `flox install eksctl`).
 - Set AWS credentials in your environment (e.g. copy `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` from management console).
