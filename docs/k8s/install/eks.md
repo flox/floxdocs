@@ -43,6 +43,9 @@ This example will use the [eks-managed-node-group][eks-managed-node-group] submo
 The below Terraform configuration can be used to provision a node group with the Flox runtime; see comments for guidance on each input.
 The below configuration assumes you already have Terraform configuration for a cluster including the [AWS provider][aws-tf-provider].
 
+!!! note "Note"
+    See the [upstream module documentation][terraform-aws-eks] for details on adding this node group to an autoscaling scheme (e.g. Cluster Autoscaler, Karpenter).
+
 ```hcl title="nodegroup.tf"
 module "eks_managed_node_group" {
   source  = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
