@@ -130,6 +130,9 @@ This can be surprising, so check the manifests of the included environments and 
 It's reasonable to assume that the manifests of the included environments will change over time and at some point you will want to bring in the latest versions of those manifests.
 This is accomplished with the `flox include upgrade` command.
 
-Running this command will check each of the included environments and determine if there were changes to their manifests.
-If the changes to the manifest have been built by the included environment, then the new manifest will be included.
+Running this command will check each of the included environments and check if the environments have changed.
+In order for changes to be pulled in, the included environment must have a lockfile corresponding to the latest changes to the manifest.
+For example, suppose an environment `my-go-project` includes a `go-tools` environment.
+If the `manifest.toml` for `go-tools` is modified without using `flox edit`, then `flox include upgrade` for `my-go-project` won't be able use the changes to the `go-tools` manifest.
+Using `flox edit` for `go-tools` would re-lock the environment using the latest manifest, and then `flox include upgrade` for `my-go-project` could pull in the changes.
 At this point the merge process runs again, a new merged manifest is produced, and the composed environment is rebuilt from the new merged manifest.
