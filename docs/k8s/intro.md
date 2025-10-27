@@ -78,7 +78,7 @@ It's that simple.
 Some cloud providers don't allow you to modify the nodes in the Kubernetes cluster, so for now you are limited to:
 
 - Amazon EKS
-- Unmanaged Kubernetes clusters
+- Self-managed Kubernetes
 
 See the [installation][install-section] for more details on installing Imageless Kubernetes to your cluster.
 
