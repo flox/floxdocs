@@ -12,7 +12,7 @@ To run on EKS, each node in the node group will need to:
 - Register the shim with `containerd`
 - Register the shim with Kubernetes
 
-Most of which can be done as part of the node bootstrapping process, using custom user data to pass instructions to [nodeadm][nodeadm].
+Most of this can be done as part of the node bootstrapping process, using custom user data to pass instructions to [nodeadm][nodeadm].
 
 !!! note "Note"
     Additional information on `nodeadm` and bootstrapping with user data can be found in the [EKS documentation][userdata-docs].
@@ -20,7 +20,7 @@ Most of which can be done as part of the node bootstrapping process, using custo
 This guide will walk through the steps needed to create the node group and configure the cluster with both [Terraform][terraform] and [eksctl][eksctl].
 
 !!! info "Info"
-    The below examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with the Flox runtime shim are available on our [GitHub][k8s-shim-install].
+    The below examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
 
 ## Node Configuration via Terraform
 
@@ -32,13 +32,14 @@ To create the node group, you will need:
 - IDs for cluster and node security groups
 - The cluster's service CIDR (i.e. the range from which cluster services will recieve IPs)
 
-If you've used a public module such as [terraform-aws-eks][terraform-aws-eks], most should be available either from the module configuration or outputs.
+If you've used a public module such as [terraform-aws-eks][terraform-aws-eks], most of these details should be available either from the module configuration or outputs.
 
 ### Terraform node group creation
 
-This example will use the [eks-managed-node-group][eks-managed-node-group] submodule of [terraform-aws-eks][terraform-aws-eks], but it can also be used standalone regardless of how the cluster was defined in Terraform.
+This example will use the [eks-managed-node-group][eks-managed-node-group] submodule of [terraform-aws-eks][terraform-aws-eks], but it can also be used standalone, regardless of how the cluster was defined in Terraform.
 
-The below Terraform configuration can be used to provisition a node group with the Flox runtime; see comments for guidance on each input. The below configuration assumes you already have Terraform configuration for a cluster including the [AWS provider][aws-tf-provider].
+The below Terraform configuration can be used to provision a node group with the Flox runtime; see comments for guidance on each input.
+The below configuration assumes you already have Terraform configuration for a cluster including the [AWS provider][aws-tf-provider].
 
 ```hcl title="nodegroup.tf"
 module "eks_managed_node_group" {
@@ -48,9 +49,11 @@ module "eks_managed_node_group" {
   name         = "flox"
   cluster_name = "my-cluster"
 
-  subnet_ids = ["subnet-01982749e3b6e77a6", "subnet-025dd07e5117afef5", "subnet-0b0ef36fe25286a83"] # replace with your node subnets
+  # replace with your node subnets
+  subnet_ids = ["subnet-01982749e3b6e77a6", "subnet-025dd07e5117afef5", "subnet-0b0ef36fe25286a83"] 
 
-  instance_types = ["t3.small"] # replace with your desired instance types -- x86_64 or ARM (Graviton) are supported
+  # replace with your desired instance types -- x86_64 or ARM (Graviton) are supported
+  instance_types = ["t3.small"] 
 
   cluster_primary_security_group_id = module.eks.cluster_primary_security_group_id
   vpc_security_group_ids            = [module.eks.node_security_group_id]
@@ -125,7 +128,8 @@ Then, the `flox activate` command executes an [installer][shim-installer] that d
 
 Finally, it uses a `NodeConfig` manifest to leverage `nodeadm`'s native functionality to update the node's `containerd` configuration to be aware of the Flox runtime.
 
-The `labels` section is used to give each Flox-enabled node an identifier to ensure that Flox pods only target these nodes. The `label` is used in concert with a `RuntimeClass` in the next section to make Kubernetes aware of the Flox runtime.
+The `labels` section is used to give each Flox-enabled node an identifier to ensure that Flox pods only target these nodes.
+The `label` is used in concert with a `RuntimeClass` in the next section to make Kubernetes aware of the Flox runtime.
 
 ## Node Configuration via eksctl
 
