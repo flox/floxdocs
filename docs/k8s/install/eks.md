@@ -61,7 +61,7 @@ module "eks_managed_node_group" {
 
   ami_type     = "AL2023_x86_64_STANDARD" # set depending on CPU architecture
   desired_size = 1
-  min_size     = 1
+  min_size     = 0
   max_size     = 10
 
   # required if you need non-default disk settings; disk_size parameter cannot be used with cloudinit_pre_nodeadm
@@ -186,7 +186,7 @@ managedNodeGroups:
     amiFamily: AmazonLinux2023
     desiredCapacity: 1
     minSize: 0
-    maxSize: 5
+    maxSize: 10
     labels:
       flox.dev/enabled: "true" # used in RuntimeClass to ensure flox workloads only get scheduled on these nodes
     preBootstrapCommands:
@@ -246,7 +246,7 @@ scheduling:
     flox.dev/enabled: "true"
 ```
 
-which can be applied by `kubectl apply -f RuntimeClass.yaml`
+which can be applied by `kubectl apply -f RuntimeClass.yaml`.
 
 The `nodeSelector` ensures that Flox pods will only be scheduled on nodes with the Flox runtime installed.
 
