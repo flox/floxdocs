@@ -17,6 +17,9 @@ You then create a new Kubernetes secret:
 flox auth token | kubectl create secret generic floxhub-token --from-file=floxhub-token=/dev/stdin
 ```
 
+!!! note "Flox CLI version"
+    The user creating the token via `flox auth token` will need at least version 1.7.6 of the Flox CLI.
+
 Finally, you add a secret volume to your pod specification and mount it to `"/var/run/secrets/flox.dev"` inside your container.
 
 A sample specification is shown below:
