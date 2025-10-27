@@ -60,8 +60,7 @@ nav:
       - Uninstall: k8s/install/uninstall.md
     - Examples:
       - ... | flat | k8s/examples/*
-    - Authentication: k8s/auth.md
-    - Telemetry: k8s/telemetry.md
+    - Configuration: k8s/config.md
   - Concepts:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md

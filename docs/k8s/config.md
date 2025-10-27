@@ -1,7 +1,11 @@
 ---
-title: "Authentication"
-description: "How to authenticate to FloxHub with Imageless Kubernetes"
+title: "Configuration"
+description: "Configuring Imageless Kubernetes"
 ---
+
+# Configuration
+
+## Authentication
 
 Imageless Kubernetes allows you to run Flox environments in place or on top of container images.
 Flox environments are accessed centrally via [FloxHub][floxhub] and managed using the Flox CLI.
@@ -51,6 +55,44 @@ spec:
         - name: secret-volume
           mountPath: "/var/run/secrets/flox.dev"
           readOnly: true
+```
+
+## Telemetry
+
+Since Imageless Kubernetes uses the Flox CLI to perform certain operations such as activating your environment, Imageless Kubernetes will report the same telemetry by default that the Flox CLI reports.
+This includes information such as:
+
+- Which subcommands were run
+- Which shell was used for the activation (Bash, Zsh, etc)
+- Whether the environment was remote (e.g. stored on FloxHub) or not
+- etc
+
+We also use Sentry for error reporting.
+This information helps us focus feature development and maintenance on the areas that deliver the most value for our users.
+
+However, we understand that some users either don't want any information collected or work in an environment that does not allow this kind of information to be collected.
+For this reason we offer the ability to disable telemetry.
+
+### Disabling telemetry
+
+When using the Flox CLI directly you can set `FLOX_DISABLE_METRICS=1` in your environment.
+With Imageless Kubernetes, you can set an annotation on the pod specification to accomplish the same goal.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flox-containerd-demo
+  annotations:
+    flox.dev/environment: "limeytexan/echoip"
+    # Disable telemetry
+    flox.dev/disable-metrics: "true"
+spec:
+  runtimeClassName: flox
+  containers:
+    - name: empty
+      image: flox/empty:1.0.0
+      command: ["echoip"]
 ```
 
 [intro]: ./intro.md
