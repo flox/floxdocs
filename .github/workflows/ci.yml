@@ -6,7 +6,7 @@ on:
     branches:
       - "main"
       - "preview"
-      - "build-preview"
+      - "k8s-docs"
   pull_request:
 
 permissions:
