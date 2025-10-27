@@ -1,7 +1,7 @@
 <!-- markdownlint-disable MD041 -->
-## Flox CLI Version
+## Versioning
 
-The installation procedure described here will install the latest version of the Flox CLI that is available when the nodes are created.
-This means that in order to upgrade the Flox CLI you must bring up new nodes and bring down the old nodes.
-Conversely, this also means that any time you replace a node you may update the installed version of the Flox CLI.
+The installation procedure described here will install the latest version of the Flox CLI and runtime shim that is available when the nodes are created.
+
+Consequently, this means that any time you replace a node you may update the installed version of both.
 <!-- markdownlint-enable MD041 -->
