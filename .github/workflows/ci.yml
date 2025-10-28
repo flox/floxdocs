@@ -43,6 +43,7 @@ jobs:
         with:
           command: |
             mkdocs build
+            python3 tools/generate_llms_txt.py ./site
             mkdir -p ./public/docs
             cp -R ./site/* ./public/docs/
             chmod -R +w ./public/docs
