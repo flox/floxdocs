@@ -5,6 +5,8 @@ description: "Installing Imageless Kubernetes to Amazon EKS"
 
 If you have an existing EKS cluster, we recommend creating a new node group specifically for Imageless Kubernetes.
 
+This guide will walk through the steps needed to create the node group and configure the cluster with both [Terraform][terraform] and [eksctl][eksctl].
+
 To run on EKS, each node in the node group will need to:
 
 - Install Flox
@@ -16,8 +18,6 @@ Most of this can be done as part of the node bootstrapping process, using custom
 
 !!! note "Note"
     Additional information on `nodeadm` and bootstrapping with user data can be found in the [EKS documentation][userdata-docs].
-
-This guide will walk through the steps needed to create the node group and configure the cluster with both [Terraform][terraform] and [eksctl][eksctl].
 
 !!! info "Info"
     The below examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
@@ -43,6 +43,9 @@ This example will use the [eks-managed-node-group][eks-managed-node-group] submo
 The below Terraform configuration can be used to provision a node group with the Flox runtime; see comments for guidance on each input.
 The below configuration assumes you already have Terraform configuration for a cluster including the [AWS provider][aws-tf-provider].
 
+!!! note "Note"
+    See the [upstream module documentation][terraform-aws-eks] for details on adding this node group to an autoscaling scheme (e.g. Cluster Autoscaler, Karpenter).
+
 ```hcl title="nodegroup.tf"
 module "eks_managed_node_group" {
   source  = "terraform-aws-modules/eks/aws//modules/eks-managed-node-group"
@@ -63,7 +66,7 @@ module "eks_managed_node_group" {
 
   ami_type     = "AL2023_x86_64_STANDARD" # set depending on CPU architecture
   desired_size = 1
-  min_size     = 1
+  min_size     = 0
   max_size     = 10
 
   # required if you need non-default disk settings; disk_size parameter cannot be used with cloudinit_pre_nodeadm
@@ -93,7 +96,7 @@ module "eks_managed_node_group" {
             flox activate -r flox/containerd-shim-flox-installer --trust -g 2
           EOT
     },
-    {https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+    {
       content_type = "application/node.eks.aws"
       content      = <<-EOT
             ---
@@ -151,7 +154,7 @@ For our purposes, `eksctl` greatly simplifies appending custom configuration to 
 
 #### Cluster access
 
-First, install `ekctl` and ensure that you have access to the cluster:
+First, install `eksctl` and ensure that you have access to the cluster:
 
 - Install `eksctl` (e.g. `flox install eksctl`).
 - Set AWS credentials in your environment (e.g. copy `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` from management console).
@@ -188,7 +191,7 @@ managedNodeGroups:
     amiFamily: AmazonLinux2023
     desiredCapacity: 1
     minSize: 0
-    maxSize: 5
+    maxSize: 10
     labels:
       flox.dev/enabled: "true" # used in RuntimeClass to ensure flox workloads only get scheduled on these nodes
     preBootstrapCommands:
@@ -248,7 +251,7 @@ scheduling:
     flox.dev/enabled: "true"
 ```
 
-which can be applied by `kubectl apply -f RuntimeClass.yaml`
+which can be applied by `kubectl apply -f RuntimeClass.yaml`.
 
 The `nodeSelector` ensures that Flox pods will only be scheduled on nodes with the Flox runtime installed.
 
