@@ -53,6 +53,7 @@ nav:
       - ... | flat | tutorials/migrations/*
   - Imageless Kubernetes:
     - Introduction: k8s/intro.md
+    - Tech: k8s/tech.md
     - Installation:
       - Amazon EKS: k8s/install/eks.md
       - Self-managed: k8s/install/self-managed.md
