@@ -47,9 +47,9 @@ exposed in the UX.  These are not to be confused with upstream branches of the
 same name, and all derive from the `unstable` branch of our fork[floxpkgs].
 
 - `unstable` is reset to upstream `unstable` daily
-- `staging` is reset to the `unstable` branch of our fork[floxpkgs] each Sunday
-- `stable` is reset to the `staging` branch of our fork[floxpkgs] monthly
-- `lts` is reset to the `stable` branch of our fork[floxpkgs] every 6 months
+- `staging` is reset to the `unstable` branch of our [fork][floxpkgs] each Saturday
+- `stable` is reset to the `staging` branch of our [fork][floxpkgs] on the first Saturday of the month
+- `lts` is reset to the `stable` branch of our [fork][floxpkgs] on the first Saturday in January and July (every 6 months)
 
 These "stability" channels will be exposed in future versions allowing users to
 select a varying frequency of updates.  This architecture also allows for
@@ -69,4 +69,3 @@ and subsequently in the Flox Base Catalog.
 
 [nixpkgs]: https://github.com/NixOS/nixpkgs
 [floxpkgs]: https://github.com/flox/nixpkgs
-
