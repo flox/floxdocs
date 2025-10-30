@@ -14,7 +14,7 @@ On a regular basis, Flox will evaluate a subset of packages from its
 [nixpkgs][nixpkgs] fork and save the metadata from the evaluation.  This makes
 it available to users of Flox.
 
-## What packages does Flox evaluate
+## Which packages does Flox evaluate?
 
 Generally, Flox evaluates `legacyPackages.<system>.*` and follows the
 `recurseForDerivations` attribute.  In addition to this, some explicit paths are
