@@ -18,7 +18,7 @@ it available to users of Flox.
 
 Generally, Flox evaluates `legacyPackages.<system>.*` and follows the
 `recurseForDerivations` attribute.  In addition to this, some explicit paths are
-evaluated.  The following is the current set, but is likely to change on a
+evaluated.  The following is the current set, but is likely to change over time.
 regular basis.
 
 For all system types:
