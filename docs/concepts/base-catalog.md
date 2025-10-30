@@ -43,7 +43,7 @@ about a day.
 
 Flox maintains a fork of [nixpkgs][floxpkgs] and maintains several branches.
 These branches relate to a Flox concept of "stabilities" that is not yet fully
-exposed in the UX.  These are not to be confused with upstream branches of the
+exposed.  These are not to be confused with upstream branches of the
 same name, and all derive from the `unstable` branch of our fork[floxpkgs].
 
 - `unstable` is reset to upstream `unstable` daily
