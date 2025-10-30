@@ -5,7 +5,7 @@ description: Everything you need to know about the Base Catalog
 
 # What is the Base Catalog
 
-The base Catalog is the root of all dependencies in Flox.  It is generated from
+The base Catalog is the root of all packages in Flox.  It is generated from
 a fork of [nixpkgs][nixpkgs], contains a set of historical versions and is
 updated regularly.  When you install something with Flox, it will come from or
 will be built upon the Base Catalog data.
