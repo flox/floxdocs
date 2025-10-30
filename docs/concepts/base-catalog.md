@@ -61,7 +61,7 @@ available via Flox.
 
 ### Delays
 
-Since the Flox Base Catalog is based on upstream nixos-unstable, it is subject
+Since the Flox Base Catalog is based on upstream `nixos-unstable`, it is subject
 to any delays that occur during the regular operations of the nix eco-system.
 If there is a breakage or if an update causes significant re-builds, it may be
 deferred to a longer process and further delay it's arrival on nixos-unstable,
