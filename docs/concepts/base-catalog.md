@@ -10,7 +10,7 @@ a fork of [nixpkgs][nixpkgs], contains historical metadata (such as versions and
 updated on an automated schedule.  When you install something with Flox, it will come from or
 will be built upon the Base Catalog data.
 
-On a regular basis, Flox will evaluate a subset of packages from it's
+On a regular basis, Flox will evaluate a subset of packages from its
 [nixpkgs][nixpkgs] fork and save the metadata from the evaluation.  This makes
 it available to users of Flox.
 
