@@ -33,7 +33,7 @@ Additionally for `darwin` system types:
 - `swiftPackages`
 - `swiftPackages.darwin`
 
-## How often dose this happen
+## Update schedule
 
 tldr; Flox ingests the equivalent of nixos-unstable on a daily basis.  So you
 should expect Flox package availability to follow nixos-unstable by, at most,
