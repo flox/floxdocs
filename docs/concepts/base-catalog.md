@@ -51,7 +51,7 @@ same name, and all derive from the `unstable` branch of our fork[floxpkgs].
 - `stable` is reset to the `staging` branch of our [fork][floxpkgs] on the first Saturday of the month
 - `lts` is reset to the `stable` branch of our [fork][floxpkgs] on the first Saturday in January and July (every 6 months)
 
-These "stability" channels will be exposed in future versions allowing users to
+These "stability" channels will be exposed in the future, allowing users to
 select a varying frequency of updates.  This architecture also allows for
 patches and backporting of fixes against all stabilities.
 
