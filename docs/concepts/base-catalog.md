@@ -7,7 +7,7 @@ description: Everything you need to know about the Base Catalog
 
 The base Catalog is the root of all packages in Flox.  It is generated from
 a fork of [nixpkgs][nixpkgs], contains historical metadata (such as versions and system support over time), and is
-updated regularly.  When you install something with Flox, it will come from or
+updated on an automated schedule.  When you install something with Flox, it will come from or
 will be built upon the Base Catalog data.
 
 On a regular basis, Flox will evaluate a subset of packages from it's
