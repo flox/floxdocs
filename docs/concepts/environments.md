@@ -110,47 +110,10 @@ version. Flox manages this file for you.
 }
 ```
 
-## Automated upgrades
-
---8<-- "paid-feature.md"
-
-To avoid missing important updates to your packages, it's a best practice to regularly upgrade your environments.
-You can do this manually using the [`flox upgrade`][flox_upgrade] command or by clicking **Upgrade now** on the environment detail page in FloxHub.
-However, if you have an [Organization][organizations_concept], you can let FloxHub upgrade your environments automatically.
-
-### Configure environment upgrades
-
-Automated upgrades are enabled by default for all environments in an organization.
-To change the default setting for an individual environment:
-
-1. Sign in to [FloxHub][floxhub]
-2. Choose an environment in an organization for which you're a *writer* or *owner*
-3. Open that environment's detail page
-4. Go to **Settings** > **Automated Upgrades**
-5. Select the upgrade cadence you want (**Daily**, **Weekly**, or **Monthly**)
-
-    !!! note "If you want to turn off automated upgrades, choose **Never**."
-
-### Organization-wide upgrade policy
-
-You may choose to opt-out of automated upgrades for new environments, or turn them off for all environments in an organization.
-To change your organization's upgrade policy:
-
-1. Sign in to [FloxHub][floxhub]
-2. Go to the detail page for an organization for which you're an *owner*
-3. Go to **Settings** > **Automated Upgrades**
-4. Select the upgrade policy that you want:
-    1. **On by default** - When a new environment is created, it will be automatically upgraded every day.
-    2. **Off by default** - When a new environment is created, it will *not* be automatically upgraded.
-    3. **Disabled** - Automated upgrades will be turned off for all environments in this organization.
-
-    !!! warning "We do not recommend disabling automated upgrades for all environments, as this can lead to outdated dependencies and potential security vulnerabilities."
-
 [flox_init]: ../man/flox-init.md
 [flox_show]: ../man/flox-show.md
 [flox_edit]: ../man/flox-edit.md
 [flox_install]: ../man/flox-install.md
-[flox_upgrade]: ../man/flox-upgrade.md
 [flox_search]: ../man/flox-search.md
 [flox_edit]: ../man/flox-edit.md
 [flox_push]: ../man/flox-push.md
@@ -160,10 +123,8 @@ To change your organization's upgrade policy:
 [create_guide]: ../tutorials/creating-environments.md
 [customizing_environments_guide]: ../tutorials/customizing-environments.md
 [generation_concept]: ./generations.md
-[organizations_concept]: ./organizations.md
 [floxhub_concept]: ./floxhub.md
 [discourse]: https://discourse.flox.dev/
 [manifest]: ../man/manifest.toml.md
 [nix-expression-builds-concept]: ./nix-expression-builds.md
 [toml_spec]: https://toml.io/en/v1.0.0
-[floxhub]: https://hub.flox.dev
