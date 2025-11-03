@@ -8,7 +8,7 @@ description: Everything you need to know about generations.
 Generations refer to a **version number of an environment** on
 [FloxHub][floxhub_concept].
 Both imperative and declarative commands that modify an environment on
-[FloxHub][floxhub_concept] increment the generation number for the environment.
+FloxHub increment the generation number for the environment.
 
 Read more about creating your first generation in the
 [sharing guide][sharing_guide].
@@ -34,7 +34,7 @@ Suppose you [`flox pull`][flox_pull] an environment at generation 15 on
 If you now run [`flox install`][flox_install] three times then you will have
 generations 16-18 locally.
 The next [`flox push`][flox_push] would sync these three new generations to
-[FloxHub][floxhub_concept] if you have permission to write to the environment.
+FloxHub if you have permission to write to the environment.
 
 ## Switching and viewing generations
 
@@ -58,7 +58,7 @@ Rolling back to a previous generation introduces another concept:
 history.
 Rolling back doesn't create a new generation, but it does add an entry to the environment's history.
 Suppose you `flox generations rollback` from generation 18 to 17.
-Although the list of generations hasn't changed, the latest entry in the environment's history will now say that generation 17 is the current generation.
+Although the list of generations hasn't changed, the latest entry in the environment's history will now say that generation 17 is the live generation.
 Note that although generation 18 is the "latest" in the sense that it has the
 highest generation number and was most recently created, it is not the latest to
 be current.

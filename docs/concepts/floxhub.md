@@ -18,6 +18,9 @@ you will be prompted to create an account.
 You can return to FloxHub to view your environments any time at
 [hub.flox.dev](https://hub.flox.dev).
 
+!!! note "Note"
+    If you need to share environments with a team, you can create an [Organization][organizations_concept] and push environments there instead of your personal account.
+
 ### Authenticating with the CLI
 
 You can authenticate with FloxHub from the Flox CLI.
@@ -52,11 +55,10 @@ the Environment Detail page.
 The FloxHub Environment Detail page lets you verify the contents of your
 environment and view its history in FloxHub.
 
-* **Sidebar**: shows key facts about the environment's current generation, like
-the number of packages, the systems supported, the active generation, and the
-last modified date.
+* **Sidebar**: shows key facts about the environment's live generation, like
+the systems supported and the last modified date.
 Below the key facts is a shortcut to the CLI sharing commands.
-* **Current generation tab**: shows you packages that are in your
+* **Details tab**: shows you packages that are in your
 [environment's manifest][manifest_concept].
 If your package was installed with a semantic version requirement,
 that information will show on the right side.
@@ -107,3 +109,4 @@ Run the [`flox auth logout`][flox_auth] command.
 [generation_concept]: ../concepts/generations.md
 [manifest_concept]: ../concepts/environments.md#manifesttoml
 [environments_concept]: ../concepts/environments.md
+[organizations_concept]: ../concepts/organizations.md
