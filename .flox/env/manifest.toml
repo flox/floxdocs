@@ -15,6 +15,7 @@ lychee.pkg-path = "lychee"
 lychee.pkg-group = "lint"
 markdownlint-cli2.pkg-path = "markdownlint-cli2"
 markdownlint-cli2.pkg-group = "lint"
+gnumake.pkg-path = "gnumake"
 
 [hook]
 on-activate = '''
