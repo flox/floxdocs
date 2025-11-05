@@ -95,6 +95,23 @@ spec:
       command: ["echoip"]
 ```
 
+## Mutability
+
+By default, Imageless Kubernetes pods are immutable, such that `flox install` commands are not possible and `/nix` is mounted read-only.
+
+To enable mutability (e.g. for debugging), the `flox.dev/nix-mutable` annotation can be used.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    flox.dev/environment: "flox/quotes-app"
+    # Enable /nix mutability
+    flox.dev/nix-mutable: "true"
+```
+
 ## Mixed Flox/non-Flox pods
 
 Imageless Kubernetes allows mixing Flox and non-Flox-based containers in the same pod, supporting the use of conventional init or sidecar containers combined with Flox-based workloads.
