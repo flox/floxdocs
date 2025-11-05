@@ -43,12 +43,9 @@ spec:
   # Required: directs containerd to use the Flox backend
   runtimeClassName: flox
   containers:
-    # The following container is not used but is required by the
-    # Kubernetes pod specification. Any valid values can be used here,
-    # but we provide the `flox/empty` container as a demonstration of
-    # the fact that the Flox environment relies on nothing from the
-    # container image.
-    - name: empty
+    - name: echoip
+      # We provide `flox/empty` as a demonstration that the Flox
+      # environment requires nothing from the container image.
       image: flox/empty:1.0.0
       # The command to run inside your environment
       command: ["echoip"]
