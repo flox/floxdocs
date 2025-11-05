@@ -95,6 +95,25 @@ spec:
       command: ["echoip"]
 ```
 
+## Activation mode
+
+By default, Imageless Kubernetes pods start in `run` mode. `run` mode is is intended only to run packages installed in the Flox environment, but not provide any of the installed development dependencies.
+
+The `flox.dev/activate-mode` annotation can be used to configure the mode, which may be useful for applications such as running CI jobs in Flox-enabled pods.
+
+See the [`options.activate.mode`](../man/manifest.toml.md#options) option in the manifest for more details on modes.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    flox.dev/environment: "flox/quotes-app"
+    # Activate in dev mode
+    flox.dev/activate-mode: "dev"
+```
+
 ## Mutability
 
 By default, Imageless Kubernetes pods are immutable, such that `flox install` commands are not possible and `/nix` is mounted read-only.
