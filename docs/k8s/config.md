@@ -34,7 +34,7 @@ kind: Pod
 metadata:
   name: flox-containerd-demo
   annotations:
-    flox.dev/environment: "limeytexan/echoip"
+    flox.dev/environment: "flox/echoip"
 spec:
   runtimeClassName: flox
 
@@ -84,7 +84,7 @@ kind: Pod
 metadata:
   name: flox-containerd-demo
   annotations:
-    flox.dev/environment: "limeytexan/echoip"
+    flox.dev/environment: "flox/echoip"
     # Disable telemetry
     flox.dev/disable-metrics: "true"
 spec:
