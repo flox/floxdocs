@@ -140,7 +140,7 @@ The `label` is used in concert with a `RuntimeClass` in the next section to make
 
 For clusters created using methods other than Terraform (e.g. AWS management console), we recommend using [eksctl][eksctl] to create the Flox node group.
 
-`eksctl` is a utility made by AWS to create and manage EKS clusters, including clusters it did not create.
+`eksctl` is a utility developed by AWS to create and manage EKS clusters, including clusters it did not create.
 
 For our purposes, `eksctl` greatly simplifies appending custom configuration to the base launch template.
 
