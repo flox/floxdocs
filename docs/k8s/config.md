@@ -7,12 +7,12 @@ description: "Configuring Imageless Kubernetes"
 
 ## Authentication
 
-Imageless Kubernetes allows you to run Flox environments in place or on top of container images.
+Imageless Kubernetes allows you to run Flox environments in place of or on top of container images.
 Flox environments are accessed centrally via [FloxHub][floxhub] and managed using the Flox CLI.
 
-In the [introduction][intro] we discussed how annotations are used to instruct Imageless Kubernetes which Flox environment to run.
+In the [introduction][intro] we discussed how annotations are used to tell Imageless Kubernetes which Flox environment to run.
 However, we assumed that the referenced environment was publicly available without authentication.
-If you plan to use private environments, you will have to authenticate Imageless Kubernetes to access FloxHub using your user credentials.
+If you plan to use private environments, you will have to authenticate Imageless Kubernetes using your FloxHub user credentials.
 
 To do so, you need to first login to FloxHub using the Flox CLI using [`flox auth login`][flox_auth], if you haven't done so already.
 You then create a new Kubernetes secret:
@@ -24,7 +24,7 @@ flox auth token | kubectl create secret generic floxhub-token --from-file=floxhu
 !!! note "Flox CLI version"
     The user creating the token via `flox auth token` will need at least version 1.7.6 of the Flox CLI.
 
-Finally, you add a secret volume to your pod specification and mount it to `"/var/run/secrets/flox.dev"` inside your container.
+Finally, you add a secret volume to your pod specification and mount it to `/var/run/secrets/flox.dev` inside your container.
 
 A sample specification is shown below:
 
@@ -97,7 +97,7 @@ spec:
 
 ## Activation mode
 
-By default, Imageless Kubernetes pods start in `run` mode. `run` mode is is intended only to run packages installed in the Flox environment, but not provide any of the installed development dependencies.
+By default, Imageless Kubernetes pods start in `run` mode. `run` mode is intended only to run packages installed in the Flox environment, but not provide any of the installed development dependencies.
 
 The `flox.dev/activate-mode` annotation can be used to configure the mode, which may be useful for applications such as running CI jobs in Flox-enabled pods.
 
@@ -162,7 +162,7 @@ metadata:
     vault.hashicorp.com/agent-inject: "true"
     vault.hashicorp.com/role: "myapp-role"
     flox.dev/environment: "flox/quotes-app"
-    # Keep these containers unmodified 
+    # Keep these containers unmodified
     flox.dev/skip-containers: "vault-agent,vault-agent-init"
   spec:
     containers:

@@ -20,7 +20,7 @@ Most of this can be done as part of the node bootstrapping process, using custom
     Additional information on `nodeadm` and bootstrapping with user data can be found in the [EKS documentation][userdata-docs].
 
 !!! info "Info"
-    The below examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
+    The following examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
 
 --8<-- "k8s-shim-cli-version.md"
 
@@ -32,7 +32,7 @@ To create the node group, you will need:
 
 - Subnets for the node group to use
 - IDs for cluster and node security groups
-- The cluster's service CIDR (i.e. the range from which cluster services will recieve IPs)
+- The cluster's service CIDR (i.e. the range from which cluster services will receive IPs)
 
 If you've used a public module such as [terraform-aws-eks][terraform-aws-eks], most of these details should be available either from the module configuration or outputs.
 
@@ -40,8 +40,8 @@ If you've used a public module such as [terraform-aws-eks][terraform-aws-eks], m
 
 This example will use the [eks-managed-node-group][eks-managed-node-group] submodule of [terraform-aws-eks][terraform-aws-eks], but it can also be used standalone, regardless of how the cluster was defined in Terraform.
 
-The below Terraform configuration can be used to provision a node group with the Flox runtime; see comments for guidance on each input.
-The below configuration assumes you already have Terraform configuration for a cluster including the [AWS provider][aws-tf-provider].
+The following Terraform configuration can be used to provision a node group with the Flox runtime; see comments for guidance on each input.
+This example assumes you already have Terraform configuration for a cluster including the [AWS provider][aws-tf-provider].
 
 !!! note "Note"
     See the [upstream module documentation][terraform-aws-eks] for details on adding this node group to an autoscaling scheme (e.g. Cluster Autoscaler, Karpenter).
@@ -55,10 +55,10 @@ module "eks_managed_node_group" {
   cluster_name = "my-cluster"
 
   # replace with your node subnets
-  subnet_ids = ["subnet-01982749e3b6e77a6", "subnet-025dd07e5117afef5", "subnet-0b0ef36fe25286a83"] 
+  subnet_ids = ["subnet-01982749e3b6e77a6", "subnet-025dd07e5117afef5", "subnet-0b0ef36fe25286a83"]
 
   # replace with your desired instance types -- x86_64 or ARM (Graviton) are supported
-  instance_types = ["t3.small"] 
+  instance_types = ["t3.small"]
 
   cluster_primary_security_group_id = module.eks.cluster_primary_security_group_id
   vpc_security_group_ids            = [module.eks.node_security_group_id]
@@ -214,7 +214,7 @@ managedNodeGroups:
               container_annotations = [ "flox.dev/*" ]
             [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.flox.options]
               SystemdCgroup = true
-              
+
  # required if cluster was not created with eksctl, see https://docs.aws.amazon.com/eks/latest/eksctl/unowned-clusters.html#create-nodegroup
  vpc:
   id: "vpc-12345"
@@ -238,7 +238,7 @@ Further explanation of the bootstrapping process is available in the Terraform s
 ## Kubernetes Configuration
 
 A [RuntimeClass](https://kubernetes.io/docs/concepts/containers/runtime-class/) is used to expose the runtime to Kubernetes such that it can be utilized to create pods.
-The below `RuntimeClass` needs to be applied to the cluster, where the `nodeSelector` matches the `label` given to the node group above
+The `RuntimeClass` needs to be applied to the cluster, where the `nodeSelector` matches the `label` given to the node group above
 
 ```yaml title="RuntimeClass.yaml"
 apiVersion: node.k8s.io/v1

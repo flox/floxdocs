@@ -3,15 +3,15 @@ title: "Uninstall"
 description: "Uninstalling Imageless Kubernetes from any cluster"
 ---
 
-This guide describes removing Imageless Kubernetes from a cluster.
+This guide describes how to remove Imageless Kubernetes from a cluster.
 
-First, remove the `RuntimeClass` as:
+First, remove the `RuntimeClass` with:
 
 ```sh
-kubectl delete runtimeclass flox 
+kubectl delete runtimeclass flox
 ```
 
-Then follow the installation-method specfic guidance below.
+Then follow the installation-method specific guidance below.
 
 ## Amazon EKS
 
@@ -26,7 +26,7 @@ If Terraform was used to add a node group to an existing cluster:
 
 ### eksctl
 
-If `eksctl` was used, remove the node group as:
+If `eksctl` was used, remove the node group with:
 
 ```sh
 eksctl delete nodegroup -f nodegroup.yaml
@@ -43,14 +43,14 @@ First, remove the Flox runtime from the `containerd` configuration on each node.
 The installer used in the [installation instructions][self-managed] makes a backup of the original configuration
 in `/etc/containerd/config.toml.bak.xx` where `xx` is an arbitrary number.
 
-Restore the backup as:
+Restore the backup with:
 
 ```sh
 mv /etc/containerd/config.toml.bak.xx /etc/containerd/config.toml
 systemctl restart containerd
 ```
 
-Then remove the shim from each node as:
+Then remove the shim from each node with:
 
 ```sh
 rm /usr/local/bin/containerd-shim-flox-v2

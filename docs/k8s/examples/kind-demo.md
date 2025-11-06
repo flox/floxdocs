@@ -31,7 +31,7 @@ curl localhost:3000/quotes/0
 
 ## Quotes app environment
 
-The example runs a deployment of `flox/quotes-app`, which is just like any other
+The example runs a deployment of [`flox/quotes-app`](https://hub.flox.dev/flox/quotes-app), which is just like any other
 Kubernetes deployment, but with a few key differences.
 Here's a snippet from the deployment manifest:
 
@@ -63,14 +63,9 @@ instead of a container image:
 Just as with any container, you can specify a startup command, which is
 `["quotes-app-go", "-r", "redis:6379"]` in this case.
 
-When the container starts, the Flox environment is pulled from
-[hub.flox.dev/flox/quotes-app](https://hub.flox.dev/flox/quotes-app) and then
-bind mounted into the container.
-The `flox/quotes-app` environment contains the package `flox/quotes-app-go`,
-which is a simple web server published to FloxHub at
-[hub.flox.dev/packages/flox/quotes-app-go](https://hub.flox.dev/packages/flox/quotes-app-go).
-When the container starts, the Flox environment is activated,
-and then `quotes-app-go` is run inside the activated environment.
+When the container starts, the [`flox/quotes-app`](https://hub.flox.dev/flox/quotes-app) Flox environment is pulled from FloxHub and bind mounted into the container.
+This environment contains the [`flox/quotes-app-go`](https://hub.flox.dev/packages/flox/quotes-app-go) package, which is a simple web server published to FloxHub.
+When the container starts, the environment is activated, and then `quotes-app-go` is run inside the activated environment.
 
 ### Redis environment
 

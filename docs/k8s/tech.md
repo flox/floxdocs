@@ -17,7 +17,7 @@ With Imageless Kubernetes you deploy pods that run commands inside of a Flox env
 
 ## containerd-shim
 
-Under the hood Imageless Kubernetes works by wrapping `containerd-shim-runc-v2` to make Flox-specific modifications to the container config and filesystem, but ultimately lean on battle-tested technology like `containerd-shim-runc-v2`.
+Under the hood, Imageless Kubernetes works by wrapping `containerd-shim-runc-v2` to make Flox-specific modifications to the container config and filesystem.
 The diagram below shows the high level overview of how Imageless Kubernetes works.
 
 ![containerd](../img/containerd.png)
@@ -26,7 +26,7 @@ Typically `containerd` produces a `config.json` describing the container's names
 This `config.json` is provided to a `containerd-shim` that then calls `runc` in order to create the container.
 `runc` then creates and starts the container using the information in `config.json`.
 
-With Imageless Kubernetes the `containerd-shim-flox-v2` intercepts the container configuration to prepare the container with everything needed to run the Flox environment.
+With Imageless Kubernetes, `containerd-shim-flox-v2` intercepts the container configuration to prepare the container with everything needed to run the Flox environment.
 The shim performs a number of operations to prepare the container's filesystem, including pulling the specified Flox environment to the node so that it can be mounted into the container.
 
 The shim also modifies the container's command to run it in the context of the Flox environment rather than running the command directly.
