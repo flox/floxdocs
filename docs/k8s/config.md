@@ -95,6 +95,106 @@ spec:
       command: ["echoip"]
 ```
 
+## Activation mode
+
+By default, Imageless Kubernetes pods start in `run` mode. `run` mode is is intended only to run packages installed in the Flox environment, but not provide any of the installed development dependencies.
+
+The `flox.dev/activate-mode` annotation can be used to configure the mode, which may be useful for applications such as running CI jobs in Flox-enabled pods.
+
+See the [`options.activate.mode`](../man/manifest.toml.md#options) option in the manifest for more details on modes.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    flox.dev/environment: "flox/quotes-app"
+    # Activate in dev mode
+    flox.dev/activate-mode: "dev"
+```
+
+## Generations
+
+A specific [generation][generations] of an environment on FloxHub can be specified as part of the `flox.dev/environment` annotation.
+This can be useful to pin a specific version of an environment to allow for intentional or staged upgrades.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    # Pin to generation 2 of the environment
+    flox.dev/environment: "flox/quotes-app:2"
+```
+
+## Mutability
+
+By default, Imageless Kubernetes pods are immutable, such that `flox install` commands are not possible and `/nix` is mounted read-only.
+
+To enable mutability (e.g. for debugging), the `flox.dev/nix-mutable` annotation can be used.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    flox.dev/environment: "flox/quotes-app"
+    # Enable /nix mutability
+    flox.dev/nix-mutable: "true"
+```
+
+## Mixed Flox/non-Flox pods
+
+Imageless Kubernetes allows mixing Flox and non-Flox-based containers in the same pod, supporting the use of conventional init or sidecar containers combined with Flox-based workloads.
+This is accomplished through the use of two annotations: `flox.dev/skip-containers` and `flox.dev/skip-containers-exec`.
+
+`flox.dev/skip-containers` accepts a comma-separated list of containers that will _not_ be modified by the Flox runtime, and will be run as if they were started with the default runtime (e.g. `runc`). This option is best used for sidecars like `vault-agent` or `istio` that should run completely unmodified.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/role: "myapp-role"
+    flox.dev/environment: "flox/quotes-app"
+    # Keep these containers unmodified 
+    flox.dev/skip-containers: "vault-agent,vault-agent-init"
+  spec:
+    containers:
+...
+    - name: vault-agent
+      image: hashicorp/vault:latest
+      command: ["/bin/sh", "-ec"]
+      args:
+      - |
+        vault agent -config=/vault/configs/agent.hcl
+      env:
+      - name: VAULT_ADDR
+        value: "http://vault.vault.svc.cluster.local:8200"
+      volumeMounts:
+      - name: vault-secrets
+        mountPath: /vault/secrets
+
+    - name: quotes-app
+      image: flox/empty:1.0.0
+      command: ["quotes-app-go"]
+      volumeMounts:
+      - name: vault-secrets
+        mountPath: /vault/secrets
+        readOnly: true
+...
+```
+
+`flox.dev/skip-containers-exec` also accepts a comma separated list of containers, but containers specified in this annotation _will_ contain the Flox environment specified in `flox.dev/environment`.
+
+The difference from `skip-containers` is that while `skip-containers-exec` containers will have their main process run from the Flox environment, commands run via `kubectl exec` or equivalent will be run outside of it. This option is best used when you want the container's main workload to run in the Flox environment, but need exec commands (for debugging, health checks, or auxiliary tasks) to run in the base container environment without Flox.
+
 [intro]: ./intro.md
 [floxhub]: ../concepts/floxhub.md
 [flox_auth]: ../man/flox-auth.md
+[generations]: ../concepts/generations.md
