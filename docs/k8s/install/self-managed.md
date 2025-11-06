@@ -3,7 +3,7 @@ title: "Self-managed Kubernetes"
 description: "Installing Imageless Kubernetes to a self-managed Kubernetes cluster"
 ---
 
-This guide describes general steps for installing Imageless Kubernetes, suitable for self-managed clusters or other Kubernetes distributions (e.g. `k3s`).
+This guide describes general steps for installing Imageless Kubernetes, suitable for self-managed clusters or other Kubernetes distributions (e.g. K3s).
 
 To use Imageless Kubernetes, on each node you will need to:
 
@@ -12,7 +12,7 @@ To use Imageless Kubernetes, on each node you will need to:
 - Register the shim with `containerd`
 - Register the shim with Kubernetes
 
-Imageless Kubernetes requires a minimum `containerd` version of `1.7`.
+!!! note "Imageless Kubernetes requires a minimum `containerd` version of `1.7`."
 
 ## Node Configuiration
 
@@ -33,13 +33,11 @@ We provide an installer in the form of a Flox environment that deploys Imageless
 
 Details about the installer can be found on its [FloxHub page][shim-installer]; the script is the activation hook for the environment.
 
-Once Flox is installed, the runtime shim can be installed by running
+Once Flox is installed, the runtime shim can be installed by running the following command as `root` on each node that will host Imageless Kubernetes pods.
 
 ```sh
 flox activate -r flox/containerd-shim-flox-installer --trust
 ```
-
-as `root` on each node that will host Imageless Kubernetes pods.
 
 ## Kubernetes Configuration
 
@@ -47,26 +45,30 @@ A [RuntimeClass][runtime-class] is used to expose the runtime to Kubernetes such
 
 We recommend labeling nodes that have the runtime shim installed to ensure Flox pods are only scheduled on them.
 
-Nodes can be labeled as:
+1. Label your nodes with the following command:
 
-```sh
-kubectl label node <node-name> "flox.dev/enabled=true"
-```
+    ```sh
+    kubectl label node <node-name> "flox.dev/enabled=true"
+    ```
 
-The below `RuntimeClass` needs to be applied to the cluster, where the `nodeSelector` matches the `label` given to nodes above
+2. Update the `nodeSelector` in the following `RuntimeClass` definition to match the `label` specified above.
 
-```yaml title="RuntimeClass.yaml"
-apiVersion: node.k8s.io/v1
-kind: RuntimeClass
-metadata:
-  name: flox
-handler: flox
-scheduling:
-  nodeSelector:
-    flox.dev/enabled: "true"
-```
+    ```yaml title="RuntimeClass.yaml"
+    apiVersion: node.k8s.io/v1
+    kind: RuntimeClass
+    metadata:
+      name: flox
+    handler: flox
+    scheduling:
+      nodeSelector:
+        flox.dev/enabled: "true"
+    ```
 
-which can be applied by `kubectl apply -f RuntimeClass.yaml`.
+3. Apply this resource with the following command:
+
+    ```sh
+    kubectl apply -f RuntimeClass.yaml
+    ```
 
 The `nodeSelector` ensures that Flox pods will only be scheduled on nodes with the Flox runtime installed.
 

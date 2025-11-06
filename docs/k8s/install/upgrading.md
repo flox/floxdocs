@@ -20,7 +20,7 @@ On self-managed clusters, both Flox and the runtime shim must be upgraded indivi
 For Flox, the [Install Flox][install-flox] page has details for each installation type on how to upgrade.
 
 For the runtime shim, re-running the install command will perform the upgrade.
-It can be done as:
+It can be done with:
 
 ```sh
 flox activate -r flox/containerd-shim-flox-installer --trust
@@ -28,7 +28,7 @@ flox activate -r flox/containerd-shim-flox-installer --trust
 
 after which, all new pods will be created with the new shim version.
 
-Exising Flox pods will only use the new version once they are restarted.
+Existing Flox pods will only use the new version once they are restarted.
 
 [eks]: ./eks.md
 [install-flox]: ../../install-flox/install.md

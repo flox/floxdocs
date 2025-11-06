@@ -36,7 +36,7 @@ metadata:
   name: flox-containerd-demo
   annotations:
     # Required: the FloxHub environment to be activated within the pod
-    flox.dev/environment: "limeytexan/echoip"
+    flox.dev/environment: "flox/echoip"
     # Optional: disable Flox metrics reporting
     # flox.dev/disable-metrics: "false" # default
 spec:
