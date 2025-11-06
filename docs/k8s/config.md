@@ -114,6 +114,21 @@ metadata:
     flox.dev/activate-mode: "dev"
 ```
 
+## Generations
+
+A specific [generation][generations] of an environment on FloxHub can be specified as part of the `flox.dev/environment` annotation.
+This can be useful to pin a specific version of an environment to allow for intentional or staged upgrades.
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: quotes-app
+  annotations:
+    # Pin to generation 2 of the environment
+    flox.dev/environment: "flox/quotes-app:2"
+```
+
 ## Mutability
 
 By default, Imageless Kubernetes pods are immutable, such that `flox install` commands are not possible and `/nix` is mounted read-only.
@@ -182,3 +197,4 @@ The difference from `skip-containers` is that while `skip-containers-exec` conta
 [intro]: ./intro.md
 [floxhub]: ../concepts/floxhub.md
 [flox_auth]: ../man/flox-auth.md
+[generations]: ../concepts/generations.md
