@@ -54,7 +54,6 @@ Then remove the shim from each node with:
 
 ```sh
 rm /usr/local/bin/containerd-shim-flox-v2
-rm -rf /flox
 ```
 
 And finally, uninstall Flox from each node by following the instructions from the [Uninstall Flox][uninstall-flox] page.
