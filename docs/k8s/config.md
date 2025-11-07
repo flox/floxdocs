@@ -21,6 +21,9 @@ You then create a new Kubernetes secret:
 flox auth token | kubectl create secret generic floxhub-token --from-file=floxhub-token=/dev/stdin
 ```
 
+!!! note "Token expiry"
+    Tokens generated with `flox auth token` are associated with your user account and will expire 1 month from when they were issued. For a more robust alternative see [Machine Access Tokens for Organizations](../concepts/organizations.md#machine-access-tokens).
+
 !!! note "Flox CLI version"
     The user creating the token via `flox auth token` will need at least version 1.7.6 of the Flox CLI.
 
