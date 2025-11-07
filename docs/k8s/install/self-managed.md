@@ -24,6 +24,8 @@ Flox will need to be installed on each node that will host Imageless Kubernetes 
 
 ### Runtime shim installation
 
+#### Automatic installation
+
 We provide an installer in the form of a Flox environment that deploys Imageless Kubernetes by:
 
 - Detecting the installed `containerd` version
@@ -31,13 +33,78 @@ We provide an installer in the form of a Flox environment that deploys Imageless
 - Updating the `containerd` configuration as necessary
 - Restarting `containerd`
 
-Details about the installer can be found on its [FloxHub page][shim-installer]; the script is the activation hook for the environment.
+Details about the installer can be found on its [FloxHub page][shim-installer]; the script is executed by the activation hook for the environment.
 
 Once Flox is installed, the runtime shim can be installed by running the following command as `root` on each node that will host Imageless Kubernetes pods.
 
 ```sh
 flox activate -r flox/containerd-shim-flox-installer --trust
 ```
+
+#### Manual installation
+
+If you receive a message like:
+
+```sh
+containerd not found, skipping flox shim installation
+```
+
+when running the installer, but do have `containerd` installed, you can perform the installation process manually.
+
+This may be necessary for Kubernetes distributions like K3s that vendor `containerd`, and put its binaries and configuration in a non-standard location.
+
+1. Create a Flox environment and install the runtime shim.
+
+    ```sh
+    mkdir containerd-shim-flox
+    cd containerd-shim-flox
+    flox init -b
+    # use -2x for containerd 2.x, and -17 for 1.7
+    flox install containerd-shim-flox-2x 
+    ```
+
+2. Create a symlink from the Flox environment to `/usr/local/bin`.
+
+    ```sh
+    ln -s $PWD/.flox/run/x86_64-linux.containerd-shim-flox.run/bin/containerd-shim-flox-v2 /usr/local/bin/containerd-shim-flox-v2
+
+    ```
+
+3. Add the Flox runtime configuration to the `containerd` `config.toml`.
+Check the `version` line at the beginning of the file and use the matching configuration below.
+
+    !!! note "Note"
+        This is usually in `/etc/containerd`, but on K3s, it is in `/var/lib/rancher/k3s/agent/etc/containerd`.
+
+        See the [K3s documentation](https://docs.k3s.io/advanced#configuring-containerd) for more details on that specific implementation.
+
+    ```toml title="version = 2"
+    [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.flox]
+        runtime_path = "/usr/local/bin/containerd-shim-flox-v2"
+        runtime_type = "io.containerd.runc.v2"
+        pod_annotations = [ "flox.dev/*" ]
+        container_annotations = [ "flox.dev/*" ]
+      [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.flox.options]
+        SystemdCgroup = true
+    ```
+
+    ```toml title="version = 3"
+    [plugins."io.containerd.cri.v1.runtime".containerd.runtimes.flox]
+      runtime_path = "/usr/local/bin/containerd-shim-flox-v2"
+      runtime_type = "io.containerd.runc.v2"
+      pod_annotations = [ "flox.dev/*" ]
+      container_annotations = [ "flox.dev/*" ]
+      [plugins."io.containerd.cri.v1.runtime".containerd.runtimes.flox.options]
+        SystemdCgroup = true
+    ```
+
+4. Restart `containerd`
+
+    ```sh
+    systemctl restart containerd
+    # if needed
+    systemctl restart k3s
+    ```
 
 ## Kubernetes Configuration
 
