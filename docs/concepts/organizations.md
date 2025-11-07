@@ -2,7 +2,7 @@
 
 --8<-- "paid-feature.md"
 
-An **organization** in FloxHub represents a shared workspace for teams. It provides:
+An **organization** in [FloxHub][floxhub_concept] represents a shared workspace for teams. It provides:
 
 - A private catalog
 - Scoped access control
@@ -48,7 +48,7 @@ Organizations in FloxHub include a view of all environments and packages owned b
 
 For each environment, users can:
 
-- See the current generation and a history of changes
+- See the live generation and a history of changes
 - Configure basic settings, such as owner and name
 - Delete environments
 
@@ -57,3 +57,5 @@ For each package, users can:
 - See package details, including supported systems and available versions
 
 Environments and packages created within an organization are visible to all its members, with access governed by the organization’s RBAC configuration.
+
+[floxhub_concept]: ./floxhub.md
