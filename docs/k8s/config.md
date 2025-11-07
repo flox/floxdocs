@@ -18,7 +18,9 @@ To do so, you need to first login to FloxHub using the Flox CLI using [`flox aut
 You then create a new Kubernetes secret:
 
 ```bash
-flox auth token | kubectl create secret generic floxhub-token --from-file=floxhub-token=/dev/stdin
+flox auth token \
+  | kubectl create secret generic floxhub-token \
+    --from-file=floxhub-token=/dev/stdin
 ```
 
 !!! note "Token expiry"
