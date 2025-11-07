@@ -14,9 +14,9 @@ To use Imageless Kubernetes, on each node you will need to:
 
 !!! note "Imageless Kubernetes requires a minimum `containerd` version of `1.7`."
 
-## Node Configuiration
+## Node configuration
 
-### Flox Installation
+### Flox installation
 
 Flox packages and installation instructions for `rpm` and `deb` based distributions are available from the the [Install Flox][install-flox] page.
 
@@ -106,7 +106,7 @@ Check the `version` line at the beginning of the file and use the matching confi
     systemctl restart k3s
     ```
 
-## Kubernetes Configuration
+## Kubernetes configuration
 
 A [RuntimeClass][runtime-class] is used to expose the runtime to Kubernetes such that it can be utilized to create pods.
 
