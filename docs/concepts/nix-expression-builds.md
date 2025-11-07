@@ -197,6 +197,7 @@ diff -ru hello-2.12.2/tests/hello-1 hello-patched/tests/hello-1
 Typically you would only override specific attributes of an existing package, which allows you to continue benefiting from upstream changes and surface failures if there are any conflicts, but if you want to copy a package to make more fundamental changes or because it's being removed upstream:
 
 ```{ .sh .copy }
+mkdir -p .flox/pkgs
 EDITOR=cat \
   nix --extra-experimental-features "nix-command flakes" \
   edit 'nixpkgs#hello' \
