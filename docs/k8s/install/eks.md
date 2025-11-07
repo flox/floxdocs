@@ -16,13 +16,15 @@ To run on EKS, each node in the node group will need to:
 
 Most of this can be done as part of the node bootstrapping process, using custom user data to pass instructions to [nodeadm][nodeadm].
 
+If you would like to create a new cluster for Imageless Kubernetes, examples are available on [GitHub][k8s-shim-install].
+
 !!! note "Note"
     Additional information on `nodeadm` and bootstrapping with user data can be found in the [EKS documentation][userdata-docs].
 
-!!! info "Info"
-    The following examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
-
 --8<-- "k8s-shim-cli-version.md"
+
+!!! tip "Tip"
+    The following examples are tailored towards adding node groups to existing clusters -- complete examples for creating new clusters with Imageless Kubernetes are available on [GitHub][k8s-shim-install].
 
 ## Node Configuration via Terraform
 
@@ -271,4 +273,4 @@ A sample `Pod` manifest is available in the [Introduction][intro-section], but a
 [nodeadm]: https://github.com/awslabs/amazon-eks-ami/blob/main/nodeadm
 [shim-installer]: https://hub.flox.dev/flox/containerd-shim-flox-installer
 [aws-tf-provider]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-[k8s-shim-install]: https://github.com/flox/k8s-shim-install
+[k8s-shim-install]: https://github.com/flox/flox-containerd-shim-deploy
