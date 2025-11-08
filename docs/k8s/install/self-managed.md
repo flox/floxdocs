@@ -84,7 +84,7 @@ Check the `version` line at the beginning of the file and use the matching confi
         runtime_type = "io.containerd.runc.v2"
         pod_annotations = [ "flox.dev/*" ]
         container_annotations = [ "flox.dev/*" ]
-      [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.flox.options]
+    [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.flox.options]
         SystemdCgroup = true
     ```
 
@@ -94,7 +94,7 @@ Check the `version` line at the beginning of the file and use the matching confi
       runtime_type = "io.containerd.runc.v2"
       pod_annotations = [ "flox.dev/*" ]
       container_annotations = [ "flox.dev/*" ]
-      [plugins."io.containerd.cri.v1.runtime".containerd.runtimes.flox.options]
+    [plugins."io.containerd.cri.v1.runtime".containerd.runtimes.flox.options]
         SystemdCgroup = true
     ```
 
