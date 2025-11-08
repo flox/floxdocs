@@ -24,6 +24,10 @@ Flox will need to be installed on each node that will host Imageless Kubernetes 
 
 ### Runtime shim installation
 
+For most Kubernetes distributions, the automatic installation method is the recommended option. We also provide a manual method for those that are not supported by the automatic installer.
+
+We recommend first trying the automatic method, and only moving to the manual method if issues are encountered.
+
 #### Automatic installation
 
 We provide an installer in the form of a Flox environment that deploys Imageless Kubernetes by:
