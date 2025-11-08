@@ -57,6 +57,7 @@ nav:
     - Installation:
       - Amazon EKS: k8s/install/eks.md
       - Self-managed: k8s/install/self-managed.md
+      - Troubleshooting: k8s/install/troubleshooting.md
       - Upgrading: k8s/install/upgrading.md
       - Uninstall: k8s/install/uninstall.md
     - Examples:
