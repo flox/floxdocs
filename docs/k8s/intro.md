@@ -72,14 +72,14 @@ It's that simple.
 
 ## Trying it out
 
-Some cloud providers don't allow you to modify the nodes in the Kubernetes cluster, so for now you are limited to:
+To quickly try out Imageless Kubernetes locally, see the [examples][examples-section], which uses `kind` to create a local Kubernetes cluster.
+
+Imageless Kubernetes is also currently available for:
 
 - Amazon EKS
 - Self-managed Kubernetes
 
-See the [installation][install-section] for more details on installing Imageless Kubernetes to your cluster.
-
-To try out Imageless Kubernetes locally, see the [examples][examples-section], which uses `kind` to create a local Kubernetes cluster.
+See the [installation][install-section] for more details on installing Imageless Kubernetes in your cluster.
 
 [generations-concept]: ../concepts/generations.md
 [install-section]: ./install/eks.md
