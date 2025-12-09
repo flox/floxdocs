@@ -73,6 +73,40 @@ Packages that were added manually in a text editor or with
 * **Settings tab**: displays key information about your environment, like the
 owner and its name.
 
+### Automated upgrades
+
+--8<-- "paid-feature.md"
+
+To avoid missing important updates to your packages, it's a best practice to regularly upgrade your environments.
+You can do this manually using the [`flox upgrade`][flox_upgrade] command or by clicking **Upgrade now** on the environment detail page in FloxHub.
+However, if you have an [Organization][organizations_concept], you can let FloxHub upgrade your environments automatically.
+
+#### Configure environment upgrades
+
+Automated upgrades are enabled by default for all environments in an organization.
+To change the default setting for an individual environment:
+
+1. Sign in to [FloxHub][floxhub]
+2. Choose an environment in an organization for which you're a *writer* or *owner*
+3. Open that environment's detail page
+4. Go to **Settings** > **Automated Upgrades**
+5. Change the upgrade cadence to **Daily**
+
+    !!! note "If you want to turn off automated upgrades, choose **Never**."
+
+#### Organization-wide upgrade policy
+
+You may choose to opt-out of automated upgrades for new environments, or turn them off for all environments in an organization.
+To change your organization's upgrade policy:
+
+1. Sign in to [FloxHub][floxhub]
+2. Go to the detail page for an organization for which you're an *owner*
+3. Go to **Settings** > **Automated Upgrades**
+4. Select **Enable for new environments** to automatically upgrade new environments every day.
+5. Select **Pause for all environments** to disable automated upgrades for all environments in this organization.
+
+    !!! warning "We do not recommend disabling automated upgrades for all environments, as this can lead to outdated dependencies and potential security vulnerabilities."
+
 ## Referring to FloxHub environments
 
 When referring to FloxHub environments to perform remote operations in the CLI,
@@ -106,7 +140,9 @@ Run the [`flox auth logout`][flox_auth] command.
 [flox_edit]: ../man/flox-edit.md
 [flox_install]: ../man/flox-install.md
 [flox_uninstall]: ../man/flox-uninstall.md
+[flox_upgrade]: ../man/flox-upgrade.md
 [generation_concept]: ../concepts/generations.md
 [manifest_concept]: ../concepts/environments.md#manifesttoml
 [environments_concept]: ../concepts/environments.md
 [organizations_concept]: ../concepts/organizations.md
+[floxhub]: https://hub.flox.dev
