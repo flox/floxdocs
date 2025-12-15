@@ -67,6 +67,7 @@ nav:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md
     - FloxHub: concepts/floxhub.md
+    - FloxHub environments: concepts/floxhub-environments.md
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
     - Base Catalog: concepts/base-catalog.md
