@@ -143,5 +143,5 @@ Current settings:
 
 [nixpkgs]: https://github.com/NixOS/nixpkgs
 [floxpkgs]: https://github.com/flox/nixpkgs
-[nixpkgs_tracker]: https://nixpk.gs/pr-tracker.html
+[nixpkgs_tracker]: https://nixpkgs-tracker.ocfox.me
 [manifest_concept]: ./environments.md#manifesttoml
