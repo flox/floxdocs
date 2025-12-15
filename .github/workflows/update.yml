@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v5"
+        uses: "actions/checkout@v6"
 
       - name: "Install flox"
         uses: "flox/install-flox-action@main"
@@ -26,7 +26,7 @@ jobs:
         run: "flox -vvv upgrade"
 
       - name: "Create Pull Request"
-        uses: "peter-evans/create-pull-request@v7"
+        uses: "peter-evans/create-pull-request@v8"
         with:
           token: "${{ secrets.MANAGED_FLOXBOT_GITHUB_ACCESS_TOKEN_REPO_SCOPE }}"
           add-paths: ".flox"
