@@ -257,7 +257,7 @@ python312: python312 (python3-3.12.9)
 Remember, the only package that's installed to `composed_python_project` directly is `pytest`.
 All of the other packages you get for free just by including the `python_env` environment.
 
-### Including remote environments
+### Including FloxHub environments
 
 Environments can also be included directly from FloxHub, such as the `myuser/python_env` environment that we pushed previously.
 This is especially useful if you're including the same environment across multiple projects and repositories because you don't need to ensure that they are checked out and synced locally.
