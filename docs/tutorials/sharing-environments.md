@@ -184,7 +184,7 @@ Don't forget to open a new terminal window or, for zsh, reload your RC file.
 source ~/.zshrc
 ```
 
-Now all new windows will open into your [FloxHub][floxhub_concept] environment. As the environment changes, the latest will be activated.
+Now all new windows will open into your [FloxHub][floxhub_concept] environment. When you push changes from one machine, run `flox pull -r youruser/example-project` on other machines to get the latest updates.
 
 ## Sharing with containers
 
