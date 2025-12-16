@@ -62,12 +62,12 @@ Suppose you `flox generations rollback` from generation 18 to 17.
 Although the list of generations hasn't changed, the latest entry in the environment's history will now say that generation 17 is the live generation.
 Note that although generation 18 is the "latest" in the sense that it has the
 highest generation number and was most recently created, it is not the latest to
-be current.
+be live.
 
-This history of what generation is current at a given point in time can be
+This history of what generation is live at a given point in time can be
 viewed on FloxHub on the `Change Log` tab for an environment.
 Or, to use the CLI to view history, you can run `flox generations history`.
-This provides a log of what generation of an environment was current at the time
+This provides a log of what generation of an environment was live at the time
 an environment was pulled.
 
 ## Generation lock
