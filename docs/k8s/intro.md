@@ -65,8 +65,9 @@ No need to rebuild an image.
 Here's what happens under the hood:
 
 - An operator runs `flox install -r myorg/myenv somepackage`.
-- This creates a new generation of `myorg`'s `myenv` environment and makes it the live generation.
-- Next time the pod is deployed, it will pull the live generation (which now contains `somepackage`)
+- This creates a new generation of the local copy of the environment.
+- The operator then runs `flox push -r myorg/myenv` to sync the changes to FloxHub.
+- Next time the pod is deployed, it will pull the latest generation from FloxHub (which now contains `somepackage`)
 
 It's that simple.
 
