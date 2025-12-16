@@ -125,6 +125,8 @@ $ flox push
     Use 'flox pull youruser/example-project' to get this environment in any other location.
 ```
 
+Changes are made to your local copy first. Use `flox push` to sync them to FloxHub so others can access the updates.
+
 !!! note "Note"
     Right now, only environment owners can push edits to their environments.
 
