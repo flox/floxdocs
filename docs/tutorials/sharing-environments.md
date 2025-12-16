@@ -8,7 +8,7 @@ description: Multiple ways to share your environment with others.
 Flox provides **three main ways of sharing environments** with others:
 
 - **Sharing environments with files:**: Flox environments are shared via the `.flox` folder and often checked into version control.
-- **Sharing environments on FloxHub**: Flox environments are shared via the FloxHub and available to all command line commands (including RC files) with `--remote username/environment`.
+- **Sharing environments on FloxHub**: Flox environments are shared via FloxHub and available to all command line commands (including RC files) with `-r username/environment`. Commands operate on your local copy; use `flox push` to sync changes to FloxHub.
 - **Containers**: Flox environments are containerized or used to create container images.
 
 ## Sharing environments with files
