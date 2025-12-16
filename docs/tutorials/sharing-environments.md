@@ -73,9 +73,9 @@ $ flox push
 
 You can also view your new environment in FloxHub's web application.
 
-### Directly activating a FloxHub environment
+### Using a local copy of a FloxHub environment
 
-As the recipient, you can use the environment in a variety of ways depending on your needs. If you trust the user sending the environment, [`flox activate -r username/environment`][flox_activate] the environment directly. The first time you do this you will be offered a choice about trusting this user in the future.
+As the recipient, you can use the environment in a variety of ways depending on your needs. If you trust the user sending the environment, [`flox activate -r username/environment`][flox_activate] the environment directly. This will implicitly pull the environment and create a local copy of the environment if it doesn't already exist. The first time you do this you will be offered a choice about trusting this user in the future.
 
 ```console
 $ flox activate -r youruser/example-project
@@ -100,9 +100,9 @@ telnet (GNU inetutils) 2.5
 ...
 ```
 
-### Pulling a FloxHub environment (and pushing updates)
+### Pulling a FloxHub environment into a directory (and pushing updates)
 
-If you intend to use the same environments across multiple projects or you want to stage changes before pushing to FloxHub, you may want to [`flox pull`][flox_pull] it instead.
+If you intend to commit the environment to version control, you may want to [`flox pull`][flox_pull] it instead.
 
 [`flox pull`][flox_pull] adds a `.flox` folder to the directory you are in that is linked to the FloxHub environment. When using a [FloxHub][floxhub_concept] environment in multiple projects it allows centralized management of the dependencies used across these projects. Run `flox pull` to sync the latest changes from FloxHub:
 
@@ -124,8 +124,6 @@ $ flox push
 
     Use 'flox pull youruser/example-project' to get this environment in any other location.
 ```
-
-Changes are made to your local copy first. Use `flox push` to sync them to FloxHub so others can access the updates.
 
 !!! note "Note"
     Right now, only environment owners can push edits to their environments.
