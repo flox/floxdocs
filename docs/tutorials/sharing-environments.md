@@ -102,9 +102,9 @@ telnet (GNU inetutils) 2.5
 
 ### Pulling a FloxHub environment (and pushing updates)
 
-If you intend to use the same environments across multiple projects or you want to stage a change to the remote environment, you may want to [`flox pull`][flox_pull] it instead.
+If you intend to use the same environments across multiple projects or you want to stage changes before pushing to FloxHub, you may want to [`flox pull`][flox_pull] it instead.
 
-[`flox pull`][flox_pull] adds a `.flox` folder to the directory you are in that is linked to the remote environment. When using a [FloxHub][floxhub_concept] environment in multiple projects it allows centralized management of the dependencies used across these projects--future updates to the environment will get automatically picked up by projects using the environment:
+[`flox pull`][flox_pull] adds a `.flox` folder to the directory you are in that is linked to the FloxHub environment. When using a [FloxHub][floxhub_concept] environment in multiple projects it allows centralized management of the dependencies used across these projects. Run `flox pull` to sync the latest changes from FloxHub:
 
 ```console
 $ cd similar-example-project
