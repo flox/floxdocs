@@ -3,6 +3,10 @@ title: "FloxHub environments"
 description: "Reusable environments that are centrally managed on FloxHub"
 ---
 
+A FloxHub environment allows you to centrally manage a Flox environment, tracking changes made to it and allowing the environment to be reused in multiple contexts.
+
+## Background
+
 When you create an environment for your project, you often do so via the [`flox init`][flox-init] command, which creates a `.flox` directory that you can check into source control.
 
 ```{ .sh .copy}
@@ -101,7 +105,7 @@ Use 'flox push|pull -r myuser/myenv' to fetch updates or update the environment 
 To stop using this environment, type 'exit'
 ```
 
-The `flox activate` command succeeds, but the message indicates that you need to run either a `flox pull` or `flox push` command (`flox push` in this case since you have local changes):
+The `flox activate` command succeeds, but the message indicates that you need to run either a `flox pull` or `flox push` command (`flox push` in this case since you have local changes) to synchronize the two copies:
 
 ```text
 Use 'flox push|pull -r myuser/myenv' to fetch updates or update the environment on FloxHub.
@@ -147,6 +151,6 @@ Add the `--upstream` flag to see the packages in the upstream copy of the FloxHu
 
 Activating a FloxHub environment is done via the [`flox activate -r`][flox-activate] command.
 This will activate the current state of the local copy of the FloxHub environment, which may not be up to date with the upstream copy.
-To activate the environment as it exists upstream, run `flox pull -r <owner>/<name>` before running `flox activate`.
+To activate the environment as it exists upstream, run `flox pull -r <owner>/<name>` before running `flox activate -r`.
 
 [flox-activate]: ../man/flox-activate.md
