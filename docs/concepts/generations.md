@@ -65,7 +65,7 @@ highest generation number and was most recently created, it is not the latest to
 be live.
 
 This history of what generation is live at a given point in time can be
-viewed on FloxHub on the `Change Log` tab for an environment.
+viewed on FloxHub on the `History` tab for an environment.
 Or, to use the CLI to view history, you can run `flox generations history`.
 This provides a log of what generation of an environment was live at the time
 an environment was pulled.

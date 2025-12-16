@@ -65,7 +65,7 @@ that information will show on the right side.
 * **Generation tab**: shows you the history of your environment through each
 [generation][generation_concept].
 Each new [`flox push`][flox_push] creates a new generation.
-* **Change log tab**: describes the updates between each generation.
+* **History tab**: describes the updates between each generation.
 Packages that were installed with [`flox install`][flox_install] and uninstalled
 with [`flox uninstall`][flox_uninstall] will be explicitly marked.
 Packages that were added manually in a text editor or with
