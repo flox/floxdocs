@@ -73,7 +73,7 @@ $ flox push
 
 You can also view your new environment in FloxHub's web application.
 
-### Directly activating a remote environment
+### Directly activating a FloxHub environment
 
 As the recipient, you can use the environment in a variety of ways depending on your needs. If you trust the user sending the environment, [`flox activate -r username/environment`][flox_activate] the environment directly. The first time you do this you will be offered a choice about trusting this user in the future.
 
@@ -100,7 +100,7 @@ telnet (GNU inetutils) 2.5
 ...
 ```
 
-### Pulling a remote environment connected to FloxHub (and pushing updates)
+### Pulling a FloxHub environment (and pushing updates)
 
 If you intend to use the same environments across multiple projects or you want to stage a change to the remote environment, you may want to [`flox pull`][flox_pull] it instead.
 
@@ -133,9 +133,9 @@ $ flox push
 [flox_activate]: ../man/flox-activate.md
 [floxhub_concept]: ../concepts/floxhub.md
 
-### Pulling a remote environment without connecting to FloxHub
+### Pulling a FloxHub environment without connecting to FloxHub
 
-Sometimes you may want to create a FloxHub remote environment that serves as a template starting point for your project but will grow to have different environment definitions across multiple projects.
+Sometimes you may want to use a FloxHub environment as a template starting point for your project but it will grow to have different environment definitions across multiple projects.
 In this cases, you may want to [`flox pull --copy`][flox_pull] instead of [`flox pull`][flox_pull].
 
 [`flox pull --copy`][flox_pull], like [`flox pull`][flox_pull], will create a `.flox` folder to the directory you are in. However, this environment will **not be linked to FloxHub**.
