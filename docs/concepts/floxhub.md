@@ -109,13 +109,13 @@ To change your organization's upgrade policy:
 
 ## Referring to FloxHub environments
 
-When referring to FloxHub environments to perform remote operations in the CLI,
+When referring to FloxHub environments in the CLI,
 you'll refer to the environment owner's account name, a forward slash `/`,
 and the environment name.
-Many commands use this syntax,
-such as those that accept a `--remote` option,
+Many commands use this syntax with the `-r` flag (which operates on your local copy),
 and some commands such as [`flox pull`][flox_pull] that implicitly refer to
 an environment on FloxHub.
+See the [FloxHub environments][floxhub_environments] concept page for more details on how local and upstream copies work.
 
 ```{ .sh .copy }
 flox pull example-owner/example-env
@@ -146,3 +146,4 @@ Run the [`flox auth logout`][flox_auth] command.
 [environments_concept]: ../concepts/environments.md
 [organizations_concept]: ../concepts/organizations.md
 [floxhub]: https://hub.flox.dev
+[floxhub_environments]: ./floxhub-environments.md
