@@ -2,12 +2,55 @@
 <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/23414950.js"></script>
 <!-- End of HubSpot Embed Code -->
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QDX72QWF46"></script>
+<!-- Consent-aware tracking integrations using HubSpot's official API -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  (function () {
+    if (typeof window === "undefined") return;
 
-  gtag('config', 'G-QDX72QWF46');
+    // Initialize HubSpot privacy consent array
+    window._hsp = window._hsp || [];
+
+    // Loader for Reo tracking script (respects consent)
+    function loadReo() {
+      if (window.__reoLoaded) return; // idempotent
+      window.__reoLoaded = true;
+      var clientID = 'a302bd2a30723ff';
+      var s = document.createElement('script');
+      s.src = 'https://static.reo.dev/' + clientID + '/reo.js';
+      s.defer = true;
+      s.onload = function () {
+        try {
+          if (window.Reo && typeof window.Reo.init === 'function') {
+            window.Reo.init({ clientID: clientID });
+          }
+        } catch (_) {}
+      };
+      document.head.appendChild(s);
+    }
+
+    // Loader for Google Tag Manager (respects consent)
+    function loadGTM() {
+      if (window.__gtmLoaded) return;
+      window.__gtmLoaded = true;
+      var gtmId = 'GTM-T8Z9D5XH';
+      // Initialize dataLayer lazily
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ 'event': 'consent_ready' });
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtmId);
+      document.head.appendChild(s);
+    }
+
+    // Use HubSpot's official privacy consent listener
+    window._hsp.push(['addPrivacyConsentListener', function(consent) {
+      // Check if analytics consent is granted
+      if (consent && consent.categories && consent.categories.analytics) {
+        loadReo();
+        loadGTM();
+        loadGA();
+      }
+    }]);
+  })();
 </script>
+
