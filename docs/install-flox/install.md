@@ -95,7 +95,7 @@ description: How to install or upgrade the Flox CLI
     1. Install the downloaded file
 
         ```{ .sh .code-command .copy }
-        sudo dpkg -i /path/to/flox.deb
+        sudo apt install /path/to/flox.deb
         ```
 
     ??? info "Replacing an existing Nix installation"
