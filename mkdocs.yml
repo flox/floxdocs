@@ -22,7 +22,7 @@ site_description: Flox documentation site
 # getting feedback on the public repo
 repo_url: "https://github.com/flox/flox"
 
-copyright: "Copyright 2025 Flox. All rights reserved."
+copyright: "Copyright 2026 Flox. All rights reserved."
 
 extra:
   FLOX_VERSION: !ENV [FLOX_VERSION, 'X.Y.Z']
