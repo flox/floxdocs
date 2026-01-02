@@ -4,17 +4,53 @@ Live at: [flox.dev/docs](https://flox.dev/docs).
 
 ## Usage
 
+### Quick Start
+
+```bash
+# Activate the Flox environment
+$ flox activate
+✅ You are now using the environment 'floxdocs'.
+
+# Start development server
+λ (floxdocs) $ make dev
 ```
+
+The documentation will be available at `http://127.0.0.1:8000` with live reload.
+
+### Available Commands
+
+```bash
+make dev     # Start development server with live reload
+make build   # Build static site and generate AI files
+make clean   # Clean build artifacts
+make help    # Show all available commands
+```
+
+### Flox Native Usage
+
+You can still use the original Flox services approach:
+
+```bash
 $ flox activate
 ✅ You are now using the environment 'floxdocs'.
 
 λ (floxdocs) $ flox services start mkdocs
 ✅ Service 'mkdocs' started.
-
 ```
+
 Once mkdocs service started you can preview the documentation at
 `https://127.0.0.1:8000`.
 
+## AI-Friendly Documentation
+
+This documentation site automatically generates AI-friendly files for different use cases:
+
+- **`llms.txt`** - Optimized for AI agents with critical rules, workflows, and organized sitemap
+- **`docs-content.txt`** - Comprehensive content for answer engines and RAG systems
+
+These files are automatically generated during the build process and are available at:
+- `https://flox.dev/docs/llms.txt`
+- `https://flox.dev/docs/docs-content.txt`
 
 ## Guidelines
 
