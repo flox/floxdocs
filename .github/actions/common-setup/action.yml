@@ -30,7 +30,7 @@ runs:
   using: "composite"
   steps:
     - name: "Setup Tailscale"
-      uses: "tailscale/github-action@v3"
+      uses: "tailscale/github-action@v4"
       if: ${{ inputs.TAILSCALE_AUTH_KEY }}
       with:
         oauth-secret: "${{ inputs.TAILSCALE_AUTH_KEY }}"
