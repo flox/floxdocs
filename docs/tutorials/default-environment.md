@@ -5,7 +5,7 @@ description: Using Flox as your system package manager
 
 # The default environment
 
-In the typical development case you would create a directory for your project,
+In the typical development case you would create a directory for your project.
 `flox init` to create an environment for it,
 then `flox activate` in that directory when you want to work on that project.
 The packages in that environment are available when the environment is active,
@@ -41,6 +41,12 @@ cd ~;
 flox init
 ```
 
+If you plan to use your `default` environment on multiple systems,
+consider to `flox auth login` to login (or register) to FloxHub,
+and either follow the onboarding on FloxHub
+or run [`flox init -r <your username>/default`][init]
+to create a default [FloxHub environment][floxhub-env].
+
 Once the environment has been created,
 you'll want to configure your shell to activate the environment with every new
 shell.
@@ -54,8 +60,16 @@ or you can add a single line to your shell's RC file:
     `.bashrc` and `.profile`.
     Add the following line to the very end of each of those files:
 
+    ** For FloxHub environments:**
+
     ```{ .bash .copy }
-    eval "$(flox activate -d ~ -m run)"
+    eval "$(flox activate -r <your username>/default -m run)"
+    ```
+  
+    **For local only environments:**
+  
+    ```{ .bash .copy }
+    eval "$(flox activate -d ~ -m run)"  
     ```
 
 === "Zsh"
@@ -63,17 +77,34 @@ or you can add a single line to your shell's RC file:
     Add the following line to the very end of your `.zprofile` and `.zshrc`
     files:
 
+    ** For FloxHub environments:**
+  
     ```{ .zsh .copy }
-    eval "$(flox activate -d ~ -m run)"
+    eval "$(flox activate -r <your username>/default -m run)"
+    ```
+  
+    **For local only environments:**
+  
+    ```{ .zsh .copy }
+    eval "$(flox activate -d ~ -m run)"  
     ```
 
 === "Fish"
 
     Add the following line to the very end of your `config.fish` file:
 
+    ** For FloxHub environments:**
+  
+    ```{ .fish .copy }
+    flox activate -r <your username>/default -m run | source
+    ```
+  
+    **For local only environments:**
+  
     ```{ .fish .copy }
     flox activate -d ~ -m run | source
-    ```
+    ``` 
+
 
 === "Tcsh"
 
@@ -82,7 +113,18 @@ or you can add a single line to your shell's RC file:
     ``` { .tcsh .copy }
     eval "`flox activate -d ~ -m run`"
     ```
-
+  
+    ** For FloxHub environments:**
+  
+    ```{ .tcsh .copy }
+    eval "`flox activate -r <your username>/default -m run`"
+    ```
+  
+    **For local only environments:**
+  
+    ```{ .tcsh .copy }
+    eval "`flox activate -d ~ -m run`"
+    ``` 
 ---
 
 Once you've added that line to your shell,
@@ -250,3 +292,4 @@ with Flox you only need to learn one tool.
 [init]: ../man/flox-init.md
 [push]: ../man/flox-push.md
 [pull]: ../man/flox-pull.md
+[floxhub-env]: ./sharing-environments.md
