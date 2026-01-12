@@ -136,7 +136,7 @@ When Flox is configured with a default environment, it behaves very similarly to
 
 Creating a Flox default environment is optional.
 
-If you do not choose for this to be automated at the time of your first package installation, you can [follow these instructions][default_tutorial_setup] to add Flox to your dotfiles manually.
+If you do not choose for this to be automated at the time of your first package installation, or you want to use an existing environment on FloxHub, you can [follow these instructions][default_tutorial_setup] to add Flox to your dotfiles manually.
 
 ### Verify configuration
 
