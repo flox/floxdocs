@@ -102,10 +102,10 @@ The first time you install a package, Flox will ask you whether you want to crea
 
 ```console
 % flox install jq
-Packages must be installed into a Flox environment, which can be
-a user 'default' environment or attached to a directory.
+Packages must be installed into a Flox environment.
+A default environment on FloxHub will sync across all your machines.
 
-! Would you like to install 'jq' to the 'default' environment?
+! Would you like to pull or create your 'default' environment and install 'jq' to it?
 > Yes
   No
 [↑↓ to move, enter to select, type to filter]
@@ -115,12 +115,12 @@ If you choose to do so, Flox will then ask you whether you want to configure you
 
 ```console
 The 'default' environment can be activated automatically for every new shell
-by adding one line to your .bashrc file:
-eval "$(flox activate -d ~ -m run)"
+by adding one line to your .bashrc and .profile files:
+eval "$(flox activate -r <user>/default -m run)"
 
-! Would you like Flox to add this configuration to your .bashrc now?
-> Yes
-  No
+! Would you like Flox to add this configuration to .bashrc and .profile now?
+  Yes
+> No
 [↑↓ to move, enter to select, type to filter]
 
 ✅ Configuration added to your .bashrc file.
@@ -129,7 +129,7 @@ The 'default' environment will be activated for every new shell.
 -> Read more about the 'default' environment at:
    https://flox.dev/docs/tutorials/layering-multiple-environments/#create-your-default-home-environment
 
-✅ 'jq' installed to environment 'default'
+✅ 'jq' installed to environment '<owner>/default' (local)
 ```
 
 When Flox is configured with a default environment, it behaves very similarly to Homebrew. The Flox CLI will assume the default environment when you run `flox install` in a directory that doesn't contain an environment of its own.
@@ -147,7 +147,7 @@ Once the shell is available, you can verify that your default environment is act
 ```console
 flox [default] % flox envs
 ✨ Active environments:
-  default           /Users/rturk
+  default           https://hub.flox.dev/user/default
 ```
 
 If you see `default` listed amongst the active environments, your dotfiles have been correctly modified. The default environment will be active whenever you log in.
