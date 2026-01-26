@@ -64,7 +64,7 @@ This may be necessary for Kubernetes distributions like K3s that vendor `contain
     cd containerd-shim-flox
     flox init -b
     # use -2x for containerd 2.x, and -17 for 1.7
-    flox install containerd-shim-flox-2x 
+    flox install flox/containerd-shim-flox-2x 
     ```
 
 2. Create a symlink from the Flox environment to `/usr/local/bin`.
