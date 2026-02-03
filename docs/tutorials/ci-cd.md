@@ -17,7 +17,7 @@ For the following examples assume that you have a repository that contains a Flo
 
 Flox provides two different actions that you can use in a GitHub Actions workflow:
 
-- `flox/install-flox-action`: This action installs the Flox CLI so you can run Flox commands as you would locally. At some point you would typically run `flox activate -- <your command>` with this action to run a command inside the Flox environment.
+- `flox/install-flox-action`: This action installs the Flox CLI so you can run Flox commands as you would locally. At some point you would typically run `flox activate -c "<your command>"` with this action to run a command inside the Flox environment.
 - `flox/activate-action`: This action allows you to skip activating the environment yourself and simply provide the command that you would like to run in the environment.
 
 Note that the `flox/install-flox-action` is still required if you want to use `flox/activate-action`.
@@ -85,7 +85,7 @@ jobs:
 
 To run Flox in a GitLab pipeline you use a container image with Flox preinstalled.
 Flox provides the `ghcr.io/flox/flox` image for you to use in your pipelines.
-Inside the container you have access to the full Flox CLI, so running a command in the container looks the same as it would locally: `flox activate -- <your command>`.
+Inside the container you have access to the full Flox CLI, so running a command in the container looks the same as it would locally: `flox activate -c "<your command>"`.
 
 Here is an example GitLab pipeline that uses a Flox container to run `npm run build` inside the environment:
 
@@ -94,7 +94,7 @@ build:
   stage: build
   image: ghcr.io/flox/flox:latest # (1)!
   script:
-    - flox activate -- npm run build # (2)!
+    - flox activate -c "npm run build" # (2)!
 ```
 
 1. Use the `ghcr.io/flox/flox` container image, which comes with Flox already installed.

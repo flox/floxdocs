@@ -31,8 +31,8 @@ flox install -d backend go sqlite
 flox install -d frontend nodejs
 
 # Activate and run commands in specific environments
-flox activate -d backend -- sh -c "cd backend && go mod init"
-flox activate -d frontend -- sh -c "cd frontend && npm install"
+flox activate -d backend -c "cd backend && go mod init"
+flox activate -d frontend -c "cd frontend && npm install"
 ```
 
 ## The Manifest
