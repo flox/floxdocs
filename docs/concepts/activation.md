@@ -12,7 +12,7 @@ _and_ all of your customizations.
 Given that environments are such an important part of Flox,
 it stands to reason that _how you use them_ is also an important part of Flox.
 
-There are three different ways to use an environment,
+There are four different ways to use an environment,
 and two different modes that an environment can be activated in.
 At the end of the day, though, it all boils down to properly configuring a
 shell.
@@ -51,9 +51,9 @@ Flox will place `<path to myenv>/.flox/run/<your system>.myenv.dev/bin` at the
 beginning of your `PATH` variable so that `hello` will be selected from your
 environment rather than from elsewhere on your system.
 
-## Three different ways to activate
+## Four different ways to activate
 
-We mentioned above that there are three different ways to use an environment.
+We mentioned above that there are four different ways to use an environment.
 
 ### Subshell
 
@@ -112,7 +112,7 @@ You could do this manually, but Flox will also prompt you to do it for you
 the first time you attempt to install a package in a directory without an
 environment and with no environments currently active.
 
-### Command
+### Shell Command
 
 Sometimes you just want to run a command in the context of your environment,
 maybe because you have some tools available in your environment that aren't
@@ -138,7 +138,7 @@ which you may not want.
 The easy way to do this is:
 
 ```{ .bash .copy }
-flox activate -- <your command>
+flox activate -c "<your command>"
 ```
 
 This starts a Flox-configured subshell, runs your command,
@@ -148,11 +148,30 @@ and immediately exits to put you back into your shell.
 shape: sequence_diagram
 user_shell: User shell
 subshell: Subshell
-user_shell -> subshell: "flox activate -- cmd"
+user_shell -> subshell: "flox activate -c cmd"
 subshell -> subshell: run "cmd"
 subshell -> user_shell: automatic exit
 user_shell."Back to you"
 ```
+
+### Exec Command
+
+The final way to activate an environment is to exec a command directly without an intermediate shell, which can be done with:
+
+```{ .bash .copy }
+flox activate -- <your command>
+```
+
+This is similar to `activate -c` in that it activates the environment, runs a
+command, and then exits.
+
+Unlike `-c`, when exec'ing a command directly with `--`:
+
+1. `[profile]` scripts aren't run
+1. Shell syntax isn't supported, so it's not possible to chain commands (e.g. `cmd1 && cmd2`), use shell builtins, or use aliases.
+
+When none of those features are needed, using `--` is faster than `-c` since
+there's no intermediate shell.
 
 ## Activation flow
 
