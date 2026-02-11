@@ -8,6 +8,7 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # Backblaze and HashiCorp also 429
 lychee $SCRIPT_DIR/site \
   -nv \
+  --root-dir $SCRIPT_DIR/public \
   --remap "https://flox.dev/docs file://$PWD/site" \
   --exclude "bash/manual/html_node" \
   --exclude "https://www.gnu.org/software/make/" \
