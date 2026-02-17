@@ -59,16 +59,9 @@ flox activate
 
 ## Sharing environments on FloxHub
 
-The [`flox push`][flox_push] command makes it easy to share your environment using [FloxHub][floxhub_concept]. When you [`flox push`][flox_push] for the first time, you can create an account on FloxHub for free and send your environment's manifest and metadata for easy sharing.
-
-```console
-$ flox push
-✅  example-project successfully pushed to FloxHub
-
-    Use 'flox pull youruser/example-project' to get this environment in any other location.
-```
-
-You can also view your new environment on FloxHub.
+Instead of sharing environments with files, you can share them on
+[FloxHub][floxhub_concept] with a free account, which eliminates the need to
+clone a repository when using the environment.
 
 Once an environment has been pushed to FloxHub, it can be used in number of
 different workflows:
@@ -76,34 +69,43 @@ different workflows:
 - You can `flox pull --copy` an environment to [use it as a template for a new project](composition.md#creating-a-template-for-new-projects).
 - You can use it directly in other environments by [adding it to another environment's `[include]` section](composition.md#composing-environments).
 - You can use it to share software across multiple machines, most commonly with a default environment, by [adding it to your terminal's RC files](default-environment.md#initial-setup).
-- Finally, you can use it to materialize an ad-hoc set of tools, which we'll show in the example in the next section.
+- Finally, you can use it to materialize an ad-hoc set of tools, which we'll show here.
+
+To create an environment on FloxHub, first use `flox init` to create it locally:
+
+```console
+$ mkdir llm_tools
+$ cd llm_tools
+$ flox init
+$ flox install codex gemini-cli
+✅ 'codex' installed to environment llm_tools at /Users/youruser/llm_tools
+✅ 'gemini-cli' installed to environment llm_tools at /Users/youruser/llm_tools
+```
+
+Then push it:
+
+```console
+$ flox push
+✅  llm_tools successfully pushed to FloxHub
+
+    Use 'flox pull youruser/llm_tools' to get this environment in any other location.
+```
+
+You can also view your new environment on FloxHub.
 
 ### Using a local copy of a FloxHub environment
 
-As the recipient, you can use the environment in a variety of ways depending on your needs. If you trust the user sending the environment, [`flox activate -r username/environment`][flox_activate] the environment directly. This will implicitly pull the environment and create a local copy of the environment if it doesn't already exist. The first time you do this you will be offered a choice about trusting this user in the future.
+Suppose you've dropped into a shell on another host or in a container, and you need to use a tool not on that host.
+To activate your FloxHub environment, run:
 
 ```console
-$ flox activate -r youruser/example-project
-Environment youruser/example-project is not trusted.
-
-    flox environments do not run in a sandbox.
-    Activation hooks can run arbitrary code on your machine.
-    Environments need to be trusted to be activated.
-? Do you trust youruser/example-project?
-  Do not trust, ask again next time
-  Do not trust, save choice
-  Trust, ask again next time
-  > Trust, save choice
-  Show the manifest
-
-Trusted environment youruser/example-project
+$ flox activate -r youruser/llm_tools
+✅ You are now using the environment 'llm_tools'
+To stop using this environment, type 'exit'
+$ # ask gemini a question
 ```
 
-```console
-flox [youruser/example-project] $ telnet --version
-telnet (GNU inetutils) 2.5
-...
-```
+This will implicitly pull the environment and create a local copy of the environment if it doesn't already exist.
 
 ### Pulling a FloxHub environment into a directory (and pushing updates)
 
