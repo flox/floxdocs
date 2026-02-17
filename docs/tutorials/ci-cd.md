@@ -22,7 +22,9 @@ Flox provides two different actions that you can use in a GitHub Actions workflo
 
 Note that the `flox/install-flox-action` is still required if you want to use `flox/activate-action`.
 
-Here is an example workflow that installs the Flox CLI and runs `npm run build` inside the environment:
+Here is an example workflow that installs the Flox CLI, runs `npm run build`
+inside the project's environment, and runs `netlify deploy` inside a FloxHub
+environment:
 
 ```yaml title=".github/workflows/ci.yml"
 name: "CI"
@@ -46,8 +48,11 @@ jobs:
         with:
           command: npm run build
 
-      ...
-
+    - name: Activate remote environment
+      uses: flox/activate-action@v1
+      with:
+        environment: my-username/my-netlify-env
+        command: netlify deploy
 ```
 
 1. You are looking at an example project, your project will probably look a little different. Important parts of how to integrate Flox with Github Actions are highlighted below.
