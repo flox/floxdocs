@@ -22,12 +22,12 @@ Here we are installing `curl`, `gitFull`, `gnupg`, `inetutils`, `tree`, and
 
 ```console
 $ flox install curl gitFull gnupg inetutils tree vim
-✅ 'curl' installed to environment default at /Users/youruser
-✅ 'gitFull' installed to environment default at /Users/youruser
-✅ 'gnupg' installed to environment default at /Users/youruser
-✅ 'inetutils' installed to environment default at /Users/youruser
-✅ 'tree' installed to environment default at /Users/youruser
-✅ 'vim' installed to environment default at /Users/youruser
+✔ 'curl' installed to environment default at /Users/youruser
+✔ 'gitFull' installed to environment default at /Users/youruser
+✔ 'gnupg' installed to environment default at /Users/youruser
+✔ 'inetutils' installed to environment default at /Users/youruser
+✔ 'tree' installed to environment default at /Users/youruser
+✔ 'vim' installed to environment default at /Users/youruser
 ```
 
 Let's inspect the contents of the environment with [`flox list`][flox_list]:
@@ -75,7 +75,7 @@ Use [`flox init`][flox_init] from the `material-ui` directory that we are in.
 
 ```console
 flox [default] $ flox init
-✨ Created environment material-ui (aarch64-darwin)
+⚡︎ Created environment material-ui (aarch64-darwin)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -88,7 +88,7 @@ This project only requires `yarn` so let's install it with
 
 ```console
 flox [default] $ flox install yarn
-✅ 'yarn' installed to environment material-ui at /Users/youruser/material-ui
+✔ 'yarn' installed to environment material-ui at /Users/youruser/material-ui
 ```
 
 Now we're ready to do development on this project!
@@ -111,7 +111,7 @@ You can use `flox envs` to see the environments you have activated.
 
 ```console
 $ flox envs
-✨ Active environments:
+⚡︎ Active environments:
   material-ui  /home/youruser/material-ui
   default      /home/youruser
 

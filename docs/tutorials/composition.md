@@ -20,7 +20,7 @@ Then create a new environment called `python_env` in it with the [`flox init`][f
 ```console
 $ mkdir myproject && cd myproject
 $ flox init -d python_env
-✨ Created environment 'python_env' (aarch64-darwin)
+⚡︎ Created environment 'python_env' (aarch64-darwin)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -41,7 +41,7 @@ Now install `python312` and `poetry` to this environment with the [`flox install
 
 ```console
 $ flox install -d python_env python312 poetry
-✅ 'python312', 'poetry' installed to environment 'python_env'
+✔ 'python312', 'poetry' installed to environment 'python_env'
 ```
 
 Now you can push this environment to [FloxHub][floxhub].
@@ -50,7 +50,7 @@ Let's start by pushing the environment to FloxHub:
 
 ```console
 $ flox push -d python_env
-✅ python_env successfully pushed to FloxHub
+✔ python_env successfully pushed to FloxHub
 
 Use 'flox pull myuser/python_env' to get this environment in any other location.
 
@@ -72,7 +72,7 @@ Let's create a new copy of this environment in a directory called `new_python_pr
 
 ```console
 $ flox pull -d new_python_project --copy myuser/python_env
-✨ Created path environment from myuser/python_env.
+⚡︎ Created path environment from myuser/python_env.
 
 You can activate this environment with 'flox activate'
 ```
@@ -125,7 +125,7 @@ Let's create a environment in a `composed_python_project` directory.
 
 ```console
 $ flox init -d composed_python_project
-✨ Created environment 'composed_python_project' (aarch64-darwin)
+⚡︎ Created environment 'composed_python_project' (aarch64-darwin)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -163,7 +163,7 @@ When there is more than one environment in this list, the order of the environme
 Once you save and exit you should see this output:
 
 ```console
-✅ Environment successfully updated.
+✔ Environment successfully updated.
 ℹ The following manifest fields were overridden during merging:
 - This environment set:
   - options.systems
@@ -216,7 +216,7 @@ Let's add the `pytest` package:
 
 ```console
 $ flox install -d composed_python_project python312Packages.pytest
-✅ 'pytest' installed to environment 'composed_python_project'
+✔ 'pytest' installed to environment 'composed_python_project'
 ```
 
 Note that the message says the package was installed to the `composed_python_project` environment.
@@ -233,14 +233,14 @@ Let's add that package to `python_env`:
 
 ```console
 $ flox install -d python_env python312Packages.hypothesis
-✅ 'hypothesis' installed to environment 'myuser/python_env'
+✔ 'hypothesis' installed to environment 'myuser/python_env'
 ```
 
 Now let's propagate those changes to the composed environment:
 
 ```console
 $ flox include upgrade -d composed_python_project
-✅ Upgraded 'composed_python_project' with latest changes to:
+✔ Upgraded 'composed_python_project' with latest changes to:
 - 'python_env'
 ```
 
@@ -266,7 +266,7 @@ Push the additional package that we installed to `myuser/python_env` earlier:
 
 ```console
 $ flox push -d python_env
-✅ Updates to python_env successfully pushed to FloxHub
+✔ Updates to python_env successfully pushed to FloxHub
 
 Use 'flox pull myuser/python_env to get this environment in any other location.
 ```
