@@ -34,10 +34,9 @@ $ flox init
 Install packages:
 
 ```console
-$ flox install inetutils neovim curl
-✅ 'inetutils' installed to environment example-project at /Users/youruser/example-project
-✅ 'neovim' installed to environment example-project at /Users/youruser/example-project
-✅ 'curl' installed to environment example-project at /Users/youruser/example-project
+$ flox install nodejs mkcert
+✅ 'nodejs' installed to environment example-project at /Users/youruser/example-project
+✅ 'mkcert' installed to environment example-project at /Users/youruser/example-project
 ```
 
 Add the `.flox` directory and commit the changes.
