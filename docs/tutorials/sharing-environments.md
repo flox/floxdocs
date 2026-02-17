@@ -59,8 +59,6 @@ flox activate
 
 ## Sharing environments on FloxHub
 
-### [`flox push`][flox_push] for the first time
-
 The [`flox push`][flox_push] command makes it easy to share your environment using [FloxHub][floxhub_concept]. When you [`flox push`][flox_push] for the first time, you can create an account on FloxHub for free and send your environment's manifest and metadata for easy sharing.
 
 ```console
@@ -71,6 +69,14 @@ $ flox push
 ```
 
 You can also view your new environment on FloxHub.
+
+Once an environment has been pushed to FloxHub, it can be used in number of
+different workflows:
+
+- You can `flox pull --copy` an environment to [use it as a template for a new project](composition.md#creating-a-template-for-new-projects).
+- You can use it directly in other environments by [adding it to another environment's `[include]` section](composition.md#composing-environments).
+- You can use it to share software across multiple machines, most commonly with a default environment, by [adding it to your terminal's RC files](default-environment.md#initial-setup).
+- Finally, you can use it to materialize an ad-hoc set of tools, which we'll show in the example in the next section.
 
 ### Using a local copy of a FloxHub environment
 
@@ -131,57 +137,6 @@ $ flox push
 [flox_pull]: ../man/flox-pull.md
 [flox_activate]: ../man/flox-activate.md
 [floxhub_concept]: ../concepts/floxhub.md
-
-### Pulling a FloxHub environment without connecting to FloxHub
-
-Sometimes you may want to use a FloxHub environment as a template starting point for your project but it will grow to have different environment definitions across multiple projects.
-In this cases, you may want to [`flox pull --copy`][flox_pull] instead of [`flox pull`][flox_pull].
-
-[`flox pull --copy`][flox_pull], like [`flox pull`][flox_pull], will create a `.flox` folder to the directory you are in. However, this environment will **not be linked to FloxHub**.
-This can make it easy to start multiple projects with the same starting point like, for example, a PostgreSQL template:
-
-```console
-$ cd new-postgres-project
-$ flox pull --copy flox/postgres # (1)!
-✨ Created path environment from flox/postgres.
-
-You can activate this environment with 'flox activate'
-```
-
-1. An example pulling a PostgreSQL template that Flox maintains.
-
-This new project will not exist on FloxHub until it's pushed with [`flox push`][flox_push].
-
-!!! note "Note"
-    It's easy to rename environments created with `flox pull --copy` with `flox edit -n projectname`.
-
-### Always using the same environment across multiple devices
-
-It can be useful to share the same environment across multiple machines where an install to one will install to the others. To do this, you need to [`flox push`][flox_push] your environment and add a [`flox activate -r`][flox_activate] to your terminal's RC file. Let's look at an example using the environment `youruser/example-project` for a zsh user, so we can have everything we installed automatically on multiple machines.
-
-Edit your rc file using an editor of choice.
-
-```{ .zsh .copy }
-vim ~/.zshrc
-```
-
-Append this line to your shell's rc file or `fish.config` at the bottom.
-
-```{ .bash .copy title="For bash .bashrc or zsh .zshrc" }
-eval "$(flox activate -r youruser/example-project)"
-```
-
-```{ .fish .copy title="For fish config.fish" }
-eval (flox activate -r youruser/example-project) | source
-```
-
-Don't forget to open a new terminal window or, for zsh, reload your RC file.
-
-```{ .zsh .copy }
-source ~/.zshrc
-```
-
-Now all new windows will open into your [FloxHub][floxhub_concept] environment. When you push changes from one machine, run `flox pull -r youruser/example-project` on other machines to get the latest updates.
 
 ## Sharing with containers
 
