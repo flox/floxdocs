@@ -114,7 +114,7 @@ $ flox pull youruser/example-project
     You can activate this environment with 'flox activate'
 ```
 
-After pulling an environment you can install changes to it locally and, when you're ready, [`flox push`][flox_push] them to FloxHub if the environment is unlocked:
+After pulling an environment you can install changes to it locally and, when you're ready, [`flox push`][flox_push] them to FloxHub if you have permissions:
 
 ```console
 $ flox install yarn
