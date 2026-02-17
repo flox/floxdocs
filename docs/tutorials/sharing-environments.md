@@ -71,7 +71,7 @@ $ flox push
     Use 'flox pull youruser/example-project' to get this environment in any other location.
 ```
 
-You can also view your new environment in FloxHub's web application.
+You can also view your new environment on FloxHub.
 
 ### Using a local copy of a FloxHub environment
 
