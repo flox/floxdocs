@@ -32,7 +32,7 @@ Run [`flox activate`][activate] to enter the environment. This will make all of 
 
 ```{ .console }
 $ flox activate
-✓ You are now using the environment 'flox-in-5min'.
+✔ You are now using the environment 'flox-in-5min'.
 To stop using this environment, type 'exit'
 ```
 
@@ -135,7 +135,11 @@ The sample environment includes a simple `stopwatch` service. Start it up:
 
 ```{ .console }
 $ flox services start
+<<<<<<< HEAD
 ✓ Service 'stopwatch' started.
+=======
+✔ Service 'stopwatch' started.
+>>>>>>> c597a6c (fix: use unicode rather than emoji)
 ```
 
 You can check on the status of services and tail their logs just like you would with any process manager:
@@ -162,7 +166,11 @@ Press `Ctrl-C` to stop watching the logs. When you're done, stop the service:
 
 ```{ .console }
 $ flox services stop
+<<<<<<< HEAD
 ✓ Service 'stopwatch' stopped
+=======
+✔ Service 'stopwatch' stopped
+>>>>>>> c597a6c (fix: use unicode rather than emoji)
 ```
 
 Services are automatically stopped when you exit the environment, so you don't have to worry about orphaned processes.
