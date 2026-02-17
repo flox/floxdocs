@@ -151,9 +151,9 @@ In this case we'll install the following packages:
 
 ```console
 $ flox install python3 flox-cuda/python3Packages.torch flox-cuda/python3Packages.torchvision
-✅ 'python3' installed to environment 'mnist'
-⚠️  'torch' installed only for the following systems: x86_64-linux, aarch64-linux
-⚠️  'torchvision' installed only for the following systems: x86_64-linux
+✔ 'python3' installed to environment 'mnist'
+! 'torch' installed only for the following systems: x86_64-linux, aarch64-linux
+! 'torchvision' installed only for the following systems: x86_64-linux
 
 ```
 

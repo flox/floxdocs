@@ -38,11 +38,11 @@ First let's install some packages to our environment running on Linux:
 
 ```console
 $ flox init --name eng-team-tools
-✨ Created environment eng-team-tools (aarch64-linux)
+⚡︎ Created environment eng-team-tools (aarch64-linux)
 ...
 $ flox install gnupg vim
-✅ 'gnupg' installed to environment eng-team-tools at /home/youruser
-✅ 'vim' installed to environment eng-team-tools at /home/youruser
+✔ 'gnupg' installed to environment eng-team-tools at /home/youruser
+✔ 'vim' installed to environment eng-team-tools at /home/youruser
 ```
 
 To make it easy to share this system across platforms we are going to share it
@@ -50,7 +50,7 @@ on FloxHub with [`flox push`][flox_push].
 
 ```console
 $ flox push
-✅  eng-team-tools successfully pushed to FloxHub
+✔ eng-team-tools successfully pushed to FloxHub
 
     Use 'flox pull youruser/eng-team-tools' to get this environment in any other location.
 ```
@@ -69,7 +69,7 @@ Then lets run the a simple `gpg --version` command to test everything is working
 
 ```console
 $ flox pull youruser/eng-team-tools
-✨  Pulled youruser/eng-team-tools from https://hub.flox.dev
+⚡︎  Pulled youruser/eng-team-tools from https://hub.flox.dev
 
     You can activate this environment with 'flox activate'
 $ flox activate -- gpg --version
@@ -90,7 +90,7 @@ From the Linux machine...
 
 ```console
 $ flox install systemd
-⚠️  'systemd' installed only for the following systems: aarch64-linux, x86_64-linux
+! 'systemd' installed only for the following systems: aarch64-linux, x86_64-linux
 ```
 
 Flox installs the package for all systems that it's compatible with,
@@ -100,7 +100,7 @@ everything works.
 
 ```console
 $ flox push
-✅  Updates to eng-team-tools successfully pushed to FloxHub
+✔ Updates to eng-team-tools successfully pushed to FloxHub
 
     Use 'flox pull youruser/eng-team-tools' to get this environment in any other location.
 ```
@@ -109,7 +109,7 @@ Then, from the Apple machine, let's pull the latest and inspect the manifest.
 
 ```console
 $ flox pull
-✅ Pulled youruser/eng-team-tools from https://hub.flox.dev/
+✔ Pulled youruser/eng-team-tools from https://hub.flox.dev/
 
 You can activate this environment with 'flox activate'
 

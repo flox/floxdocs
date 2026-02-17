@@ -17,7 +17,7 @@ We'll create a directory called `myproject` and create a Flox environment inside
 $ mkdir myproject
 $ cd myproject
 $ flox init
-✨ Created environment 'myproject' (aarch64-darwin)
+⚡︎ Created environment 'myproject' (aarch64-darwin)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -30,7 +30,7 @@ Since we're using Go, we'll want to install Go:
 
 ```text
 $ flox install go
-✅ 'go' installed to environment 'myproject'
+✔ 'go' installed to environment 'myproject'
 $ # let's see what version of Go we have
 $ flox list
 go: go (1.24.1)
@@ -42,7 +42,7 @@ Start by activating the environment so that we have our Go application available
 
 ```text
 $ flox activate
-✅ You are now using the environment 'myproject'.
+✔ You are now using the environment 'myproject'.
 To stop using this environment, type 'exit'
 
 flox [myproject] $ go mod init hello
@@ -130,7 +130,7 @@ building '/nix/store/g3z03h4p2xa9rf6y78d0xamryggawvha-hello-0.0.0.drv'...
 hello-0.0.0> patching script interpreter paths in /nix/store/2hc9mjxs6wqcd8cscw9ll650jv1k6wn1-hello-0.0.0/bin/hello
 Completed build of hello-0.0.0 in local mode
 
-✨ Build completed successfully. Output created: ./result-hello
+⚡︎ Build completed successfully. Output created: ./result-hello
 ```
 
 It worked!
@@ -184,7 +184,7 @@ hello-opt-1.0.0> signing /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-1
 hello-opt-1.0.0> patching script interpreter paths in /nix/store/nbykbq9fy0z67hhlf1kvf8wk7wb29x59-hello-opt-1.0.0/bin/hello
 Completed build of hello-opt-1.0.0 in local mode
 
-✨ Build completed successfully. Output created: ./result-hello-opt
+⚡︎ Build completed successfully. Output created: ./result-hello-opt
 ```
 
 ## Publish the package
@@ -246,7 +246,7 @@ Now that we know it's available, let's install it:
 
 ```text
 flox [myproject] $ flox install myuser/hello
-✅ 'myuser/hello' installed to environment 'myproject'
+✔ 'myuser/hello' installed to environment 'myproject'
 ```
 
 ## Conclusion

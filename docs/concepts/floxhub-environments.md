@@ -20,7 +20,7 @@ Another way of working is to [push][flox-push] an environment to [FloxHub][floxh
 
 ```{ .sh }
 $ flox push
-✅ Updates to myenv successfully pushed to FloxHub
+✔ Updates to myenv successfully pushed to FloxHub
 
 View the environment at: https://hub.flox.dev/myuser/myenv
 Use this environment from another machine: 'flox activate -r myuser/myenv'
@@ -77,7 +77,7 @@ The Flox CLI indicates when an operation has been performed on the local copy (n
 
 ```text
 $ flox install -r myuser/myenv ripgrep
-✅ 'ripgrep' installed to environment 'myuser/myenv' (local)
+✔ 'ripgrep' installed to environment 'myuser/myenv' (local)
 ```
 
 When the Flox CLI detects that the local and upstream copies are out of sync (for example, you have a new local generation corresponding to the new package you installed), it will notify you with instructions on how to proceed.
@@ -85,7 +85,7 @@ For the example above, you would see the following output when activating the en
 
 ```text
 $ flox activate -r myuser/myenv
-ℹ️  Environment out of sync with FloxHub.
+ℹ Environment out of sync with FloxHub.
 
 Local:
 
@@ -101,7 +101,7 @@ Remote:
 
 Use 'flox push|pull -r myuser/myenv' to fetch updates or update the environment on FloxHub.
 
-✅ You are now using the environment 'myuser/myenv (local)'.
+✔ You are now using the environment 'myuser/myenv (local)'.
 To stop using this environment, type 'exit'
 ```
 
@@ -115,7 +115,7 @@ Running the `flox push` command syncs local changes to the upstream copy on Flox
 
 ```text
 $ flox push -r myuser/myenv
-✅ Updates to myenv successfully pushed to FloxHub
+✔ Updates to myenv successfully pushed to FloxHub
 
 View the environment at: https://hub.flox.dev/myuser/myenv
 Use this environment from another machine: 'flox activate -r myuser/myenv'
