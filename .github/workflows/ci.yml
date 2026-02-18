@@ -54,6 +54,7 @@ jobs:
           command: "markdownlint-cli2"
 
       - name: "Check external links"
+        if: ${{ github.event_name == 'pull_request' }}
         uses: "flox/activate-action@main"
         with:
           command: "./check_links.sh"
