@@ -1,7 +1,3 @@
-<!-- Start of HubSpot Embed Code -->
-<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/23414950.js"></script>
-<!-- End of HubSpot Embed Code -->
-
 <!-- Consent-aware tracking integrations using HubSpot's official API -->
 <script>
   (function () {
@@ -9,6 +5,138 @@
 
     // Initialize HubSpot privacy consent array
     window._hsp = window._hsp || [];
+
+    function isLocalHost() {
+      var host = (window.location && window.location.hostname) || '';
+      return host === 'localhost' || host === '127.0.0.1' || host === '::1';
+    }
+
+    function loadHubSpot() {
+      if (window.__hsLoaded) return;
+      window.__hsLoaded = true;
+      var s = document.createElement('script');
+      s.type = 'text/javascript';
+      s.id = 'hs-script-loader';
+      s.async = true;
+      s.defer = true;
+      s.src = 'https://js.hs-scripts.com/23414950.js';
+      document.head.appendChild(s);
+    }
+
+    function isGrantedValue(value) {
+      return value === true || value === 1 || value === '1' || value === 'true';
+    }
+
+    function firstDefined(values) {
+      for (var i = 0; i < values.length; i++) {
+        if (values[i] !== undefined && values[i] !== null) return values[i];
+      }
+      return undefined;
+    }
+
+    function getConsentStateFromObject(source) {
+      var categories =
+        source && source.categories && typeof source.categories === 'object'
+          ? source.categories
+          : null;
+
+      var analyticsRaw = firstDefined([
+        categories && categories.analytics,
+        source && source.analytics
+      ]);
+
+      var adsRaw = firstDefined([
+        categories && categories.advertisement,
+        categories && categories.advertising,
+        categories && categories.marketing,
+        source && source.advertisement,
+        source && source.advertising,
+        source && source.marketing
+      ]);
+
+      return {
+        analyticsGranted: isGrantedValue(analyticsRaw),
+        adsGranted: isGrantedValue(adsRaw)
+      };
+    }
+
+    function ensureDefaultConsentDenied() {
+      if (window.__gtmDefaultConsentSet) return;
+      window.__gtmDefaultConsentSet = true;
+
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+
+      window.gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+    }
+
+    function applyConsentUpdate(consentState) {
+      ensureDefaultConsentDenied();
+
+      var analyticsStorage = consentState.analyticsGranted ? 'granted' : 'denied';
+      var adStorage = consentState.adsGranted ? 'granted' : 'denied';
+      var adUserData = consentState.adsGranted ? 'granted' : 'denied';
+      var adPersonalization = consentState.adsGranted ? 'granted' : 'denied';
+
+      var signature = [
+        analyticsStorage,
+        adStorage,
+        adUserData,
+        adPersonalization
+      ].join('|');
+
+      if (window.__gtmConsentSignature === signature) return;
+      window.__gtmConsentSignature = signature;
+
+      window.gtag('consent', 'update', {
+        analytics_storage: analyticsStorage,
+        ad_storage: adStorage,
+        ad_user_data: adUserData,
+        ad_personalization: adPersonalization
+      });
+    }
+
+    function getConsentStateFromCookie() {
+      try {
+        var name = '__hs_cookie_cat_pref=';
+        var cookies = document.cookie ? document.cookie.split(';') : [];
+        for (var i = 0; i < cookies.length; i++) {
+          var c = cookies[i].trim();
+          if (c.indexOf(name) === 0) {
+            try {
+              var raw = decodeURIComponent(c.substring(name.length));
+              var parsed = JSON.parse(raw);
+              var state = getConsentStateFromObject(parsed);
+              return state;
+            } catch (_) {
+              return null;
+            }
+          }
+        }
+      } catch (_) {}
+      return null;
+    }
+
+    function hasListenerConsentPayload(consent) {
+      return !!(
+        consent &&
+        consent.categories &&
+        typeof consent.categories === 'object'
+      );
+    }
+
+    function handleConsentState(consentState) {
+      applyConsentUpdate(consentState);
+      if (consentState.analyticsGranted && !window.__trackingBlockedForLocal) {
+        loadReo();
+        loadGTM();
+      }
+    }
 
     // Loader for Reo tracking script (respects consent)
     function loadReo() {
@@ -33,24 +161,39 @@
       if (window.__gtmLoaded) return;
       window.__gtmLoaded = true;
       var gtmId = 'GTM-T8Z9D5XH';
-      // Initialize dataLayer lazily
-      window.dataLayer = window.dataLayer || [];
+      ensureDefaultConsentDenied();
+
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), 'event': 'gtm.js' });
       window.dataLayer.push({ 'event': 'consent_ready' });
       var s = document.createElement('script');
-      s.defer = true;
+      s.async = true;
       s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtmId);
       document.head.appendChild(s);
     }
+ensureDefaultConsentDenied();
+    window.__trackingBlockedForLocal = isLocalHost();
+    loadHubSpot();
 
     // Use HubSpot's official privacy consent listener
     window._hsp.push(['addPrivacyConsentListener', function(consent) {
-      // Check if analytics consent is granted
-      if (consent && consent.categories && consent.categories.analytics) {
-        loadReo();
-        loadGTM();
-        loadGA();
-      }
+      var cookieConsentState = getConsentStateFromCookie();
+      
+      // Only load tracking if explicit consent cookie exists (user interacted with banner)
+      if (!cookieConsentState) return;
+
+      var hasPayload = hasListenerConsentPayload(consent);
+      var payloadConsentState = hasPayload ? getConsentStateFromObject(consent) : null;
+      var consentState = payloadConsentState || cookieConsentState;
+
+      handleConsentState(consentState);
     }]);
+
+    // Cookie fallback for returning users
+    var cookieConsentState = getConsentStateFromCookie();
+    if (cookieConsentState) {
+      handleConsentState(cookieConsentState);
+    }
   })();
 </script>
+
 
