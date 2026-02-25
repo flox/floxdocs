@@ -133,27 +133,8 @@
     function handleConsentState(consentState) {
       applyConsentUpdate(consentState);
       if (consentState.analyticsGranted && !window.__trackingBlockedForLocal) {
-        loadReo();
         loadGTM();
       }
-    }
-
-    // Loader for Reo tracking script (respects consent)
-    function loadReo() {
-      if (window.__reoLoaded) return; // idempotent
-      window.__reoLoaded = true;
-      var clientID = 'a302bd2a30723ff';
-      var s = document.createElement('script');
-      s.src = 'https://static.reo.dev/' + clientID + '/reo.js';
-      s.defer = true;
-      s.onload = function () {
-        try {
-          if (window.Reo && typeof window.Reo.init === 'function') {
-            window.Reo.init({ clientID: clientID });
-          }
-        } catch (_) {}
-      };
-      document.head.appendChild(s);
     }
 
     // Loader for Google Tag Manager (respects consent)
