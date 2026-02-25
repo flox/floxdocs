@@ -30,7 +30,7 @@ Initialized empty Git repository in /Users/your-username/example-project/.git/
 
 ```console
 $ flox init
-✨ Created environment example-project (aarch64-darwin)
+⚡︎ Created environment example-project (aarch64-darwin)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -98,7 +98,7 @@ Once you've found the right package, you can install it with
 
 ```console
 $ flox install nodejs
-✅ 'nodejs' installed to environment example-project at /Users/myuser/example-project
+✔ 'nodejs' installed to environment example-project at /Users/myuser/example-project
 ```
 
 !!! note "Note"
@@ -118,7 +118,7 @@ Use `flox show <package>` to see available versions
 
 ```console
 $ flox install mkcert
-✅ 'mkcert' installed to environment example-project at /Users/myuser/example-project
+✔ 'mkcert' installed to environment example-project at /Users/myuser/example-project
 ```
 
 ## Enter and use the environment

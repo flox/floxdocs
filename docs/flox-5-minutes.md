@@ -34,7 +34,7 @@ Once you have the project, you can run the [`flox activate`][activate] command t
 
 ```{ .console }
 $ flox activate
-✅ You are now using the environment 'flox-in-5min'.
+✔ You are now using the environment 'flox-in-5min'.
 To stop using this environment, type 'exit'
 ```
 
@@ -167,7 +167,7 @@ Start the `stopwatch` service with the `flox services start` command:
 
 ```{ .console }
 $ flox services start
-✅ Service 'stopwatch' started.
+✔ Service 'stopwatch' started.
 ```
 
 Let's make sure it's running:
@@ -198,7 +198,7 @@ We don't want the service to run forever, so let's stop it with the `flox servic
 
 ```{ .console }
 $ flox services stop
-✅ Service 'stopwatch' stopped
+✔ Service 'stopwatch' stopped
 ```
 
 A _really cool_ feature of Flox is that if you were to exit the environment by running `exit` or pressing `Ctrl-D`, the services running in the environment would be automatically stopped.

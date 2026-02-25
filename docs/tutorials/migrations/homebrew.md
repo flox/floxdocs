@@ -123,13 +123,13 @@ eval "$(flox activate -r <user>/default -m run)"
 > No
 [↑↓ to move, enter to select, type to filter]
 
-✅ Configuration added to your .bashrc file.
+✔ Configuration added to your .bashrc file.
 The 'default' environment will be activated for every new shell.
 -> Restart your shell to continue using the default environment.
 -> Read more about the 'default' environment at:
    https://flox.dev/docs/tutorials/layering-multiple-environments/#create-your-default-home-environment
 
-✅ 'jq' installed to environment '<owner>/default' (local)
+✔ 'jq' installed to environment '<owner>/default' (local)
 ```
 
 When Flox is configured with a default environment, it behaves very similarly to Homebrew. The Flox CLI will assume the default environment when you run `flox install` in a directory that doesn't contain an environment of its own.
@@ -146,7 +146,7 @@ Once the shell is available, you can verify that your default environment is act
 
 ```console
 flox [default] % flox envs
-✨ Active environments:
+⚡︎ Active environments:
   default           https://hub.flox.dev/user/default
 ```
 

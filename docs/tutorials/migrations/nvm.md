@@ -68,7 +68,7 @@ This should yield the following output:
 
 ```console
 ➜  node-project git:(main) ✗ flox install nodejs_20
-✅ 'nodejs_20' installed to environment 'node-project'
+✔ 'nodejs_20' installed to environment 'node-project'
 ```
 
 ## Verify the Node.js version
@@ -83,7 +83,7 @@ When you activate the environment, you'll see output like this in your terminal:
 
 ```console
 ➜  node-project git:(main) ✗ flox activate
-✅ You are now using the environment 'node-project'.
+✔ You are now using the environment 'node-project'.
 To stop using this environment, type 'exit'
 ```
 
@@ -131,8 +131,8 @@ Running this command will install both dependencies to the Flox environment.
 
 ```console
 flox [node-project] ➜  node-project git:(main) ✗ flox install postgresql nginx
-✅ 'postgresql' installed to environment 'node-project'
-✅ 'nginx' installed to environment 'node-project'
+✔ 'postgresql' installed to environment 'node-project'
+✔ 'nginx' installed to environment 'node-project'
 ```
 
 Now you have everything you need to develop locally, and you didn't have to figure out how to install [nginx](https://nginx.org/en/docs/install.html){:target="\_blank"} and [PostgreSQL](https://www.postgresql.org/download/){:target="\_blank"} individually.
