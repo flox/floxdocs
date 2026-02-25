@@ -22,7 +22,7 @@ site_description: Flox documentation site
 # getting feedback on the public repo
 repo_url: "https://github.com/flox/flox"
 
-copyright: "Copyright 2026 Flox. All rights reserved."
+copyright: Copyright &copy; 2026 Flox. <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=db383cf9-e05b-4fb8-b120-75b0229c1d18" />
 
 extra:
   FLOX_VERSION: !ENV [FLOX_VERSION, 'X.Y.Z']
