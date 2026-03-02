@@ -6,6 +6,9 @@
       "coreutils": {
         "pkg-path": "coreutils"
       },
+      "curl": {
+        "pkg-path": "curl"
+      },
       "d2": {
         "pkg-path": "d2"
       },
@@ -83,6 +86,12 @@
       "outputs_to_install": [
         "out",
         "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
         "out"
       ],
       "outputs": {
@@ -113,6 +122,10 @@
       "unfree": false,
       "version": "9.9",
       "outputs_to_install": [
+        "out",
+        "out",
+        "out",
+        "out",
         "out",
         "out"
       ],
@@ -145,6 +158,8 @@
       "unfree": false,
       "version": "9.9",
       "outputs_to_install": [
+        "out",
+        "out",
         "out"
       ],
       "outputs": {
@@ -178,12 +193,162 @@
         "out",
         "out",
         "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
         "out"
       ],
       "outputs": {
         "debug": "/nix/store/fzcbb02abzvmyrvpa360abfbspnz9l1j-coreutils-9.9-debug",
         "info": "/nix/store/7c3i7919ys6jk8qkccspz3bkc1lv82d9-coreutils-9.9-info",
         "out": "/nix/store/i2vmgx46q9hd3z6rigaiman3wl3i2gc4-coreutils-9.9"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "curl",
+      "broken": false,
+      "derivation": "/nix/store/vn7qyigb9aqbzk93v3yjz3zdacbp48vw-curl-8.17.0.drv",
+      "description": "Command line tool for transferring files with URL syntax",
+      "install_id": "curl",
+      "license": "curl",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "name": "curl-8.17.0",
+      "pname": "curl",
+      "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "rev_count": 939624,
+      "rev_date": "2026-02-03T10:48:24Z",
+      "scrape_date": "2026-02-04T04:35:56.631914Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.17.0",
+      "outputs_to_install": [
+        "bin",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/qncd2qavd8nj797izhqzyzz5q9cr5bwx-curl-8.17.0-bin",
+        "dev": "/nix/store/27hnypizfhndg47s81v9gvc9ywsiqq5p-curl-8.17.0-dev",
+        "devdoc": "/nix/store/izi1l0h196fyaf7w06wqziq02m43acij-curl-8.17.0-devdoc",
+        "man": "/nix/store/2swlvcnn1xrsanyd4fc8mdlmx6c216dd-curl-8.17.0-man",
+        "out": "/nix/store/vzv2n6g3g6ynxdzflh4s5crn6px9b0wb-curl-8.17.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "curl",
+      "broken": false,
+      "derivation": "/nix/store/sbj1ds2n743q4zhfccjaylg7jvjp9q9n-curl-8.17.0.drv",
+      "description": "Command line tool for transferring files with URL syntax",
+      "install_id": "curl",
+      "license": "curl",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "name": "curl-8.17.0",
+      "pname": "curl",
+      "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "rev_count": 939624,
+      "rev_date": "2026-02-03T10:48:24Z",
+      "scrape_date": "2026-02-04T05:05:34.045693Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.17.0",
+      "outputs_to_install": [
+        "bin",
+        "bin",
+        "man",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/wqz5jf32ywajllzfry6gjxhddbh21lvs-curl-8.17.0-bin",
+        "debug": "/nix/store/vwgx2lvkk8kygx6006a81qhb48f9hn7f-curl-8.17.0-debug",
+        "dev": "/nix/store/638hqfczwic54cln0cavh38l1a140ij3-curl-8.17.0-dev",
+        "devdoc": "/nix/store/gl74x82b8xiprhpqnw86rvha06gjzk8v-curl-8.17.0-devdoc",
+        "man": "/nix/store/9bpk7v03yq152wvf5rbv7pr7f5mvj7xp-curl-8.17.0-man",
+        "out": "/nix/store/7rls1f8815qd0b6lgicc53jwl7qs3fa2-curl-8.17.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "curl",
+      "broken": false,
+      "derivation": "/nix/store/7f4kfgr9bwbzm3xzah75z0qii7gramff-curl-8.17.0.drv",
+      "description": "Command line tool for transferring files with URL syntax",
+      "install_id": "curl",
+      "license": "curl",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "name": "curl-8.17.0",
+      "pname": "curl",
+      "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "rev_count": 939624,
+      "rev_date": "2026-02-03T10:48:24Z",
+      "scrape_date": "2026-02-04T05:33:58.091495Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.17.0",
+      "outputs_to_install": [
+        "bin",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/9392lab8kdzr8ch1g2lfh63fm3gvkg77-curl-8.17.0-bin",
+        "dev": "/nix/store/k4vydyjfpc7j04dldqlmnc688xfzjlvv-curl-8.17.0-dev",
+        "devdoc": "/nix/store/h7rj1lxpqbfpd6l42rfbpby4zb1pxsjx-curl-8.17.0-devdoc",
+        "man": "/nix/store/1x5mhbmgag1x0m1iqg793w3nkpa879qa-curl-8.17.0-man",
+        "out": "/nix/store/073hhh572b5vjk02rdyd68rqip6zfdc5-curl-8.17.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "curl",
+      "broken": false,
+      "derivation": "/nix/store/a1kpbbk1lnnaw2gl5pffs92hxm54mjpm-curl-8.17.0.drv",
+      "description": "Command line tool for transferring files with URL syntax",
+      "install_id": "curl",
+      "license": "curl",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "name": "curl-8.17.0",
+      "pname": "curl",
+      "rev": "e6eae2ee2110f3d31110d5c222cd395303343b08",
+      "rev_count": 939624,
+      "rev_date": "2026-02-03T10:48:24Z",
+      "scrape_date": "2026-02-04T06:07:08.018634Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "8.17.0",
+      "outputs_to_install": [
+        "bin",
+        "bin",
+        "man",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/jqfr3p49g3lch84y45jfzw9fshlv8jyp-curl-8.17.0-bin",
+        "debug": "/nix/store/lhdva5pd84cx2bm7gymrm7x75m95s3gb-curl-8.17.0-debug",
+        "dev": "/nix/store/gy73p60881n9nagq7grffjgy4ycw9a85-curl-8.17.0-dev",
+        "devdoc": "/nix/store/74hjnnn67f1ax4mkx4nwbcxaih6k5hrv-curl-8.17.0-devdoc",
+        "man": "/nix/store/msaigk8gy4rikyxbxiqksh8njd5dx13h-curl-8.17.0-man",
+        "out": "/nix/store/8ylzjm58ghiq60vklfy58j14sgryjjzw-curl-8.17.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -450,6 +615,11 @@
       "version": "4.9",
       "outputs_to_install": [
         "out",
+        "out",
+        "out",
+        "out",
+        "out",
+        "out",
         "out"
       ],
       "outputs": {
@@ -481,6 +651,8 @@
       "version": "4.9",
       "outputs_to_install": [
         "out",
+        "out",
+        "out",
         "out"
       ],
       "outputs": {
@@ -511,6 +683,7 @@
       "unfree": false,
       "version": "4.9",
       "outputs_to_install": [
+        "out",
         "out"
       ],
       "outputs": {
@@ -541,6 +714,9 @@
       "unfree": false,
       "version": "4.9",
       "outputs_to_install": [
+        "out",
+        "out",
+        "out",
         "out",
         "out"
       ],
@@ -573,6 +749,7 @@
       "version": "1.35",
       "outputs_to_install": [
         "out",
+        "out",
         "out"
       ],
       "outputs": {
@@ -604,6 +781,8 @@
       "version": "1.35",
       "outputs_to_install": [
         "out",
+        "out",
+        "out",
         "out"
       ],
       "outputs": {
@@ -634,6 +813,7 @@
       "unfree": false,
       "version": "1.35",
       "outputs_to_install": [
+        "out",
         "out"
       ],
       "outputs": {
@@ -664,6 +844,10 @@
       "unfree": false,
       "version": "1.35",
       "outputs_to_install": [
+        "out",
+        "out",
+        "out",
+        "out",
         "out",
         "out",
         "out",
@@ -1086,6 +1270,7 @@
       "unfree": false,
       "version": "python3-3.11.14",
       "outputs_to_install": [
+        "out",
         "out"
       ],
       "outputs": {
@@ -1145,6 +1330,7 @@
       "unfree": false,
       "version": "python3-3.11.14",
       "outputs_to_install": [
+        "out",
         "out",
         "out"
       ],

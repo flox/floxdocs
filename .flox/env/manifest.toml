@@ -16,6 +16,7 @@ lychee.pkg-group = "lint"
 lychee.version = ">=0.23"
 markdownlint-cli2.pkg-path = "markdownlint-cli2"
 markdownlint-cli2.pkg-group = "lint"
+curl.pkg-path = "curl"
 
 [hook]
 on-activate = '''
