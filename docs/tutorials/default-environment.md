@@ -135,7 +135,7 @@ to the environment in that directory, rather than your default environment.
 
 Nevertheless, it's still easy to install whatever you wish to your `default`
 environment.
-All you need to do is pass the `-d` argument to the `install` command, like so:
+All you need to do is pass the `-r` argument to the `install` command, like so:
 
 ```{ .bash .copy }
 flox install -r <your username>/default ~ hello
