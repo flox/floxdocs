@@ -10,6 +10,7 @@ lychee $SCRIPT_DIR/site \
   -nv \
   --root-dir $SCRIPT_DIR/public \
   --remap "https://flox.dev/docs file://$PWD/site" \
+  ${GITHUB_TOKEN:+--github-token "$GITHUB_TOKEN"} \
   --exclude "bash/manual/html_node" \
   --exclude "https://www.gnu.org/software/make/" \
   --exclude "https://github.com/flox/catalog-util" \

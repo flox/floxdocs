@@ -56,6 +56,8 @@ jobs:
       - name: "Check external links"
         if: ${{ github.event_name == 'pull_request' }}
         uses: "flox/activate-action@main"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
           command: "./check_links.sh"
 
