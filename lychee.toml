@@ -2,7 +2,7 @@
 # https://lychee.cli.rs/guides/config/
 
 no_progress = true
-max_concurrency = 4
+max_concurrency = 1
 max_retries = 3
 retry_wait_time = 10
 
