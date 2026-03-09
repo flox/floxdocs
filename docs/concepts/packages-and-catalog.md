@@ -37,6 +37,7 @@ Upstream changes in [nixpkgs][nixpkgs] are reflected in the Flox Catalog daily f
 Source by the Open Source Initiative (OSI).
 * **broken**: indicates if the package is marked as broken in
 [nixpkgs][nixpkgs].
+* **outputs**: the different "parts" of a package ([see here for more details][package-outputs])
 
 [base_catalog]: ./base-catalog.md
 [flox_search]: ../man/flox-search.md
@@ -47,3 +48,4 @@ Source by the Open Source Initiative (OSI).
 [nixpkgs]: https://github.com/NixOS/nixpkgs
 [builds]: ./builds.md
 [publishing]: ./publishing.md
+[package-outputs]: ../tutorials/package-outputs.md
