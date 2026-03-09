@@ -67,6 +67,9 @@ What this means in practice is:
 - Libraries should be placed in `$out/lib`
 - Configuration should be placed in `$out/etc`.
 
+Packages in the Flox Catalog also have named "outputs" that form the parts of a package (`bin`, `man`, etc).
+Packages built as manifest builds only have a single output: `out`.
+
 ## Pure builds
 
 Builds can be performed with different levels of "purity", meaning different levels of access to the outside world.
