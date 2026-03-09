@@ -67,6 +67,7 @@ nav:
   - Concepts:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md
+    - Compatibility policy: concepts/compatibility.md
     - FloxHub: concepts/floxhub.md
     - FloxHub environments: concepts/floxhub-environments.md
     - Generations: concepts/generations.md
