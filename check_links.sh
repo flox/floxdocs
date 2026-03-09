@@ -11,6 +11,9 @@ lychee $SCRIPT_DIR/site \
   --root-dir $SCRIPT_DIR/public \
   --remap "https://flox.dev/docs file://$PWD/site" \
   ${GITHUB_TOKEN:+--github-token "$GITHUB_TOKEN"} \
+  --max-retries 3 \
+  --retry-wait-time 5 \
+  --max-concurrency 4 \
   --exclude "bash/manual/html_node" \
   --exclude "https://www.gnu.org/software/make/" \
   --exclude "https://github.com/flox/catalog-util" \
