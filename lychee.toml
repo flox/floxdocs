@@ -1,0 +1,18 @@
+# Lychee link checker configuration
+# https://lychee.cli.rs/guides/config/
+
+no_progress = true
+max_concurrency = 4
+max_retries = 3
+retry_wait_time = 10
+
+# Throttle per-host request rate to avoid 429s
+host_request_interval = "50ms"
+
+exclude = [
+  'bash/manual/html_node',
+  'https://www\.gnu\.org/software/make/',
+  'https://github\.com/flox/catalog-util',
+  'https://www\.backblaze\.com/cloud-storage',
+  'https://developer\.hashicorp\.com/terraform',
+]
