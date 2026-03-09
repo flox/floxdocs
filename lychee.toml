@@ -5,6 +5,7 @@ no_progress = true
 max_concurrency = 4
 max_retries = 3
 retry_wait_time = 10
+host_request_interval = "50ms"
 
 exclude = [
   'bash/manual/html_node',
