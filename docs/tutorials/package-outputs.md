@@ -13,6 +13,8 @@ Some packages only have one output, others have many.
 For example, the `hello` package only has one output called `out` (the default in most cases).
 The `curl` package, on the other hand, contains several outputs, one of which is OS-specific: `bin`, `dev`, `man`, `out`, `debug` (only available on Linux), and `devdoc`.
 
+Which outputs exist for a given package and which outputs are installed by default is determined by the package maintainer in the upstream Nixpkgs repository.
+
 In this tutorial you'll learn how to discover which outputs are available for a package, which outputs are installed by default, and how to specify precisely which outputs to install for a package.
 
 ## Why?
@@ -109,10 +111,9 @@ The `curl` package is one of these idiosyncratic cases because the `out` output 
 ## Selecting outputs
 
 Prior to version 1.10.0 of the Flox CLI, all outputs of a package were installed when a package was added to an environment.
-As of CLI version 1.10.0 you can specify which outputs to install.
-This is done by specifying the `outputs` field on a package in your manifest, and requires `schema-version` 1.10.0 or later (also note that this `schema-version` replaces the prior `version` field).
+As of CLI version 1.10.0 you can specify which outputs to install using a manifest with `schema-version` 1.10.0 or later (note that the `schema-version` field replaced the `version` field in CLI version 1.10.0).
 
-The `outputs` field has three behaviors:
+The most flexible way to specify outputs is by setting the `outputs` field on a package in your manifest. The `outputs` field has three behaviors:
 
 - When omitted, only the default outputs are installed
 - When set to `"all"`, all outputs are installed
@@ -139,7 +140,7 @@ flox install curl^bin,man,out
 ```
 
 A comma-separated list after a `^` is treated as a list of outputs you'd like to install.
-The same syntax works for the [`flox uninstall`][flox-uninstall] command.
+Note that this only allows you to install _additional_ outputs.
 
 ## Conclusion
 
