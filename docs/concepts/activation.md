@@ -65,7 +65,7 @@ run:
 | Mode | Command | `hook.on-activate` | `profile.*` |
 | --- | --- | :---: | :---: |
 | Subshell | `flox activate` | :white_check_mark: | :white_check_mark: |
-| In-place | `eval "$(flox activate)"` | :white_check_mark: | :x: |
+| In-place | `eval "$(flox activate)"` | :white_check_mark: | :white_check_mark: |
 | Shell command | `flox activate -c` | :white_check_mark: | :white_check_mark: |
 | Exec | `flox activate --` | :white_check_mark: | :x: |
 
@@ -111,21 +111,13 @@ eval "$(flox activate)"
 In both cases Flox emits a script that configures the shell,
 and the shell executes that code to configure itself.
 
-!!! note
-
-    In-place activation runs `hook.on-activate` but does **not** run
-    `[profile]` scripts.
-    If you rely on aliases, functions, or third-party scripts sourced in
-    your `[profile]` section, they will not be available after an in-place
-    activation.
-
 !!! tip "direnv integration"
 
     If you use [direnv](https://direnv.net/) with `use flox` in your
-    `.envrc`, the activation is in-place.
-    This means `[profile]` scripts are **not** run.
-    Any dynamic environment variable exports you need should go in
-    `hook.on-activate` rather than `[profile]`.
+    `.envrc`, the activation is in-place and both `hook.on-activate` and
+    `[profile]` scripts are run.
+    Note that `profile.common` must use shell-agnostic syntax — see
+    the [guidance below](#hook-vs-profile-in-a-nutshell).
 
 ```d2 scale="1.0"
 shape: sequence_diagram
@@ -319,12 +311,7 @@ here is some simple guidance:
   etc. sections for non-portable syntax.
 - Can define functions and aliases.
 - Can source scripts needed for other programs to work properly e.g. the `activate` script for a Python virtual environment.
-- _Can_ define environment variables that need to be computed, but only in
-  modes that run `[profile]` scripts (subshell and `-c`).
-  Environment variables exported in `[profile]` will **not** be set during
-  in-place (e.g. direnv) or exec (`--`) activations.
-  If you need computed environment variables in all activation modes,
-  use `hook.on-activate` instead.
+- _Can_ define environment variables that need to be computed.
 
 In short, it's probably best to put as much as you can in `hook.on-activate`
 until you have shell-specific needs, you need aliases, or you need to source
