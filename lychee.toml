@@ -8,6 +8,8 @@ retry_wait_time = 10
 host_request_interval = "50ms"
 
 exclude = [
+  '^javascript:',
+  '^data:',
   'bash/manual/html_node',
   'https://www\.gnu\.org/software/make/',
   'https://github\.com/flox/catalog-util',
