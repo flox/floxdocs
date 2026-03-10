@@ -132,6 +132,19 @@ flox pull example-owner/example-env
 
 Run the [`flox auth logout`][flox_auth] command.
 
+## Network connectivity
+
+The Flox CLI communicates with the following domains for FloxHub functionality:
+
+| Domain | Purpose |
+| --- | --- |
+| `api.flox.dev` | API requests from the Flox CLI |
+| `hub.flox.dev` | FloxHub web application and environment storage |
+| `auth.flox.dev` | Authentication services |
+
+If your network restricts outbound traffic,
+ensure that the Flox CLI can reach these domains over HTTPS (port 443).
+
 [flox_website]: https://flox.dev
 [flox_push]: ../man/flox-push.md
 [flox_pull]: ../man/flox-pull.md
