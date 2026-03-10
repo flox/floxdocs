@@ -14,8 +14,7 @@ it stands to reason that _how you use them_ is also an important part of Flox.
 
 There are four different ways to use an environment,
 and two different modes that an environment can be activated in.
-At the end of the day, though, it all boils down to properly configuring a
-shell.
+Regardless of the method, activation works by configuring a shell.
 The `hook` and `profile` scripts specified in your manifest are run as part of
 configuring that shell.
 Understanding when and why they're run will help you take full advantage
