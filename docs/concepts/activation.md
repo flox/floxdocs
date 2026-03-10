@@ -30,9 +30,15 @@ Flox configures a shell,
 making all of the packages and environment variables specified in your
 manifest available, as mentioned above.
 
-The most basic way to activate an environment is simply by calling
+Activation doesn't always mean creating a new shell.
+Depending on how you invoke `flox activate`,
+Flox may start a subshell, configure your current shell in-place,
+or directly exec a command without an intermediate shell at all.
+The [four methods](#four-different-ways-to-activate) are described below.
+
+The most common way to activate an environment is simply by calling
 `flox activate`,
-which puts you into a subshell with everything configured:
+which starts a new subshell with everything configured:
 
 ```{ .console .no-copy }
 $ flox activate
