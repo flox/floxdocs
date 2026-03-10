@@ -120,6 +120,14 @@ and the shell executes that code to configure itself.
     your `[profile]` section, they will not be available after an in-place
     activation.
 
+!!! tip "direnv integration"
+
+    If you use [direnv](https://direnv.net/) with `use flox` in your
+    `.envrc`, the activation is in-place.
+    This means `[profile]` scripts are **not** run.
+    Any dynamic environment variable exports you need should go in
+    `hook.on-activate` rather than `[profile]`.
+
 ```d2 scale="1.0"
 shape: sequence_diagram
 user_shell: User shell
