@@ -60,6 +60,15 @@ environment rather than from elsewhere on your system.
 ## Four different ways to activate
 
 We mentioned above that there are four different ways to use an environment.
+Each method differs in whether `hook.on-activate` and `profile` scripts are
+run:
+
+| Mode | Command | `hook.on-activate` | `profile.*` |
+| --- | --- | :---: | :---: |
+| Subshell | `flox activate` | :white_check_mark: | :white_check_mark: |
+| In-place | `eval "$(flox activate)"` | :white_check_mark: | :x: |
+| Shell command | `flox activate -c` | :white_check_mark: | :white_check_mark: |
+| Exec | `flox activate --` | :white_check_mark: | :x: |
 
 ### Subshell
 
@@ -102,6 +111,14 @@ eval "$(flox activate)"
 
 In both cases Flox emits a script that configures the shell,
 and the shell executes that code to configure itself.
+
+!!! note
+
+    In-place activation runs `hook.on-activate` but does **not** run
+    `[profile]` scripts.
+    If you rely on aliases, functions, or third-party scripts sourced in
+    your `[profile]` section, they will not be available after an in-place
+    activation.
 
 ```d2 scale="1.0"
 shape: sequence_diagram
