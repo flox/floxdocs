@@ -317,7 +317,12 @@ here is some simple guidance:
 - Syntax depends on the shell.
 - Can define functions and aliases.
 - Can source scripts needed for other programs to work properly e.g. the `activate` script for a Python virtual environment.
-- _Can_ define environment variables that need to be computed.
+- _Can_ define environment variables that need to be computed, but only in
+  modes that run `[profile]` scripts (subshell and `-c`).
+  Environment variables exported in `[profile]` will **not** be set during
+  in-place (e.g. direnv) or exec (`--`) activations.
+  If you need computed environment variables in all activation modes,
+  use `hook.on-activate` instead.
 
 In short, it's probably best to put as much as you can in `hook.on-activate`
 until you have shell-specific needs, you need aliases, or you need to source
