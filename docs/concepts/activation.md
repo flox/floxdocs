@@ -314,7 +314,10 @@ here is some simple guidance:
 
 **profile**:
 
-- Syntax depends on the shell.
+- Syntax depends on the shell. `profile.common` is sourced by _all_ shells
+  (Bash, Zsh, Fish, and tcsh), so avoid constructs like `export VAR=value`
+  that are not portable. Use the shell-specific `profile.bash`, `profile.zsh`,
+  etc. sections for non-portable syntax.
 - Can define functions and aliases.
 - Can source scripts needed for other programs to work properly e.g. the `activate` script for a Python virtual environment.
 - _Can_ define environment variables that need to be computed, but only in
