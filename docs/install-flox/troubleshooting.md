@@ -121,6 +121,10 @@ If these users were not fully removed during uninstallation,
 the Flox installer's post-install script can fail because it expects to create
 these users with specific UIDs.
 
+This is particularly common with Nix installations that are two or more years old
+(prior to macOS 15).
+See [NixOS/nix#10892](https://github.com/NixOS/nix/issues/10892) for background.
+
 ### Symptoms
 
 The install log (`/var/log/install.log`) contains an error like:
