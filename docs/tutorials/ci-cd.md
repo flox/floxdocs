@@ -48,11 +48,11 @@ jobs:
         with:
           command: npm run build
 
-    - name: Activate remote environment
-      uses: flox/activate-action@v1
-      with:
-        environment: my-username/my-netlify-env
-        command: netlify deploy
+      - name: Activate remote environment
+        uses: flox/activate-action@v1
+        with:
+          environment: my-username/my-netlify-env
+          command: netlify deploy
 ```
 
 1. You are looking at an example project, your project will probably look a little different. Important parts of how to integrate Flox with Github Actions are highlighted below.
