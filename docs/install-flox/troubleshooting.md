@@ -3,6 +3,8 @@ title: Troubleshooting installation
 description: How to diagnose and fix common Flox installation issues
 ---
 
+<!-- markdownlint-disable-file MD024 -->
+
 # Troubleshooting installation
 
 If you run into problems installing Flox,
