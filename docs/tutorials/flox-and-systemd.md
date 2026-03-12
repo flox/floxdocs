@@ -81,6 +81,7 @@ exit
 Create the systemd user unit file:
 
 ``` { .bash .copy }
+mkdir -p ~/.config/systemd/user/
 cat > ~/.config/systemd/user/redis.service << 'EOF'
 [Unit]
 Description=Redis Server (Flox)
