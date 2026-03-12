@@ -1,7 +1,10 @@
 <!-- markdownlint-disable-file MD041 -->
-The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
+Flox will reconfigure an existing Nix installation. These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
+
 <!-- markdownlint-disable-next-line MD051 -->
-If you want full control of your Nix installation, see the instructions for installing Flox in ["Nix (Generic)"](#nix-generic).
+If you want retain full control of your Nix installation, see the [Nix (Generic)](#nix-generic) instructions.
+
+---
 
 When installing over a previous installation of Nix the Flox installation
 will:
@@ -16,8 +19,6 @@ will:
 1. Overwrite the system-wide `/etc/nix/nix.conf`
 1. (If applicable) convert the Nix installation to a multi-user install
 1. Reconfigure the `nix-daemon` invocation
-
-These changes are designed to improve the overall user experience and make the Nix installation more reliable and easier to support, but it's worth noting that **anyone wishing to revert to a "vanilla" Nix installation after installing Flox will need to re-install Nix**.
 
 If you are installing over a previous installation of Nix we suggest that you install Flox to a test machine or VM to gain familiarity with it first.
 
