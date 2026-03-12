@@ -17,7 +17,7 @@ description: How to install or upgrade the Flox CLI
     2. Double-click to install the downloaded file
     3. Open a terminal window to continue below
 
-    ??? info "Replacing an existing Nix installation"
+    ??? warning "This will replace an existing Nix installation"
         {%
             include-markdown "include/replacing-a-Nix-installation.md"
         %}
@@ -53,7 +53,7 @@ description: How to install or upgrade the Flox CLI
         You may be prompted for a `sudo` password or be asked if your terminal has authorization to modify disk contents.
 
 
-    ??? info "Replacing an existing Nix installation"
+    ??? warning "This will replace an existing Nix installation"
         {%
             include-markdown "include/replacing-a-Nix-installation.md"
         %}
@@ -98,7 +98,7 @@ description: How to install or upgrade the Flox CLI
         sudo apt install /path/to/flox.deb
         ```
 
-    ??? info "Replacing an existing Nix installation"
+    ??? warning "This will replace an existing Nix installation"
         {%
             include-markdown "include/replacing-a-Nix-installation.md"
         %}
@@ -145,7 +145,7 @@ description: How to install or upgrade the Flox CLI
         sudo rpm -ivh /path/to/flox.rpm
         ```
 
-    ??? info "Replacing an existing Nix installation"
+    ??? warning "This will replace an existing Nix installation"
         {%
             include-markdown "include/replacing-a-Nix-installation.md"
         %}
