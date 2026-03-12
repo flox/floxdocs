@@ -5,7 +5,7 @@ description: How to install or upgrade the Flox CLI
 
 # Install Flox { #install-flox }
 
-=== "MacOS - Pkg"
+=== "MacOS (Pkg)"
 
     **Download and install the package that matches your machine's architecture.**
 
@@ -39,7 +39,7 @@ description: How to install or upgrade the Flox CLI
 
     Download and install the latest image as described above.
 
-=== "MacOS - Homebrew"
+=== "MacOS (Homebrew)"
 
     **Brew install**
 
@@ -175,11 +175,11 @@ description: How to install or upgrade the Flox CLI
     sudo dnf update flox
     ```
 
-=== "Nix - Generic"
+=== "Nix (Generic)"
 
     !!! question "Which install method for existing Nix installation?"
 
-        Use the Flox installer for your system to allow some opinionated configuration of Nix, or use these "Nix - Generic" instructions for full control of your Nix installation.
+        Use the Flox installer for your system to allow some opinionated configuration of Nix, or use these "Nix (Generic)" instructions for full control of your Nix installation.
 
     **Install Nix**
 
@@ -368,7 +368,7 @@ description: How to install or upgrade the Flox CLI
 
     Or, if you've declared Flox using a flake, run `nix flake update`.
 
-=== "Nix - NixOS"
+=== "Nix (NixOS)"
 
     **Configure Substituters**
 

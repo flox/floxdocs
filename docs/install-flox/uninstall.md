@@ -16,7 +16,7 @@ email](mailto:hello@flox.dev).
 
 Here's how to **completely remove `flox` from your system**.
 
-=== "MacOS - Pkg"
+=== "MacOS (Pkg)"
 
     !!! warning "The following commands will completely remove Nix and the contents of `/nix/*` from the system."
 
@@ -37,7 +37,7 @@ Here's how to **completely remove `flox` from your system**.
     ```
 
     We recommend rebooting your system after uninstalling Flox.
-=== "MacOS - Homebrew"
+=== "MacOS (Homebrew)"
 
     !!! warning "The following commands will completely remove Nix and the contents of `/nix/*` from the system."
 
@@ -139,7 +139,7 @@ Here's how to **completely remove `flox` from your system**.
         Complete!
         ```
 
-=== "Nix - Generic"
+=== "Nix (Generic)"
 
     If you've installed flox to the system-wide `default` profile
 
