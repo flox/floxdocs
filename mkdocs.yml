@@ -51,6 +51,7 @@ nav:
     - Reusing and combining developer environments: tutorials/composition.md
     - Selecting package outputs: tutorials/package-outputs.md
     - Flox + CUDA: tutorials/cuda.md
+    - Flox and systemd: tutorials/flox-and-systemd.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
   - Imageless Kubernetes:
