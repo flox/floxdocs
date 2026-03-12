@@ -87,7 +87,7 @@ cat > ~/.config/systemd/user/redis.service << 'EOF'
 Description=Redis Server (Flox)
 
 [Service]
-ExecStart=flox activate -d /home/ubuntu/redis -- bash -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
+ExecStart=flox activate -d /home/ubuntu/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
 
 [Install]
 WantedBy=default.target
@@ -124,8 +124,19 @@ systemctl --user status redis.service
 Verify Redis is responding:
 
 ``` { .bash .copy }
-flox activate -d /home/ubuntu/redis -- redis-cli -p 16379 ping
+flox activate -d /home/ubuntu/redis -c 'redis-cli -p "$REDISPORT" ping'
 # should respond PONG
+```
+
+### User unit cleanup
+
+To stop and fully remove the systemd user unit:
+
+``` { .bash .copy }
+systemctl --user stop redis.service
+systemctl --user disable redis.service
+rm ~/.config/systemd/user/redis.service
+systemctl --user daemon-reload
 ```
 
 ## Run a Flox environment service as a systemd system unit
@@ -144,8 +155,8 @@ sudo useradd --system --no-create-home --shell /usr/sbin/nologin redis
 
 ``` { .bash .copy }
 sudo mkdir -p /home/redis
-sudo flox pull flox/redis -d /home/redis/redis
 sudo chown -R redis:redis /home/redis
+sudo -u redis flox pull flox/redis -d /home/redis/redis
 ```
 
 ### Create the system unit file
@@ -187,7 +198,7 @@ sudo systemctl status redis.service
 ```
 
 ``` { .bash .copy }
-flox activate -d /home/ubuntu/redis -- redis-cli -p 16379 ping
+flox activate -d /home/ubuntu/redis -c 'redis-cli -p "$REDISPORT" ping'
 # should respond PONG
 ```
 
@@ -197,6 +208,17 @@ flox activate -d /home/ubuntu/redis -- redis-cli -p 16379 ping
     uses `multi-user.target`,
     requires `sudo`,
     and no lingering is needed.
+
+### System unit cleanup
+
+To stop and fully remove the systemd system unit:
+
+``` { .bash .copy }
+sudo systemctl stop redis.service
+sudo systemctl disable redis.service
+sudo rm /etc/systemd/system/redis.service
+sudo systemctl daemon-reload
+```
 
 ## Where to next?
 
