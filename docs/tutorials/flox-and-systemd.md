@@ -21,6 +21,16 @@ You will learn how to run a Flox environment service as both a
 - Flox installed in multi-user mode.
   This tutorial was tested on Flox 1.10.0.
 
+## Constraints
+
+- The systemd service that invokes Flox cannot run as root.
+- The service cannot listen on a port with a value less than 1024.
+- The UID for the user running the systemd service should be >= 1000
+  for logs to function properly.
+  See [flox#2e789b5][uid_fix] for details.
+- Logs may not function properly if the process forks.
+  See [flox#9b1e750][fork_fix] for details.
+
 ## Run a Flox environment service as a systemd user unit
 
 In this section you will set up a Redis service from a FloxHub environment
@@ -68,12 +78,6 @@ exit
 
 ### Create the systemd user service
 
-!!! note "Note"
-    The linger configuration is only required if you want the service to start
-    on boot without a login.
-    Otherwise the user must be logged in before the systemd service attempts
-    to start.
-
 Create the systemd user unit file:
 
 ``` { .bash .copy }
@@ -93,7 +97,10 @@ EOF
     Update the path `/home/ubuntu/redis` in the `ExecStart` line to match
     the location where you created the environment.
 
-Enable lingering so the service starts at boot without login:
+By default, systemd user units only run while the user is logged in.
+Enabling **lingering** allows the service to start at boot without a login session.
+If you only need the service to run while you are logged in,
+you can skip this step.
 
 ``` { .bash .copy }
 sudo loginctl enable-linger ubuntu
@@ -153,7 +160,7 @@ Description=Redis Server (Flox)
 
 [Service]
 User=redis
-ExecStart=flox activate -d /home/redis/redis -- bash -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
+ExecStart=flox activate -d /home/redis/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
 
 [Install]
 WantedBy=multi-user.target
@@ -179,7 +186,7 @@ sudo systemctl status redis.service
 ```
 
 ``` { .bash .copy }
-sudo flox activate -d /home/redis/redis -- redis-cli -p 16379 ping
+flox activate -d /home/ubuntu/redis -- redis-cli -p 16379 ping
 # should respond PONG
 ```
 
@@ -199,3 +206,5 @@ sudo flox activate -d /home/redis/redis -- redis-cli -p 16379 ping
 [services_concept]: ../concepts/services.md
 [flox_services_status]: ../man/flox-services-status.md
 [sharing_guide]: ./sharing-environments.md
+[uid_fix]: https://github.com/flox/flox/commit/2e789b55de153b80a23367b236334ffbe84d6289
+[fork_fix]: https://github.com/flox/flox/commit/9b1e7504fd5dd482d9afeda1e21ecfe8d1f86593
