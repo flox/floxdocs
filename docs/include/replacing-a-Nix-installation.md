@@ -1,7 +1,7 @@
 <!-- markdownlint-disable-file MD041 -->
 The Flox installer will perform some opinionated configuration of Nix, but Nix will still be usable.
 <!-- markdownlint-disable-next-line MD051 -->
-If you want full control of your Nix installation, see the instructions for installing Flox in ["Nix - Generic"](#nix---generic).
+If you want full control of your Nix installation, see the instructions for installing Flox in ["Nix (Generic)"](#nix-generic).
 
 When installing over a previous installation of Nix the Flox installation
 will:

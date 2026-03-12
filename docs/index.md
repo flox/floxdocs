@@ -51,7 +51,7 @@ Flox makes it easy to work locally, test in CI, and deploy to production—all w
 
     Flox brings the power of Nix to your team, and can simplify your workflows.
 
-    [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox/install.md#nix---generic){:target="_blank"}
+    [:octicons-arrow-right-24: Install Flox with flakes or profiles](install-flox/install.md#nix-generic){:target="_blank"}
 
     [:octicons-arrow-right-24: Flox brings Nix to your teams](https://flox.dev/blog/enterprise-nix-its-time-to-bring-nix-to-work/){:target="_blank"}
 

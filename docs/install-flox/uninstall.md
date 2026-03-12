@@ -20,7 +20,7 @@ Here's how to **completely remove `flox` from your system**.
     include-markdown "include/uninstalling-Flox-package.md"
 %}
 
-=== "Nix - Generic"
+=== "Nix (Generic)"
 
     If you've installed flox to the system-wide `default` profile
 
