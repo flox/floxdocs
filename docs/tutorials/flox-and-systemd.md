@@ -8,6 +8,10 @@ description: Run Flox environment services as persistent systemd units.
 Flox environments have a built-in concept of [services][services_concept].
 Flox environment services are managed by invoking the `flox services`
 category of sub-commands such as [`flox services status`][flox_services_status].
+In some scenarios, you may want to register Flox services to be run and managed
+by the operating system's systemd.
+For example, systemd can auto-start services when the host is booting
+or when a service crashes.
 
 This tutorial shows how to create and use systemd services with Flox
 by creating unit files manually.
