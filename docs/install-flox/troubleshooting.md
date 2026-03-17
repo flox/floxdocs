@@ -166,6 +166,88 @@ brew uninstall --force --zap flox
 After rebooting, re-install Flox following the instructions on the
 [Install](install.md) page.
 
+## Flox builds from source when installed as a Nix flake input
+
+If you consume Flox as a flake input in your NixOS or nix-darwin configuration,
+you may find that Nix builds Flox from source instead of fetching it from the
+Flox binary cache.
+There are two common causes.
+
+### Using `follows` for nixpkgs
+
+If your flake input for Flox uses `inputs.nixpkgs.follows = "nixpkgs"`,
+the resulting store paths will differ from the ones in the Flox binary cache
+because the cache was built against the nixpkgs revision pinned in the
+[Flox flake.lock](https://github.com/flox/flox).
+
+#### Solution
+
+Remove the `follows` directive so that Flox uses its own pinned nixpkgs:
+
+```nix
+# flake.nix
+{
+  inputs = {
+    flox.url = "github:flox/flox";
+    # Do NOT add: flox.inputs.nixpkgs.follows = "nixpkgs";
+  };
+}
+```
+
+The trade-off is an extra copy of nixpkgs in your Nix store,
+but Flox's dependencies and yours will coexist without collisions.
+
+### Flox binary cache not in `substituters`
+
+Even with the correct Nix configuration files,
+the Flox binary cache (`cache.flox.dev`) may appear only in
+`trusted-substituters` and not in `substituters`.
+Nix only queries caches listed in `substituters` (or `extra-substituters`)
+during builds.
+The `trusted-substituters` setting only controls which caches
+non-root users are *permitted* to add via `extra-substituters` —
+it does not cause Nix to query those caches on its own.
+
+#### Diagnosis
+
+```{ .sh .code-command .copy }
+nix config show | grep substituters
+```
+
+If `cache.flox.dev` appears in `trusted-substituters` but **not** in
+`substituters`, Nix will never query it and will fall back to building
+from source.
+
+#### Solution
+
+Add the Flox cache to `extra-substituters` so that it is merged into
+`substituters` and actually queried during builds.
+For example, in your NixOS or nix-darwin `nix.settings`:
+
+```nix
+nix.settings = {
+  extra-substituters = [ "https://cache.flox.dev" ];
+  extra-trusted-public-keys = [
+    "flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs="
+  ];
+};
+```
+
+Or directly in `/etc/nix/nix.conf`:
+
+```ini
+extra-substituters = https://cache.flox.dev
+extra-trusted-public-keys = flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs=
+```
+
+Verify the change took effect:
+
+```{ .sh .code-command .copy }
+nix config show | grep substituters
+```
+
+`cache.flox.dev` should now appear in the `substituters` line.
+
 ## Reporting issues
 
 If your issue is not covered here,
