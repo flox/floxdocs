@@ -162,7 +162,7 @@ $ flox services stop
 ✅ Service 'stopwatch' stopped
 ```
 
-Services are automatically stopped when you exit the environment, so you don't have to worry about orphaned processes. If you want services to start automatically when you enter the environment, use `flox activate -s`.
+Services are automatically stopped when you exit the environment, so you don't have to worry about orphaned processes. If you want services to start automatically when you activate the environment, use `flox activate -s`.
 
 ## What's next?
 
