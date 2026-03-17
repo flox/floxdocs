@@ -98,7 +98,7 @@ flox install ripgrep
 
 ## Push to FloxHub
 
-Now that you've made changes to the environment, share it with your team by pushing it to [FloxHub][floxhub]. FloxHub is a platform for sharing and discovering Flox environments, making it easy for your team to stay in sync.
+Now that you've made changes to the environment, share it with your team by pushing it to [FloxHub][floxhub]. FloxHub is a platform for sharing and discovering Flox environments and packages, making it easy for your team to stay in sync.
 
 If you haven't already, [sign up for a FloxHub account][floxhub_signup]. Then authenticate with the CLI:
 
