@@ -168,10 +168,10 @@ Services are automatically stopped when you exit the environment, so you don't h
 
 You've created an environment, installed packages, pushed to FloxHub, and ran services. Here are some next steps to keep going:
 
-- [Customizing your shell environment][activation-tutorial] with aliases, scripts, and hooks
-- [Designing cross platform environments][multi-arch] that work on both macOS and Linux
-- [Reusing and combining environments][composition] to build modular developer toolchains
-- [Running Flox in CI][ci] for consistent builds across your pipeline
+- [Customize your shell environment][activation-tutorial] with aliases, scripts, and hooks
+- [Design cross platform environments][multi-arch] that work on both macOS and Linux
+- [Reuse and combine environments][composition] to build modular developer toolchains
+- [Run Flox in CI][ci] for consistent builds across your pipeline
 - [Build and publish packages with Flox][build-publish]
 
 Have questions? Reach out on [Slack](https://go.flox.dev/slack){:target="_blank"} or [Discourse](https://discourse.flox.dev){:target="_blank"}.
