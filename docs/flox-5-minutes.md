@@ -5,32 +5,28 @@ description: Get started with creating Flox environments.
 
 # Flox in 5 minutes
 
-Flox is a next-generation, language-agnostic package and environment manager.
-With it you create sets of tools, environment variables, and setup scripts that work reproducibly from machine to machine, x86_64 to Arm, and macOS to Linux.
-The best part is that all of this works without causing version conflicts between projects.
+Flox is a language agnostic package and environment manager that lets you create reproducible environments that work across machines, architectures, and operating systems. To learn more about what Flox is and what it can do, see the [Introduction][intro].
 
-We call these stacks **Flox environments**.
-Flox environments are based on carefully configured subshells, so there's no container isolation preventing you from using your favorite tools or artisanally handcrafted dotfiles.
-Even better, these environments _compose_ and _layer_ so you can prepare different environments
-for different needs and combine them to seamlessly work across different contexts.
-
-Finally, you can use Flox environments for local development, CI, and production to ensure that you have a consistent set of software across the entire software development lifecycle.
+In this guide you'll use a sample project to create a Flox environment, install packages, set environment variables, run services, and customize your shell.
 
 Buckle up, it's time for a whirlwind tour of Flox.
 
-## Get the project
+## Clone the sample project
 
 We've prepared a sample project for you, but you'll need to [install Flox][install_flox] to follow along.
 Once you have Flox, you can clone the project:
 
 ```{ .bash .copy }
 git clone https://github.com/flox/flox-in-5min.git
+```
+
+```{ .bash .copy }
 cd flox-in-5min
 ```
 
-## Tools prepared for you
+## Activate and explore
 
-Once you have the project, you can run the [`flox activate`][activate] command to enter the environment:
+Run [`flox activate`][activate] to enter the environment. This will make all of the packages defined in the environment available in your shell:
 
 ```{ .console }
 $ flox activate
@@ -38,22 +34,14 @@ $ flox activate
 To stop using this environment, type 'exit'
 ```
 
-You now have all of the dependencies needed to follow along.
-To prove it, run the following command:
+With all the dependencies installed, you can confirm everything is working by running the sample Go project:
 
 ```{ .console }
 $ go run main.go
 Hello from Flox!
 ```
 
-Whoever prepared this environment knew that you needed a Go toolchain in order to work on the project, so they included a Go toolchain in the Flox environment.
-_**This is the magic of Flox.**_
-
-To get to work on an existing project you need two commands: `git clone` and `flox activate`.
-Onboarding a new engineer now has one step: install Flox.
-No more `README.md` with a list of libraries you need install.
-No more `setup.sh`.
-Time not spent installing tools and solving dependency conflicts is time spent getting to know the team and the project.
+You didn't have to install Go yourself. The environment already had it defined, so `flox activate` made it available automatically. To get started on any project with Flox, all you need is `git clone` and `flox activate`.
 
 Now let's see what else is installed to the environment with the [`flox list`][list] command:
 
@@ -66,17 +54,13 @@ nasm: nasm (2.16.03)
 nodejs_24: nodejs_24 (24.5.0)
 ```
 
-That's right, not only do you have Go installed, you also have a cutting edge Javascript toolchain with [Bun][bun].
-Since Flox is language agnostic, you can use one tool (Flox) to manage your entire stack of developer tools.
-This environment covers the full stack, from a [Zig][zig]-powered Javascript bundler and runtime at the top of the stack, to an assembler like `nasm` at the very bottom of the stack.
+This environment includes tools across multiple languages, from Go to Node.js to [Bun][bun], all the way down to an assembler like `nasm`. Flox is language agnostic, so you can manage your entire stack of developer tools in one place. Anyone who runs `flox activate` on this project will get the exact same set of packages.
 
-This environment is also reproducible, meaning that anyone that runs `flox activate` will get exactly the same set of tools, and that's super important!
-You'd think that something as simple as the `sleep` command wouldn't cause problems, but `/bin/sleep infinity` will sleep for a surprisingly short time on macOS (ask us how [we know][sleep-issue]).
-Ensuring that everyone is using the _exact_ same packages prevents wasted time and subtle bugs.
+## Managing packages
 
-## Finding packages
+Flox makes it easy to search for, inspect, and install packages from the Flox Catalog.
 
-Let's say we want a new package: `ripgrep`.
+Use `flox search` to find packages. For example, to search for `ripgrep`:
 
 ```{ .console }
 $ flox search ripgrep
@@ -93,7 +77,7 @@ bat-extras.batgrep                Quickly search through and highlight files usi
 Use 'flox show <package>' to see available versions
 ```
 
-Cool, what if I want a specific version?
+To check available versions of a package, use `flox show`:
 
 ```{ .console }
 $ flox show ripgrep
@@ -106,79 +90,58 @@ ripgrep - Utility that combines the usability of The Silver Searcher with the ra
     ripgrep@12.1.1 (aarch64-linux, x86_64-darwin, x86_64-linux only)
 ```
 
-To install it you would run
+To install a package, run:
 
 ```{ .bash .copy }
 flox install ripgrep
 ```
 
-## What else can Flox do?
+## Push to FloxHub
 
-Your environment is stored as a `.flox` directory in your repository, but you can also [`push`][push] it to [FloxHub][floxhub] to make it centrally managed and available from anywhere.
-We only have 5 minutes, so we're going to skip over that for now, but see the [sharing environments tutorial][sharing] for more information.
+Now that you've made changes to the environment, share it with your team by pushing it to [FloxHub][floxhub]. FloxHub is a platform for sharing and discovering Flox environments, making it easy for your team to stay in sync.
 
-The configuration for your environment is called the ["manifest"][manifest], a TOML file stored at `.flox/env/manifest.toml`.
-You can print it with `flox list -c` or edit it with [`flox edit`][edit].
-
-Let's take a look at this manifest:
+If you haven't already, [sign up for a FloxHub account][floxhub_signup]. Then authenticate with the CLI:
 
 ```{ .bash .copy }
-flox list -c
+flox auth login
 ```
 
-```{ .toml .copy }
-version = 1
+This will open your browser and ask you to confirm the device code displayed in your terminal:
 
-[install]
-go.pkg-path = "go"
-nodejs_24.pkg-path = "nodejs_24"
-ripgrep.pkg-path = "ripgrep"
-coreutils.pkg-path = "coreutils"
-bun.pkg-path = "bun"
-nasm.pkg-path = "nasm"
+![FloxHub device confirmation](./img/device-confirmation.png)
 
-[vars]
-MY_VAR = "pretty neat"
+Push your environment to FloxHub:
 
-[services.stopwatch]
-command = '''
-  while true; do date; sleep 5; done
-'''
+```{ .bash .copy }
+flox push
 ```
 
-Pretty straightforward.
-Packages go in `[install]`, and maybe the syntax is a little funky, but that's for a good reason we don't have time to get into.
-See [this page][install-section] for more details about the various things you can specify about a package.
+Once the push is complete, you'll see a confirmation along with commands others can use to access your environment:
 
-What are these `[vars]` and `[services]` sections?
+![Successful push to FloxHub](./img/auth-successfull.png)
 
-The `[vars]` section defines environment variables you want set in your shell after running `flox activate`.
-See for yourself:
+You can view your environment's manifest, packages, environment variables, and services in the FloxHub web interface. This gives your team a quick way to see what's in an environment before pulling it, track changes across generations, and check supported platforms:
 
-```{ .console }
-$ echo "$MY_VAR"
-pretty neat
-```
+![FloxHub environment view](./img/floxhub-environment.png)
 
-Imagine using this to set a port number or some other configuration value.
+## Services
 
-The `[services]` section is how you define background processes for your environment, like a web server or a database.
-Start the `stopwatch` service with the `flox services start` command:
+Most projects need more than just packages. You might need a web server, a database, or a background worker running alongside your code. Flox handles this through the `[services]` section of the manifest.
+
+The sample environment includes a simple `stopwatch` service. Start it up:
 
 ```{ .console }
 $ flox services start
 ✅ Service 'stopwatch' started.
 ```
 
-Let's make sure it's running:
+You can check on running services and tail their logs just like you would with any process manager:
 
 ```{ .console }
 $ flox services status
 NAME       STATUS       PID
 stopwatch  Running    51774
 ```
-
-Now let's see its logs:
 
 ```{ .console }
 $ flox services logs --follow
@@ -192,20 +155,28 @@ stopwatch: Fri Aug 22 19:18:00 MDT 2025
 stopwatch: Fri Aug 22 19:18:05 MDT 2025
 ```
 
-This service prints the current time every 5 seconds, which you can see defined in the `services.stopwatch.command` field of the manifest.
-Press `Ctrl-C` to stop watching the logs, unless you really enjoy that for some reason.
-We don't want the service to run forever, so let's stop it with the `flox services stop` command.
+Press `Ctrl-C` to stop watching the logs. When you're done, stop the service:
 
 ```{ .console }
 $ flox services stop
 ✅ Service 'stopwatch' stopped
 ```
 
-A _really cool_ feature of Flox is that if you were to exit the environment by running `exit` or pressing `Ctrl-D`, the services running in the environment would be automatically stopped.
-This feature has given our engineers gray hair, but we think the dopamine hit is worth it.
-If you want services to start when you enter the environment, you can use the `-s/--start-services` option when running `flox activate`.
+Services are automatically stopped when you exit the environment, so you don't have to worry about orphaned processes. If you want services to start automatically when you enter the environment, use `flox activate -s`.
 
-## Customizing your shell
+## What's next?
+
+You've created an environment, installed packages, pushed to FloxHub, and ran services. Here are some next steps to keep going:
+
+- [Customizing your shell environment][activation-tutorial] with aliases, scripts, and hooks
+- [Designing cross platform environments][multi-arch] that work on both macOS and Linux
+- [Reusing and combining environments][composition] to build modular developer toolchains
+- [Running Flox in CI][ci] for consistent builds across your pipeline
+- [Build and publish packages with Flox][build-publish]
+
+Have questions? Reach out on [Slack](https://go.flox.dev/slack){:target="_blank"} or [Discourse](https://discourse.flox.dev){:target="_blank"}.
+
+<!-- ## Customizing your shell
 
 To wrap things up, let's say you want to set some project-specific aliases.
 Run `flox edit` and add this to the bottom of your manifest:
@@ -236,9 +207,9 @@ Hello there, fish user
 ```
 
 There is a wealth of ways that you can customize the shell environment inside of your Flox environment.
-See the [customizing the shell enviroment tutorial][activation-tutorial] for more information.
+See the [customizing the shell enviroment tutorial][activation-tutorial] for more information. -->
 
-## But wait, there's more!
+<!-- ## But wait, there's more!
 
 This probably took longer than 5 minutes, but hopefully changing the way you develop software was worth it.
 There are _so_ many things we didn't have time to cover, so here's some additional reading material to keep you busy:
@@ -247,8 +218,9 @@ There are _so_ many things we didn't have time to cover, so here's some addition
 - [Running Flox in CI][ci]
 - [Reusing and combining environments][composition] (modular developer environments!)
 - [Replacing Homebrew with Flox][homebrew]
-- [Build and publish packages with Flox][build-publish]
+- [Build and publish packages with Flox][build-publish] -->
 
+[intro]: ./index.md
 [install_flox]: ./install-flox/install.md
 [create_guide]: ./tutorials/creating-environments.md
 [sharing]: ./tutorials/sharing-environments.md
@@ -267,6 +239,7 @@ There are _so_ many things we didn't have time to cover, so here's some addition
 [bun]: https://bun.sh/
 [zig]: https://ziglang.org/
 [floxhub]: https://hub.flox.dev
+[floxhub_signup]: https://hub.flox.dev/signup
 [sleep-issue]: https://github.com/flox/flox/pull/1931
 [install-section]: ./man/manifest.toml.md#install
 [activation-tutorial]: ./tutorials/customizing-environments.md
