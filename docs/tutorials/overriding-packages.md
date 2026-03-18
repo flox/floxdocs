@@ -10,9 +10,11 @@ description: >
 The Flox Catalog tracks [nixpkgs][nixpkgs], which means there can be a
 short delay between an upstream release and its availability in
 the catalog.
+See [What is the Base Catalog?][base-catalog] for details on how
+the catalog tracks nixpkgs and how often it updates.
 If you need a newer version right away, you can **override** the
-existing package to point at the new release, then build and
-publish it so the updated version is available everywhere.
+existing build recipe to point at the new release, then build
+and publish it so the updated version is available everywhere.
 
 This tutorial walks through the full workflow using
 [Nix expression builds][nix-expression-builds].
@@ -22,7 +24,7 @@ This tutorial walks through the full workflow using
 Imagine the Flox Catalog currently provides `hello` version
 2.12.1, but you need version 2.12.2.
 Rather than waiting for the catalog to catch up, you'll
-override the package to use the newer release.
+override the build recipe to use the newer release.
 
 ## Create an environment
 
@@ -44,8 +46,15 @@ Next:
 
 ## Write the override
 
-Create a Nix expression that takes the existing `hello` package
-and overrides its `version` and `src` attributes:
+Create a Nix expression that takes the existing `hello` build
+recipe and overrides its `version` and `src` attributes:
+
+!!! note
+
+    The attributes you need to override depend on how the
+    package is defined in nixpkgs. Different packages may use
+    different attribute names or build patterns. Check the
+    [nixpkgs source][nixpkgs] for the package you're modifying.
 
 ```{ .bash .copy }
 mkdir -p .flox/pkgs/hello
@@ -135,6 +144,13 @@ The [`flox publish`][flox-publish] command requires a remote and
 all tracked files committed and pushed.
 Let's set that up and publish:
 
+!!! warning
+
+    The following example uses `$PWD` as the Git remote for
+    simplicity. In practice, you should use a proper remote
+    repository (for example on GitHub) so that others can
+    reproduce your build.
+
 ```text
 $ git remote add origin "$PWD"
 $ git add .
@@ -148,13 +164,6 @@ Completed build of hello-2.12.2 in Nix expression mode
 
 Use 'flox install myuser/hello' to install it.
 ```
-
-!!! note
-
-    Setting the remote to the local directory (`$PWD`) is a
-    convenient shortcut for personal or test packages.
-    For shared packages you'll want a proper remote
-    (for example on GitHub).
 
 The `flox publish` command performs a clean build from a
 temporary checkout to ensure the package is fully reproducible.
@@ -183,8 +192,8 @@ hello (GNU Hello) 2.12.2
 
 ## Next steps
 
-This tutorial covered the simplest override — bumping a version
-number.
+This tutorial covered the simplest override — bumping a
+version number.
 The [Nix expression builds][nix-expression-builds] concept page
 covers additional patterns:
 
@@ -197,6 +206,7 @@ including manifest builds, see the
 [Building and publishing packages][build-and-publish] tutorial.
 
 [nixpkgs]: https://github.com/NixOS/nixpkgs
+[base-catalog]: ../concepts/base-catalog.md
 [nix-expression-builds]: ../concepts/nix-expression-builds.md
 [flox-publish]: ../man/flox-publish.md
 [publishing-concept]: ../concepts/publishing.md
