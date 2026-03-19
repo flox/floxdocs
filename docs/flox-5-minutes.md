@@ -135,7 +135,7 @@ $ flox services start
 ✅ Service 'stopwatch' started.
 ```
 
-You can check on running services and tail their logs just like you would with any process manager:
+You can check on the status of services and tail their logs just like you would with any process manager:
 
 ```{ .console }
 $ flox services status
