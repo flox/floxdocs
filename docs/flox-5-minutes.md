@@ -5,7 +5,9 @@ description: Get started with creating Flox environments.
 
 # Flox in 5 minutes
 
-Flox is a language agnostic package and environment manager that lets you create reproducible environments that work across machines, architectures, and operating systems. To learn more about what Flox is and what it can do, see the [Introduction][intro].
+Flox is a language agnostic package and environment manager that lets you create reproducible environments that work across machines, architectures, and operating systems.
+It supports macOS and Linux on both x86_64 and ARM architectures, so your team can share a single environment definition regardless of what hardware they're on.
+To learn more about what Flox is and what it can do, see the [Introduction][intro].
 
 In this guide you'll use a sample project to create a Flox environment, install packages, set environment variables, run services, and customize your shell.
 
@@ -30,7 +32,7 @@ Run [`flox activate`][activate] to enter the environment. This will make all of 
 
 ```{ .console }
 $ flox activate
-✅ You are now using the environment 'flox-in-5min'.
+✓ You are now using the environment 'flox-in-5min'.
 To stop using this environment, type 'exit'
 ```
 
@@ -98,7 +100,8 @@ flox install ripgrep
 
 ## Push to FloxHub
 
-Now that you've made changes to the environment, share it with your team by pushing it to [FloxHub][floxhub]. FloxHub is a platform for sharing and discovering Flox environments and packages, making it easy for your team to stay in sync.
+Now that you've made changes to the environment, share it with your team by pushing it to [FloxHub][floxhub].
+FloxHub is a platform for sharing and discovering Flox environments and packages, making it easy for your team to stay in sync.
 
 If you haven't already, [sign up for a FloxHub account][floxhub_signup]. Then authenticate with the CLI:
 
@@ -132,7 +135,7 @@ The sample environment includes a simple `stopwatch` service. Start it up:
 
 ```{ .console }
 $ flox services start
-✅ Service 'stopwatch' started.
+✓ Service 'stopwatch' started.
 ```
 
 You can check on the status of services and tail their logs just like you would with any process manager:
@@ -159,10 +162,11 @@ Press `Ctrl-C` to stop watching the logs. When you're done, stop the service:
 
 ```{ .console }
 $ flox services stop
-✅ Service 'stopwatch' stopped
+✓ Service 'stopwatch' stopped
 ```
 
-Services are automatically stopped when you exit the environment, so you don't have to worry about orphaned processes. If you want services to start automatically when you activate the environment, use `flox activate -s`.
+Services are automatically stopped when you exit the environment, so you don't have to worry about orphaned processes.
+If you want services to start automatically when you activate the environment, use `flox activate -s`.
 
 ## What's next?
 
