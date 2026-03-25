@@ -77,6 +77,7 @@ nav:
     - FloxHub environments: concepts/floxhub-environments.md
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
+    - Package Groups: concepts/package-groups.md
     - Base Catalog: concepts/base-catalog.md
     - Services: concepts/services.md
     - Composing environments: concepts/composition.md
