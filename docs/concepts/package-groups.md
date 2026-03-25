@@ -9,12 +9,11 @@ description: How package groups work and when to use them
 
 **Package groups** (`pkg-group`) are one of the mechanisms Flox provides to manage dependency conflicts. Each package in a group resolves against the same [`nixpkgs`](https://github.com/nixos/nixpkgs) git commit; different package groups may resolve against different `nixpkgs` commits. This safeguards against runtime ABI incompatibilities and version conflicts.
 
-Think of package groups as a convenient way to partition the resolver’s search space into discrete subproblems. They make it easier for the resolver to compute a functioning dependency graph.
+Think of package groups as a convenient way to partition the resolver's search space into discrete subproblems. They make it easier for the resolver to compute a functioning dependency graph.
 
-Package groups are also useful as an **organizational tool**. You can use them to separate runtime dependencies, dev tools, and other categories of tooling into logical groupings in the [Flox environment’s manifest][environments-concept]. This makes environments with a large number of dependencies easier to read and maintain. In Flox [manifest builds][manifest-builds-concept], you can use package groups to keep dev-time tools out of the build context.
+Package groups are also useful as an **organizational tool**. You can use them to separate runtime dependencies, dev tools, and other categories of tooling into logical groupings in the [Flox environment's manifest][environments-concept]. This makes environments with a large number of dependencies easier to read and maintain. In Flox [manifest builds][manifest-builds-concept], you can use package groups to keep dev-time tools out of the build context.
 
 **tl;dr**: Define package groups when you need to install ABI- or version-incompatible sets of packages to a Flox environment. These are packages that need to pin to different commits in `nixpkgs`.
-
 
 ### A Canonical Example
 
@@ -46,12 +45,9 @@ openssl.pkg-group = "legacy"
 curl.pkg-path = "curl"
 ```
 
-
 ## Mental Model: The Same Package Group = The Same nixpkgs Commit
 
 Every dependency in a package group gets pinned to the same historical `nixpkgs` commit. This means they were built and tested against the same set of packages. As a result, shared libraries (such as `glibc`, `libstdc++`, etc.) are the same across each group. This minimizes the risk of ABI incompatibilities.
-
-
 
 ## How Package Groups Work
 
@@ -70,7 +66,6 @@ ml: "Group: ml" {
 ```
 
 When you install a package with `flox install`, it goes into **`toplevel`**, the default package group. `toplevel` is an **implicit** package group: any package installed without defining a `pkg-group` field gets placed into it.
-
 
 ```toml
 [install]
@@ -93,8 +88,7 @@ scipy.pkg-path = "python311Packages.scipy"
 scipy.pkg-group = "ml"
 ```
 
-`bash`, `git`, `curl`, and `jq` share the same `nixpkgs` commit (as members of `toplevel`), while `python3`, `numpy`, and `scipy` share another (as members of `ml`). These commits may be the same _or_ different: i.e., _if_ the `ml` packages are in fact satisfiable at the same `nixpkgs` commit as `toplevel`, _then_ the resolver selects that commit for both groups. The Flox resolver selects different `nixpkgs` commits only when one or more packages in a group actually require this. For this reason, you can use package groups to organize a Flox environment’s manifest, e.g., grouping related packages together for legibility.
-
+`bash`, `git`, `curl`, and `jq` share the same `nixpkgs` commit (as members of `toplevel`), while `python3`, `numpy`, and `scipy` share another (as members of `ml`). These commits may be the same _or_ different: i.e., _if_ the `ml` packages are in fact satisfiable at the same `nixpkgs` commit as `toplevel`, _then_ the resolver selects that commit for both groups. The Flox resolver selects different `nixpkgs` commits only when one or more packages in a group actually require this. For this reason, you can use package groups to organize a Flox environment's manifest, e.g., grouping related packages together for legibility.
 
 ### Resolution
 
@@ -159,14 +153,13 @@ The lock file (`manifest.lock`) records each resolved package with its group and
 
 Things to note:
 
--  Every package in the same group shares the same `rev` and `locked_url`.
--  Each package has a **separate entry per system** (`x86_64-linux`, `aarch64-darwin`, etc.), but all entries for the same group share the same `rev`.
--  The `priority` field defaults to `5`. This is used to resolve file conflicts (lower value = higher priority).
+- Every package in the same group shares the same `rev` and `locked_url`.
+- Each package has a **separate entry per system** (`x86_64-linux`, `aarch64-darwin`, etc.), but all entries for the same group share the same `rev`.
+- The `priority` field defaults to `5`. This is used to resolve file conflicts (lower value = higher priority).
 
 **Note**: Without `pkg-group` or **`priority`** constraints, Flox attempts to resolve all defined packages into a dependency graph whose members can coexist within a single closure. Given a large number of packages, the set of `nixpkgs` commits capable of satisfying all dependency constraints becomes correspondingly narrow. In such cases, Flox typically resolves historical versions of packages rather than current-stable ones. We demonstrated this with `openssl` and `curl` in **A Canonical Example**.
 
 This sometimes happens when only a few packages are defined in an environment. For example, if one package updates slowly—with months or years elapsing between releases—the resolver may need to pull in older versions of more frequently updated dependencies to produce a viable graph.
-
 
 ## When to Use Package Groups
 
@@ -225,7 +218,7 @@ torch-cpu.systems = ["aarch64-darwin", "x86_64-darwin"]
 
 When resolution fails with the error:
 
-```
+```text
 ✘ ERROR: resolution failed: constraints for group 'toplevel' are too tight
 ```
 
@@ -301,7 +294,6 @@ pillow.pkg-group = "ml"
 
 Each group resolves independently, so updating `torch` doesn't force `numpy` or `transformers` to change.
 
-
 ### 3. Resolving File Conflicts with Priority and Groups
 
 When two packages install files to the same path, use the `priority` field to control which package wins; use package groups so that they resolve from different revisions:
@@ -316,7 +308,6 @@ gcc-unwrapped.pkg-group = "libraries"   # separate group to avoid version confli
 ```
 
 The `priority` field defaults to `5`. Lower numbers win file conflicts. Here, `gcc` (priority 5) takes precedence over `gcc-unwrapped` (priority 6) for any overlapping files.
-
 
 ## Package Groups and Builds
 
@@ -353,11 +344,10 @@ command = '''
   make
   mv build/myapp $out/bin/
 '''
-runtime-packages = ["clang", "bash"]	# only clang and bash are kept at runtime; pytest is excluded
+runtime-packages = ["clang", "bash"]  # only clang and bash are kept at runtime; pytest is excluded
 ```
 
-The `runtime-packages` list accepts `install-id` values (i.e., the key before `.pkg-path` in the `[install]` section’s TOML definition) from the `toplevel` group only.
-
+The `runtime-packages` list accepts `install-id` values (i.e., the key before `.pkg-path` in the `[install]` section's TOML definition) from the `toplevel` group only.
 
 ## Upgrade Semantics
 
@@ -378,18 +368,17 @@ flox upgrade toplevel
 
 Groups upgrade independently so advancing `cuda` to a newer revision doesn't change `toplevel` or any other group. Individual packages can be targeted by install ID only if they are the **sole member** of their group. If a group has multiple packages, you must upgrade the entire group.
 
-
 ### What Triggers a Change
 
 An upgrade occurs when the resolver finds a newer catalog revision where the group's packages have changed in version, build configuration, or dependency graph. If nothing has changed, the group stays at its current revision.
-
 
 ## Troubleshooting
 
 ### "Constraints too tight"
 
 **Symptom**: Resolution fails with:
-```
+
+```text
 resolution failed: constraints for group 'toplevel' are too tight
 ```
 
@@ -399,12 +388,13 @@ resolution failed: constraints for group 'toplevel' are too tight
 
 1. **Loosen version constraints**. Change `version = "2.133.0"` to `version = "^2.133.0"` to accept semver-compatible versions.
 2. **Split into package groups**. Isolate the conflicting package:
+
    ```toml
    kubectl.pkg-path = "kubectl"
    kubectl.pkg-group = "kubectl"
    ```
-3. **Verify the package exists**. Use `flox search <pkg>` and `flox show <pkg>` to confirm the version is in the catalog.
 
+3. **Verify the package exists**. Use `flox search <pkg>` and `flox show <pkg>` to confirm the version is in the catalog.
 
 ### Non-`toplevel` Packages Missing During Builds
 
@@ -435,7 +425,6 @@ allow.broken = true
 
 Use this as a diagnostic step, not a permanent solution.
 
-
 ## Appendix A: Concept Mapping Between Flox and Nix
 
 If you're familiar with Nix flakes, Flox package groups map directly to patterns you already know.
@@ -443,7 +432,7 @@ If you're familiar with Nix flakes, Flox package groups map directly to patterns
 ### Comparison Table
 
 | Flox Concept | Nix Equivalent |
-|---|---|
+| --- | --- |
 | Package group (single) | Pinned nixpkgs flake input at a specific rev |
 | Multiple pkg-groups | Multiple nixpkgs inputs (`nixpkgs`, `nixpkgs-stable`) |
 | `toplevel` default group | Primary `nixpkgs` input in a flake |
@@ -453,7 +442,6 @@ If you're familiar with Nix flakes, Flox package groups map directly to patterns
 | Resolution failure ("constraints too tight") | No single nixpkgs rev satisfies all version pins |
 | `outputs` / `outputs = "all"` | Derivation multi-output (`out`, `dev`, `lib`) |
 | Catalog (Flox-specific) | Nixpkgs revision history (no direct Nix equivalent) |
-
 
 ### Side-by-Side: Flox Manifest vs. Nix Flake
 
@@ -517,10 +505,9 @@ scipy.pkg-group = "scientific"
 
 Package groups in Flox automate what is otherwise a manual process in Nix:
 
--  **Searching for compatible `nixpkgs` revisions**. Flox's resolver iterates through catalog revisions to find one that satisfies all constraints in a package group. In Nix, you can pin specific `nixpkgs` revisions yourself, but you must discover, choose, and maintain those pins explicitly.
--  **Resolution across target platforms**. Flox resolves a package group against all declared target systems. In Nix, support is typically modeled per-system in flake outputs and checked via builds or tests.
--  **Atomic upgrades**: The `flox upgrade` command advances a package group while keeping all packages in that group pinned to the same nixpkgs revision. In Nix, `nix flake update` advances pinned inputs in `flake.lock`; ultimately, however, compatibility is determined by the flake’s builds and checks.
-
+- **Searching for compatible `nixpkgs` revisions**. Flox's resolver iterates through catalog revisions to find one that satisfies all constraints in a package group. In Nix, you can pin specific `nixpkgs` revisions yourself, but you must discover, choose, and maintain those pins explicitly.
+- **Resolution across target platforms**. Flox resolves a package group against all declared target systems. In Nix, support is typically modeled per-system in flake outputs and checked via builds or tests.
+- **Atomic upgrades**: The `flox upgrade` command advances a package group while keeping all packages in that group pinned to the same nixpkgs revision. In Nix, `nix flake update` advances pinned inputs in `flake.lock`; ultimately, however, compatibility is determined by the flake's builds and checks.
 
 ## Appendix B: How Otherwise Incompatible Packages Coexist in a Single Flox Environment
 
@@ -528,17 +515,15 @@ If packages in different groups are pinned to dissimilar `nixpkgs` revisions—a
 
 The answer has to do with two properties of Nix and one property of Flox.
 
-
 ### 1. The Nix Store: Hash-Based Isolation
 
 Every package built by Nix lives at its own SHA-256-hashed path in the Nix store:
 
-```
+```text
 /nix/store/<hash>-<name>-<version>/
 ```
 
-The `<hash>` is derived from **all** of the package’s declared build inputs: source code, compiler, flags, and every dependency. This means that two versions of the same library—say, `openssl-1.1.1` and `openssl-3.1.7`—can coexist as two independent directories in `/nix/store`. They don't overwrite each other; they don’t even know about one another. There is no global `/usr/lib` that forces a single version.
-
+The `<hash>` is derived from **all** of the package's declared build inputs: source code, compiler, flags, and every dependency. This means that two versions of the same library—say, `openssl-1.1.1` and `openssl-3.1.7`—can coexist as two independent directories in `/nix/store`. They don't overwrite each other; they don't even know about one another. There is no global `/usr/lib` that forces a single version.
 
 ### 2. RUNPATH: No Global Library Search
 
@@ -546,21 +531,20 @@ On most Linux systems, binaries find shared libraries via global paths like `/us
 
 During linking, Nix's `ld-wrapper` injects `RUNPATH` entries into each binary's ELF header. These entries are absolute store paths that point to the specific versions of libraries the binary was built against:
 
-```
+```text
 $ readelf -d /nix/store/...-curl-8.11.1/bin/curl | grep RUNPATH
   RUNPATH  /nix/store/...-openssl-3.0.15/lib:/nix/store/...-zlib-1.3.1/lib:...
 ```
 
-Each binary hardcodes the specific Nix store paths to its own dependencies. There is no need for a `LD_LIBRARY_PATH` or `/usr/lib` fallback because every Nix-built binary knows precisely which version of which library to load at runtime. This means `Package A` can use `openssl-3.0.15` while `Package B` can use `openssl-1.1.1`, in the same environment, at the same time, on the same host. 
+Each binary hardcodes the specific Nix store paths to its own dependencies. There is no need for a `LD_LIBRARY_PATH` or `/usr/lib` fallback because every Nix-built binary knows precisely which version of which library to load at runtime. This means `Package A` can use `openssl-3.0.15` while `Package B` can use `openssl-1.1.1`, in the same environment, at the same time, on the same host.
 
-**Note**: Modern Nix uses `RUNPATH` (`DT_RUNPATH`), not `RPATH` (`DT_RPATH`). The practical difference: `RUNPATH` can be overridden by `LD_LIBRARY_PATH`, while `RPATH` cannot. In a Flox environment this likely won’t matter, but it is worth knowing if you're debugging with `ldd` or `LD_DEBUG`.
-
+**Note**: Modern Nix uses `RUNPATH` (`DT_RUNPATH`), not `RPATH` (`DT_RPATH`). The practical difference: `RUNPATH` can be overridden by `LD_LIBRARY_PATH`, while `RPATH` cannot. In a Flox environment this likely won't matter, but it is worth knowing if you're debugging with `ldd` or `LD_DEBUG`.
 
 ### 3. The Flox Environment: A Merged Symlink Forest
 
 When Flox builds an environment, it materializes a single derivation that produces a directory of **symlinks** pointing into the Nix store. All packages from all groups get merged into this forest:
 
-```
+```text
 ~/.flox/run/<env>/          # the environment's output
 ├── bin/
 │   ├── git -> /nix/store/...-git-2.47.1/bin/git
@@ -574,8 +558,7 @@ When Flox builds an environment, it materializes a single derivation that produc
 
 Package group boundaries are a **resolution-time** concept: i.e., they determine which `nixpkgs` revision each package is built from. In the materialized environment, package groups don't exist. Each package is simply one of many symlinks into the Nix store, irrespective of which group it belongs to.
 
-File conflicts occur only when two packages expect to install a file to the **same relative path** (e.g., both provide `bin/python`). These are resolved by Flox’s `priority` key: lower numbers win. If two packages have equal priority and install different content to the same path, Flox reports a collision error.
-
+File conflicts occur only when two packages expect to install a file to the **same relative path** (e.g., both provide `bin/python`). These are resolved by Flox's `priority` key: lower numbers win. If two packages have equal priority and install different content to the same path, Flox reports a collision error.
 
 ### Why Package Groups Matter
 
@@ -583,12 +566,12 @@ Nix makes coexistence _mechanically possible_; package groups make it simple, de
 
 **Within a group**, all packages are pinned to the same `nixpkgs` git revision, so their shared dependencies are guaranteed to compatible. In other words, If two packages depend on `openssl`, they both get the same `openssl` package: the same version, the same store path, the same ABI.
 
-**Across groups**, dependencies *can* differ, and Nix handles this gracefully: each binary finds its own libraries via `RUNPATH`. But packages that interact at runtime should share dependencies. For example:
+**Across groups**, dependencies _can_ differ, and Nix handles this gracefully: each binary finds its own libraries via `RUNPATH`. But packages that interact at runtime should share dependencies. For example:
 
 - **Python extensions** must link against the same `libpython`. If `numpy` and `scipy` link against different `libpython` builds, importing both in the same interpreter will crash. Putting them in the same group guarantees they share the same `libpython`.
 - **C/C++ libraries** that pass data structures between each other (e.g., `libcurl` calling into `openssl`) must agree on struct layouts and ABI. Same group guarantees this.
 
-Package groups also improve the Flox resolver’s performance because it only needs to search for a compatible `nixpkgs` revision that satisfies all packages in a constrained set—i.e., the package group. Fewer packages per group means a smaller constraint-solving search space.
+Package groups also improve the Flox resolver's performance because it only needs to search for a compatible `nixpkgs` revision that satisfies all packages in a constrained set—i.e., the package group. Fewer packages per group means a smaller constraint-solving search space.
 
 This makes it faster and less costly to resolve a coherent dependency graph.
 
