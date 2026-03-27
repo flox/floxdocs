@@ -79,7 +79,9 @@ Here is what happens on each prompt:
 2. **Trust check** — Each discovered environment is checked against the
    trust store. Only trusted environments proceed.
 3. **Activation** — Trusted environments are activated outermost-first.
-   Environment variables are set, hooks run, and services start.
+   Environment variables are set, hooks run, and **all services defined in
+   the manifest are started automatically** (unlike `flox activate`, which
+   requires the `--start-services` flag).
 4. **Deactivation** — When you leave a directory, its environment is
    deactivated and its changes to the shell are reverted.
 5. **Reattachment** — If you return to a previously activated directory,
@@ -187,6 +189,38 @@ Environments activated manually — via `flox activate -d <path>` or
 management.
 The shell hook does not discover, activate, deactivate, or suppress
 manually activated environments.
+
+## Comparison with manual activation
+
+Auto-activation and `flox activate` share the same core behavior
+(packages, environment variables, hooks) but differ in several ways:
+
+| Behavior | `flox activate` (manual) | Auto-activation |
+|----------|--------------------------|-----------------|
+| **Trigger** | Explicit `flox activate` command | Automatic on `cd` into `.flox` directory |
+| **Activation mode** | Configurable via `--mode` (dev/run/build) | Always `dev` mode |
+| **Services** | Started only with `--start-services` flag | Started automatically for all manifest services |
+| **Trust** | Implicit (user intentionally ran command) | Explicit trust required (`flox allow`) |
+| **Deactivation** | `exit` (leaves subshell) | `flox deactivate` (stays in shell, suppresses for session) |
+| **Multiple environments** | Nested subshells via repeated `flox activate` | Simultaneous activation of all `.flox` dirs in ancestor chain |
+| **hook.on-activate** | Runs in activation subprocess; shell options, functions, and aliases take effect | Runs in separate subprocess; only env var changes are captured |
+| **Error handling** | Activation aborts on failure | Failures are non-fatal; other environments still activate |
+
+!!! note "Activation mode"
+
+    Auto-activation always uses `dev` mode. If you need `run` or `build`
+    mode, use `flox activate --mode run` explicitly.
+
+!!! info "hook.on-activate behavior"
+
+    When an environment is auto-activated, the `hook.on-activate` script
+    runs in an isolated subprocess. Only environment variable changes are
+    captured and applied to your shell. Shell functions, aliases, and
+    shell options (e.g. `set -o vi`) set in `hook.on-activate` will not
+    take effect.
+
+    For shell-level customizations, use `[profile]` scripts instead,
+    or activate the environment manually with `flox activate`.
 
 ## Relationship to the default environment
 
