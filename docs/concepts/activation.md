@@ -173,6 +173,12 @@ Unlike `-c`, when exec'ing a command directly with `--`:
 When none of those features are needed, using `--` is faster than `-c` since
 there's no intermediate shell.
 
+!!! note
+
+    Looking for **auto-activation**? Flox can automatically activate
+    environments when you `cd` into a directory.
+    See [Auto-activation](./auto-activation.md) for details.
+
 ## Activation flow
 
 In order to understand where `hook` and `profile` fit into the picture,
@@ -330,6 +336,21 @@ attach to this new version of the environment.
 ## Development vs. runtime mode
 
 See the [`options.activate.mode`](../man/manifest.toml.md#options) option in the manifest.
+
+## Auto-activation
+
+In addition to the manual activation methods described above,
+Flox supports **auto-activation**: environments activate automatically
+when you `cd` into a directory containing a `.flox/` subdirectory,
+and deactivate when you leave.
+
+This is powered by a shell hook that runs on every prompt,
+discovering `.flox` directories in your directory's ancestor chain and
+managing their activation lifecycle — including hooks, services, nested
+environments, and trust-based security.
+
+To learn more, see the full
+[Auto-activation](./auto-activation.md) concept page.
 
 ## Conclusion
 
