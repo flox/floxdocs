@@ -51,18 +51,19 @@ To enable auto-activation, add a single line to your shell's RC file:
     eval "`flox activate`"
     ```
 
-When `flox activate` is invoked in-place without targeting a specific
-environment (no `-d` or `-r` flag),
-it activates the current directory's environment _and_ installs a shell
-hook that enables auto-activation for the rest of the session.
+When `flox activate` is used in eval mode (e.g. `eval "$(flox activate)"`),
+it installs a shell hook that enables auto-activation for the rest of the
+session. If an environment exists in the current directory, it is also
+activated. This applies regardless of whether `-d` or `-r` flags are
+specified — the hook is always installed in eval mode.
 
 !!! note
 
-    If you previously used `eval "$(flox activate -r owner/default)"` to
-    set up your default environment, the new
-    `eval "$(flox activate)"` line replaces it.
-    It activates your current directory's environment (if one exists)
-    and enables auto-activation everywhere.
+    If you already have `eval "$(flox activate -r owner/default)"` in
+    your shell RC file for your default environment, you don't need to
+    change it. Auto-activation hooks are installed automatically
+    whenever `flox activate` is used in eval mode, regardless of
+    whether `-r` or `-d` flags are specified.
     See the
     [default environment tutorial](../tutorials/default-environment.md)
     for more details.
@@ -184,11 +185,16 @@ one at a time.
 
 ## Interaction with manual activation
 
-Environments activated manually — via `flox activate -d <path>` or
-`flox activate -r <owner>/<name>` — are excluded from auto-activation
-management.
+Environments activated in a **subshell** — via `flox activate`,
+`flox activate -d <path>`, or `flox activate -r <owner>/<name>` without
+`eval` — are excluded from auto-activation management.
 The shell hook does not discover, activate, deactivate, or suppress
-manually activated environments.
+these environments within the subshell.
+
+When `flox activate` is used in **eval mode** (e.g.
+`eval "$(flox activate -d <path>)"`), the activated environment is not
+excluded. Instead, the auto-activation hook manages it alongside any
+other discovered environments.
 
 ## Comparison with manual activation
 
@@ -224,23 +230,29 @@ Auto-activation and `flox activate` share the same core behavior
 
 ## Relationship to the default environment
 
-Previously, setting up a default environment required a line like:
+If you already use a line like this for your default environment:
 
 ```{ .bash }
 eval "$(flox activate -r <youruser>/default)"
 ```
 
-With auto-activation, the simplified setup is:
+You don't need to change it. Since auto-activation hooks are installed
+for all eval-mode invocations, this line already enables auto-activation
+in addition to activating your default environment.
+
+Alternatively, if you prefer a local-only setup, you can replace it with:
 
 ```{ .bash }
 eval "$(flox activate)"
 ```
 
-This single line both activates the current directory's environment (if
-one exists) and installs the auto-activation hook.
-If you have a `.flox` environment in your home directory,
-it will be auto-activated in every shell — serving the same purpose as
-the old default environment pattern.
+This installs the auto-activation hook without targeting a specific
+remote environment. If you have a `.flox` environment in your home
+directory (created with `flox init` or `flox pull`), it will be
+auto-activated in every shell — serving a similar purpose to the old
+default environment pattern. Note that `eval "$(flox activate)"` does
+not fetch environments from FloxHub; it only discovers local `.flox/`
+directories.
 
 See the
 [default environment tutorial](../tutorials/default-environment.md)
