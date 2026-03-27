@@ -27,6 +27,14 @@ so let's take a look at how to set it up.
 
 ## Initial setup
 
+!!! note
+
+    With **auto-activation**, you can replace the per-environment RC
+    file setup below with a single `eval "$(flox activate)"` line.
+    Auto-activation discovers and activates `.flox` environments
+    automatically as you `cd` into directories.
+    See [Auto-activation](../concepts/auto-activation.md) for details.
+
 At the most basic level, the `default` environment is simply an environment
 called `default`.
 `default` environments are typically [shared via FloxHub][floxhub-env];
