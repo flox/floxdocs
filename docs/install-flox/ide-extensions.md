@@ -67,28 +67,32 @@ description: IDE extensions and AI agent integrations for Flox
 
 === "MCP and Skills"
 
-    [Flox Agentic][agentic] is an MCP server and skill library that
-    gives AI coding agents access to Flox environments.
+    [Flox Agentic][agentic] is a skill library and MCP server
+    that gives AI coding agents access to Flox environments.
 
     ## Install the MCP server
+
+    Every editor needs the Flox MCP server package:
 
     ```{ .sh .code-command .copy }
     flox install flox/flox-mcp-server
     ```
 
-    ## Claude Code
+    ## Claude Code (recommended)
 
-    Add the MCP server to your project:
-
-    ```{ .sh .code-command .copy }
-    claude mcp add flox -- flox-mcp
-    ```
-
-    Or add it user-wide:
+    The Flox Agentic plugin for Claude Code adds seven expert
+    skills and configures the MCP connection automatically:
 
     ```{ .sh .code-command .copy }
-    claude mcp add --scope user flox -- flox-mcp
+    /plugin marketplace add flox/flox-agentic
     ```
+
+    ```{ .sh .code-command .copy }
+    /plugin install flox@flox-agentic
+    ```
+
+    The skills cover environments, services, builds,
+    containers, publishing, sharing, and CUDA development.
 
     ## Cursor
 
@@ -106,8 +110,6 @@ description: IDE extensions and AI agent integrations for Flox
 
     ## Other MCP clients
 
-    Any editor or agent that supports the
-    [Model Context Protocol][mcp] can use Flox Agentic.
     Point your client at the `flox-mcp` command using stdio
     transport.
 
