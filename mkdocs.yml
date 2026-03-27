@@ -278,7 +278,8 @@ plugins:
     # Excellent client-side search implementation, omitting the need for the
     # integration of third-party services
     # https://squidfunk.github.io/mkdocs-material/setup/setting-up-site-search/#built-in-search-plugin
-    - search
+    - search:
+        separator: '[\s\-\$,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
 
     # The built-in optimize plugin automatically identifies and optimizes all
     # media files as part of the build using compression and conversion
