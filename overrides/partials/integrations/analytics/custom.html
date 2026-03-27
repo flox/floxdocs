@@ -3,8 +3,11 @@
   (function () {
     if (typeof window === "undefined") return;
 
-    // Initialize HubSpot privacy consent array
-    window._hsp = window._hsp || [];
+    var INTERCOM_APP_ID = 'x7ezvsde';
+
+    // Initialize HubSpot tracking queue for consent callbacks.
+    window._hsq = window._hsq || window._hsp || [];
+    window._hsp = window._hsp || window._hsq;
 
     function isLocalHost() {
       var host = (window.location && window.location.hostname) || '';
@@ -45,6 +48,15 @@
         source && source.analytics
       ]);
 
+      var functionalRaw = firstDefined([
+        categories && categories.functionality,
+        categories && categories.functional,
+        categories && categories.preferences,
+        source && source.functionality,
+        source && source.functional,
+        source && source.preferences
+      ]);
+
       var adsRaw = firstDefined([
         categories && categories.advertisement,
         categories && categories.advertising,
@@ -56,6 +68,7 @@
 
       return {
         analyticsGranted: isGrantedValue(analyticsRaw),
+        functionalGranted: isGrantedValue(functionalRaw),
         adsGranted: isGrantedValue(adsRaw)
       };
     }
@@ -130,10 +143,87 @@
       );
     }
 
+    function getConsentStateFromListener(consent) {
+      if (!consent || typeof consent !== 'object') return null;
+      if (hasListenerConsentPayload(consent)) return getConsentStateFromObject(consent);
+      if (consent.allowed !== undefined) {
+        var granted = isGrantedValue(consent.allowed);
+        return {
+          analyticsGranted: granted,
+          functionalGranted: granted,
+          adsGranted: granted
+        };
+      }
+      return null;
+    }
+
+    function clearIntercomCookies() {
+      var cookies = document.cookie ? document.cookie.split(';') : [];
+      for (var i = 0; i < cookies.length; i++) {
+        var cookieName = cookies[i].split('=')[0].trim();
+        if (cookieName.indexOf('intercom-') !== 0) continue;
+        document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+      }
+    }
+
+    function loadIntercom() {
+      if (window.__trackingBlockedForLocal || !INTERCOM_APP_ID) return;
+
+      window.intercomSettings = {
+        api_base: 'https://api-iam.intercom.io',
+        app_id: INTERCOM_APP_ID
+      };
+
+      if (typeof window.Intercom === 'function') {
+        if (window.__intercomBooted) {
+          window.Intercom('update', window.intercomSettings);
+        } else {
+          window.Intercom('boot', window.intercomSettings);
+          window.__intercomBooted = true;
+        }
+        return;
+      }
+
+      var queuedIntercom = function() {
+        queuedIntercom.c(arguments);
+      };
+      queuedIntercom.q = [];
+      queuedIntercom.c = function(args) {
+        queuedIntercom.q.push(args);
+      };
+      window.Intercom = queuedIntercom;
+      window.Intercom('boot', window.intercomSettings);
+      window.__intercomBooted = true;
+
+      if (window.__intercomScriptLoaded) return;
+      window.__intercomScriptLoaded = true;
+
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://widget.intercom.io/widget/' + encodeURIComponent(INTERCOM_APP_ID);
+      document.head.appendChild(script);
+    }
+
+    function shutdownIntercom() {
+      if (typeof window.Intercom === 'function' && window.__intercomBooted) {
+        try {
+          window.Intercom('shutdown');
+        } catch (_) {}
+      }
+
+      window.__intercomBooted = false;
+      clearIntercomCookies();
+    }
+
     function handleConsentState(consentState) {
       applyConsentUpdate(consentState);
       if (consentState.analyticsGranted && !window.__trackingBlockedForLocal) {
         loadGTM();
+      }
+      if (consentState.functionalGranted) {
+        loadIntercom();
+      } else {
+        shutdownIntercom();
       }
     }
 
@@ -151,20 +241,18 @@
       s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(gtmId);
       document.head.appendChild(s);
     }
-ensureDefaultConsentDenied();
+
+    ensureDefaultConsentDenied();
     window.__trackingBlockedForLocal = isLocalHost();
     loadHubSpot();
 
     // Use HubSpot's official privacy consent listener
-    window._hsp.push(['addPrivacyConsentListener', function(consent) {
+    window._hsq.push(['addPrivacyConsentListener', function(consent) {
+      var payloadConsentState = getConsentStateFromListener(consent);
       var cookieConsentState = getConsentStateFromCookie();
-      
-      // Only load tracking if explicit consent cookie exists (user interacted with banner)
-      if (!cookieConsentState) return;
-
-      var hasPayload = hasListenerConsentPayload(consent);
-      var payloadConsentState = hasPayload ? getConsentStateFromObject(consent) : null;
       var consentState = payloadConsentState || cookieConsentState;
+
+      if (!consentState) return;
 
       handleConsentState(consentState);
     }]);
