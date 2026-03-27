@@ -157,7 +157,7 @@ so an environment in `/home/user/projects` activates before one in
 
 The shell prompt reflects all active environments:
 
-```
+```text
 flox [projects myapp] $
 ```
 
