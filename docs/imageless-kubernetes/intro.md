@@ -1,7 +1,9 @@
 ---
-title: "Introduction"
-description: "What is Imageless Kubernetes?"
+title: "Imageless Kubernetes — Flox Docs"
+description: "Imageless Kubernetes is a new way to run Kubernetes backed by Flox environments rather than container images."
 ---
+
+# Imageless Kubernetes with Flox
 
 Imageless Kubernetes is a new way to run Kubernetes backed by Flox environments rather than container images.
 This means that rather than managing image pipelines and constantly rebuilding containers, you now have lightweight Flox environments that *build reproducibly*, with centralized control via FloxHub.
