@@ -1,14 +1,19 @@
-version = 1
+schema-version = "1.11.0"
 
 [install]
 coreutils.pkg-path = "coreutils"
+coreutils.outputs = "all"
 findutils.pkg-path = "findutils"
+findutils.outputs = "all"
 gnutar.pkg-path = "gnutar"
+gnutar.outputs = "all"
 pandoc.pkg-path = "pandoc"
 poetry.pkg-path = "poetry"
+poetry.outputs = "all"
 python.pkg-path = "python311"
 pngquant.pkg-path = "pngquant"
 gnused.pkg-path = "gnused"
+gnused.outputs = "all"
 d2.pkg-path = "d2"
 
 lychee.pkg-path = "lychee"
@@ -17,6 +22,7 @@ lychee.version = ">=0.23"
 markdownlint-cli2.pkg-path = "markdownlint-cli2"
 markdownlint-cli2.pkg-group = "lint"
 curl.pkg-path = "curl"
+curl.outputs = "all"
 
 [hook]
 on-activate = '''
