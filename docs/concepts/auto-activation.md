@@ -130,8 +130,6 @@ flox revoke
 - **Deny is path-only.** The deny hash includes only the environment's
   path, so a denial persists across manifest changes.
 
-- **Deny always wins.** If both allow and deny records exist for an
-  environment, it will not be auto-activated.
 
 ### Automatic trust
 
