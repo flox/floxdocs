@@ -51,11 +51,19 @@ To enable auto-activation, add a single line to your shell's RC file:
     eval "`flox activate`"
     ```
 
-When `flox activate` is used in eval mode (e.g. `eval "$(flox activate)"`),
-it installs a shell hook that enables auto-activation for the rest of the
-session. If an environment exists in the current directory, it is also
-activated. This applies regardless of whether `-d` or `-r` flags are
-specified — the hook is always installed in eval mode.
+Flox provides three commands for shell integration:
+
+- **`eval "$(flox activate)"`** — Activates the environment in the current
+  directory _and_ installs the auto-activation hook. This is the recommended
+  command for your shell RC file. If no environment exists in the current
+  directory, the command fails with an error. The `-d` and `-r` flags can
+  target a specific environment, and the hook is always installed regardless
+  of which flags are used.
+- **`flox activate`** — Activates an environment (subshell or in-place) without
+  installing the auto-activation hook.
+- **`eval "$(flox hook)"`** — Installs the auto-activation hook _without_
+  activating any environment. Use this if you want auto-activation but don't
+  have a default environment.
 
 !!! note
 
@@ -80,9 +88,10 @@ Here is what happens on each prompt:
 2. **Trust check** — Each discovered environment is checked against the
    trust store. Only trusted environments proceed.
 3. **Activation** — Trusted environments are activated outermost-first.
-   Environment variables are set, hooks run, and **all services defined in
-   the manifest are started automatically** (unlike `flox activate`, which
-   requires the `--start-services` flag).
+   Environment variables are set and hooks run.
+   Services are controlled by the manifest's
+   [`options.services.auto-start`](../man/manifest.toml.md#options) option,
+   which applies equally to manual and auto-activation.
 4. **Deactivation** — When you leave a directory, its environment is
    deactivated and its changes to the shell are reverted.
 
@@ -127,8 +136,10 @@ flox revoke
   If the manifest changes (e.g. after `git pull`), trust is automatically
   revoked and you must run `flox allow` again.
 
-- **Deny is path-only.** The deny hash includes only the environment's
-  path, so a denial persists across manifest changes.
+- **Latest decision wins.** If both an allow and a deny exist for an
+  environment, the most recent decision (by timestamp) takes effect.
+  Running `flox allow` after `flox revoke` re-trusts the environment,
+  and vice versa.
 
 
 ### Automatic trust
@@ -164,19 +175,32 @@ starting with the innermost (closest to CWD).
 
 ## Deactivation
 
-[`flox deactivate`](../man/flox-deactivate.md) reverses the effects of
-the innermost auto-activated environment:
+[`flox deactivate`](../man/flox-deactivate.md) is the unified way to leave
+any environment, whether it was activated manually or via auto-activation.
+
+`flox deactivate` reverses the effects of the **innermost** environment:
 
 - Reverts environment variables set by that environment.
 - Restores the shell prompt.
 - **Suppresses** that environment so the hook does not re-activate it
   while you remain in the directory.
 
+Only the innermost (closest to CWD) environment can be deactivated.
+Running `flox deactivate` on a non-innermost environment fails with a
+helpful error — deactivate the inner layers first.
+Environments that were explicitly activated (not auto-activated) are
+immune to auto-deactivation by the hook.
+
 If you leave the directory and return later,
 the suppression is lifted and the environment auto-activates again.
 
 Calling `flox deactivate` multiple times peels off additional layers,
 one at a time.
+
+!!! note
+
+    For subshell activations, `exit` still works to leave the subshell,
+    but `flox deactivate` is the recommended approach for consistency.
 
 ## Interaction with manual activation
 
@@ -201,24 +225,13 @@ Auto-activation and `flox activate` share the same core behavior
 | **Trigger** | Explicit `flox activate` command | Automatic on `cd` into `.flox` directory |
 | **Activation mode** | Configurable via `--mode` (dev/run/build) | Always `dev` mode |
 | **Trust** | Implicit (user intentionally ran command) | Explicit trust required (`flox allow`) |
-| **hook.on-activate** | Runs in activation subprocess; shell options, functions, and aliases take effect | Runs in separate subprocess; only env var changes are captured |
+| **Deactivation** | `flox deactivate` or `exit` (subshell) | `flox deactivate` |
 | **Error handling** | Activation aborts on failure | Individual activations abort on failure, but other layered activations continue |
 
 !!! note "Activation mode"
 
     Auto-activation always uses `dev` mode. If you need `run` or `build`
     mode, use `flox activate --mode run` explicitly.
-
-!!! info "hook.on-activate behavior"
-
-    When an environment is auto-activated, the `hook.on-activate` script
-    runs in an isolated subprocess. Only environment variable changes are
-    captured and applied to your shell. Shell functions, aliases, and
-    shell options (e.g. `set -o vi`) set in `hook.on-activate` will not
-    take effect.
-
-    For shell-level customizations, use `[profile]` scripts instead,
-    or activate the environment manually with `flox activate`.
 
 ## Relationship to the default environment
 

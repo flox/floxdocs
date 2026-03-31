@@ -352,6 +352,29 @@ environments, and trust-based security.
 To learn more, see the full
 [Auto-activation](./auto-activation.md) concept page.
 
+### Why auto-activation instead of direnv?
+
+[direnv](https://direnv.net/) is a popular tool for loading environment
+variables when you enter a directory.
+Flox's auto-activation serves a similar purpose but goes further in
+several ways:
+
+- **Aliases and functions** — direnv cannot export shell aliases or
+  functions ([direnv/direnv#73](https://github.com/direnv/direnv/issues/73)).
+  Flox environments can define both via `[profile]` scripts, and they
+  work in auto-activated environments just as they do in manual
+  activations.
+- **Service interoperability** — Flox
+  [services](./services.md) persist across directory changes and
+  allow new shells to attach to already-running services. direnv has no
+  built-in service management.
+- **CLI update notifications** — Flox can notify you when a newer CLI
+  version is available and provide a command or link to download it.
+- **Better UX outside activated context** — Flox provides useful
+  commands (`flox search`, `flox show`, etc.) even when you are not
+  inside an activated environment, so you can discover and inspect
+  packages without entering a project directory first.
+
 ## Conclusion
 
 As you can see, there's a lot going on under the hood,
