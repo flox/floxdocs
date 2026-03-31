@@ -200,7 +200,6 @@ Auto-activation and `flox activate` share the same core behavior
 |----------|--------------------------|-----------------|
 | **Trigger** | Explicit `flox activate` command | Automatic on `cd` into `.flox` directory |
 | **Activation mode** | Configurable via `--mode` (dev/run/build) | Always `dev` mode |
-| **Services** | Started only with `--start-services` flag | Started automatically for all manifest services |
 | **Trust** | Implicit (user intentionally ran command) | Explicit trust required (`flox allow`) |
 | **Deactivation** | `exit` (leaves subshell) | `flox deactivate` (stays in shell, suppresses for session) |
 | **Multiple environments** | Nested subshells via repeated `flox activate` | Simultaneous activation of all `.flox` dirs in ancestor chain |
