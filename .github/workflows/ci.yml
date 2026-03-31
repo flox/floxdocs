@@ -8,6 +8,7 @@ on:
       - "preview"
       - "k8s-docs"
   pull_request:
+  merge_group:
 
 permissions:
   contents: "write"
