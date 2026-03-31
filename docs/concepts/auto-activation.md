@@ -201,7 +201,6 @@ Auto-activation and `flox activate` share the same core behavior
 | **Trigger** | Explicit `flox activate` command | Automatic on `cd` into `.flox` directory |
 | **Activation mode** | Configurable via `--mode` (dev/run/build) | Always `dev` mode |
 | **Trust** | Implicit (user intentionally ran command) | Explicit trust required (`flox allow`) |
-| **Deactivation** | `exit` (leaves subshell) | `flox deactivate` (stays in shell, suppresses for session) |
 | **Multiple environments** | Nested subshells via repeated `flox activate` | Simultaneous activation of all `.flox` dirs in ancestor chain |
 | **hook.on-activate** | Runs in activation subprocess; shell options, functions, and aliases take effect | Runs in separate subprocess; only env var changes are captured |
 | **Error handling** | Activation aborts on failure | Failures are non-fatal; other environments still activate |
