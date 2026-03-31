@@ -85,9 +85,6 @@ Here is what happens on each prompt:
    requires the `--start-services` flag).
 4. **Deactivation** — When you leave a directory, its environment is
    deactivated and its changes to the shell are reverted.
-5. **Reattachment** — If you return to a previously activated directory,
-   the environment reattaches from cache rather than re-running hooks,
-   making it nearly instant.
 
 Most prompts trigger the **fast path**: the hook detects that nothing has
 changed (same directory, same environments, same manifest timestamps) and
