@@ -347,7 +347,8 @@ and deactivate when you leave.
 This is powered by a shell hook that runs on every prompt,
 discovering `.flox` directories in your directory's ancestor chain and
 managing their activation lifecycle — including hooks, services, nested
-environments, and trust-based security.
+environments, security trust, and per-environment auto-activation
+preferences.
 
 To learn more, see the full
 [Auto-activation](./auto-activation.md) concept page.
@@ -368,12 +369,9 @@ several ways:
   [services](./services.md) persist across directory changes and
   allow new shells to attach to already-running services. direnv has no
   built-in service management.
-- **CLI update notifications** — Flox can notify you when a newer CLI
-  version is available and provide a command or link to download it.
-- **Better UX outside activated context** — Flox provides useful
-  commands (`flox search`, `flox show`, etc.) even when you are not
-  inside an activated environment, so you can discover and inspect
-  packages without entering a project directory first.
+- **Nested environment support** — Flox auto-activation natively supports
+  activating multiple layered environments from ancestor directories.
+  direnv does not natively support nested environments.
 
 ## Conclusion
 
