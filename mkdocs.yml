@@ -86,6 +86,7 @@ nav:
     - Manifest builds: concepts/manifest-builds.md
     - Nix expression builds: concepts/nix-expression-builds.md
     - Publishing: concepts/publishing.md
+    - Secrets management: concepts/secrets-management.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Languages:
     - ... | flat | languages/*
