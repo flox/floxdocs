@@ -202,7 +202,7 @@ Auto-activation and `flox activate` share the same core behavior
 | **Activation mode** | Configurable via `--mode` (dev/run/build) | Always `dev` mode |
 | **Trust** | Implicit (user intentionally ran command) | Explicit trust required (`flox allow`) |
 | **hook.on-activate** | Runs in activation subprocess; shell options, functions, and aliases take effect | Runs in separate subprocess; only env var changes are captured |
-| **Error handling** | Activation aborts on failure | Failures are non-fatal; other environments still activate |
+| **Error handling** | Activation aborts on failure | Individual activations abort on failure, but other layered activations continue |
 
 !!! note "Activation mode"
 
