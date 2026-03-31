@@ -150,19 +150,44 @@
         var granted = isGrantedValue(consent.allowed);
         return {
           analyticsGranted: granted,
-          functionalGranted: granted,
-          adsGranted: granted
+          functionalGranted: false,
+          adsGranted: false
         };
       }
       return null;
     }
 
+    function getIntercomCookieDomains() {
+      var host = (window.location && window.location.hostname) || '';
+      var domains = [null];
+
+      if (!host) return domains;
+
+      domains.push(host);
+
+      if (host.indexOf('.') !== -1) {
+        var parts = host.split('.');
+        if (parts.length > 2) {
+          domains.push('.' + parts.slice(parts.length - 2).join('.'));
+        } else {
+          domains.push('.' + host);
+        }
+      }
+
+      return domains;
+    }
+
     function clearIntercomCookies() {
       var cookies = document.cookie ? document.cookie.split(';') : [];
+      var domains = getIntercomCookieDomains();
       for (var i = 0; i < cookies.length; i++) {
         var cookieName = cookies[i].split('=')[0].trim();
         if (cookieName.indexOf('intercom-') !== 0) continue;
-        document.cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+        for (var j = 0; j < domains.length; j++) {
+          var cookie = cookieName + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; SameSite=Lax';
+          if (domains[j]) cookie += '; domain=' + domains[j];
+          document.cookie = cookie;
+        }
       }
     }
 
