@@ -69,7 +69,7 @@ flox services start
 ```
 
 ``` { .bash .copy }
-redis-cli ping
+redis-cli -p $REDISPORT ping
 # should respond PONG
 ```
 
