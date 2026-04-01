@@ -108,7 +108,7 @@ If you only need the service to run while you are logged in,
 you can skip this step.
 
 ``` { .bash .copy }
-sudo loginctl enable-linger ubuntu
+sudo loginctl enable-linger $USER
 ```
 
 Load, enable, and start the service:
