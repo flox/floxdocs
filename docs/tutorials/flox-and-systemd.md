@@ -128,7 +128,7 @@ systemctl --user status redis.service
 Verify Redis is responding:
 
 ``` { .bash .copy }
-flox activate -d /home/ubuntu/redis -c 'redis-cli -p "$REDISPORT" ping'
+flox activate -d ~/redis -c 'redis-cli -p "$REDISPORT" ping'
 # should respond PONG
 ```
 
