@@ -91,7 +91,7 @@ cat > ~/.config/systemd/user/redis.service << 'EOF'
 Description=Redis Server (Flox)
 
 [Service]
-ExecStart=flox activate -d /home/ubuntu/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
+ExecStart=flox activate -d %h/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
 
 [Install]
 WantedBy=default.target
