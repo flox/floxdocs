@@ -7,11 +7,11 @@ description: How package groups work and when to use them
 
 ## What Are Package Groups?
 
-**Package groups** (`pkg-group`) are one of the mechanisms Flox provides to manage dependency conflicts. Each package in a group resolves against the same [`nixpkgs`](https://github.com/nixos/nixpkgs) git commit; different package groups may resolve against different `nixpkgs` commits. This safeguards against runtime ABI incompatibilities and version conflicts.
+**Package groups** (`pkg-group`) are one of the mechanisms Flox provides to manage dependency conflicts. Each package in a group resolves against the same [`nixpkgs`](https://Github.com/nixos/nixpkgs) Git commit; different package groups may resolve against different `nixpkgs` commits. This safeguards against runtime ABI incompatibilities and version conflicts.
 
 !!! note "Note"
     In Flox terminology, a `nixpkgs` Git commit is equivalent to a **catalog revision**.
-    Flox maintains a [non-destructive fork](https://github.com/flox/nixpkgs) of `nixpkgs`,
+    Flox maintains a [non-destructive fork](https://Github.com/flox/nixpkgs) of `nixpkgs`,
     sampling the upstream `unstable` branch [nixos-unstable](https://nixos.wiki/wiki/Nix_channels)
     at the same time daily.
     The Flox [base Catalog][base-catalog-concept] evaluates a subset of packages from that fork
@@ -65,7 +65,7 @@ Every dependency in a package group gets pinned to the same historical `nixpkgs`
 
 ```d2 scale="0.9"
 toplevel: "Group: toplevel" {
-  packages: "bash, curl, git, jq"
+  packages: "bash, curl, Git, jq"
   rev: "Catalog rev b40629e…\n(nixpkgs commit 2026-03-18)"
 }
 
@@ -80,7 +80,7 @@ When you install a package with `flox install`, it goes into **`toplevel`**, the
 ```toml
 [install]
 bash.pkg-path = "bash"
-git.pkg-path = "git"
+Git.pkg-path = "Git"
 curl.pkg-path = "curl"
 jq.pkg-path = "jq"
 ```
@@ -98,7 +98,7 @@ scipy.pkg-path = "python311Packages.scipy"
 scipy.pkg-group = "ml"
 ```
 
-`bash`, `git`, `curl`, and `jq` share the same `nixpkgs` commit (as members of `toplevel`), while `python3`, `numpy`, and `scipy` share another (as members of `ml`). These commits may be the same _or_ different: i.e., _if_ the `ml` packages are in fact satisfiable at the same `nixpkgs` commit as `toplevel`, _then_ the resolver selects that commit for both groups. The Flox resolver selects different `nixpkgs` commits only when one or more packages in a group actually require this. For this reason, you can use package groups to organize a Flox environment's manifest, e.g., grouping related packages together for legibility.
+`bash`, `Git`, `curl`, and `jq` share the same `nixpkgs` commit (as members of `toplevel`), while `python3`, `numpy`, and `scipy` share another (as members of `ml`). These commits may be the same _or_ different: i.e., _if_ the `ml` packages are in fact satisfiable at the same `nixpkgs` commit as `toplevel`, _then_ the resolver selects that commit for both groups. The Flox resolver selects different `nixpkgs` commits only when one or more packages in a group actually require this. For this reason, you can use package groups to organize a Flox environment's manifest, e.g., grouping related packages together for legibility.
 
 ### Resolution
 
@@ -123,18 +123,18 @@ The lock file (`manifest.lock`) records each resolved package with its group and
   "manifest": { "..." : "..." },
   "packages": [
     {
-      "install_id": "git",
-      "attr_path": "git",
+      "install_id": "Git",
+      "attr_path": "Git",
       "version": "2.47.1",
       "group": "toplevel", // (1)!
       "rev": "b40629efe5d6ec48dd1efba650c797ddbd39ace0", // (2)!
-      "locked_url": "https://github.com/flox/nixpkgs?rev=b40629e...",
+      "locked_url": "https://Github.com/flox/nixpkgs?rev=b40629e...",
       "rev_date": "2026-03-18T08:17:15Z",
       "system": "x86_64-linux",
       "priority": 5,
       "outputs_to_install": ["out"],
       "outputs": {
-        "out": "/nix/store/...-git-2.47.1"
+        "out": "/nix/store/...-Git-2.47.1"
       }
     },
     {
@@ -143,7 +143,7 @@ The lock file (`manifest.lock`) records each resolved package with its group and
       "version": "0.17.0",
       "group": "tools", // (3)!
       "rev": "a1b2c3d4e5f6...", // (4)!
-      "locked_url": "https://github.com/flox/nixpkgs?rev=a1b2c3d...",
+      "locked_url": "https://Github.com/flox/nixpkgs?rev=a1b2c3d...",
       "rev_date": "2026-02-10T12:00:00Z",
       "system": "x86_64-linux",
       "priority": 5,
@@ -480,10 +480,10 @@ scipy.pkg-group = "scientific"
 {
   inputs = {
     # Analogous to the "toplevel" group
-    nixpkgs.url = "github:NixOS/nixpkgs/b40629efe5d6ec48dd1efba650c797ddbd39ace0";
+    nixpkgs.url = "Github:NixOS/nixpkgs/b40629efe5d6ec48dd1efba650c797ddbd39ace0";
 
     # Analogous to the "scientific" group
-    nixpkgs-scientific.url = "github:NixOS/nixpkgs/c5296fdd05cfa2c187990dd909864da9658df755";
+    nixpkgs-scientific.url = "Github:NixOS/nixpkgs/c5296fdd05cfa2c187990dd909864da9658df755";
   };
 
   outputs = { self, nixpkgs, nixpkgs-scientific }:
@@ -557,7 +557,7 @@ When Flox builds an environment, it materializes a single derivation that produc
 ```text
 ~/.flox/run/<env>/          # the environment's output
 ├── bin/
-│   ├── git -> /nix/store/...-git-2.47.1/bin/git
+│   ├── Git -> /nix/store/...-Git-2.47.1/bin/Git
 │   ├── curl -> /nix/store/...-curl-8.11.1/bin/curl
 │   └── gum -> /nix/store/...-gum-0.17.0/bin/gum
 ├── lib/
@@ -574,7 +574,7 @@ File conflicts occur only when two packages expect to install a file to the **sa
 
 Nix makes coexistence _mechanically possible_; package groups make it simple, declarative, and correct.
 
-**Within a group**, all packages are pinned to the same `nixpkgs` git revision, so their shared dependencies are guaranteed to compatible. In other words, If two packages depend on `openssl`, they both get the same `openssl` package: the same version, the same store path, the same ABI.
+**Within a group**, all packages are pinned to the same `nixpkgs` Git revision, so their shared dependencies are guaranteed to compatible. In other words, If two packages depend on `openssl`, they both get the same `openssl` package: the same version, the same store path, the same ABI.
 
 **Across groups**, dependencies _can_ differ, and Nix handles this gracefully: each binary finds its own libraries via `RUNPATH`. But packages that interact at runtime should share dependencies. For example:
 
