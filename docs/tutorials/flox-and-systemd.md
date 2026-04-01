@@ -202,7 +202,7 @@ sudo systemctl status redis.service
 ```
 
 ``` { .bash .copy }
-flox activate -d /home/ubuntu/redis -c 'redis-cli -p "$REDISPORT" ping'
+flox activate -d ~/redis -c 'redis-cli -p "$REDISPORT" ping'
 # should respond PONG
 ```
 
