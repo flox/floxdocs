@@ -198,7 +198,7 @@ not a file-level priority collision.
 
 After merging,
 the resulting environment is built
-and any file-level collisions between *different* packages
+and any file-level collisions between _different_ packages
 are resolved by priority
 the same way they are in a non-composed environment.
 

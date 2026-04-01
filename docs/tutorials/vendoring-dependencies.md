@@ -17,7 +17,7 @@ you use:
 There are two distinct vendoring problems you may encounter,
 and these call for different solutions.
 
-### Sandbox vendoring vs. missing dependencies
+## Sandbox vendoring vs. missing dependencies
 
 **Sandbox vendoring** is when your dependencies exist in their language
 ecosystem (Go modules, crates.io, npm) but a
