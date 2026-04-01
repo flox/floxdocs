@@ -62,19 +62,25 @@ You can define a `shutdown.command` for any service, including services that do 
 
 ## Starting services
 
-Services can be started automatically when you activate your environment via
-the `flox activate --start-services` command
-(or via the shorter `flox activate -s`).
-This will start services as part of activating your environment.
+By default, services do not start automatically when you activate your
+environment. There are two ways to start them:
+
+1. **Flag:** Pass `--start-services` (or `-s`) to `flox activate`.
+   This starts all services defined in the manifest for the current system.
+
+2. **Manifest option:** Set `options.services.auto-start = true` in your
+   manifest. This causes services to start automatically whenever the
+   environment is activated — including via
+   [auto-activation](auto-activation.md). The `-s` flag is not needed when
+   this option is set.
+
 When activating your environment from multiple shells you only need to start
 the services once.
 Since your services are just processes running on your machine,
 they will be visible to any other activations.
 
-Activating your environment without the `--start-services` flag will not start
-the services.
-If you activate your environment without services and then later decide that
-you want to start them, that is done via the `flox services start` command.
+If you activate your environment without starting services and then later
+decide that you want to start them, use the `flox services start` command.
 When called without any arguments this command will start all services listed
 in the manifest.
 You can also specify individual service names,
