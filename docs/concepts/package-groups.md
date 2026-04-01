@@ -587,3 +587,4 @@ This makes it faster and less costly to resolve a coherent dependency graph.
 
 [environments-concept]: ./environments.md
 [manifest-builds-concept]: ./manifest-builds.md
+[base-catalog-concept]: ./base-catalog.md
