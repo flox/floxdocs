@@ -42,41 +42,21 @@ and run it as a systemd user unit.
 
 ### Create the Redis environment locally
 
-Create a directory for the environment and pull the `flox/redis` environment
-from FloxHub:
+Pull the `flox/redis` environment from FloxHub into a directory:
 
 ``` { .bash .copy }
-mkdir -p redis
-cd redis
-```
-
-``` { .bash .copy }
-flox pull flox/redis
+flox pull flox/redis -d redis
 ```
 
 ### Test the environment with Flox services
 
 Before creating the systemd unit,
-verify that the environment works with Flox services commands:
+verify that the environment works:
 
 ``` { .bash .copy }
-flox activate
-```
-
-``` { .bash .copy }
+flox activate -s
 flox services status
-flox services start
-```
-
-``` { .bash .copy }
-redis-cli -p $REDISPORT ping
-# should respond PONG
-```
-
-Once verified, stop the services and exit the environment:
-
-``` { .bash .copy }
-flox services stop
+redis-cli -p $REDIS_PORT ping
 exit
 ```
 
@@ -91,7 +71,7 @@ cat > ~/.config/systemd/user/redis.service << 'EOF'
 Description=Redis Server (Flox)
 
 [Service]
-ExecStart=flox activate -d %h/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
+ExecStart=flox activate -d %h/redis -c 'redis-server --bind $REDIS_HOST --port $REDIS_PORT --daemonize no --dir $REDIS_DATA'
 
 [Install]
 WantedBy=default.target
@@ -124,7 +104,7 @@ systemctl --user status redis.service
 Verify Redis is responding:
 
 ``` { .bash .copy }
-flox activate -d ~/redis -c 'redis-cli -p "$REDISPORT" ping'
+flox activate -d ~/redis -c 'redis-cli -p "$REDIS_PORT" ping'
 # should respond PONG
 ```
 
@@ -145,17 +125,10 @@ For services that should run under a dedicated system user rather than
 your personal account,
 you can create a system-level systemd unit instead.
 
-### Create a dedicated Redis user
+### Create a dedicated Redis user and environment
 
 ``` { .bash .copy }
-sudo useradd --system --no-create-home --shell /usr/sbin/nologin redis
-```
-
-### Create the environment and set ownership
-
-``` { .bash .copy }
-sudo mkdir -p /home/redis
-sudo chown -R redis:redis /home/redis
+sudo useradd --system --create-home --shell /usr/sbin/nologin redis
 sudo -u redis flox pull flox/redis -d /home/redis/redis
 ```
 
@@ -172,7 +145,7 @@ Description=Redis Server (Flox)
 
 [Service]
 User=redis
-ExecStart=flox activate -d %h/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
+ExecStart=flox activate -d /home/redis/redis -c 'redis-server --bind $REDIS_HOST --port $REDIS_PORT --daemonize no --dir $REDIS_DATA'
 
 [Install]
 WantedBy=multi-user.target
@@ -198,7 +171,7 @@ sudo systemctl status redis.service
 ```
 
 ``` { .bash .copy }
-flox activate -d ~/redis -c 'redis-cli -p "$REDISPORT" ping'
+flox activate -d ~/redis -c 'redis-cli -p $REDIS_PORT ping'
 # should respond PONG
 ```
 
