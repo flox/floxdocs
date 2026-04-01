@@ -32,15 +32,18 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: "actions/checkout@v6"
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+
         with:
           fetch-depth: 0
 
       - name: "Install Flox"
-        uses: "flox/install-flox-action@main"
+        uses: flox/install-flox-action@c94e7e1ab56ae14fe98bae4fd84384fd135f0c2a # main
+
 
       - name: "Build"
-        uses: "flox/activate-action@main"
+        uses: flox/activate-action@d2c0d305d166520ed1cc2485bf10cd83cd859674 # main
+
         with:
           command: |
             mkdocs build
@@ -50,19 +53,22 @@ jobs:
             cp netlify.toml ./public/
 
       - name: "Check markdown lint"
-        uses: "flox/activate-action@main"
+        uses: flox/activate-action@d2c0d305d166520ed1cc2485bf10cd83cd859674 # main
+
         with:
           command: "markdownlint-cli2"
 
       - name: "Check external links"
         if: ${{ github.event_name == 'pull_request' }}
-        uses: "flox/activate-action@main"
+        uses: flox/activate-action@d2c0d305d166520ed1cc2485bf10cd83cd859674 # main
+
         with:
           command: "./check_links.sh"
 
       - name: "Publish to Netlify"
         if: ${{ github.repository_owner == 'flox' }}
-        uses: "nwtgck/actions-netlify@v3.0"
+        uses: nwtgck/actions-netlify@4cbaf4c08f1a7bfa537d6113472ef4424e4eb654 # v3.0
+
         env:
           NETLIFY_AUTH_TOKEN: "${{ secrets.MANAGED_NETLIFY_TOKEN }}"
           NETLIFY_SITE_ID:    "${{    vars.MANAGED_NETLIFY_FLOXDOCS_ID }}"
