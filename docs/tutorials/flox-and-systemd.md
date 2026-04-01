@@ -176,7 +176,7 @@ Description=Redis Server (Flox)
 
 [Service]
 User=redis
-ExecStart=flox activate -d /home/redis/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
+ExecStart=flox activate -d %h/redis -c 'redis-server "$REDISCONFIG" --daemonize no --dir "$REDISDATA"'
 
 [Install]
 WantedBy=multi-user.target
