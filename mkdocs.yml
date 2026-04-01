@@ -51,6 +51,7 @@ nav:
     - Designing cross-platform environments: tutorials/multi-arch-environments.md
     - Reusing and combining developer environments: tutorials/composition.md
     - Selecting package outputs: tutorials/package-outputs.md
+    - Vendoring unavailable dependencies: tutorials/vendoring-dependencies.md
     - Flox + CUDA: tutorials/cuda.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*

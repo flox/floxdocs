@@ -5,7 +5,7 @@ description: How to build packages when dependencies aren't available in the Flo
 
 # Vendoring unavailable dependencies
 
-When building with Flox,
+When [building with Flox][build-concept],
 your dependencies come from different sources depending on which build type
 you use:
 
@@ -14,8 +14,8 @@ you use:
 - **[Nix expression builds][nix-expression-builds-concept]** draw packages from
   [nixpkgs][base-catalog-concept]
 
-There are two distinct vendoring problems you may encounter,
-and these call for different solutions.
+There are two distinct vendoring problems you may encounter;
+each calls for a different solution.
 
 ## Sandbox vendoring vs. missing dependencies
 
