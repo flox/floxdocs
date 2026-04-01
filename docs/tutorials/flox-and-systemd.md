@@ -98,10 +98,6 @@ WantedBy=default.target
 EOF
 ```
 
-!!! note "Note"
-    Update the path `/home/ubuntu/redis` in the `ExecStart` line to match
-    the location where you created the environment.
-
 By default, systemd user units only run while the user is logged in.
 Enabling **lingering** allows the service to start at boot without a login session.
 If you only need the service to run while you are logged in,
