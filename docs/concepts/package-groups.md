@@ -9,6 +9,16 @@ description: How package groups work and when to use them
 
 **Package groups** (`pkg-group`) are one of the mechanisms Flox provides to manage dependency conflicts. Each package in a group resolves against the same [`nixpkgs`](https://github.com/nixos/nixpkgs) git commit; different package groups may resolve against different `nixpkgs` commits. This safeguards against runtime ABI incompatibilities and version conflicts.
 
+!!! note "Note"
+    In Flox terminology, a `nixpkgs` Git commit is equivalent to a **catalog revision**.
+    Flox maintains a [non-destructive fork](https://github.com/flox/nixpkgs) of `nixpkgs`,
+    sampling the upstream `unstable` branch [nixos-unstable](https://nixos.wiki/wiki/Nix_channels)
+    at the same time daily.
+    The Flox [base Catalog][base-catalog-concept] evaluates a subset of packages from that fork
+    and records metadata such as version, license, and source provenance.
+    A **catalog revision** is a snapshot of that subset of packages
+    at a specific `nixpkgs` commit.
+
 Think of package groups as a convenient way to partition the resolver's search space into discrete subproblems. They make it easier for the resolver to compute a functioning dependency graph.
 
 Package groups are also useful as an **organizational tool**. You can use them to separate runtime dependencies, dev tools, and other categories of tooling into logical groupings in the [Flox environment's manifest][environments-concept]. This makes environments with a large number of dependencies easier to read and maintain. In Flox [manifest builds][manifest-builds-concept], you can use package groups to keep dev-time tools out of the build context.
