@@ -21,9 +21,9 @@ You will learn how to run a Flox environment service as both a
 ## Prerequisites
 
 - A Linux system with systemd support.
-  This tutorial was tested on Ubuntu 24.04.
+  This tutorial was tested on Ubuntu 24.04 and 26.04.
 - Flox installed in multi-user mode.
-  This tutorial was tested on Flox 1.10.0.
+  This tutorial was tested on Flox 1.11.0.
 
 ## Constraints
 
@@ -42,10 +42,10 @@ and run it as a systemd user unit.
 
 ### Create the Redis environment locally
 
-Pull the `flox/redis` environment from FloxHub into a directory:
+Pull the `flox/redis` environment from FloxHub into your home directory:
 
 ``` { .bash .copy }
-flox pull flox/redis -d redis
+flox pull flox/redis -d ~/redis
 ```
 
 ### Test the environment with Flox services
@@ -54,6 +54,7 @@ Before creating the systemd unit,
 verify that the environment works:
 
 ``` { .bash .copy }
+cd ~/redis
 flox activate -s
 flox services status
 redis-cli -p $REDIS_PORT ping
