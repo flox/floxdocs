@@ -137,7 +137,7 @@ Here is what happens on each prompt:
    Environment variables are set and hooks run.
    Services are **not** started by default.
    To have services start automatically, set
-   [`options.services.auto-start = true`](../man/manifest.toml.md#options)
+   [`services.auto-start = true`](../man/manifest.toml.md#options)
    in the manifest.
 4. **Deactivation** — When you leave a directory, its environment is
    deactivated and its changes to the shell are reverted.
