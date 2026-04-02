@@ -365,20 +365,3 @@ See the
 [default environment tutorial](../tutorials/default-environment.md)
 for more details on setting up a default environment.
 
-## Advanced: hook state variables
-
-Auto-activation tracks its state using internal environment variables.
-These are implementation details and subject to change,
-but are documented here for debugging purposes.
-
-??? note "Internal state variables"
-
-    | Variable | Description |
-    |----------|-------------|
-    | `_FLOX_HOOK_DIFF` | Compressed record of all environment variable changes (additions, modifications, deletions) applied by auto-activated environments |
-    | `_FLOX_HOOK_DIRS` | Colon-separated list of `.flox` directories currently active via auto-activation |
-    | `_FLOX_HOOK_WATCHES` | JSON array of watched manifest file paths and their modification times, used to detect changes |
-    | `_FLOX_HOOK_SUPPRESSED` | Colon-separated list of directories suppressed by `flox deactivate` |
-    | `_FLOX_HOOK_NOTIFIED` | Colon-separated list of directories for which the user has already been prompted about auto-activation preference |
-    | `_FLOX_HOOK_CWD` | Last-seen working directory, used for fast-path detection |
-    | `_FLOX_HOOK_ACTIVATIONS` | Compressed record of per-environment activation metadata (store paths, cached hook output) |
