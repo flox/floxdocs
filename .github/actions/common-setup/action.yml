@@ -30,7 +30,8 @@ runs:
   using: "composite"
   steps:
     - name: "Setup Tailscale"
-      uses: "tailscale/github-action@v4"
+      uses: tailscale/github-action@306e68a486fd2350f2bfc3b19fcd143891a4a2d8 # v4
+
       if: ${{ inputs.TAILSCALE_AUTH_KEY }}
       with:
         oauth-secret: "${{ inputs.TAILSCALE_AUTH_KEY }}"
@@ -39,10 +40,12 @@ runs:
         use-cache: true
 
     - name: "Install newer Nix"
-      uses: "cachix/install-nix-action@v24"
+      uses: cachix/install-nix-action@7ac1ec25491415c381d9b62f0657c7a028df52a7 # v24
+
 
     - name: "Configure Nix"
-      uses: "flox/configure-nix-action@main"
+      uses: flox/configure-nix-action@1ee58d63463cb1870ab73d9df0acfd9d8ba671f8 # main
+
       with:
         github-access-token:    "${{ inputs.GITHUB_ACCESS_TOKEN }}"
         substituter:            "${{ inputs.SUBSTITUTER }}"
