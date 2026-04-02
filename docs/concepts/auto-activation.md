@@ -323,7 +323,6 @@ Auto-activation and `flox activate` share the same core behavior
 | Behavior | `flox activate` (manual) | Auto-activation |
 |----------|--------------------------|-----------------|
 | **Trigger** | Explicit `flox activate` command | Automatic on `cd` into `.flox` directory |
-| **Activation mode** | Configurable via `--mode` (dev/run/build) | Always `dev` mode |
 | **Gate** | None — user explicitly chose to activate | Requires security trust + auto-activation enabled |
 | **Deactivation** | `flox deactivate` or `exit` (subshell) | `flox deactivate` |
 | **Error handling** | Activation aborts on failure | Individual activations abort on failure, but other layered activations continue |
