@@ -329,7 +329,7 @@ Auto-activation and `flox activate` share the same core behavior
 
 !!! note "Activation mode"
 
-    Auto-activation always uses `dev` mode. The manifest setting
+    The manifest setting
     [`options.activate.mode`](../man/manifest.toml.md#options) controls
     the default activation mode. Auto-activation respects this setting.
     If you need `run` or `build` mode, use
