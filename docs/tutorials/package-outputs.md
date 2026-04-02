@@ -140,7 +140,8 @@ flox install curl^bin,man,out
 ```
 
 A comma-separated list after a `^` is treated as a list of outputs you'd like to install.
-Note that this only allows you to install _additional_ outputs.
+Note that for the moment this is only allowed when installing a new package.
+In the future you will be able to install and uninstall specific outputs of existing packages.
 
 ## Conclusion
 

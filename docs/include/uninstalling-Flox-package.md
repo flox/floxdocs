@@ -1,5 +1,5 @@
 <!-- markdownlint-disable-file MD041 -->
-=== "MacOS - Pkg"
+=== "MacOS (Pkg)"
 
     !!! warning "The following commands will completely remove Nix and the contents of `/nix/*` from the system."
 
@@ -20,7 +20,7 @@
     ```
 
     We recommend rebooting your system after uninstalling Flox.
-=== "MacOS - Homebrew"
+=== "MacOS (Homebrew)"
 
     !!! warning "The following commands will completely remove Nix and the contents of `/nix/*` from the system."
 
