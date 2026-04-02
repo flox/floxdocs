@@ -346,9 +346,8 @@ and deactivate when you leave.
 
 This is powered by a shell hook that runs on every prompt,
 discovering `.flox` directories in your directory's ancestor chain and
-managing their activation lifecycle — including hooks, services, nested
-environments, security trust, and per-environment auto-activation
-preferences.
+managing their activation lifecycle — including hooks, services, and
+nested environments.
 
 To learn more, see the full
 [Auto-activation](./auto-activation.md) concept page.
