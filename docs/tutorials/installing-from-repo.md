@@ -133,7 +133,7 @@ sudo yum --repofrompath=flox,https://downloads.flox.dev/by-env/stable/rpm instal
 To remove Flox's repository from a Linux system's sources,
 do the following.
 
-### Debian-based systems
+### Removing on Debian-based systems
 
 By default, the Flox repository's source list is in
 `/etc/apt/sources.list.d/flox.list`.
@@ -164,7 +164,7 @@ sudo apt update
     (DEB822 format) instead of `flox.list`.
     Use the `grep` command above to verify the actual filename.
 
-### Red Hat-based systems
+### Removing on Red Hat-based systems
 
 By default, the Flox repository's source list is in
 `/etc/yum.repos.d/flox.repo`.
