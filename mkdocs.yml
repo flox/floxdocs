@@ -54,6 +54,7 @@ nav:
     - Selecting package outputs: tutorials/package-outputs.md
     - Flox + CUDA: tutorials/cuda.md
     - Flox and systemd: tutorials/flox-and-systemd.md
+    - Installing Flox from its repository on Debian and Red Hat: tutorials/installing-from-repo.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
   - Imageless Kubernetes:
