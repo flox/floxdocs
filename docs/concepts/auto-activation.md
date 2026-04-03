@@ -37,11 +37,9 @@ Flox provides three commands for shell integration:
 |---|---|---|
 | `eval "$(flox activate -D)"` | Yes (default env) | Yes |
 | `eval "$(flox activate -d .)"` | Yes (directory env) | Yes |
+| `eval "$(flox activate -r <owner>/<env>)"` | Yes (remote env) | Yes |
 | `flox activate` | Yes | No |
 | `eval "$(flox hook)"` | No | Yes |
-
-**With a default environment** — use in-place activation with `-D` to
-activate your default environment _and_ install the auto-activation hook:
 
 === "Bash"
 
@@ -78,7 +76,7 @@ activate your default environment _and_ install the auto-activation hook:
 !!! note
 
     Any in-place `flox activate` invocation installs the hook — not just
-    `-D`. If you already have
+    `-D`. For example, if you already have
     `eval "$(flox activate -r owner/default)"` in your shell RC file,
     you don't need to change it.
     See the
@@ -262,14 +260,12 @@ any environment, whether it was activated manually or via auto-activation.
 Only the innermost (closest to CWD) environment can be deactivated.
 Running `flox deactivate` on a non-innermost environment fails with a
 helpful error — deactivate the inner layers first.
-Environments that were explicitly activated (not auto-activated) are
-immune to auto-deactivation by the hook.
 
 If you leave the directory and return later,
 the suppression is lifted and the environment auto-activates again.
 
-Calling `flox deactivate` multiple times peels off additional layers,
-one at a time.
+Calling `flox deactivate` multiple times peels off additional layers, one at a time.
+You can also specify a list of environments to deactivate (`flox deactivate foo bar bar`), but these must be the innermost environments.
 
 !!! note
 
@@ -280,14 +276,10 @@ one at a time.
 
 Environments activated in a **subshell** — via `flox activate`,
 `flox activate -d <path>`, or `flox activate -r <owner>/<name>` without
-in-place mode — are excluded from auto-activation management.
-The shell hook does not discover, activate, deactivate, or suppress
-these environments within the subshell.
-
-When `flox activate` is used **in-place** (e.g.
-`eval "$(flox activate -d <path>)"`), the activated environment is not
-excluded. Instead, the auto-activation hook manages it alongside any
-other discovered environments.
+in-place mode — are managed alongside any other discovered environments.
+Any newly activated environment becomes the innermost activation, and
+must be deactivated before any other environment, regardless of how
+they were activated.
 
 ## Comparison with manual activation
 
@@ -297,12 +289,7 @@ Auto-activation and `flox activate` share the same core behavior
 | Behavior | `flox activate` (manual) | Auto-activation |
 |----------|--------------------------|-----------------|
 | **Trigger** | Explicit `flox activate` command | Automatic on `cd` into `.flox` directory |
+| **Mode** | `flox activate -m` or `options.activate.mode` (manifest setting) | `options.activate.mode` (manifest setting) |
 | **Gate** | None — user explicitly chose to activate | Requires auto-activation to be allowed |
 | **Deactivation** | `flox deactivate` or `exit` (subshell) | `flox deactivate` |
 | **Error handling** | Activation aborts on failure | Individual activations abort on failure, but other layered activations continue |
-
-!!! note "Activation mode"
-
-    The manifest setting
-    [`options.activate.mode`](../man/manifest.toml.md#options) controls
-    the default activation mode. Auto-activation respects this setting.
