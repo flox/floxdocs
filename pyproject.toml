@@ -19,7 +19,7 @@ mkdocs-macros-plugin = "*"
 mkdocs-material = { path = "./mkdocs_material-9.5.10+insiders.4.52.2.tar.gz", extras = [ "images" ] }
 mkdocs-material-extensions = "*"
 mkdocs-redirects = "^1.2.2"
-pillow = "11.2.1"
+pillow = "12.1.1"
 pymdown-extensions = "*"
 # PR waiting in upstream: https://github.com/OceanSprint/tesh/pull/45
 tesh = { git = "https://github.com/garbas/tesh", branch = "remove-mkdocs-code-annotations" }
