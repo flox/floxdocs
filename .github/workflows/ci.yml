@@ -42,7 +42,7 @@ jobs:
 
 
       - name: "Build"
-        uses: flox/activate-action@d2c0d305d166520ed1cc2485bf10cd83cd859674 # main
+        uses: flox/activate-action@6ab4a3d38cfd06f31910d0a5fe7e57ffa76ad750 # main
 
         with:
           command: |
@@ -53,14 +53,14 @@ jobs:
             cp netlify.toml ./public/
 
       - name: "Check markdown lint"
-        uses: flox/activate-action@d2c0d305d166520ed1cc2485bf10cd83cd859674 # main
+        uses: flox/activate-action@6ab4a3d38cfd06f31910d0a5fe7e57ffa76ad750 # main
 
         with:
           command: "markdownlint-cli2"
 
       - name: "Check external links"
         if: ${{ github.event_name == 'pull_request' }}
-        uses: flox/activate-action@d2c0d305d166520ed1cc2485bf10cd83cd859674 # main
+        uses: flox/activate-action@6ab4a3d38cfd06f31910d0a5fe7e57ffa76ad750 # main
 
         with:
           command: "./check_links.sh"
