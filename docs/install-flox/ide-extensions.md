@@ -83,11 +83,11 @@ description: IDE extensions and AI agent integrations for Flox
     The Flox Agentic plugin for Claude Code adds seven expert
     skills and configures the MCP connection automatically:
 
-    ```{ .sh .code-command .copy }
+    ```{ .copy }
     /plugin marketplace add flox/flox-agentic
     ```
 
-    ```{ .sh .code-command .copy }
+    ```{ .copy }
     /plugin install flox@flox-agentic
     ```
 
