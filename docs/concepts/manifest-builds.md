@@ -80,10 +80,9 @@ This is convenient because it allows your build scripts to work as they do in yo
 However, that also implies that builds can access and embed information about files (e.g. configuration in `$HOME`) or programs (e.g. system wide applications) that are specific to your machine.
 This can subsequently hurt the reproducibility of the build script and the ability to run binaries on other machines where those referenced files do not exist.
 
-When set to `sandbox = "pure"` the Flox CLI is instructed to perform the build in a clean environment.
-This entails copying all files tracked by `git` into a temporary directory and running the build in a sandboxed environment that limits filesystem access to those files copied to the temporary build directory.
+When set to `sandbox = "pure"` the Flox CLI is instructed to perform the build in a clean environment. This provides much stronger guarantees that the build is reproducible, but will often require some additional changes to your build scripts.
+Only files tracked by a Git repository (`git add`ed but not necessarily committed) are copied into a temporary build directory, and filesystem access is limited to that directory.
 Sandboxed builds on Linux are also restricted from accessing the network, but the sandboxing mechanisms on macOS are somewhat limited and thus pure builds on macOS **_will still have network access_**.
-This provides much stronger guarantees that the build is reproducible, but will often require some additional changes to your build scripts.
 
 ### Vendoring dependencies
 

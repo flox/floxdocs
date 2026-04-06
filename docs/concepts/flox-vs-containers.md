@@ -421,11 +421,8 @@ you need to build a container so that it can be deployed.
     If your environment already contains the programs you want to run in
     production, you're in good shape.
 
-    There is a work in progress feature for producing build artifacts from
-    a Flox environment.
-    We have some exciting things happening in this space!
-    If you're interested in early access for this feature,
-    see our [early access page][early].
+    You can also produce build artifacts from a Flox environment.
+    See the [builds documentation][builds] for more information.
 
 === "Containers"
 
@@ -448,5 +445,5 @@ you need to build a container so that it can be deployed.
 [services-start]: ../man/flox-services-start.md
 [services]: ../concepts/services.md
 [manifest]: ../concepts/environments.md#manifesttoml
-[early]: https://flox.dev/early/
+[builds]: ../concepts/builds.md
 [ci-cd]: ../tutorials/ci-cd.md
