@@ -18,7 +18,7 @@ in order to install packages system-wide.
 This has a number of drawbacks:
 
 - You often only have a single package version to choose from.
-- You often can't install multiple versions side-by-side.
+- You often can't install multiple versions of a package side-by-side.
 - You can't ensure that multiple machines get the exact same version.
 - You may not be able to back up the list of installed packages.
 
@@ -29,9 +29,10 @@ so let's take a look at how to set it up.
 
 At the most basic level, the `default` environment is simply an environment
 called `default`.
-`default` environments are typically [shared via FloxHub][floxhub-env];
-We refer to the one associated with your account,
-as _your_ `default` environment.
+`default` environments are typically [shared via FloxHub][floxhub-env], but
+you can also manage environments with git.
+We refer to the environment associated with your user account as _your_
+`default` environment.
 
 In some cases Flox will prompt to set up your `default` environment for you.
 To create the `default` environment yourself,
@@ -46,11 +47,9 @@ flox auth status || flox auth login
 flox init -r <youruser>/default
 ```
 
-Once the environment has been created,
-you'll want to configure your shell to activate the environment with every new
-shell.
-This can be done as part of the automatic setup,
-or you can add a single line to your shell's RC file:
+Once the environment has been created, configure your shell to activate the
+environment with every new shell. This can be done as part of the automatic
+setup, or you can add a single line to your shell's RC file:
 
 === "Bash"
 
@@ -95,9 +94,9 @@ or you can add a single line to your shell's RC file:
 Once you've added that line to your shell,
 you'll need to restart your shell (or open a new one) for the changes to
 take effect.
-If you don't want to activate it automatically, the default
-environment can simply be activated using `-d` parameter of the Flox CLI
-like so:
+If you don't want to activate it automatically from your shell
+initialization scripts, you can activate the default environment
+explicitly when needed:
 
 ```{ .bash .copy }
 flox activate -r <your username>/default
@@ -125,8 +124,6 @@ $ flox install hello
 ✅ 'hello' installed to environment 'default'
 ```
 
-It worked (though you shouldn't be surprised; Flox is awesome)!
-
 ## Installing packages to the default environment from another Flox environment
 
 If you're in a project directory with an existing Flox environment,
@@ -138,7 +135,7 @@ environment.
 All you need to do is pass the `-r` argument to the `install` command, like so:
 
 ```{ .bash .copy }
-flox install -r <your username>/default ~ hello
+flox install -r <your username>/default hello
 ```
 
 When you do this, you should see the following output, indicating success:
