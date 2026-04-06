@@ -59,4 +59,4 @@ rm /usr/local/bin/containerd-shim-flox-v2
 And finally, uninstall Flox from each node by following the instructions from the [Uninstall Flox][uninstall-flox] page.
 
 [self-managed]: ./self-managed.md
-[uninstall-flox]: ../../install-flox/uninstall.md
+[uninstall-flox]: ../../../install-flox/uninstall.md

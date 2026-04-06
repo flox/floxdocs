@@ -200,6 +200,6 @@ metadata:
 The difference from `skip-containers` is that while `skip-containers-exec` containers will have their main process run from the Flox environment, commands run via `kubectl exec` or equivalent will be run outside of it. This option is best used when you want the container's main workload to run in the Flox environment, but need exec commands (for debugging, health checks, or auxiliary tasks) to run in the base container environment without Flox.
 
 [intro]: ./intro.md
-[floxhub]: ../concepts/floxhub.md
-[flox_auth]: ../man/flox-auth.md
-[generations]: ../concepts/generations.md
+[floxhub]: ../../concepts/floxhub.md
+[flox_auth]: ../../man/flox-auth.md
+[generations]: ../../concepts/generations.md
