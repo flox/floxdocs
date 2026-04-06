@@ -17,8 +17,8 @@ Each build specified in the `.flox/pkgs/` directory corresponds to a different p
 
 | Path | Name |
 | ---- | ---- |
-| `.flox/pkgs/hello.nix`                       | `hello` |
-| `.flox/pkgs/hello/default.nix`               | `hello` |
+| `.flox/pkgs/hello.nix` | `hello` |
+| `.flox/pkgs/hello/default.nix` | `hello` |
 | `.flox/pkgs/hello/how/do/you/do/default.nix` | `hello.how.do.you.do` |
 
 These names cannot conflict with [manifest builds][manifest-builds-concept] in the same environment and will result in an error if they do.

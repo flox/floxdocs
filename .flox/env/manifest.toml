@@ -13,8 +13,10 @@ d2.pkg-path = "d2"
 
 lychee.pkg-path = "lychee"
 lychee.pkg-group = "lint"
+lychee.version = ">=0.23"
 markdownlint-cli2.pkg-path = "markdownlint-cli2"
 markdownlint-cli2.pkg-group = "lint"
+curl.pkg-path = "curl"
 
 [hook]
 on-activate = '''
@@ -33,6 +35,7 @@ echo "1. 👉 Python environment activated"
 # 
 # Set the version of Flox to the latest stable version
 #
+curl -s --fail https://downloads.flox.dev/by-env/stable/LATEST_VERSION 2>/dev/null > FLOX_VERSION
 export FLOX_VERSION=$(cat FLOX_VERSION | xargs)
 echo "2. 👉 FLOX_VERSION set to $FLOX_VERSION"
 

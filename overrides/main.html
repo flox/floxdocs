@@ -13,7 +13,7 @@
 <script>
 (function() {
 let url = new URL(window.location.href);
-if (url.pathname.slice(-5) !== ".html" && url.pathname.slice(-1) !== "/") {  
+if (url.pathname.slice(-5) !== ".html" && url.pathname.slice(-1) !== "/") {
   window.location.replace(window.location.href + "/");
 }
 }())

@@ -23,9 +23,9 @@ Packages are declared in the [environment manifest][manifest_concept].
 
 ## Base Catalog and nixpkgs
 
-The built-in catalog is called the Base Catalog, and contains a wide variety of open source packages you can use in your environments.
+The built-in catalog is called the [Base Catalog][base_catalog], and contains a wide variety of open source packages you can use in your environments.
 The Base Catalog uses [nixpkgs][nixpkgs] as an input.
-Nixpkgs is a community maintained project, but the Base Catalog is maintained by Flox.
+Nixpkgs is a community maintained project, but the [Base Catalog][base_catalog] is maintained by Flox.
 Upstream changes in [nixpkgs][nixpkgs] are reflected in the Flox Catalog daily from the `nixos-unstable` branch of [nixpkgs][nixpkgs].
 
 ## Supported package metadata
@@ -37,7 +37,9 @@ Upstream changes in [nixpkgs][nixpkgs] are reflected in the Flox Catalog daily f
 Source by the Open Source Initiative (OSI).
 * **broken**: indicates if the package is marked as broken in
 [nixpkgs][nixpkgs].
+* **outputs**: the different "parts" of a package ([see here for more details][package-outputs])
 
+[base_catalog]: ./base-catalog.md
 [flox_search]: ../man/flox-search.md
 [flox_show]: ../man/flox-show.md
 [flox_install]: ../man/flox-install.md
@@ -46,3 +48,4 @@ Source by the Open Source Initiative (OSI).
 [nixpkgs]: https://github.com/NixOS/nixpkgs
 [builds]: ./builds.md
 [publishing]: ./publishing.md
+[package-outputs]: ../tutorials/package-outputs.md

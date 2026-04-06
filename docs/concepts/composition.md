@@ -65,7 +65,7 @@ environments = [
   { dir = "../myenv" },
   # Override the name of an environment
   { dir = "../other_env", name = "other" },
-  # Include a remote environment
+  # Include a FloxHub environment
   { remote = "myuser/myenv" },
 ]
 ```

@@ -84,12 +84,19 @@ Here we're showing nodejs:
 ```console
 $ flox show nodejs
 nodejs - Event-driven I/O framework for the V8 JavaScript engine
-    nodejs@18.18.2
-    nodejs@18.18.0
-    nodejs@18.17.1
-    nodejs@18.16.1
-    nodejs@18.9.0
-    nodejs@18.7.0
+Catalog: nixpkgs
+Latest:  nodejs@24.13.0
+License: MIT
+Outputs: out* (* installed by default)
+Systems: x86_64-darwin, x86_64-linux, aarch64-linux, aarch64-darwin
+
+Other versions:
+    nodejs@24.13.0
+    nodejs@24.12.0
+    nodejs@22.21.1
+    nodejs@22.20.0
+    nodejs@22.19.0
+    nodejs@22.18.0
     ...
 ```
 

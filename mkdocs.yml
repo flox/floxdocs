@@ -22,7 +22,7 @@ site_description: Flox documentation site
 # getting feedback on the public repo
 repo_url: "https://github.com/flox/flox"
 
-copyright: "Copyright 2025 Flox. All rights reserved."
+copyright: Copyright &copy; 2026 Flox. <img referrerpolicy="no-referrer-when-downgrade" src="https://static.scarf.sh/a.png?x-pxid=db383cf9-e05b-4fb8-b120-75b0229c1d18" />
 
 extra:
   FLOX_VERSION: !ENV [FLOX_VERSION, 'X.Y.Z']
@@ -36,6 +36,8 @@ nav:
   - Install Flox:
     - Install: install-flox/install.md
     - Uninstall: install-flox/uninstall.md
+    - Troubleshooting: install-flox/troubleshooting.md
+    - Extensions: install-flox/ide-extensions.md
   - Flox in 5 minutes: flox-5-minutes.md
   - Tutorials:
     - Creating environments: tutorials/creating-environments.md
@@ -45,18 +47,37 @@ nav:
     - Customizing the shell environment: tutorials/customizing-environments.md
     - Designing multi-arch environments: tutorials/multi-arch-environments.md
     - Building and publishing packages: tutorials/build-and-publish.md
+    - Using a newer version of a package: tutorials/overriding-packages.md
     - Running Flox in CI/CD: tutorials/ci-cd.md
     - Designing cross-platform environments: tutorials/multi-arch-environments.md
     - Reusing and combining developer environments: tutorials/composition.md
+    - Selecting package outputs: tutorials/package-outputs.md
     - Flox + CUDA: tutorials/cuda.md
+    - Flox and systemd: tutorials/flox-and-systemd.md
+    - Installing Flox from its repository on Debian and Red Hat: tutorials/installing-from-repo.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
+  - Imageless Kubernetes:
+    - Introduction: imageless-kubernetes/intro.md
+    - Tech: imageless-kubernetes/tech.md
+    - Installation:
+      - Amazon EKS: imageless-kubernetes/install/eks.md
+      - Self-managed: imageless-kubernetes/install/self-managed.md
+      - Troubleshooting: imageless-kubernetes/install/troubleshooting.md
+      - Upgrading: imageless-kubernetes/install/upgrading.md
+      - Uninstall: imageless-kubernetes/install/uninstall.md
+    - Examples:
+      - ... | flat | imageless-kubernetes/examples/*
+    - Configuration: imageless-kubernetes/config.md
   - Concepts:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md
+    - Compatibility policy: concepts/compatibility.md
     - FloxHub: concepts/floxhub.md
+    - FloxHub environments: concepts/floxhub-environments.md
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
+    - Base Catalog: concepts/base-catalog.md
     - Services: concepts/services.md
     - Composing environments: concepts/composition.md
     - Organizations: concepts/organizations.md
@@ -201,6 +222,9 @@ markdown_extensions:
     - pymdownx.superfences
     - pymdownx.tabbed:
         alternate_style: true
+        slugify: !!python/object/apply:pymdownx.slugs.slugify
+          kwds:
+            case: lower
 
     # Data tables
     # https://squidfunk.github.io/mkdocs-material/reference/data-tables/
@@ -348,3 +372,13 @@ plugins:
             'cookbook/languages/python.md': 'languages/python.md'
             'cookbook/languages/ruby.md': 'languages/ruby.md'
             'cookbook/languages/rust.md': 'languages/rust.md'
+            'k8s/intro.md': 'imageless-kubernetes/intro.md'
+            'k8s/tech.md': 'imageless-kubernetes/tech.md'
+            'k8s/install/eks.md': 'imageless-kubernetes/install/eks.md'
+            'k8s/install/self-managed.md': 'imageless-kubernetes/install/self-managed.md'
+            'k8s/install/troubleshooting.md': 'imageless-kubernetes/install/troubleshooting.md'
+            'k8s/install/upgrading.md': 'imageless-kubernetes/install/upgrading.md'
+            'k8s/install/uninstall.md': 'imageless-kubernetes/install/uninstall.md'
+            'k8s/config.md': 'imageless-kubernetes/config.md'
+            'k8s/examples/gitlab-ci.md': 'imageless-kubernetes/examples/gitlab-ci.md'
+            'k8s/examples/kind-demo.md': 'imageless-kubernetes/examples/kind-demo.md'

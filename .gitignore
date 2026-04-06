@@ -11,3 +11,4 @@ pyvenv.cfg
 .ssh-agent-out
 .vscode/
 scratch/
+FLOX_VERSION

@@ -35,7 +35,7 @@ An example service definition is shown below:
 
 ```toml
 [services.database]
-command = "postgres start"
+command = "exec postgres -D \"$PGDATA\" -p \"$PGPORT\""
 vars.PGUSER = "myuser"
 vars.PGPASSWORD = "super-secret"
 vars.PGDATABASE = "mydb"
@@ -45,18 +45,20 @@ vars.PGPORT = "9001"
 This definition creates a service called `database` that starts a PostgreSQL
 database and configures some of its properties through environment variables.
 
-Some services cannot be shut down by the default mechanism
-(sending the spawned process a `SIGTERM`).
-Most often this is because the spawned process itself spawns another process
-(typically a daemon) and then terminates.
-In this case you need to provide your own command for shutting down the
-service.
-You do this by setting `is-daemon = true` for the service and providing a
-`shutdown.command`.
-Together these fields allow the service manager to shut down services that
-background themselves,
-though any service may provide a `shutdown.command` and it will be used
-instead of sending a `SIGTERM`.
+Some services cannot be shut down by the default mechanism (sending the spawned process a `SIGTERM`).
+Most often this is because the spawned process itself spawns another process (typically a daemon) and then terminates. In this case you need to provide your own command for shutting down the service. You do this by setting `is-daemon = true` for the service and providing a `shutdown.command`. Below is an example that uses `pg_ctl` (the daemon-spawning launcher) instead of `exec postgres`, which launches postgres in the foreground. It demonstrates the `is-daemon = true` + `shutdown.command` pattern for programs that background themselves. Together these fields allow the service manager to shut down services that background themselves.
+
+```toml
+command = "pg_ctl start -D \"$PGDATA\" -l \"$PGDATA/server.log\" -o \"-p $PGPORT\""
+is-daemon = true
+shutdown.command = "pg_ctl stop -D \"$PGDATA\" -m fast"
+vars.PGUSER = "myuser"
+vars.PGPASSWORD = "super-secret"
+vars.PGDATABASE = "mydb"
+vars.PGPORT = "9001"
+```
+
+You can define a `shutdown.command` for any service, including services that do not run as daemons. Note that this pattern can have unpredictable effects in practice: it replaces the Flox service manager’s controlled `SIGTERM` → grace → `SIGKILL` shutdown path, which tracks the service’s PID, with the command that you define. And if your shutdown command fails to locate and kill the process for any reason, there's no fallback; the service never receives any signal and keeps running.
 
 ## Starting services
 
