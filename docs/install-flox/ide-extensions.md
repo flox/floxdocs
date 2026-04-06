@@ -110,8 +110,8 @@ description: IDE extensions and AI agent integrations for Flox
 
     ## Other MCP clients
 
-    Point your client at the `flox-mcp` command using stdio
-    transport.
+    Point your [Model Context Protocol][mcp] client at the
+    `flox-mcp` command using stdio transport.
 
     ## Learn more
 
