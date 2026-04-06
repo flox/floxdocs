@@ -57,18 +57,26 @@ nav:
     - Installing Flox from its repository on Debian and Red Hat: tutorials/installing-from-repo.md
     - Migration guides:
       - ... | flat | tutorials/migrations/*
-  - Imageless Kubernetes:
-    - Introduction: imageless-kubernetes/intro.md
-    - Tech: imageless-kubernetes/tech.md
-    - Installation:
-      - Amazon EKS: imageless-kubernetes/install/eks.md
-      - Self-managed: imageless-kubernetes/install/self-managed.md
-      - Troubleshooting: imageless-kubernetes/install/troubleshooting.md
-      - Upgrading: imageless-kubernetes/install/upgrading.md
-      - Uninstall: imageless-kubernetes/install/uninstall.md
-    - Examples:
-      - ... | flat | imageless-kubernetes/examples/*
-    - Configuration: imageless-kubernetes/config.md
+  - Flox in Containers:
+    - Introduction: containers/intro.md
+    - How it works: containers/tech.md
+    - Thin Containers:
+      - Introduction: containers/thin-containers/intro.md
+      - Getting started: containers/thin-containers/getting-started.md
+    - Containerize:
+      - Introduction: containers/containerize/intro.md
+      - Getting started: containers/containerize/getting-started.md
+    - Imageless Kubernetes:
+      - Introduction: containers/imageless-kubernetes/intro.md
+      - Installation:
+        - Amazon EKS: containers/imageless-kubernetes/install/eks.md
+        - Self-managed: containers/imageless-kubernetes/install/self-managed.md
+        - Troubleshooting: containers/imageless-kubernetes/install/troubleshooting.md
+        - Upgrading: containers/imageless-kubernetes/install/upgrading.md
+        - Uninstall: containers/imageless-kubernetes/install/uninstall.md
+      - Examples:
+        - ... | flat | containers/imageless-kubernetes/examples/*
+      - Configuration: containers/imageless-kubernetes/config.md
   - Concepts:
     - Environments: concepts/environments.md
     - Activating environments: concepts/activation.md

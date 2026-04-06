@@ -84,6 +84,6 @@ Imageless Kubernetes is also currently available for:
 
 See the [installation][install-section] for more details on installing Imageless Kubernetes in your cluster.
 
-[generations-concept]: ../concepts/generations.md
+[generations-concept]: ../../concepts/generations.md
 [install-section]: ./install/eks.md
 [examples-section]: ./examples/kind-demo.md

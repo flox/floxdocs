@@ -24,7 +24,7 @@ flox auth token \
 ```
 
 !!! note "Token expiry"
-    Tokens generated with `flox auth token` are associated with your user account and will expire 1 month from when they were issued. For a more robust alternative see [Machine Access Tokens for Organizations](../concepts/organizations.md#machine-access-tokens).
+    Tokens generated with `flox auth token` are associated with your user account and will expire 1 month from when they were issued. For a more robust alternative see [Machine Access Tokens for Organizations](../../concepts/organizations.md#machine-access-tokens).
 
 !!! note "Flox CLI version"
     The user creating the token via `flox auth token` will need at least version 1.7.6 of the Flox CLI.
@@ -106,7 +106,7 @@ By default, Imageless Kubernetes pods start in `run` mode. `run` mode is intende
 
 The `flox.dev/activate-mode` annotation can be used to configure the mode, which may be useful for applications such as running CI jobs in Flox-enabled pods.
 
-See the [`options.activate.mode`](../man/manifest.toml.md#options) option in the manifest for more details on modes.
+See the [`options.activate.mode`](../../man/manifest.toml.md#options) option in the manifest for more details on modes.
 
 ```yaml
 apiVersion: v1
