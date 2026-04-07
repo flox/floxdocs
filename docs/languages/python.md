@@ -25,7 +25,7 @@ This will suggest a few commands you can run next:
 
 ```console
 $ flox init
-✨ Created environment 'new-python-project' (x86_64-linux)
+⚡︎ Created environment 'new-python-project' (x86_64-linux)
 
 Next:
   $ flox search <package>    <- Search for a package
@@ -86,7 +86,7 @@ This will show a message indicating the package was successfully installed:
 
 ```console
 $ flox install python311Full
-✅ 'python311Full' installed to environment 'new-python-project'
+✔ 'python311Full' installed to environment 'new-python-project'
 $ flox list
 python311Full: python311Full (python3-3.11.9)
 ```
@@ -126,8 +126,8 @@ You will see output indicating that the packages were successfully installed. If
 
 ```console
 $ flox install python311Packages.numpy python311Packages.pandas
-✅ 'numpy' installed to environment 'new-python-project'
-✅ 'pandas' installed to environment 'new-python-project'
+✔ 'numpy' installed to environment 'new-python-project'
+✔ 'pandas' installed to environment 'new-python-project'
 ```
 
 ### Activate the new environment
@@ -142,7 +142,7 @@ This will put you into a new subshell with your environment active:
 
 ```console
 $ flox activate
-✅ You are now using the environment 'new-python-project'.
+✔ You are now using the environment 'new-python-project'.
 To stop using this environment, type 'exit'
 
 flox [new-python-project] $
@@ -274,7 +274,7 @@ You should see output indicating that the Python virtual environment has been cr
 
 ```console
 $ flox activate
-✅ You are now using the environment 'eralchemy'.
+✔ You are now using the environment 'eralchemy'.
 To stop using this environment, type 'exit'
 
 Creating python virtual environment in /home/floxfan/eralchemy/.flox/cache/python
