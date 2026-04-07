@@ -14,7 +14,7 @@ Before reaching for `flox containerize`, consider whether [thin containers](../t
 With `flox containerize`, you give up several advantages of the thin-container model:
 
 | | Thin Containers | Containerize |
-|---|---|---|
+| --- | --- | --- |
 | **Image rebuilds** | Not needed --- environments resolve at startup | Required on every environment change |
 | **Caching** | Shared Nix store across all environments | Each image is self-contained |
 | **Image size** | Tiny base image; packages from shared store | All packages baked into the image |

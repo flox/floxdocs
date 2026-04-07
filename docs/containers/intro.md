@@ -16,6 +16,7 @@ The first two use the thin-container model described above; the third is a tradi
 
 ### Thin Containers (Docker / Podman) {: .recommended }
 
+<!-- markdownlint-disable-next-line MD036 -->
 **Recommended for: local development, CI/CD, AI agent sandboxing**
 
 Run any FloxHub environment in a Docker or Podman container with a single command, or use the `--sandbox` flag on `flox activate` for a seamless experience.
@@ -27,6 +28,7 @@ No image builds. No Dockerfiles. No image pipelines.
 
 ### Imageless Kubernetes
 
+<!-- markdownlint-disable-next-line MD036 -->
 **Recommended for: production Kubernetes workloads**
 
 Run Kubernetes pods backed by Flox environments instead of container images.
@@ -36,6 +38,7 @@ A containerd shim resolves environments from FloxHub at pod startup, giving you 
 
 ### Containerize
 
+<!-- markdownlint-disable-next-line MD036 -->
 **Traditional approach: when standard OCI images are required**
 
 [`flox containerize`][containerize-man] builds a self-contained OCI image from a Flox environment with all dependencies baked in.
