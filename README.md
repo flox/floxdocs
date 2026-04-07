@@ -6,10 +6,10 @@ Live at: [flox.dev/docs](https://flox.dev/docs).
 
 ```
 $ flox activate
-✅ You are now using the environment 'floxdocs'.
+✔ You are now using the environment 'floxdocs'.
 
 λ (floxdocs) $ flox services start mkdocs
-✅ Service 'mkdocs' started.
+✔ Service 'mkdocs' started.
 
 ```
 Once mkdocs service started you can preview the documentation at
