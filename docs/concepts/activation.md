@@ -14,8 +14,7 @@ it stands to reason that _how you use them_ is also an important part of Flox.
 
 There are four different ways to use an environment,
 and two different modes that an environment can be activated in.
-At the end of the day, though, it all boils down to properly configuring a
-shell.
+Regardless of the method, activation works by configuring a shell.
 The `hook` and `profile` scripts specified in your manifest are run as part of
 configuring that shell.
 Understanding when and why they're run will help you take full advantage
@@ -30,9 +29,15 @@ Flox configures a shell,
 making all of the packages and environment variables specified in your
 manifest available, as mentioned above.
 
-The most basic way to activate an environment is simply by calling
+Activation doesn't always mean creating a new shell.
+Depending on how you invoke `flox activate`,
+Flox may start a subshell, configure your current shell in-place,
+or directly exec a command without an intermediate shell at all.
+The [four methods](#four-different-ways-to-activate) are described below.
+
+The most common way to activate an environment is simply by calling
 `flox activate`,
-which puts you into a subshell with everything configured:
+which starts a new subshell with everything configured:
 
 ```{ .console .no-copy }
 $ flox activate
@@ -54,6 +59,15 @@ environment rather than from elsewhere on your system.
 ## Four different ways to activate
 
 We mentioned above that there are four different ways to use an environment.
+Each method differs in whether `hook.on-activate` and `profile` scripts are
+run:
+
+| Mode | Command | `hook.on-activate` | `profile.*` |
+| --- | --- | :---: | :---: |
+| Subshell | `flox activate` | :white_check_mark: | :white_check_mark: |
+| In-place | `eval "$(flox activate)"` | :white_check_mark: | :white_check_mark: |
+| Shell command | `flox activate -c` | :white_check_mark: | :white_check_mark: |
+| Exec | `flox activate --` | :white_check_mark: | :x: |
 
 ### Subshell
 
@@ -96,6 +110,14 @@ eval "$(flox activate)"
 
 In both cases Flox emits a script that configures the shell,
 and the shell executes that code to configure itself.
+
+!!! tip "direnv integration"
+
+    If you use [direnv](https://direnv.net/) with `use flox` in your
+    `.envrc`, the activation is in-place and both `hook.on-activate` and
+    `[profile]` scripts are run.
+    Note that `profile.common` must use shell-agnostic syntax — see
+    the [guidance below](#hook-vs-profile-in-a-nutshell).
 
 ```d2 scale="1.0"
 shape: sequence_diagram
@@ -289,7 +311,10 @@ here is some simple guidance:
 
 **profile**:
 
-- Syntax depends on the shell.
+- Syntax depends on the shell. `profile.common` is sourced by _all_ shells
+  (Bash, Zsh, Fish, and tcsh), so avoid constructs like `export VAR=value`
+  that are not portable. Use the shell-specific `profile.bash`, `profile.zsh`,
+  etc. sections for non-portable syntax.
 - Can define functions and aliases.
 - Can source scripts needed for other programs to work properly e.g. the `activate` script for a Python virtual environment.
 - _Can_ define environment variables that need to be computed.
