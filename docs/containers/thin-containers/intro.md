@@ -21,7 +21,7 @@ This means:
 Run any FloxHub environment with a single `docker run` command:
 
 ```{ .bash .copy }
-docker run --rm -v flox-store:/nix flox/run flox/redis -- redis-server --version
+docker run --rm -v flox-store:/nix flox/thin flox/redis -- redis-server --version
 ```
 
 This is useful when you don't have Flox installed on the host, or when integrating with existing Docker-based workflows.

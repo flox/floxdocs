@@ -16,11 +16,14 @@ There are two fundamentally different ways to get a Flox environment into a cont
 Thin containers resolve Flox environments **at container startup** rather than baking dependencies into the image at build time.
 This is the model used by both [Thin Containers](thin-containers/intro.md) (Docker/Podman) and [Imageless Kubernetes](imageless-kubernetes/intro.md).
 
-### The `flox/empty` base image
+### Base images
 
-Both approaches use a minimal base image that contains just enough to bootstrap Flox.
-The [`flox/empty`][flox-empty] image on Docker Hub is only a few bytes --- it exists primarily to satisfy the container runtime's requirement for an image reference.
-The actual packages come from the Nix store, not the image.
+The two thin-container approaches use different base images:
+
+- **Docker / Podman** use the [`flox/thin`][flox-thin] image, which is an Ubuntu-based image containing the Flox CLI, Nix, and an entrypoint that resolves environments and activates them inside the container.
+- **Imageless Kubernetes** uses the [`flox/empty`][flox-empty] image, which is only a few bytes --- it exists to satisfy Kubernetes's requirement for an image reference. Environment resolution is handled externally by the [containerd shim](#containerd-shim).
+
+In both cases, the actual packages come from the Nix store, not the image.
 
 ### The Nix store volume
 
@@ -88,6 +91,7 @@ For all other cases, [Thin Containers](thin-containers/intro.md) or [Imageless K
 - **Smaller footprint** --- the base image is tiny; packages come from the shared store
 
 [nix]: https://nix.dev/
+[flox-thin]: https://hub.docker.com/r/flox/thin
 [flox-empty]: https://hub.docker.com/r/flox/empty
 [shim-repo]: https://github.com/flox/containerd-shim-flox
 [containerize-man]: ../man/flox-containerize.md

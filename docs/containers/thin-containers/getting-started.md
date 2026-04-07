@@ -18,12 +18,12 @@ Run a command from a FloxHub environment:
 
 ```{ .bash .copy }
 docker run --rm -v flox-store:/nix \
-  flox/run flox/redis -- redis-server --version
+  flox/thin flox/redis -- redis-server --version
 ```
 
 Here's what happens:
 
-1. Docker pulls the lightweight `flox/run` image (if not already cached)
+1. Docker pulls the lightweight `flox/thin` image (if not already cached)
 2. The Nix store volume (`flox-store`) is created and mounted at `/nix`
 3. Flox resolves the `flox/redis` environment from FloxHub and installs the packages
 4. The `redis-server --version` command runs inside the activated environment
@@ -38,7 +38,7 @@ Run another command from the same environment:
 
 ```{ .bash .copy }
 docker run --rm -v flox-store:/nix \
-  flox/run flox/redis -- redis-cli --version
+  flox/thin flox/redis -- redis-cli --version
 ```
 
 This time it completes in ~5 seconds.
@@ -50,7 +50,7 @@ Drop into an interactive shell inside the environment:
 
 ```{ .bash .copy }
 docker run --rm -it -v flox-store:/nix \
-  flox/run flox/redis
+  flox/thin flox/redis
 ```
 
 Inside the container, only the packages declared in the environment are available:
@@ -78,7 +78,7 @@ Run a Python environment to see that common packages are shared:
 
 ```{ .bash .copy }
 docker run --rm -v flox-store:/nix \
-  flox/run flox/python-pip -- python3 --version
+  flox/thin flox/python-pip -- python3 --version
 ```
 
 Because the Nix store is content-addressed, packages shared between `flox/redis` and `flox/python-pip` (like `glibc`) are stored only once in the `flox-store` volume.
@@ -105,7 +105,7 @@ If you're behind a firewall that blocks Docker Hub, use the `--container-image` 
 
 ```{ .bash .copy }
 flox activate --sandbox \
-  --container-image myregistry.example.com/flox/empty:latest \
+  --container-image myregistry.example.com/flox/thin:latest \
   -r flox/redis
 ```
 
