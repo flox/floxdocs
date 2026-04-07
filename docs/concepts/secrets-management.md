@@ -68,99 +68,99 @@ They never touch disk.
 
 ## Implementation examples
 
-### macOS Keychain
+=== "macOS Keychain"
 
-Store the token once:
+    Store the token once:
 
-```bash
-security add-generic-password -a "$USER" -s "github-work-token" -w "ghp_yourtoken"
-```
+    ```bash
+    security add-generic-password -a "$USER" -s "github-work-token" -w "ghp_yourtoken"
+    ```
 
-Retrieve in `on-activate`:
+    Retrieve in `on-activate`:
 
-```toml
-[hook]
-on-activate = '''
-  export GH_TOKEN=$(security find-generic-password -a "$USER" -s "github-work-token" -w)
-'''
-```
+    ```toml
+    [hook]
+    on-activate = '''
+      export GH_TOKEN=$(security find-generic-password -a "$USER" -s "github-work-token" -w)
+    '''
+    ```
 
-!!! note
-    macOS shows a Keychain access dialog on first use.
-    Clicking **Always Allow** makes subsequent activations silent.
-    In non-interactive contexts (CI, SSH without a GUI agent) the dialog
-    cannot appear and the command will fail—use a CI-native secret
-    mechanism instead.
+    !!! note
+        macOS shows a Keychain access dialog on first use.
+        Clicking **Always Allow** makes subsequent activations silent.
+        In non-interactive contexts (CI, SSH without a GUI agent) the dialog
+        cannot appear and the command will fail—use a CI-native secret
+        mechanism instead.
 
-!!! note
-    `security` is installed by default at `/usr/bin/security` on all macOS
-    versions. No Xcode or Homebrew required.
+    !!! note
+        `security` is installed by default at `/usr/bin/security` on all macOS
+        versions. No Xcode or Homebrew required.
 
-### 1Password
+=== "1Password"
 
-```toml
-[hook]
-on-activate = '''
-  export GH_TOKEN=$(op read "op://Personal/GitHub Work Token/credential")
-'''
-```
+    ```toml
+    [hook]
+    on-activate = '''
+      export GH_TOKEN=$(op read "op://Personal/GitHub Work Token/credential")
+    '''
+    ```
 
-Requires `op` CLI and an active `op signin` session.
-`flox install _1password` to add the CLI to your environment.
+    Requires `op` CLI and an active `op signin` session.
+    `flox install _1password` to add the CLI to your environment.
 
-See the [Flox + 1Password blog post](https://flox.dev/popular-packages/adding-1password-secrets-to-flox-environments/)
-for a more detailed walkthrough including fewer interactive logins.
+    See the [Flox + 1Password blog post](https://flox.dev/popular-packages/adding-1password-secrets-to-flox-environments/)
+    for a more detailed walkthrough including fewer interactive logins.
 
-### HashiCorp Vault
+=== "HashiCorp Vault"
 
-```toml
-[hook]
-on-activate = '''
-  export GH_TOKEN=$(vault kv get -field=token secret/github-work)
-'''
-```
+    ```toml
+    [hook]
+    on-activate = '''
+      export GH_TOKEN=$(vault kv get -field=token secret/github-work)
+    '''
+    ```
 
-Requires the `vault` CLI and an active `vault login` session.
-`flox install vault` to add the CLI to your environment.
+    Requires the `vault` CLI and an active `vault login` session.
+    `flox install vault` to add the CLI to your environment.
 
-### AWS Secrets Manager
+=== "AWS Secrets Manager"
 
-```toml
-[hook]
-on-activate = '''
-  export GH_TOKEN=$(aws secretsmanager get-secret-value \
-    --secret-id github-work-token \
-    --query SecretString \
-    --output text)
-'''
-```
+    ```toml
+    [hook]
+    on-activate = '''
+      export GH_TOKEN=$(aws secretsmanager get-secret-value \
+        --secret-id github-work-token \
+        --query SecretString \
+        --output text)
+    '''
+    ```
 
-Requires the `aws` CLI and an active `aws sso login` session.
-`flox install awscli2` to add the CLI to your environment.
+    Requires the `aws` CLI and an active `aws sso login` session.
+    `flox install awscli2` to add the CLI to your environment.
 
-### Cross-platform (macOS + Linux)
+=== "Cross-platform (macOS + Linux)"
 
-Cross-platform secret stores like 1Password, HashiCorp Vault, and AWS
-Secrets Manager work the same on macOS and Linux—no conditional needed.
+    Cross-platform secret stores like 1Password, HashiCorp Vault, and AWS
+    Secrets Manager work the same on macOS and Linux—no conditional needed.
 
-A conditional is only necessary when different tools are used on each
-platform, such as macOS Keychain on macOS and `pass` on Linux:
+    A conditional is only necessary when different tools are used on each
+    platform, such as macOS Keychain on macOS and `pass` on Linux:
 
-```toml
-[hook]
-on-activate = '''
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    export GH_TOKEN=$(security find-generic-password -a "$USER" -s "github-work-token" -w)
-  else
-    export GH_TOKEN=$(pass show github/work-token)
-  fi
-'''
-```
+    ```toml
+    [hook]
+    on-activate = '''
+      if [[ "$OSTYPE" == "darwin"* ]]; then
+        export GH_TOKEN=$(security find-generic-password -a "$USER" -s "github-work-token" -w)
+      else
+        export GH_TOKEN=$(pass show github/work-token)
+      fi
+    '''
+    ```
 
-The Linux side of this example uses [`pass`](https://www.passwordstore.org/),
-which stores secrets in GPG-encrypted files.
-`flox install pass`, `flox install pinentry-tty`, and `flox install gnupg`
-to add the required packages to your environment.
+    The Linux side of this example uses [`pass`](https://www.passwordstore.org/),
+    which stores secrets in GPG-encrypted files.
+    `flox install pass`, `flox install pinentry-tty`, and `flox install gnupg`
+    to add the required packages to your environment.
 
 ## Rotating a secret
 
