@@ -40,7 +40,7 @@ runs:
         use-cache: true
 
     - name: "Install newer Nix"
-      uses: cachix/install-nix-action@7ac1ec25491415c381d9b62f0657c7a028df52a7 # v24
+      uses: cachix/install-nix-action@96951a368ba55167b55f1c916f7d416bac6505fe # v31.10.3
 
 
     - name: "Configure Nix"

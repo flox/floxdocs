@@ -41,8 +41,8 @@ and initialize a FloxHub environment under your account:
 
 ```{ .bash }
 flox auth status || flox auth login
-✅ Authentication complete
-✅ Logged in as <youruser>
+✔ Authentication complete
+✔ Logged in as <youruser>
 
 flox init -r <youruser>/default
 ```
@@ -121,7 +121,7 @@ like you would expect from your system's package manager:
 
 ```console
 $ flox install hello
-✅ 'hello' installed to environment 'default'
+✔ 'hello' installed to environment 'default'
 ```
 
 ## Installing packages to the default environment from another Flox environment
@@ -141,7 +141,7 @@ flox install -r <your username>/default hello
 When you do this, you should see the following output, indicating success:
 
 ```console
-✅ 'hello' installed to environment 'default'
+✔ 'hello' installed to environment 'default'
 ```
 
 ## Customization

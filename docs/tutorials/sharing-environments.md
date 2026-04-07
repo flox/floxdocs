@@ -35,8 +35,8 @@ Install packages:
 
 ```console
 $ flox install nodejs mkcert
-✅ 'nodejs' installed to environment example-project at /Users/youruser/example-project
-✅ 'mkcert' installed to environment example-project at /Users/youruser/example-project
+✔ 'nodejs' installed to environment example-project at /Users/youruser/example-project
+✔ 'mkcert' installed to environment example-project at /Users/youruser/example-project
 ```
 
 Add the `.flox` directory and commit the changes.
@@ -78,15 +78,15 @@ $ mkdir llm_tools
 $ cd llm_tools
 $ flox init
 $ flox install codex gemini-cli
-✅ 'codex' installed to environment llm_tools at /Users/youruser/llm_tools
-✅ 'gemini-cli' installed to environment llm_tools at /Users/youruser/llm_tools
+✔ 'codex' installed to environment llm_tools at /Users/youruser/llm_tools
+✔ 'gemini-cli' installed to environment llm_tools at /Users/youruser/llm_tools
 ```
 
 Then push it:
 
 ```console
 $ flox push
-✅  llm_tools successfully pushed to FloxHub
+✔ llm_tools successfully pushed to FloxHub
 
     Use 'flox pull youruser/llm_tools' to get this environment in any other location.
 ```
@@ -100,7 +100,7 @@ To activate your FloxHub environment, run:
 
 ```console
 $ flox activate -r youruser/llm_tools
-✅ You are now using the environment 'llm_tools'
+✔ You are now using the environment 'llm_tools'
 To stop using this environment, type 'exit'
 $ # ask gemini a question
 ```
@@ -116,7 +116,7 @@ If you intend to commit the environment to version control, you may want to [`fl
 ```console
 $ cd similar-example-project
 $ flox pull youruser/example-project
-✨  Pulled youruser/example-project from https://hub.flox.dev
+⚡︎  Pulled youruser/example-project from https://hub.flox.dev
 
     You can activate this environment with 'flox activate'
 ```
@@ -125,9 +125,9 @@ After pulling an environment you can install changes to it locally and, when you
 
 ```console
 $ flox install yarn
-✅ 'yarn' installed to environment youruser/example-project at /Users/youruser/similar-example-project
+✔ 'yarn' installed to environment youruser/example-project at /Users/youruser/similar-example-project
 $ flox push
-✅  Updates to example-project successfully pushed to FloxHub
+✔ Updates to example-project successfully pushed to FloxHub
 
     Use 'flox pull youruser/example-project' to get this environment in any other location.
 ```
@@ -155,7 +155,7 @@ $ flox containerize --runtime docker # (1)!
 Creating layer 1 from paths: [...]
 ...
 Loaded image: example-project:latest
-✨ Container written to Docker runtime
+⚡︎ Container written to Docker runtime
 ```
 
 1. See [`flox containerize`][flox_containerize] for more output options.
