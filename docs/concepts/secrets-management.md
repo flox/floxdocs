@@ -186,7 +186,7 @@ active with the old secret value.
 ## Secret store reference
 
 | Store | Primary auth | Retrieval command |
-|---|---|---|
+| --- | --- | --- |
 | macOS Keychain | Login session / biometric | `security find-generic-password -a "$USER" -s "name" -w` |
 | Linux keyring | Desktop session | `secret-tool lookup service name account user` |
 | 1Password | `op signin` / biometric | `op read op://vault/item/field` |
