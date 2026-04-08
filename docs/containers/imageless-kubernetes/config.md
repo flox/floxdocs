@@ -24,7 +24,7 @@ flox auth token \
 ```
 
 !!! note "Token expiry"
-    Tokens generated with `flox auth token` are associated with your user account and will expire 1 month from when they were issued. For a more robust alternative see [Machine Access Tokens for Organizations](../concepts/organizations.md#machine-access-tokens).
+    Tokens generated with `flox auth token` are associated with your user account and will expire 1 month from when they were issued. For a more robust alternative see [Machine Access Tokens for Organizations](../../concepts/organizations.md#machine-access-tokens).
 
 !!! note "Flox CLI version"
     The user creating the token via `flox auth token` will need at least version 1.7.6 of the Flox CLI.
@@ -106,7 +106,7 @@ By default, Imageless Kubernetes pods start in `run` mode. `run` mode is intende
 
 The `flox.dev/activate-mode` annotation can be used to configure the mode, which may be useful for applications such as running CI jobs in Flox-enabled pods.
 
-See the [`options.activate.mode`](../man/manifest.toml.md#options) option in the manifest for more details on modes.
+See the [`options.activate.mode`](../../man/manifest.toml.md#options) option in the manifest for more details on modes.
 
 ```yaml
 apiVersion: v1
@@ -200,6 +200,6 @@ metadata:
 The difference from `skip-containers` is that while `skip-containers-exec` containers will have their main process run from the Flox environment, commands run via `kubectl exec` or equivalent will be run outside of it. This option is best used when you want the container's main workload to run in the Flox environment, but need exec commands (for debugging, health checks, or auxiliary tasks) to run in the base container environment without Flox.
 
 [intro]: ./intro.md
-[floxhub]: ../concepts/floxhub.md
-[flox_auth]: ../man/flox-auth.md
-[generations]: ../concepts/generations.md
+[floxhub]: ../../concepts/floxhub.md
+[flox_auth]: ../../man/flox-auth.md
+[generations]: ../../concepts/generations.md

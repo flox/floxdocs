@@ -31,4 +31,4 @@ after which, all new pods will be created with the new shim version.
 Existing Flox pods will only use the new version once they are restarted.
 
 [eks]: ./eks.md
-[install-flox]: ../../install-flox/install.md
+[install-flox]: ../../../install-flox/install.md

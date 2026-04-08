@@ -424,6 +424,10 @@ you need to build a container so that it can be deployed.
     You can also produce build artifacts from a Flox environment.
     See the [builds documentation][builds] for more information.
 
+    For an alternative that doesn't require image rebuilds, see
+    [Thin Containers][thin-containers], which resolve environments at
+    startup from a shared Nix store.
+
 === "Containers"
 
     Typically your `Dockerfile` will contain multiple stages,
@@ -447,3 +451,4 @@ you need to build a container so that it can be deployed.
 [manifest]: ../concepts/environments.md#manifesttoml
 [builds]: ../concepts/builds.md
 [ci-cd]: ../tutorials/ci-cd.md
+[thin-containers]: ../containers/thin-containers/intro.md

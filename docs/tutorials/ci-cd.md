@@ -111,7 +111,7 @@ Now that you know _how_ to use your Flox environment in CI/CD, the world is your
 Here are some suggestions for things you can do with your Flox environment in CI:
 
 - Run a linter to ensure that new changes adhere to your team's style.
-- Use [flox containerize][containerize] to build a container from your environment to deploy elsewhere.
+- Use [flox containerize][containerize] to build a container from your environment to deploy elsewhere. See the [Containerize guide][containerize-guide] for a full walkthrough.
 - Build artifacts for multiple systems.
 - Run a link checker over your documentation.
 
@@ -127,3 +127,4 @@ Here are some suggestions for things you can do with your Flox environment in CI
 [layering_guide]: ./layering-multiple-environments.md
 [customizing_guide]: ./customizing-environments.md
 [containerize]: ../man/flox-containerize.md
+[containerize-guide]: ../containers/containerize/intro.md

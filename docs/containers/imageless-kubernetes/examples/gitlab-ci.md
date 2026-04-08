@@ -66,4 +66,4 @@ Since the CI environment doesn’t rely on a container image, updates are instan
 
 [gitlab-k8s-docs]: https://docs.gitlab.com/runner/executors/kubernetes/
 [config]: ../config.md
-[floxhub]: ../../concepts/floxhub.md
+[floxhub]: ../../../concepts/floxhub.md
