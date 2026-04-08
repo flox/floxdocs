@@ -77,6 +77,7 @@ nav:
     - FloxHub environments: concepts/floxhub-environments.md
     - Generations: concepts/generations.md
     - Catalog and Packages: concepts/packages-and-catalog.md
+    - Package Groups: concepts/package-groups.md
     - Base Catalog: concepts/base-catalog.md
     - Services: concepts/services.md
     - Composing environments: concepts/composition.md
@@ -85,6 +86,7 @@ nav:
     - Manifest builds: concepts/manifest-builds.md
     - Nix expression builds: concepts/nix-expression-builds.md
     - Publishing: concepts/publishing.md
+    - Secrets management: concepts/secrets-management.md
     - Flox vs. container workflows: concepts/flox-vs-containers.md
   - Languages:
     - ... | flat | languages/*
