@@ -7,8 +7,8 @@ description: How to install or upgrade the Flox CLI
 
 !!! note "Verify your download"
     You can find the
-    [SHA256 checksums][flox_sha256sums] and
-    [SHA512 checksums][flox_sha512sums] for
+    [SHA256 checksums](https://downloads.flox.dev/by-env/stable/flox-{{ FLOX_VERSION }}.SHA256SUMS) and
+    [SHA512 checksums](https://downloads.flox.dev/by-env/stable/flox-{{ FLOX_VERSION }}.SHA512SUMS) for
     Flox {{ FLOX_VERSION }} online.
 
 === "MacOS (Pkg)"
@@ -614,7 +614,5 @@ description: How to install or upgrade the Flox CLI
 [flox_aarch64_rpm_install]: https://downloads.flox.dev/by-env/stable/rpm/flox-{{ FLOX_VERSION }}.aarch64-linux.rpm
 [flox_mac_apple_silicon_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.aarch64-darwin.pkg
 [flox_mac_intel_install]: https://downloads.flox.dev/by-env/stable/osx/flox-{{ FLOX_VERSION }}.x86_64-darwin.pkg
-[flox_sha256sums]: https://downloads.flox.dev/by-env/stable/flox-{{ FLOX_VERSION }}.SHA256SUMS
-[flox_sha512sums]: https://downloads.flox.dev/by-env/stable/flox-{{ FLOX_VERSION }}.SHA512SUMS
 [flox_discourse]: https://discourse.flox.dev
 [release_notes]: https://github.com/flox/flox/releases
