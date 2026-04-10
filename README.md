@@ -12,7 +12,7 @@ $ flox activate
 ✅ You are now using the environment 'floxdocs'.
 
 # Start development server
-λ (floxdocs) $ make dev
+λ (floxdocs) $ just dev
 ```
 
 The documentation will be available at `http://127.0.0.1:8000` with live reload.
@@ -20,10 +20,10 @@ The documentation will be available at `http://127.0.0.1:8000` with live reload.
 ### Available Commands
 
 ```bash
-make dev     # Start development server with live reload
-make build   # Build static site and generate AI files
-make clean   # Clean build artifacts
-make help    # Show all available commands
+just dev     # Start development server with live reload
+just build   # Build static site and generate AI files
+just clean   # Clean build artifacts
+just         # Show all available commands
 ```
 
 ### Flox Native Usage
