@@ -322,8 +322,20 @@ def generate_llms_txt(site_dir: Path, output_path: Path):
 
 
 def generate_llms_full(docs_dir: Path, output_path: Path):
-    """Generate llms-full.txt from source Markdown files."""
+    """Generate llms-full.txt from source Markdown files.
+
+    Substitutes MkDocs template variables so that URLs and version
+    references are valid in the output (e.g. download links).
+    """
     md_files = sorted(docs_dir.rglob("*.md"))
+
+    # Read template variables from mkdocs.yml and environment
+    flox_version = os.environ.get('FLOX_VERSION', '')
+    flox_public_key = 'flox-cache-public-1:7F4OyH7ZCnFhcze3fJdfyXYLQw/aV7GEed86nQ7IsOs='
+    substitutions = {
+        '{{ FLOX_VERSION }}': flox_version,
+        '{{ FLOX_PUBLIC_KEY }}': flox_public_key,
+    }
 
     with open(output_path, 'w') as f:
         f.write("# Flox Documentation — Full Content\n\n")
@@ -332,7 +344,10 @@ def generate_llms_full(docs_dir: Path, output_path: Path):
         for md_file in md_files:
             rel = md_file.relative_to(docs_dir)
             f.write(f"\n\n---\n\n## {rel}\n\n")
-            f.write(md_file.read_text(encoding='utf-8'))
+            content = md_file.read_text(encoding='utf-8')
+            for placeholder, value in substitutions.items():
+                content = content.replace(placeholder, value)
+            f.write(content)
 
     print(f"Generated {output_path} from {len(md_files)} source files")
 
