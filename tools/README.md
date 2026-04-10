@@ -12,6 +12,7 @@ Generates AI-friendly documentation files from the built MkDocs site:
 - **`llms-full.txt`** - Full content for RAG systems and answer engines, generated from source Markdown
 
 **Usage:**
+
 ```bash
 python3 tools/generate_llms_txt.py <site_directory>
 ```
@@ -21,6 +22,7 @@ python3 tools/generate_llms_txt.py <site_directory>
 Convenience script for local development. Generates both AI files after a MkDocs build.
 
 **Usage:**
+
 ```bash
 mkdocs build
 ./tools/generate_llms_txt.sh
