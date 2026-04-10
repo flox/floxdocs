@@ -14,6 +14,6 @@ fi
 # Generate both AI files
 python3 tools/generate_llms_txt.py ./site
 
-echo "✅ Generated both llms.txt (for agents) and docs-content.txt (for answer engines)"
+echo "Generated both llms.txt (for agents) and llms-full.txt (for RAG/answer engines)"
 
 

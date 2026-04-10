@@ -47,12 +47,12 @@ Once mkdocs service started you can preview the documentation at
 
 This documentation site automatically generates AI-friendly files for different use cases:
 
-- **`llms.txt`** - Optimized for AI agents with critical rules, workflows, and organized sitemap
-- **`docs-content.txt`** - Comprehensive content for answer engines and RAG systems
+- **`llms.txt`** - Optimized for AI agents with critical rules, workflows, and curated link list
+- **`llms-full.txt`** - Full content for RAG systems and answer engines, generated from source Markdown
 
 These files are automatically generated during the build process and are available at:
 - `https://flox.dev/docs/llms.txt`
-- `https://flox.dev/docs/docs-content.txt`
+- `https://flox.dev/docs/llms-full.txt`
 
 ## Guidelines
 
