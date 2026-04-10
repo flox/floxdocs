@@ -36,7 +36,9 @@ flox activate -d <dir> -c <cmd>  # Run command in environment
 ```
 
 ## Critical Rules for Agentic Usage
-1. **NEVER run `flox activate` interactively** - use `flox activate -- <command>`
+1. **NEVER run `flox activate` interactively** — two non-interactive forms:
+   - `flox activate -c <cmd>` — runs in a subshell with full hooks and profile scripts (preferred for agents)
+   - `flox activate -- <cmd>` — exec mode, replaces the shell process, profile scripts do not run
 2. **ALWAYS use `flox install`** instead of apt/yum/rpm/brew
 3. Edit `.flox/env/manifest.toml` directly (not using `flox edit`)
 
