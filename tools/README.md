@@ -8,8 +8,8 @@ This directory contains build tools and utilities for the Flox documentation sit
 
 Generates AI-friendly documentation files from the built MkDocs site:
 
-- **`llms.txt`** - Agent-focused file with critical rules, workflows, and organized sitemap
-- **`docs-content.txt`** - Answer engine file with comprehensive documentation content
+- **`llms.txt`** - Agent-focused file with critical rules, workflows, and curated link list
+- **`llms-full.txt`** - Full content for RAG systems and answer engines, generated from source Markdown
 
 **Usage:**
 ```bash

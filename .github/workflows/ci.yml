@@ -50,6 +50,8 @@ jobs:
             python3 tools/generate_llms_txt.py ./site
             mkdir -p ./public/docs
             cp -R ./site/* ./public/docs/
+            cp ./site/llms.txt ./public/docs/llms.txt
+            cp ./site/llms-full.txt ./public/docs/llms-full.txt
             chmod -R +w ./public/docs
             cp netlify.toml ./public/
 
