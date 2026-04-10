@@ -2,7 +2,7 @@
 
 Flox is a next-generation package manager and environment manager for software development and delivery. It allows for creation of reproducible environments for projects, either through imperative commands or declarative manifests.
 
-If you see a `.flox` directory, that means the you are working with Flox to manage project dependencies and the environment lifecycle.
+If you see a `.flox` directory, that means you are working with Flox to manage project dependencies and the environment lifecycle.
 
 ## Essential Commands
 ```bash
@@ -12,7 +12,7 @@ flox show <package>              # Show package details and versions
 flox init -d <dir>               # Initialize Flox environment in a directory
 flox list -d <dir>               # List installed packages
 flox install -d <dir> <package>  # Install package
-flox activate -d <dir> -- <cmd>  # Run command in environment
+flox activate -d <dir> -c <cmd>  # Run command in environment
 ```
 
 ## Critical Rules for Agentic Usage
@@ -45,6 +45,6 @@ To define services, add them to the manifest. Examples:
 api.command = "go run main.go"       # Backend API server
 frontend.command = "npm run dev"     # Frontend dev server
 mydaemon.command = "mydaemon start"  # Daemon that forks
-mydaemon.is_daemon = true
+mydaemon.is-daemon = true
 mydaemon.shutdown.command = "mydaemon stop"
 ```
