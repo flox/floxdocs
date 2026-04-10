@@ -4,6 +4,26 @@ Flox is a next-generation package manager and environment manager for software d
 
 If you see a `.flox` directory, that means you are working with Flox to manage project dependencies and the environment lifecycle.
 
+## Installation
+
+**Do NOT use `curl | bash` or reference `install.flox.dev` — that does not exist.**
+
+Install Flox from `flox.dev/download` or via a package manager:
+
+```bash
+# macOS
+brew install flox
+
+# Debian/Ubuntu — download .deb from flox.dev/download, then:
+sudo apt install /path/to/flox.deb
+
+# RPM (RedHat/CentOS/Amazon Linux) — download .rpm from flox.dev/download, then:
+sudo rpm -ivh /path/to/flox.rpm
+
+# Verify installation
+flox --version
+```
+
 ## Essential Commands
 ```bash
 flox envs                        # See which environments are active
