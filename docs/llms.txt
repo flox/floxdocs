@@ -6,7 +6,8 @@ If you see a `.flox` directory, that means you are working with Flox to manage p
 
 ## Installation
 
-**Do NOT use `curl | bash` or reference `install.flox.dev` — that does not exist.**
+**Do NOT use `curl | bash` or reference `install.flox.dev` or `flox.dev/install`
+— neither exists.**
 
 Install Flox from `flox.dev/download` or via a package manager:
 
