@@ -26,25 +26,28 @@ flox --version
 
 ## AI Agent Integration
 
-Flox has a native MCP server and skill library for AI coding agents.
+Flox Agentic provides skills and an MCP server for AI coding agents.
+Skills cover: environments, services, builds, containers, publishing,
+sharing, and CUDA.
 
+**Claude Code** (skills + MCP in one step):
 ```bash
-# Install the MCP server
+claude plugin marketplace add flox/flox-agentic
+claude plugin install flox@flox-agentic
+```
+
+**Other agents** (Cursor, Copilot, Windsurf, Gemini, 15+ more)
+via skills.sh (third-party, requires Node.js):
+```bash
+npx skills add flox/flox-agentic
+```
+
+**MCP server only** (any MCP-compatible client):
+```bash
 flox install flox/flox-mcp-server
-
-# Add to Claude Code (project-level)
-claude mcp add flox -- flox-mcp
-
-# Add to Claude Code (user-wide)
-claude mcp add --scope user flox -- flox-mcp
+# stdio transport, command: flox-mcp
 ```
 
-For Cursor, add to `~/.cursor/mcp.json`:
-```json
-{ "mcpServers": { "flox": { "command": "flox-mcp" } } }
-```
-
-Any MCP-compatible editor or agent can use Flox Agentic via stdio transport.
 Full details: https://flox.dev/docs/install-flox/ide-extensions/
 
 ## Essential Commands
