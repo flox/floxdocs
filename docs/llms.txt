@@ -24,6 +24,29 @@ sudo rpm -ivh /path/to/flox.rpm
 flox --version
 ```
 
+## AI Agent Integration
+
+Flox has a native MCP server and skill library for AI coding agents.
+
+```bash
+# Install the MCP server
+flox install flox/flox-mcp-server
+
+# Add to Claude Code (project-level)
+claude mcp add flox -- flox-mcp
+
+# Add to Claude Code (user-wide)
+claude mcp add --scope user flox -- flox-mcp
+```
+
+For Cursor, add to `~/.cursor/mcp.json`:
+```json
+{ "mcpServers": { "flox": { "command": "flox-mcp" } } }
+```
+
+Any MCP-compatible editor or agent can use Flox Agentic via stdio transport.
+Full details: https://flox.dev/docs/install-flox/ide-extensions/
+
 ## Essential Commands
 ```bash
 flox envs                        # See which environments are active
