@@ -221,6 +221,7 @@ CURATED_LINKS = [
     ("Getting Started", [
         ("Flox in 5 Minutes", "https://flox.dev/docs/flox-5-minutes/", "Quick start guide"),
         ("Install Flox", "https://flox.dev/docs/install-flox/install/", "Install via flox.dev/download"),
+        ("IDE Extensions & AI Agent Integration", "https://flox.dev/docs/install-flox/ide-extensions/", "MCP server, Claude Code, Cursor, VS Code"),
         ("What is Flox?", "https://flox.dev/docs/", "Overview"),
     ]),
     ("Core Concepts", [
