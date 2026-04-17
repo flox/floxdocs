@@ -195,6 +195,12 @@ Unlike `-c`, when exec'ing a command directly with `--`:
 When none of those features are needed, using `--` is faster than `-c` since
 there's no intermediate shell.
 
+!!! note
+
+    Looking for **auto-activation**? Flox can automatically activate
+    environments when you `cd` into a directory.
+    See [Auto-activation](./auto-activation.md) for details.
+
 ## Activation flow
 
 In order to understand where `hook` and `profile` fit into the picture,
@@ -355,6 +361,41 @@ attach to this new version of the environment.
 ## Development vs. runtime mode
 
 See the [`options.activate.mode`](../man/manifest.toml.md#options) option in the manifest.
+
+## Auto-activation
+
+In addition to the manual activation methods described above,
+Flox supports **auto-activation**: environments activate automatically
+when you `cd` into a directory containing a `.flox/` subdirectory,
+and deactivate when you leave.
+
+This is powered by a shell hook that runs on every prompt,
+discovering `.flox` directories in your directory's ancestor chain and
+managing their activation lifecycle — including hooks, services, and
+nested environments.
+
+To learn more, see the full
+[Auto-activation](./auto-activation.md) concept page.
+
+### Why auto-activation instead of direnv?
+
+[direnv](https://direnv.net/) is a popular tool for loading environment
+variables when you enter a directory.
+Flox's auto-activation serves a similar purpose but goes further in
+several ways:
+
+- **Aliases and functions** — direnv cannot export shell aliases or
+  functions ([direnv/direnv#73](https://github.com/direnv/direnv/issues/73)).
+  Flox environments can define both via `[profile]` scripts, and they
+  work in auto-activated environments just as they do in manual
+  activations.
+- **Service interoperability** — Flox
+  [services](./services.md) persist across directory changes and
+  allow new shells to attach to already-running services. direnv has no
+  built-in service management.
+- **Nested environment support** — Flox auto-activation natively supports
+  activating multiple layered environments from ancestor directories.
+  direnv does not natively support nested environments.
 
 ## Conclusion
 
