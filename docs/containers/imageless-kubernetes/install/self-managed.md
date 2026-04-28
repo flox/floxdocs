@@ -150,6 +150,6 @@ Once the nodes have Flox and the shim installed, you are ready to create pods us
 A sample `Pod` manifest is available in the [Introduction][intro-section], but any Kubernetes resource that creates a pod (e.g. `Deployment`) can be used by setting the `runtimeClassName` parameter to `flox`.
 
 [intro-section]: ../intro.md
-[install-flox]: ../../install-flox/install.md
+[install-flox]: ../../../install-flox/install.md
 [shim-installer]: https://hub.flox.dev/flox/containerd-shim-flox-installer
 [runtime-class]: https://kubernetes.io/docs/concepts/containers/runtime-class/
