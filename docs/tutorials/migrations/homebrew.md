@@ -116,7 +116,7 @@ If you choose to do so, Flox will then ask you whether you want to configure you
 ```console
 The 'default' environment can be activated automatically for every new shell
 by adding one line to your .bashrc and .profile files:
-eval "$(flox activate -r <user>/default -m run)"
+eval "$(flox activate -D -m run)"
 
 ! Would you like Flox to add this configuration to .bashrc and .profile now?
   Yes
@@ -131,6 +131,10 @@ The 'default' environment will be activated for every new shell.
 
 ✔ 'jq' installed to environment '<owner>/default' (local)
 ```
+
+!!! note "Shorthand for default environment"
+    You can use `-D` or `--default` as a shorthand for `-r <youruser>/default` in all Flox commands.
+    For example: `flox activate -D` is equivalent to `flox activate -r <youruser>/default`.
 
 When Flox is configured with a default environment, it behaves very similarly to Homebrew. The Flox CLI will assume the default environment when you run `flox install` in a directory that doesn't contain an environment of its own.
 

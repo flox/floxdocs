@@ -47,6 +47,10 @@ flox auth status || flox auth login
 flox init -r <youruser>/default
 ```
 
+!!! note "Shorthand for default environment"
+    You can use `-D` or `--default` as a shorthand for `-r <youruser>/default`.
+    For example: `flox init -D` is equivalent to `flox init -r <youruser>/default`.
+
 Once the environment has been created, configure your shell to activate the
 environment with every new shell. This can be done as part of the automatic
 setup, or you can add a single line to your shell's RC file:
@@ -59,6 +63,12 @@ setup, or you can add a single line to your shell's RC file:
     Add the following line to the very end of each of those files:
 
     ```{ .bash .copy }
+    eval "$(flox activate -D -m run)"
+    ```
+
+    Or alternatively:
+
+    ```{ .bash .copy }
     eval "$(flox activate -r <your username>/default -m run)"
     ```
 
@@ -66,7 +76,13 @@ setup, or you can add a single line to your shell's RC file:
 
     Add the following line to the very end of your `.zprofile` and `.zshrc`
     files:
-  
+
+    ```{ .zsh .copy }
+    eval "$(flox activate -D -m run)"
+    ```
+
+    Or alternatively:
+
     ```{ .zsh .copy }
     eval "$(flox activate -r <your username>/default -m run)"
     ```
@@ -76,15 +92,27 @@ setup, or you can add a single line to your shell's RC file:
     Add the following line to the very end of your `config.fish` file:
 
     ```{ .fish .copy }
+    flox activate -D -m run | source
+    ```
+
+    Or alternatively:
+
+    ```{ .fish .copy }
     flox activate -r <your username>/default -m run | source
     ```
 
 === "Tcsh"
 
     Add the following line to the very end of your `.tcshrc` file:
-  
+
     ** For FloxHub environments:**
-  
+
+    ```{ .tcsh .copy }
+    eval "`flox activate -D -m run`"
+    ```
+
+    Or alternatively:
+
     ```{ .tcsh .copy }
     eval "`flox activate -r <your username>/default -m run`"
     ```
@@ -97,6 +125,12 @@ take effect.
 If you don't want to activate it automatically from your shell
 initialization scripts, you can activate the default environment
 explicitly when needed:
+
+```{ .bash .copy }
+flox activate -D
+```
+
+Or alternatively:
 
 ```{ .bash .copy }
 flox activate -r <your username>/default
@@ -132,7 +166,13 @@ to the environment in that directory, rather than your default environment.
 
 Nevertheless, it's still easy to install whatever you wish to your `default`
 environment.
-All you need to do is pass the `-r` argument to the `install` command, like so:
+You can use the `-D` (or `--default`) flag as a shorthand:
+
+```{ .bash .copy }
+flox install -D hello
+```
+
+Or use the full `-r` argument:
 
 ```{ .bash .copy }
 flox install -r <your username>/default hello
