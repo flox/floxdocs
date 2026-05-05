@@ -45,7 +45,7 @@ description: How to install or upgrade the Flox CLI
 
     Download and install the latest image as described above.
 
-=== "MacOS (Homebrew)"
+=== "MacOS + Linux (Homebrew)"
 
     **Brew install**
 
