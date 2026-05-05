@@ -43,7 +43,7 @@ version = 1
 
 [catalogs.my-packages]
 type = "git"
-url = "https://github.com/myorg/my-packages"
+url = "https://github.com/flox/flox-build-examples"
 ```
 
 As a shorthand, you can provide a single `url` field using Nix
@@ -53,7 +53,7 @@ source reference syntax (the `git+` prefix encodes the type):
 version = 1
 
 [catalogs.my-packages]
-url = "git+https://github.com/myorg/my-packages"
+url = "git+https://github.com/flox/flox-build-examples"
 ```
 
 You can also use TOML dotted key syntax under a `[catalogs]`
@@ -64,7 +64,7 @@ version = 1
 
 [catalogs]
 my-packages.type = "git"
-my-packages.url = "https://github.com/myorg/my-packages"
+my-packages.url = "https://github.com/flox/flox-build-examples"
 ```
 
 ### Optional fields
