@@ -39,16 +39,32 @@ package definitions (a `.flox/pkgs/` directory). Declare one in
 your `nix-builds.toml` under the `[catalogs]` section:
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
 [catalogs.my-packages]
 type = "git"
+url = "https://github.com/myorg/my-packages"
+```
+
+As a shorthand, you can provide a single `url` field using Nix
+source reference syntax (the `git+` prefix encodes the type):
+
+```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
+[catalogs.my-packages]
 url = "git+https://github.com/myorg/my-packages"
 ```
 
-You can also use the dotted key shorthand for simple cases:
+You can also use TOML dotted key syntax under a `[catalogs]`
+header for simple cases:
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
+[catalogs]
 my-packages.type = "git"
-my-packages.url = "git+https://github.com/myorg/my-packages"
+my-packages.url = "https://github.com/myorg/my-packages"
 ```
 
 ### Optional fields
@@ -61,9 +77,11 @@ my-packages.url = "git+https://github.com/myorg/my-packages"
 For example, to point at a subdirectory within a monorepo:
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
 [catalogs.flox-demo]
 type = "git"
-url = "git+https://github.com/flox/flox-build-examples"
+url = "https://github.com/flox/flox-build-examples"
 dir = "quotes-app-rust"
 ```
 
@@ -74,6 +92,8 @@ A FloxHub catalog references packages published to FloxHub via
 the FloxHub user or organization that published them.
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
 [catalogs.ysndr]
 type = "floxhub"
 ```
@@ -81,6 +101,9 @@ type = "floxhub"
 Or with dotted key syntax:
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
+[catalogs]
 ysndr.type = "floxhub"
 ```
 
@@ -164,9 +187,11 @@ repository.
 **1. Declare the catalog:**
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
 [catalogs.flox-demo]
 type = "git"
-url = "git+https://github.com/flox/flox-build-examples"
+url = "https://github.com/flox/flox-build-examples"
 dir = "quotes-app-rust"
 ```
 
@@ -193,6 +218,9 @@ This example uses a package published to FloxHub by the user
 **1. Declare the catalog:**
 
 ```{ .toml .copy title=".flox/nix-builds.toml" }
+version = 1
+
+[catalogs]
 ysndr.type = "floxhub"
 ```
 
