@@ -206,6 +206,17 @@ EDITOR=cat \
 
 This will extract the expression for the `hello` package in `nixpkgs` and save the contents to file which can then be modified.
 
+## Catalog imports
+
+Nix expression builds can depend on packages provided by external
+catalogs — remote repositories or FloxHub users that publish reusable
+packages. Rather than vendoring dependencies or using Nix flake inputs
+directly, you declare catalogs in `.flox/nix-builds.toml` and access
+their packages via the `catalogs` argument in your expressions.
+
+See [Catalog imports](./catalog-imports.md) for full documentation
+and examples.
+
 ## Tips
 
 ### Generating hashes
