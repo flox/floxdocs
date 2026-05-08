@@ -186,7 +186,7 @@ mkcert.pkg-path = "mkcert"
 # hello.pkg-path = "hello"
 # nodejs = { version = "^18.4.2", pkg-path = "nodejs_18" }
 
-# Set an environment variable. These variables may not reference once another.
+# Set an environment variable. These variables may not reference one another.
 [vars]
 # message = "Howdy"
 # pass-in = "$some-env-var"
