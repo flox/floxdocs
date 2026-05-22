@@ -1,5 +1,38 @@
+# This site (docs.flox.dev) is the legacy MkDocs docs.
+# It now redirects to the new Mintlify docs at flox.dev/docs.
+#
+# Netlify matches `from` paths trailing-slash-insensitively, so these
+# rules cover both `/path` and `/path/`. More specific rules must come
+# first (first match wins).
+
+# --- Pages renamed/removed in the migration: map to their closest home ---
+
+[[redirects]]
+  from = "/docs/man/flox-build-update-catalogs"
+  to = "https://flox.dev/docs/man/flox-build"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/man/nix-builds.toml"
+  to = "https://flox.dev/docs/man/manifest.toml"
+  status = 301
+  force = true
+
+# --- Path-preserving redirect for everything else under /docs/ ---
+# 93 of 99 legacy URLs resolve 1:1 on the new site (the rest are former
+# MkDocs include/snippet partials that were never real pages).
+
+[[redirects]]
+  from = "/docs/*"
+  to = "https://flox.dev/docs/:splat"
+  status = 301
+  force = true
+
+# --- Anything outside /docs/ -> the new docs home ---
+
 [[redirects]]
   from = "/*"
-  to = "/docs/"
-  status = 302
-  force = false
+  to = "https://flox.dev/docs"
+  status = 301
+  force = true
